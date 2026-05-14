@@ -14,7 +14,7 @@ CSSプロパティ の前後に `--` を付け、`--CSSプロパティ--` のよ
 この ExStyleプロパティ を style属性 に設定したとき、
 
 ```HTML
-<p style="--color--: var(--red);"> &hellip; </p>
+<p style="--color--: var(--red);"> … </p>
 ```
 
 その CSSプロパティ に値が適用されるスタイリング・インフラを確立します。
@@ -27,7 +27,7 @@ CSSプロパティ の前後に `--` を付け、`--CSSプロパティ--` のよ
 style属性 は通常、設定した要素に対するスタイリングしかできませんが、カスタムプロパティの継承と特殊なプレフィックスを組み合わせることで、
 
 ```HTML
-<ul style="--cq-i-s_hover_c-first-child_active_after_content--: 'Hello, World!';" &hellip; </ul>
+<ul style="--cq-i-s_hover_c-first-child_active_after_content--: 'Hello, World!';" … </ul>
 ```
 
 子孫要素と擬似要素へのスタイリングや、メディアクエリ、コンテナクエリ、擬似クラスによる条件分岐を可能にします。
