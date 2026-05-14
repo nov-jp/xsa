@@ -22,22 +22,22 @@ ExStyle JS is a script that parses ExStyle Properties within HTML code in real-t
 This is the most popular method, but a Flash of Unstyled Content (FOUC) may occur. For actual production use, you may need to implement measures such as adding a loading animation.
 
 ```HTML
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot; /&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot; /&gt;
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     …
-    &lt;script src=&quot;[https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle.min.js](https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle.min.js)&quot;&gt;&lt;/script&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;[https://unpkg.com/open-props](https://unpkg.com/open-props)&quot; /&gt;
+    <script src="https://cdn.jsdelivr.net/gh/nov-jp/exstyle@main/css/exstyle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/open-props" />
     …
-  &lt;/head&gt;
-  &lt;body&gt;
+  </head>
+  <body>
     …
-    &lt;p style=&quot;--background--: var(--indigo-6); --color--: var(--gray-0) --padding-block--: var(--size-2); --padding-inline--: var(--size-3);&quot;&gt; … &lt;/p&gt;
+    <p style="--background--: var(--indigo-6); --color--: var(--gray-0) --padding-block--: var(--size-2); --padding-inline--: var(--size-3);"> … </p>
     …
-  &lt;/body&gt;
-&lt;/html&gt;
+  </body>
+</html>
 ```
 
 ### Loading as an inline script
@@ -45,25 +45,25 @@ This is the most popular method, but a Flash of Unstyled Content (FOUC) may occu
 This method involves loading the code as an inline script to avoid the state where unstyled content is visible.
 
 ```HTML
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot; /&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot; /&gt;
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     …
-    &lt;script&gt;
+    <script>
     var ExStyle=function(){…}();
     //# sourceMappingURL=exstyle.min.js.map
-    &lt;/script&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;[https://unpkg.com/open-props](https://unpkg.com/open-props)&quot; /&gt;
+    </script>
+    <link rel="stylesheet" href="https://unpkg.com/open-props" />
     …
-  &lt;/head&gt;
-  &lt;body&gt;
+  </head>
+  <body>
     …
-    &lt;p style=&quot;--background--: var(--indigo-6); --color--: var(--gray-0) --padding-block--: var(--size-2); --padding-inline--: var(--size-3);&quot;&gt; … &lt;/p&gt;
+    <p style="--background--: var(--indigo-6); --color--: var(--gray-0) --padding-block--: var(--size-2); --padding-inline--: var(--size-3);"> … </p>
     …
-  &lt;/body&gt;
-&lt;/html&gt;
+  </body>
+</html>
 ```
 
 ### npm / yarn / pnpm

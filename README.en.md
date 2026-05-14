@@ -15,26 +15,26 @@ It elevates the traditional idealism of "HTML for structure, CSS for appearance"
 A CSS property wrapped in double hyphens, such as `--property--`, is converted into a Custom Property known as an **ExStyle Property**. When this ExStyle Property is set within a `style` attribute:
 
 ```HTML
-&lt;p style=&quot;--color--: var(--red);&quot;&gt; … &lt;/p&gt;
+<p style="--color--: var(--red);"> … </p>
 ```
 
 It establishes a styling infrastructure where the value is applied to that specific CSS property:
 
 ```CSS
-[style*=&quot;--color--:&quot;] { color: var(--color--); }
+[style*="--color--:"] { color: var(--color--); }
 ```
 
 Typically, the `style` attribute can only target the element it is defined on. However, by combining **Custom Property inheritance** with **specialized prefixes**, ExStyle enables:
 
 ```HTML
-&lt;ul style=&quot;--cq-i-s_hover_c-first-child_active_after_content--: 'Hello, World!';&quot;&gt; … &lt;/ul&gt;
+<ul style="--cq-i-s_hover_c-first-child_active_after_content--: 'Hello, World!';"> … </ul>
 ```
 
 styling of descendant and pseudo-elements, as well as conditional branching via Media Queries, Container Queries, and Pseudo-classes.
 
 ```CSS
-@container (inline-size &gt; 480px) and (inline-size &gt; 30rem) {
-  [style*=&quot;--cq-i-s_hover_c-first-child_active_after_content--:&quot;]:where(:hover) &gt; *:where(:first-child):where(:active)::after { content: var(--cq-i-s_hover_c-first-child_active_after_content--); }
+@container (inline-size > 480px) and (inline-size > 30rem) {
+  [style*="--cq-i-s_hover_c-first-child_active_after_content--:"]:where(:hover) > *:where(:first-child):where(:active)::after { content: var(--cq-i-s_hover_c-first-child_active_after_content--); }
 }
 ```
 
@@ -43,12 +43,12 @@ This is the **Extended Style attribute**, or ExStyle.
 ## Features
 
 * **Adherence to Web Standards**: Realizes the ideal state where the `class` attribute holds logical/semantic values and the `style` attribute holds physical/presentational values.
-* **Consolidation into HTML**: Enables a &quot;Utility-First&quot; workflow, allowing for rapid web page development.
+* **Consolidation into HTML**: Enables a "Utility-First" workflow, allowing for rapid web page development.
 * **Code Minimization**: Eliminates the need for single-purpose class values (e.g., `.what-do`). By decoupling into `--what--` and `var(--do)`, total CSS code is reduced.
 * **No `!important` Required**: ExStyle CSS code generally has the specificity of a single attribute selector, allowing for easy overrides or resets without `!important`.
 * **High Versatility**: ExStyle Properties allow for free value assignment, meaning no specific design tokens are enforced.
 * **Low Learning Curve**: Since it only requires adding `--` and prefixes to standard CSS properties, it is accessible even to CSS beginners.
-* **AI-Friendly**: The explicit mapping of `--what--` and `var(--do)` makes it easy for AI to learn and ideal for &quot;vibe coding.&quot;
+* **AI-Friendly**: The explicit mapping of `--what--` and `var(--do)` makes it easy for AI to learn and ideal for "vibe coding."
 * **UI-Friendly**: Values entered into a UI can be mapped directly to ExStyle Properties, making it highly compatible with CMSs like WordPress, as well as no-code/low-code applications.
 
 ## Packages
@@ -75,18 +75,18 @@ The available Queries, Combinators, Tree Structures, Pseudo-classes, Pseudo-elem
 
 | Category | Name | CSS Code |
 | --- | --- | --- |
-| QUERY | cq-i-s | @container (inline-size &gt; 480px) and (inline-size &gt; 30rem) |
-| ^ | cq-i-m | @container (inline-size &gt; 720px) and (inline-size &gt; 45rem) |
-| ^ | cq-i-l | @container (inline-size &gt; 960px) and (inline-size &gt; 60rem) |
-| ^ | cq-i-xl | @container (inline-size &gt; 1200px) and (inline-size &gt; 75rem) |
-| ^ | mq-w-s | @media (width &gt; 480px) and (width &gt; 30rem) |
-| ^ | mq-w-m | @media (width &gt; 720px) and (width &gt; 45rem) |
-| ^ | mq-w-l | @media (width &gt; 960px) and (width &gt; 60rem) |
-| ^ | mq-w-xl | @media (width &gt; 1200px) and (width &gt; 75rem) |
+| QUERY | cq-i-s | @container (inline-size > 480px) and (inline-size > 30rem) |
+| ^ | cq-i-m | @container (inline-size > 720px) and (inline-size > 45rem) |
+| ^ | cq-i-l | @container (inline-size > 960px) and (inline-size > 60rem) |
+| ^ | cq-i-xl | @container (inline-size > 1200px) and (inline-size > 75rem) |
+| ^ | mq-w-s | @media (width > 480px) and (width > 30rem) |
+| ^ | mq-w-m | @media (width > 720px) and (width > 45rem) |
+| ^ | mq-w-l | @media (width > 960px) and (width > 60rem) |
+| ^ | mq-w-xl | @media (width > 1200px) and (width > 75rem) |
 | COMBINATOR | d | & * |
-| ^ | c | & &gt; * |
-| ^ | c2 | & &gt; * &gt; * |
-| ^ | c3 | & &gt; * &gt; * &gt; * |
+| ^ | c | & > * |
+| ^ | c2 | & > * > * |
+| ^ | c3 | & > * > * > * |
 | TREE-STRUCTURE | empty | :empty |
 | ^ | first-child | :first-child |
 | ^ | last-child | :last-child |
@@ -145,18 +145,18 @@ The available Queries, Combinators, Tree Structures, Pseudo-classes, Pseudo-elem
 | ^ | n-ANY-PSEUDO-CLASS | :has(+ :ANY-PSEUDO-CLASS) |
 | ^ | s-ANY-PSEUDO-CLASS | :has(~ :ANY-PSEUDO-CLASS) |
 | ^ | d-ANY-PSEUDO-CLASS | :has(:ANY-PSEUDO-CLASS) |
-| ^ | c-ANY-PSEUDO-CLASS | :has(&gt; :ANY-PSEUDO-CLASS) |
-| ^ | c2-ANY-PSEUDO-CLASS | :has(&gt; * &gt; :ANY-PSEUDO-CLASS) |
-| ^ | c3-ANY-PSEUDO-CLASS | :has(&gt; * &gt; * &gt; :ANY-PSEUDO-CLASS) |
+| ^ | c-ANY-PSEUDO-CLASS | :has(> :ANY-PSEUDO-CLASS) |
+| ^ | c2-ANY-PSEUDO-CLASS | :has(> * > :ANY-PSEUDO-CLASS) |
+| ^ | c3-ANY-PSEUDO-CLASS | :has(> * > * > :ANY-PSEUDO-CLASS) |
 | ^ | not-ANY-PSEUDO-CLASS | :not(:ANY-PSEUDO-CLASS) |
 | ^ | not-ANY-PSEUDO-CLASS-n | :not(:ANY-PSEUDO-CLASS + *) |
 | ^ | not-ANY-PSEUDO-CLASS-s | :not(:ANY-PSEUDO-CLASS ~ *) |
 | ^ | not-n-ANY-PSEUDO-CLASS | :not(:has(+ :ANY-PSEUDO-CLASS)) |
 | ^ | not-s-ANY-PSEUDO-CLASS | :not(:has(~ :ANY-PSEUDO-CLASS)) |
 | ^ | not-d-ANY-PSEUDO-CLASS | :not(:has(:ANY-PSEUDO-CLASS)) |
-| ^ | not-c-ANY-PSEUDO-CLASS | :not(:has(&gt; :ANY-PSEUDO-CLASS)) |
-| ^ | not-c2-ANY-PSEUDO-CLASS | :not(:has(&gt; * &gt; :ANY-PSEUDO-CLASS)) |
-| ^ | not-c3-ANY-PSEUDO-CLASS | :not(:has(&gt; * &gt; * &gt; :ANY-PSEUDO-CLASS)) |
+| ^ | not-c-ANY-PSEUDO-CLASS | :not(:has(> :ANY-PSEUDO-CLASS)) |
+| ^ | not-c2-ANY-PSEUDO-CLASS | :not(:has(> * > :ANY-PSEUDO-CLASS)) |
+| ^ | not-c3-ANY-PSEUDO-CLASS | :not(:has(> * > * > :ANY-PSEUDO-CLASS)) |
 | PSEUDO-ELEMENT | backdrop | ::backdrop |
 | ^ | first-line | ::first-line |
 | ^ | first-letter | ::first-letter |
@@ -172,20 +172,20 @@ The available Queries, Combinators, Tree Structures, Pseudo-classes, Pseudo-elem
 | PROPERTY | NORMAL-PROPERTY | & { NORMAL-PROPERTY: var(--(PREFIX_)?NORMAL-PROPERTY--); } |
 | ^ | aspect-ratio | & { aspect-ratio: var(--(PREFIX_)?aspect-ratio--); } <br> :not(_):not(_):where(&:is(iframe)) { block-size: auto; } |
 | ^ | background | & { background: var(--(PREFIX_)?background--); background-attachment: scroll; } |
-| ^ | background-attachment | & { clip-path: inset(0); } <br> &::before { background: inherit; content: &quot;&quot;; position: fixed; inset: 0; z-index: -1; } <br> &::after { content: none; } |
-| ^ | columns | & { columns: var(--(PREFIX_)?columns--); } <br> :not(_):not(_):where(&) { & &gt; * { break-inside: avoid-column; contain: layout; } <br> & &gt; :first-child { margin-block-start: 0; } <br> & &gt; :last-child { margin-block-end: 0; } <br> &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: &quot;&quot;; } <br> &:where(dl) &gt; :where(div) &gt; *, & &gt; *, &:where(li, dt, dd) { margin:0; } <br> } |
-| ^ | column-count | & { column-count: var(--(PREFIX_)?column-count--); } <br> :not(_):not(_):where(&) { & &gt; * { break-inside: avoid-column; contain: layout; } <br> & &gt; :first-child { margin-block-start: 0; } <br> & &gt; :last-child { margin-block-end: 0; } <br> &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: &quot;&quot;; } <br> &:where(dl) &gt; :where(div) &gt; *, & &gt; *, &:where(li, dt, dd) { margin:0; } <br> } |
-| ^ | column-width | & { column-width: var(--(PREFIX_)?column-width--); } <br> :not(_):not(_):where(&) { & &gt; * { break-inside: avoid-column; contain: layout; } <br> & &gt; :first-child { margin-block-start: 0; } <br> & &gt; :last-child { margin-block-end: 0; } <br> &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: &quot;&quot;; } <br> &:where(dl) &gt; :where(div) &gt; *, & &gt; *, &:where(li, dt, dd) { margin:0; } <br> } |
-| ^ | flex-flow | & { flex-flow: var(--(PREFIX_)?flex-flow--); } <br> :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: &quot;&quot;; } <br> &:where(dl) &gt; :where(div) &gt; *, & &gt; *, &:where(li, dt, dd) { margin:0; } <br> } |
-| ^ | flex-direction | & { flex-direction: var(--(PREFIX_)?flex-direction--); } <br> :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: &quot;&quot;; } <br> &:where(dl) &gt; :where(div) &gt; *, & &gt; *, &:where(li, dt, dd) { margin:0; } <br> } |
-| ^ | flex-wrap | & { flex-wrap: var(--(PREFIX_)?flex-wrap--); } <br> :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: &quot;&quot;; } <br> &:where(dl) &gt; :where(div) &gt; *, & &gt; *, &:where(li, dt, dd) { margin:0; } <br> } |
+| ^ | background-attachment | & { clip-path: inset(0); } <br> &::before { background: inherit; content: ""; position: fixed; inset: 0; z-index: -1; } <br> &::after { content: none; } |
+| ^ | columns | & { columns: var(--(PREFIX_)?columns--); } <br> :not(_):not(_):where(&) { <br> & > * { break-inside: avoid-column; contain: layout; } <br> & > :first-child { margin-block-start: 0; } <br> & > :last-child { margin-block-end: 0; } <br> &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: ""; } <br> &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } <br> } |
+| ^ | column-count | & { column-count: var(--(PREFIX_)?column-count--); } <br> :not(_):not(_):where(&) { <br> & > * { break-inside: avoid-column; contain: layout; } <br> & > :first-child { margin-block-start: 0; } <br> & > :last-child { margin-block-end: 0; } <br> &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: ""; } <br> &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } <br> } |
+| ^ | column-width | & { column-width: var(--(PREFIX_)?column-width--); } <br> :not(_):not(_):where(&) { <br> & > * { break-inside: avoid-column; contain: layout; } <br> & > :first-child { margin-block-start: 0; } <br> & > :last-child { margin-block-end: 0; } <br> &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: ""; } <br> &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } <br> } |
+| ^ | flex-flow | & { flex-flow: var(--(PREFIX_)?flex-flow--); } <br> :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: ""; } <br> &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } <br> } |
+| ^ | flex-direction | & { flex-direction: var(--(PREFIX_)?flex-direction--); } <br> :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: ""; } <br> &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } <br> } |
+| ^ | flex-wrap | & { flex-wrap: var(--(PREFIX_)?flex-wrap--); } <br> :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: ""; } <br> &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } <br> } |
 | ^ | font-size | & { font-size: var(--(PREFIX_)?font-size--); } <br> :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; } |
 | ^ | font-style | & { font-style: var(--(PREFIX_)?font-style--); } <br> :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; } |
 | ^ | font-weight | & { font-weight: var(--(PREFIX_)?font-weight--); } <br> :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; } |
-| ^ | grid | & { grid: var(--(PREFIX_)?grid--); } <br> :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: &quot;&quot;; } <br> &:where(dl) &gt; :where(div) &gt; *, & &gt; *, &:where(li, dt, dd) { margin:0; } <br> } |
-| ^ | grid-template | & { grid-template: var(--(PREFIX_)?grid-template--); } <br> :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: &quot;&quot;; } <br> &:where(dl) &gt; :where(div) &gt; *, & &gt; *, &:where(li, dt, dd) { margin:0; } <br> } |
-| ^ | grid-template-rows | & { grid-template-rows: var(--(PREFIX_)?grid-template-rows--); } <br> :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: &quot;&quot;; } <br> &:where(dl) &gt; :where(div) &gt; *, & &gt; *, &:where(li, dt, dd) { margin:0; } <br> } |
-| ^ | grid-template-columns | & { grid-template-columns: var(--(PREFIX_)?grid-template-columns--); } <br> :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: &quot;&quot;; } <br> &:where(dl) &gt; :where(div) &gt; *, & &gt; *, &:where(li, dt, dd) { margin:0; } <br> } |
+| ^ | grid | & { grid: var(--(PREFIX_)?grid--); } <br> :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: ""; } <br> &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } <br> } |
+| ^ | grid-template | & { grid-template: var(--(PREFIX_)?grid-template--); } <br> :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: ""; } <br> &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } <br> } |
+| ^ | grid-template-rows | & { grid-template-rows: var(--(PREFIX_)?grid-template-rows--); } <br> :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: ""; } <br> &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } <br> } |
+| ^ | grid-template-columns | & { grid-template-columns: var(--(PREFIX_)?grid-template-columns--); } <br> :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } <br> &:where(ul, menu) { list-style-type: ""; } <br> &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } <br> } |
 | ^ | text-decoration | & { text-decoration: var(--(PREFIX_)?text-decoration--); } <br> :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; } |
 | ^ | text-emphasis | & { text-emphasis: var(--(PREFIX_)?text-emphasis--); } <br> :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; } |
 | ^ | text-shadow | & { text-shadow: var(--(PREFIX_)?text-shadow--); } <br> :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; } |
@@ -300,7 +300,7 @@ While tokens from libraries like [Open Props](https://open-props.style/) can be 
 ### Table Styling
 
 ```HTML
-&lt;table style=&quot;
+<table style="
     --border--: solid var(--line_xf) var(--gray);
     --border-collapse--: collapse;
     --inline-size--: 100%;
@@ -308,50 +308,50 @@ While tokens from libraries like [Open Props](https://open-props.style/) can be 
     --c2-of-td-th_border--: var(--border--);
     --c2-of-td-th_padding-block--: var(--sp_s);
     --c2-of-td-th_padding-inline--: var(--sp_m);
-    &quot;&gt;
-  &lt;tbody style=&quot;
+    ">
+  <tbody style="
       --c-nth-odd_background--: var(--lowest-gray);
-      &quot;&gt;
-    &lt;tr&gt;…&lt;/tr&gt;
+      ">
+    <tr>…</tr>
     …
-  &lt;/tbody&gt;
-&lt;/table&gt;
+  </tbody>
+</table>
 ```
 
 ### Component Extension 1
 
 ```HTML
-&lt;style&gt;
+<style>
 .button {
   border-style: solid;
   inline-size: auto; /* Ignored even if --inline-size-- is set */
   …
   /* Default settings if ExStyle Properties are not set */
-  &:not([style*=&quot;--background--:&quot;]) {
+  &:not([style*="--background--:"]) {
     background: none;
   }
-  &:not([style*=&quot;--border-width--:&quot;]) {
+  &:not([style*="--border-width--:"]) {
     border-width: var(--line_xf);
   }
-  &:not([style*=&quot;--border-color--:&quot;]) {
+  &:not([style*="--border-color--:"]) {
     border-color: transparent;
   }
-  &:not([style*=&quot;--color--:&quot;]) {
+  &:not([style*="--color--:"]) {
     color: currentcolor;
   }
 }
-&lt;/style&gt;
+</style>
 …
-&lt;p&gt;&lt;button class=&quot;button&quot;&gt;Outlined Button&lt;/button&gt;&lt;/p&gt;
-&lt;p&gt;&lt;button class=&quot;button&quot; style=&quot;--background--: var(--red); --color--: var(--white);&quot;&gt;Red Button&lt;/button&gt;&lt;/p&gt;
-&lt;p&gt;&lt;button class=&quot;button&quot; style=&quot;--border-radius--: var(--radius_xl);&quot;&gt;Rounded Button&lt;/button&gt;&lt;/p&gt;
-&lt;p&gt;&lt;button class=&quot;button&quot; style=&quot;--inline-size--: 50%;&quot;&gt;Wide Button&lt;/button&gt;&lt;/p&gt;&lt;!-- Will not become wide due to inline-size: auto; --&gt;
+<p><button class="button">Outlined Button</button></p>
+<p><button class="button" style="--background--: var(--red); --color--: var(--white);">Red Button</button></p>
+<p><button class="button" style="--border-radius--: var(--radius_xl);">Rounded Button</button></p>
+<p><button class="button" style="--inline-size--: 50%;">Wide Button</button></p><!-- Will not become wide due to inline-size: auto; -->
 ```
 
 ### Component Extension 2
 
 ```HTML
-&lt;style&gt;
+<style>
 .button {
   /* Default settings if not overridden by ExStyle Properties */
   --background--: none;
@@ -365,45 +365,45 @@ While tokens from libraries like [Open Props](https://open-props.style/) can be 
   inline-size: auto; /* Ignored even if --inline-size-- is set */
   …
 }
-&lt;/style&gt;
+</style>
 …
-&lt;p&gt;&lt;button class=&quot;button&quot;&gt;Outlined Button&lt;/button&gt;&lt;/p&gt;
-&lt;p&gt;&lt;button class=&quot;button&quot; style=&quot;--background--: var(--red); --color--: var(--white);&quot;&gt;Red Button&lt;/button&gt;&lt;/p&gt;
-&lt;p&gt;&lt;button class=&quot;button&quot; style=&quot;--border-radius--: var(--radius_xl);&quot;&gt;Rounded Button&lt;/button&gt;&lt;/p&gt;
-&lt;p&gt;&lt;button class=&quot;button&quot; style=&quot;--inline-size--: 50%;&quot;&gt;Wide Button&lt;/button&gt;&lt;/p&gt;&lt;!-- Will not become wide due to inline-size: auto; --&gt;
+<p><button class="button">Outlined Button</button></p>
+<p><button class="button" style="--background--: var(--red); --color--: var(--white);">Red Button</button></p>
+<p><button class="button" style="--border-radius--: var(--radius_xl);">Rounded Button</button></p>
+<p><button class="button" style="--inline-size--: 50%;">Wide Button</button></p><!-- Will not become wide due to inline-size: auto; -->
 ```
 
 ### Column Layout
 
 ```HTML
-&lt;ul style=&quot;--columns--: 4 16em; --column-rule--: dotted var(--line_xf); --column-gap--: var(--sp_l); --c_margin-block-end--: var(--sp_m);&quot;&gt;
-  &lt;li&gt;…&lt;/li&gt;
-  &lt;li&gt;…&lt;/li&gt;
-  &lt;li&gt;…&lt;/li&gt;
-  &lt;li&gt;…&lt;/li&gt;
-&lt;/ul&gt;
+<ul style="--columns--: 4 16em; --column-rule--: dotted var(--line_xf); --column-gap--: var(--sp_l); --c_margin-block-end--: var(--sp_m);">
+  <li>…</li>
+  <li>…</li>
+  <li>…</li>
+  <li>…</li>
+</ul>
 ```
 
 ### Flex Layout
 
 ```HTML
-&lt;div style=&quot;--container-type--: inline-size; --flex-flow--: row wrap; --gap--: var(--sp_m); --c_flex--: 1 1 100%;&quot;&gt;
-  &lt;div style=&quot;--cq-i-m_flex--: 1 1 0%;&quot;&gt;…&lt;/div&gt;
-  &lt;div style=&quot;--cq-i-m_flex--: 1 1 0%;&quot;&gt;…&lt;/div&gt;
-  &lt;div style=&quot;--cq-i-m_flex--: 1 1 0%;&quot;&gt;…&lt;/div&gt;
-  &lt;div style=&quot;--cq-i-m_flex--: 1 1 0%;&quot;&gt;…&lt;/div&gt;
-&lt;/div&gt;
+<div style="--container-type--: inline-size; --flex-flow--: row wrap; --gap--: var(--sp_m); --c_flex--: 1 1 100%;">
+  <div style="--cq-i-m_flex--: 1 1 0%;">…</div>
+  <div style="--cq-i-m_flex--: 1 1 0%;">…</div>
+  <div style="--cq-i-m_flex--: 1 1 0%;">…</div>
+  <div style="--cq-i-m_flex--: 1 1 0%;">…</div>
+</div>
 ```
 
 ### Grid Layout
 
 ```HTML
-&lt;div style=&quot;--container-type--: inline-size; --grid--: auto-flow / repeat(12, 1fr); --gap--: var(--sp_m); --c_grid-area--: auto / span 12;&quot;&gt;
-  &lt;div style=&quot;--cq-i-m_grid-area--: auto / span 3;&quot;&gt;…&lt;/div&gt;
-  &lt;div style=&quot;--cq-i-m_grid-area--: auto / span 3;&quot;&gt;…&lt;/div&gt;
-  &lt;div style=&quot;--cq-i-m_grid-area--: auto / span 3;&quot;&gt;…&lt;/div&gt;
-  &lt;div style=&quot;--cq-i-m_grid-area--: auto / span 3;&quot;&gt;…&lt;/div&gt;
-&lt;/div&gt;
+<div style="--container-type--: inline-size; --grid--: auto-flow / repeat(12, 1fr); --gap--: var(--sp_m); --c_grid-area--: auto / span 12;">
+  <div style="--cq-i-m_grid-area--: auto / span 3;">…</div>
+  <div style="--cq-i-m_grid-area--: auto / span 3;">…</div>
+  <div style="--cq-i-m_grid-area--: auto / span 3;">…</div>
+  <div style="--cq-i-m_grid-area--: auto / span 3;">…</div>
+</div>
 ```
 
 ---
