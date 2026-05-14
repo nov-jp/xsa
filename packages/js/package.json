@@ -1,0 +1,35 @@
+{
+	"name": "@exstyle/js",
+	"version": "1.0.0",
+	"description": "ExStyle JS: A meta-framework for building styling infrastructure.",
+	"main": "dist/exstyle.js",
+	"module": "dist/exstyle.mjs",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "rollup -c rollup.config.mjs",
+		"dev": "rollup -c rollup.config.mjs -w"
+	},
+	"keywords": [ "ExStyle", "JS" ],
+	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",
+	"license": "MIT",
+	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nov-jp/exstyle.git"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"@exstyle/core": "*"
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^29.0.2",
+		"@rollup/plugin-json": "^6.1.0",
+		"@rollup/plugin-node-resolve": "^16.0.3",
+		"@rollup/plugin-terser": "^1.0.0",
+		"rollup": "^4.60.2"
+	}
+}

@@ -1,0 +1,86 @@
+/**
+ * https://www.w3.org/TR/css-transitions-1/
+ * https://www.w3.org/TR/selectors-4/#useraction-pseudos
+ */
+@media (prefers-reduced-motion: no-preference) {
+	[style*="--transition--:"] {
+		transition: var(--transition--);
+	}
+}
+:not(_):not(_) {
+	&:where(:hover) {
+		[style*="--hover_background--:"]:is(&) {
+			background: var(--hover_background--);
+			background-attachment: scroll;
+		}
+		[style*="--hover_border-color--:"]:is(&) {
+			border-color: var(--hover_border-color--);
+		}
+		[style*="--hover_box-shadow--:"]:is(&) {
+			box-shadow: var(--hover_box-shadow--);
+		}
+		[style*="--hover_color--:"]:is(&) {
+			color: var(--hover_color--);
+		}
+		[style*="--hover_filter--:"]:is(&) {
+			filter: var(--hover_filter--);
+		}
+		[style*="--hover_transform--:"]:is(&) {
+			transform: var(--hover_transform--);
+		}
+		[style*="--hover_z-index--:"]:is(&) {
+			isolation: isolate;
+			z-index: var(--hover_z-index--);
+		}
+	}
+	&:where(:active) {
+		[style*="--active_background--:"]:is(&) {
+			background: var(--active_background--);
+			background-attachment: scroll;
+		}
+		[style*="--active_border-color--:"]:is(&) {
+			border-color: var(--active_border-color--);
+		}
+		[style*="--active_box-shadow--:"]:is(&) {
+			box-shadow: var(--active_box-shadow--);
+		}
+		[style*="--active_color--:"]:is(&) {
+			color: var(--active_color--);
+		}
+		[style*="--active_filter--:"]:is(&) {
+			filter: var(--active_filter--);
+		}
+		[style*="--active_transform--:"]:is(&) {
+			transform: var(--active_transform--);
+		}
+		[style*="--active_z-index--:"]:is(&) {
+			isolation: isolate;
+			z-index: var(--active_z-index--);
+		}
+	}
+	&:where(:focus-visible) {
+		[style*="--focus-visible_background--:"]:is(&) {
+			background: var(--focus-visible_background--);
+			background-attachment: scroll;
+		}
+		[style*="--focus-visible_border-color--:"]:is(&) {
+			border-color: var(--focus-visible_border-color--);
+		}
+		[style*="--focus-visible_box-shadow--:"]:is(&) {
+			box-shadow: var(--focus-visible_box-shadow--);
+		}
+		[style*="--focus-visible_color--:"]:is(&) {
+			color: var(--focus-visible_color--);
+		}
+		[style*="--focus-visible_filter--:"]:is(&) {
+			filter: var(--focus-visible_filter--);
+		}
+		[style*="--focus-visible_transform--:"]:is(&) {
+			transform: var(--focus-visible_transform--);
+		}
+		[style*="--focus-visible_z-index--:"]:is(&) {
+			isolation: isolate;
+			z-index: var(--focus-visible_z-index--);
+		}
+	}
+}

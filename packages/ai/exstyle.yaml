@@ -1,0 +1,433 @@
+framework_name: "ExStyle"
+description: "ExStyleプロパティ の命名規則とセレクタのマッピング"
+author: "Nobuo Nakayama (Shimotsuki/nov-jp)"
+syntax_definition:
+  notation_system: "W3C CSS Value Definition Syntax"
+  formal: "'--' [ <query> '_' ]?[ <pseudo-class> '_' ]?[ <descendant> '_' ]?[ <descendant-pseudo-class> '_' ]?[ <pseudo-element> '_' ]? <property> '--'"
+  term_definitions:
+    <query>: "exstyle_specification.implementation_guide.nodes.query"
+    <pseudo-class>: "exstyle_specification.implementation_guide.nodes.pseudo-class"
+    <descendant>: "<combinator> [ '-' <tree-structure> ]?"
+    <combinator>: "exstyle_specification.implementation_guide.nodes.combinator"
+    <tree-structure>: "exstyle_specification.implementation_guide.nodes.tree-structure"
+    <descendant-pseudo-class>: "exstyle_specification.implementation_guide.nodes.pseudo-class"
+    <pseudo-element>: "exstyle_specification.implementation_guide.nodes.pseudo-element"
+implementation_guide:
+  generation_rules:
+    - "1. [style*='--EXSTYLE-PROPERTY--:'] をベースセレクタとする。"
+    - "2. <query> があれば、ベースセレクタをメディアクエリやコンテナクエリでラップする。"
+    - "3. <pseudo-class> があれば、ベースセレクタに擬似クラスを追加する。"
+    - "4. <descendant> があれば、子孫要素を追加する。"
+    - "5. <descendant-pseudo-class> があれば、子孫要素に擬似クラスを追加する。"
+    - "6. <pseudo-element> があれば、擬似要素を追加する。"
+  style_templates:
+    column_style: &column_style
+      - ":not(_):not(_):where(&) > * { break-inside: avoid-column; contain: layout; }"
+      - ":not(_):not(_):where(&) > :first-child { margin-block-start: 0; }"
+      - ":not(_):not(_):where(&) > :last-child { margin-block-end: 0; }"
+    flex_style: &flex_style
+      - ":not(_):not(_):where(&) { display: flex; }"
+    grid_style: &grid_style
+      - ":not(_):not(_):where(&) { display: grid; }"
+    layout_style: &layout_style
+      - ":not(_):not(_):where(&):where(ol,ul,menu) { list-style-position: inside; padding: 0; }"
+      - ":not(_):not(_):where(&):where(ul,menu) { list-style-type: ''; }"
+      - ":not(_):not(_):where(&):where(dl) > :where(div) > *, & > *, &:where(li,dt,dd) { margin: 0; }"
+    text_style: &text_style
+      - ":not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }"
+  property_definitions:
+    logic_constraints:
+      - "通常は default_mapping のように、1つの CSSプロパティ (CSS-PROPERTY) に対して ExStyleプロパティ値 (--EXSTYLE-PROPERTY--) を設定します。"
+      - "overrides のプロパティは、additional や mixins のスタイルも自動的に設定します。"
+      - "additional や mixins のスタイルと重複する ExStyleプロパティ を設定してはいけません。"
+      - "background-attachment は ExStyleプロパティ値 に関わらず常に fixed と同等の設定になります。これは将来的に仕様変更があった場合への備えです。"
+    default_mapping: "& { CSS-PROPERTY: var(--EXSTYLE-PROPERTY--); }"
+    overrides:
+      aspect-ratio:
+        main: "& { aspect-ratio: var(--EXSTYLE-PROPERTY--); }"
+        additional:
+          - ":not(_):not(_):where(&:is(iframe)) { block-size: auto; }"
+      background:
+        main: "& { background: var(--EXSTYLE-PROPERTY--); }"
+        additional:
+          - "& { background-attachment: scroll; }"
+      background-attachment:
+        additional:
+          - "& { clip-path: inset(0); }"
+          - "&::before { background: inherit; content: ''; position: fixed; inset: 0; z-index: -1; }"
+          - "&::after { content: none; }"
+      columns:
+        main: "& { columns: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *column_style, *layout_style ]
+      column-count:
+        main: "& { column-count: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *column_style, *layout_style ]
+      column-width:
+        main: "& { column-width: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *column_style, *layout_style ]
+      flex-flow:
+        main: "& { flex-flow: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *flex_style, *layout_style ]
+      flex-direction:
+        main: "& { flex-direction: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *flex_style, *layout_style ]
+      flex-wrap:
+        main: "& { flex-wrap: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *flex_style, *layout_style ]
+      font-size:
+        main: "& { font-size: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *text_style ]
+      font-style:
+        main: "& { font-style: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *text_style ]
+      font-weight:
+        main: "& { font-weight: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *text_style ]
+      grid:
+        main: "& { grid: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *grid_style, *layout_style ]
+      grid-template:
+        main: "& { grid-template: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *grid_style, *layout_style ]
+      grid-template-rows:
+        main: "& { grid-template-rows: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *grid_style, *layout_style ]
+      grid-template-columns:
+        main: "& { grid-template-columns: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *grid_style, *layout_style ]
+      text-decoration:
+        main: "& { text-decoration: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *text_style ]
+      text-emphasis:
+        main: "& { text-emphasis: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *text_style ]
+      text-shadow:
+        main: "& { text-shadow: var(--EXSTYLE-PROPERTY--); }"
+        mixins: [ *text_style ]
+      text-stroke:
+        main: "& { -webkit-text-stroke: var(--EXSTYLE-PROPERTY--); text-stroke: var(--EXSTYLE-PROPERTY--); }"
+        additional:
+          - ":not(_):not(_):where(&) { paint-order: stroke; }"
+        mixins: [ *text_style ]
+      x-text-marker:
+        main: "& { text-decoration: underline 50% var(--EXSTYLE-PROPERTY--); }"
+        additional:
+          - ":not(_):not(_):where(&) { text-decoration-skip-ink: none; text-underline-offset: -50%; text-underline-position: under; }"
+        mixins: [ *text_style ]
+  nodes:
+    query:
+      description: "メディアクエリ・コンテナクエリ (Medium (m) を基準に Small (s) から Extra-Large (xl) まで)"
+      values:
+        cq-i-s: "@container (inline-size > 480px) and (inline-size > 30rem)"
+        cq-i-m: "@container (inline-size > 720px) and (inline-size > 45rem)"
+        cq-i-l: "@container (inline-size > 960px) and (inline-size > 60rem)"
+        cq-i-xl: "@container (inline-size > 1200px) and (inline-size > 75rem)"
+        mq-w-s: "@media (width > 480px) and (width > 30rem)"
+        mq-w-m: "@media (width > 720px) and (width > 45rem)"
+        mq-w-l: "@media (width > 960px) and (width > 60rem)"
+        mq-w-xl: "@media (width > 1200px) and (width > 75rem)"
+    combinator:
+      description: "結合子"
+      values:
+        d: "& *"
+        c: "& > *"
+        c2: "& > * > *"
+        c3: "& > * > * > *"
+    tree-structure:
+      description: "ツリー構造擬似クラス"
+      nth_child_grammar:
+        description: "values の [An+B], [An+B of S], [S] の正規表現による相互変換ルール"
+        equivalence_expressions:
+          - property_pattern: "/-/"
+            css_pattern: "/ /"
+            description: "An+B の '-' と ' ' は等価"
+          - property_pattern: "/m/"
+            css_pattern: "/-/"
+            description: "An+B の 'm' と '-' は等価"
+          - property_pattern: "/p/"
+            css_pattern: "/\\+/"
+            description: "An+B の 'p' と '+' は等価"
+          - property_pattern: "/attr-([A-Za-z\-]+)$/"
+            css_pattern: "/\[([A-Za-z\-]+)\]$/"
+            description: "S の 'attr-A' は属性を表し '[A]' と等価"
+          - property_pattern: "/pseudo-([A-Za-z\-]+)$/"
+            css_pattern: "/:([A-Za-z\-]+)$/"
+            description: "S の 'pseudo-A' は擬似クラスを表し ':A' と等価"
+          - property_pattern: "/([A-Za-z]+)$/"
+            css_pattern: "/([A-Za-z]+)$/"
+            description: "'attr' と 'pseudo' ではない S の 'A' は要素名を表し 'A' と等価"
+          - property_pattern: "/([A-Za-z]+(-[A-Za-z]+)+)$/"
+            css_pattern: "/:is\(([A-Za-z]+(,[A-Za-z]+)+)\)$/"
+            description: "'attr' と 'pseudo' ではない S の 'A-B' は複数の要素名を表し ':is(A, B)' と等価"
+        syntax_mapping:
+          - exstyle: "m[digit]n-"
+            css: "-[digit]n "
+            type: "leading_coefficient"
+          - exstyle: "-m-"
+            css: " - "
+            type: "subtraction"
+          - exstyle: "-p-"
+            css: " + "
+            type: "addition"
+          - exstyle: "-of-"
+            css: " of "
+            type: "separator"
+        examples:
+          "odd": "odd"
+          "even": "even"
+          "m2n-p-4": "-2n + 4"
+          "m2n-p-4-of-p": "-2n + 4 of p"
+          "m2n-p-4-of-td-th": "-2n + 4 of :is(td, th)"
+          "m2n-p-4-of-attr-style": "-2n + 4 of [style]"
+          "m2n-p-4-of-pseudo-focus": "-2n + 4 of :focus"
+      values:
+        empty: ":where(:empty)"
+        first-child: ":where(:first-child)"
+        last-child: ":where(:last-child)"
+        only-child: ":where(:only-child)"
+        nth-child-[An+B of S]: ":where(:nth-child([An+B of S]))"
+        nth-last-child-[An+B of S]: ":where(:nth-last-child([An+B of S]))"
+        first-of-type: ":where(:first-of-type)"
+        last-of-type: ":where(:last-of-type)"
+        only-of-type: ":where(:only-of-type)"
+        nth-of-type-[An+B]: ":where(:nth-of-type([An+B]))"
+        nth-last-of-type-[An+B]: ":where(:nth-last-of-type([An+B]))"
+        of-[S]: ":where(:nth-child(n of [S]))"
+    pseudo-class:
+      description: "条件分岐擬似クラス"
+      placeholder: "ANY-PSEUDO-CLASS"
+      mappings:
+        ANY-PSEUDO-CLASS: ":where(:ANY-PSEUDO-CLASS)"
+        ANY-PSEUDO-CLASS-n: ":where(:ANY-PSEUDO-CLASS + *)"
+        ANY-PSEUDO-CLASS-s: ":where(:ANY-PSEUDO-CLASS ~ *)"
+        n-ANY-PSEUDO-CLASS: ":where(:has(+ :ANY-PSEUDO-CLASS))"
+        s-ANY-PSEUDO-CLASS: ":where(:has(~ :ANY-PSEUDO-CLASS))"
+        d-ANY-PSEUDO-CLASS: ":where(:has(:ANY-PSEUDO-CLASS))"
+        c-ANY-PSEUDO-CLASS: ":where(:has(> :ANY-PSEUDO-CLASS))"
+        c2-ANY-PSEUDO-CLASS: ":where(:has(> * > :ANY-PSEUDO-CLASS))"
+        c3-ANY-PSEUDO-CLASS: ":where(:has(> * > * > :ANY-PSEUDO-CLASS))"
+        not-ANY-PSEUDO-CLASS: ":where(:not(:ANY-PSEUDO-CLASS))"
+        not-ANY-PSEUDO-CLASS-n: ":where(:not(:ANY-PSEUDO-CLASS + *))"
+        not-ANY-PSEUDO-CLASS-s: ":where(:not(:ANY-PSEUDO-CLASS ~ *))"
+        not-n-ANY-PSEUDO-CLASS: ":where(:not(:has(+ :ANY-PSEUDO-CLASS)))"
+        not-s-ANY-PSEUDO-CLASS: ":where(:not(:has(~ :ANY-PSEUDO-CLASS)))"
+        not-d-ANY-PSEUDO-CLASS: ":where(:not(:has(:ANY-PSEUDO-CLASS)))"
+        not-c-ANY-PSEUDO-CLASS: ":where(:not(:has(> :ANY-PSEUDO-CLASS)))"
+        not-c2-ANY-PSEUDO-CLASS: ":where(:not(:has(> * > :ANY-PSEUDO-CLASS)))"
+        not-c3-ANY-PSEUDO-CLASS: ":where(:not(:has(> * > * > :ANY-PSEUDO-CLASS)))"
+      values:
+        - any-link
+        - link
+        - visited
+        - target
+        - hover
+        - active
+        - focus
+        - focus-visible
+        - focus-within
+        - open
+        - popover-open
+        - modal
+        - fullscreen
+        - picture-in-picture
+        - enabled
+        - disabled
+        - read-only
+        - read-write
+        - placeholder-shown
+        - autofill
+        - default
+        - checked
+        - unchecked
+        - indeterminate
+        - valid
+        - invalid
+        - in-range
+        - out-of-range
+        - required
+        - optional
+        - user-valid
+        - user-invalid
+    pseudo-element:
+      description: "擬似要素"
+      placeholder: "ANY-PSEUDO-ELEMENT"
+      mappings:
+        ANY-PSEUDO-ELEMENT: "::ANY-PSEUDO-ELEMENT"
+      values:
+        - backdrop
+        - first-line
+        - first-letter
+        - selection
+        - search-text
+        - target-text
+        - spelling-error
+        - grammar-error
+        - before
+        - after
+        - file-selector-button
+        - details-content
+  examples:
+    - input_property: "--hover-n_color--"
+      logical_interpretation:
+        pseudo-class: ":where(:hover + *)"
+      output_css: |
+        [style*="--hover-n_color--:"]:where(:hover + *) {
+          color: var(--hover-n_color--);
+        }
+    - input_property: "--n-hover_color--"
+      logical_interpretation:
+        pseudo-class: ":where(:has(+ :hover))"
+      output_css: |
+        [style*="--n-hover_color--:"]:where(:has(+ :hover)) {
+          color: var(--n-hover_color--);
+        }
+    - input_property: "--hover-n_c_color--"
+      logical_interpretation:
+        pseudo-class: ":where(:hover + *)"
+        combinator: "& > *"
+      output_css: |
+        [style*="--hover-n_c_color--:"]:where(:hover + *) > * {
+          color: var(--hover-n_c_color--);
+        }
+    - input_property: "--n-hover_c_color--"
+      logical_interpretation:
+        pseudo-class: ":where(:has(+ :hover))"
+        combinator: "& > *"
+      output_css: |
+        [style*="--n-hover_c_color--:"]:where(:has(+ :hover)) > * {
+          color: var(--n-hover_c_color--);
+        }
+    - input_property: "--c_hover-n_color--"
+      logical_interpretation:
+        combinator: "& > *"
+        descendant-pseudo-class: ":where(:hover + *)"
+      output_css: |
+        [style*="--c_hover-n_color--:"] > *:where(:hover + *) {
+          color: var(--c_hover-n_color--);
+        }
+    - input_property: "--c_n-hover_color--"
+      logical_interpretation:
+        combinator: "& > *"
+        descendant-pseudo-class: ":where(:has(+ :hover))"
+      output_css: |
+        [style*="--c_n-hover_color--:"] > *:where(:has(+ :hover)) {
+          color: var(--c_n-hover_color--);
+        }
+    - input_property: "--cq-i-s_hover_c-first-child_active_after_color--"
+      value: "var(--red)"
+      logical_interpretation:
+        query: "@container (inline-size > 480px) and (inline-size > 30rem)"
+        pseudo-class: ":where(:hover)"
+        combinator: "& > *"
+        tree-structure: ":where(:first-child)"
+        descendant-pseudo-class: ":where(:active)"
+        pseudo-element: "::after"
+      output_css: |
+        @container (inline-size > 480px) and (inline-size > 30rem) {
+          [style*="--cq-i-s_hover_c-first-child_active_after_color--:"]:where(:hover) > *:where(:first-child):where(:active)::after {
+            color: var(--cq-i-s_hover_c-first-child_active_after_color--);
+          }
+        }
+instructional_examples:
+  table:
+    - role: "user"
+      prompt: "列見出しと行見出しがある、3列・3行の境界線で区切られたレスポンシブな表を作ってください。"
+    - role: "assistant"
+      thought: |
+        1. 列見出しと行見出しがある、3列・3行のテーブルを持つコンテナを作ります。
+        2. コンテナに --overflow--: auto; を設定して、小さい画面でもはみ出さないようにします。
+        3. コンテナに --border--: solid 1px; を設定して、境界線を表示させます。
+        4. テーブルに `--border-collapse--: collapse;`, `--inline-size--: 100%;` を設定して、コンテナいっぱいに広げます。
+        5. テーブルセル `--c3-nth-child-n-of-td-th_border--: var(--border--);`, `--c3-nth-child-n-of-td-th_padding-block--: 0.25rem;`, `--c3-nth-child-n-of-td-th_padding-inline--: 0.5rem;` を設定して、コンテナと同じ境界線と適度な余白を作ります。
+        6. テーブルに `--border-style--: hidden;` を設定して、境界線が二重になるのを防ぎます。
+      output_html: |
+        <div style="--border--: solid 1px; --overflow--: auto;">
+          <table style="--border-collapse--: collapse; --border-style--: hidden; --inline-size--: 100%; --c3-nth-child-n-of-td-th_border--: var(--border--); --c3-nth-child-n-of-td-th_padding-block--: 0.25rem; --c3-nth-child-n-of-td-th_padding-inline--: 0.5rem;">
+            <thead>
+              <tr>
+                <th></th>
+                <th scope="col">A</th>
+                <th scope="col">B</th>
+                <th scope="col">C</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>A1</td>
+                <td>B1</td>
+                <td>C1</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>A2</td>
+                <td>B2</td>
+                <td>C2</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>A3</td>
+                <td>B3</td>
+                <td>C3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  columns_layout:
+    - role: "user"
+      prompt: "リストで16文字・4列の段組みレイアウトを作成してください。アイテム数は4つで間に 1rem の余白を設定してください。"
+    - role: "assistant"
+      thought: |
+        1. 4つのアイテムがあるリストを作ります。
+        2. リストに `--columns--: 16em 4;` を設定して、16文字・4列の段組みを作ります。
+        3. リストに `--column-gap--: 1rem;` を設定して、アイテム間インライン方向の余白を作ります。
+        4. リストに `--c_margin-block-end--` を設定して、アイテム間ブロック方向の余白を作ります。
+      output_html: |
+        <ul style="--columns--: 16em 4; --column-gap--: 1rem; --c_margin-block-end--: 1rem;">
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+          <li>Item 4</li>
+        </ul>
+  flex_layout:
+    - role: "user"
+      prompt: "リストで横並び・折り返しあり・中央揃えのフレックスレイアウトを作成してください。アイテム数は4つで間に 1rem の余白を設定してください。"
+    - role: "assistant"
+      thought: |
+        1. 4つのアイテムがあるリストを作ります。
+        2. リストに `--flex-flow--: row wrap;` を設定して、横並び・折り返しありにします。
+        3. リストに `--justify-content--: center;` を設定して、中央揃えにします。
+        4. リストに `--gap--: 1rem;` を設定して、余白を作ります。
+      output_html: |
+        <ul style="--flex-flow--: row wrap; --gap--: 1rem; --justify-content--: center;">
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+          <li>Item 4</li>
+        </ul>
+  grid_layout:
+    - role: "user"
+      prompt: "コンテナが中サイズのとき1カラムから4カラムになる12分割グリッドレイアウトを作成してください。アイテム数は4つで間に 1rem の余白を設定してください。"
+    - role: "assistant"
+      thought: |
+        1. 4つのアイテムがあるコンテナを作ります。
+        2. コンテナに `--container-type--: inline-size; を設定して、コンテナクエリを使用できるようにします。
+        3. コンテナに `--grid-template-columns--: repeat(12, 1fr);` を設定して、12カラムに分割します。
+        4. コンテナに `--gap--: 1rem min(100% / 11, 1rem);` を設定します。アイテム間の余白を 1rem にしつつ、カラム間の余白の合計がコンテナサイズ以上になるのを防ぎます。
+        5. コンテナに `--c_grid-column--: span 12;` を設定して、アイテムを1カラムにします。
+        6. アイテムに `--cq-i-m_grid-column--: span 3;` を設定して、コンテナサイズが中サイズのときに4カラムになるようにします。
+      output_html: |
+        <div style="--container-type--: inline-size; --grid-template-columns--: repeat(12, 1fr); --c_grid-column--: span 12; --gap--: 1rem min(100% / 11, 1rem);">
+          <div style="--cq-i-m_grid-column--: span 3;">
+            <p>Item 1</p>
+          </div>
+          <div style="--cq-i-m_grid-column--: span 3;">
+            <p>Item 2</p>
+          </div>
+          <div style="--cq-i-m_grid-column--: span 3;">
+            <p>Item 3</p>
+          </div>
+          <div style="--cq-i-m_grid-column--: span 3;">
+            <p>Item 4</p>
+          </div>
+        </div>

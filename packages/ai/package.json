@@ -1,0 +1,11 @@
+{
+	"name": "@exstyle/ai",
+	"version": "1.0.0",
+	"description": "AI に ExStyle を確実に理解してもらうための仕様書。",
+	"main": "index.js",
+	"scripts": {},
+	"keywords": [ "ExStyle", "AI" ],
+	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",
+	"license": "MIT",
+	"type": "module"
+}

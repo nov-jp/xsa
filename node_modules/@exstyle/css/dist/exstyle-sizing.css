@@ -1,0 +1,39 @@
+/**
+ * https://www.w3.org/TR/css-images-3/
+ * https://www.w3.org/TR/css-logical-1/
+ * https://www.w3.org/TR/css-overflow-3/
+ * https://www.w3.org/TR/css-sizing-4/
+ */
+[style*="--aspect-ratio--:"] {
+	aspect-ratio: var(--aspect-ratio--);
+	:not(_):not(_):where(&:is(iframe)) {
+		block-size: auto;
+	}
+}
+[style*="--block-size--:"] {
+	block-size: var(--block-size--);
+}
+[style*="--min-block-size--:"] {
+	min-block-size: var(--min-block-size--);
+}
+[style*="--max-block-size--:"] {
+	max-block-size: var(--max-block-size--);
+}
+[style*="--inline-size--:"] {
+	inline-size: var(--inline-size--);
+}
+[style*="--min-inline-size--:"] {
+	min-inline-size: var(--min-inline-size--);
+}
+[style*="--max-inline-size--:"] {
+	max-inline-size: var(--max-inline-size--);
+}
+[style*="--object-fit--:"] {
+	object-fit: var(--object-fit--);
+}
+[style*="--object-position--:"] {
+	object-position: var(--object-position--);
+}
+[style*="--overflow--:"] {
+	overflow: var(--overflow--);
+}

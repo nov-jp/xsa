@@ -1,0 +1,16 @@
+{
+	"name": "@exstyle/css",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "node build.js"
+	},
+	"keywords": [ "ExStyle", "CSS" ],
+	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",
+	"license": "MIT",
+	"type": "module",
+	"devDependencies": {
+		"lightningcss": "^1.32.0"
+	}
+}

@@ -1,0 +1,19 @@
+/*! The MIT License. Copyright 2026 Nobuo Nakayama (Shimotsuki/nov-jp). */
+/**
+ * https://www.w3.org/TR/CSS22/tables.html
+ */
+[style*="--border-collapse--:"] {
+	border-collapse: var(--border-collapse--);
+}
+[style*="--border-spacing--:"] {
+	border-spacing: var(--border-spacing--);
+}
+[style*="--caption-side--:"] {
+	caption-side: var(--caption-side--);
+}
+[style*="--empty-cells--:"] {
+	empty-cells: var(--empty-cells--);
+}
+[style*="--table-layout--:"] {
+	table-layout: var(--table-layout--);
+}
