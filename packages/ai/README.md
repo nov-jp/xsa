@@ -25,6 +25,4 @@ ChatGPT の「Custom Instructions」、Claude の「Project」、Gemini の「Ge
 
 ---
 
-## License
-
 The MIT License. Copyright 2026 Nobuo Nakayama (Shimotsuki/nov-jp).

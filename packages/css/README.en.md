@@ -171,6 +171,4 @@ In this example, [Open Props]() is used for the values of the ExStyle Properties
 
 ---
 
-## License
-
 The MIT License. Copyright 2026 Nobuo Nakayama (Shimotsuki/nov-jp).

@@ -76,121 +76,121 @@ The available Queries, Combinators, Tree Structures, Pseudo-classes, Pseudo-elem
 | Category | Name | CSS Code |
 | --- | --- | --- |
 | QUERY | cq-i-s | `@container (inline-size > 480px) and (inline-size > 30rem)` |
-| ^ | cq-i-m | `@container (inline-size > 720px) and (inline-size > 45rem)` |
-| ^ | cq-i-l | `@container (inline-size > 960px) and (inline-size > 60rem)` |
-| ^ | cq-i-xl | `@container (inline-size > 1200px) and (inline-size > 75rem)` |
-| ^ | mq-w-s | `@media (width > 480px) and (width > 30rem)` |
-| ^ | mq-w-m | `@media (width > 720px) and (width > 45rem)` |
-| ^ | mq-w-l | `@media (width > 960px) and (width > 60rem)` |
-| ^ | mq-w-xl | `@media (width > 1200px) and (width > 75rem)` |
+| " | cq-i-m | `@container (inline-size > 720px) and (inline-size > 45rem)` |
+| " | cq-i-l | `@container (inline-size > 960px) and (inline-size > 60rem)` |
+| " | cq-i-xl | `@container (inline-size > 1200px) and (inline-size > 75rem)` |
+| " | mq-w-s | `@media (width > 480px) and (width > 30rem)` |
+| " | mq-w-m | `@media (width > 720px) and (width > 45rem)` |
+| " | mq-w-l | `@media (width > 960px) and (width > 60rem)` |
+| " | mq-w-xl | `@media (width > 1200px) and (width > 75rem)` |
 | COMBINATOR | d | `& *` |
-| ^ | c | `& > *` |
-| ^ | c2 | `& > * > *` |
-| ^ | c3 | `& > * > * > *` |
+| " | c | `& > *` |
+| " | c2 | `& > * > *` |
+| " | c3 | `& > * > * > *` |
 | TREE-STRUCTURE | empty | `:empty` |
-| ^ | first-child | `:first-child` |
-| ^ | last-child | `:last-child` |
-| ^ | only-child | `:only-child` |
-| ^ | nth-child-m2n-p-4-of-p | `:nth-child(-2n + 4 of p)` |
-| ^ | nth-child-m2n-p-4-of-td-th | `:nth-child(-2n + 4 of :is(td, th))` |
-| ^ | nth-child-m2n-p-4-of-attr-style | `:nth-child(-2n + 4 of [style])` |
-| ^ | nth-child-m2n-p-4-of-pseudo-focus | `:nth-child(-2n + 4 of :focus)` |
-| ^ | nth-last-child-m2n-p-4-of-p | `:nth-last-child(-2n + 4 of p)` |
-| ^ | nth-last-child-m2n-p-4-of-td-th | `:nth-last-child(-2n + 4 of :is(td, th))` |
-| ^ | nth-last-child-m2n-p-4-of-attr-style | `:nth-last-child(-2n + 4 of [style])` |
-| ^ | nth-last-child-m2n-p-4-of-pseudo-focus | `:nth-last-child(-2n + 4 of :focus)` |
-| ^ | first-of-type | `:first-of-type` |
-| ^ | last-of-type | `:last-of-type` |
-| ^ | only-of-type | `:only-of-type` |
-| ^ | nth-of-type-m2n-p-4 | `:nth-of-type(-2n + 4)` |
-| ^ | nth-last-of-type-m2n-p-4 | `:nth-last-of-type(-2n + 4)` |
-| ^ | of-p | `:nth-child(n of p)` |
-| ^ | of-td-th | `:nth-child(n of :is(td, th))` |
-| ^ | of-attr-style | `:nth-child(n of [style])` |
-| ^ | of-pseudo-focus | `:nth-child(n of :focus)` |
+| " | first-child | `:first-child` |
+| " | last-child | `:last-child` |
+| " | only-child | `:only-child` |
+| " | nth-child-m2n-p-4-of-p | `:nth-child(-2n + 4 of p)` |
+| " | nth-child-m2n-p-4-of-td-th | `:nth-child(-2n + 4 of :is(td, th))` |
+| " | nth-child-m2n-p-4-of-attr-style | `:nth-child(-2n + 4 of [style])` |
+| " | nth-child-m2n-p-4-of-pseudo-focus | `:nth-child(-2n + 4 of :focus)` |
+| " | nth-last-child-m2n-p-4-of-p | `:nth-last-child(-2n + 4 of p)` |
+| " | nth-last-child-m2n-p-4-of-td-th | `:nth-last-child(-2n + 4 of :is(td, th))` |
+| " | nth-last-child-m2n-p-4-of-attr-style | `:nth-last-child(-2n + 4 of [style])` |
+| " | nth-last-child-m2n-p-4-of-pseudo-focus | `:nth-last-child(-2n + 4 of :focus)` |
+| " | first-of-type | `:first-of-type` |
+| " | last-of-type | `:last-of-type` |
+| " | only-of-type | `:only-of-type` |
+| " | nth-of-type-m2n-p-4 | `:nth-of-type(-2n + 4)` |
+| " | nth-last-of-type-m2n-p-4 | `:nth-last-of-type(-2n + 4)` |
+| " | of-p | `:nth-child(n of p)` |
+| " | of-td-th | `:nth-child(n of :is(td, th))` |
+| " | of-attr-style | `:nth-child(n of [style])` |
+| " | of-pseudo-focus | `:nth-child(n of :focus)` |
 | PSEUDO-CLASS | any-link | `:any-link` |
-| ^ | link | `:link` |
-| ^ | visited | `:visited` |
-| ^ | target | `:target` |
-| ^ | hover | `:hover` |
-| ^ | active | `:active` |
-| ^ | focus | `:focus` |
-| ^ | focus-visible | `:focus-visible` |
-| ^ | focus-within | `:focus-within` |
-| ^ | open | `:open` |
-| ^ | popover-open | `:popover-open` |
-| ^ | modal | `:modal` |
-| ^ | fullscreen | `:fullscreen` |
-| ^ | picture-in-picture | `:picture-in-picture` |
-| ^ | enabled | `:enabled` |
-| ^ | disabled | `:disabled` |
-| ^ | read-only | `:read-only` |
-| ^ | read-write | `:read-write` |
-| ^ | placeholder-shown | `:placeholder-shown` |
-| ^ | autofill | `:autofill` |
-| ^ | default | `:default` |
-| ^ | checked | `:checked` |
-| ^ | unchecked | `:unchecked` |
-| ^ | indeterminate | `:indeterminate` |
-| ^ | valid | `:valid` |
-| ^ | invalid | `:invalid` |
-| ^ | in-range | `:in-range` |
-| ^ | out-of-range | `:out-of-range` |
-| ^ | required | `:required` |
-| ^ | optional | `:optional` |
-| ^ | user-valid | `:user-valid` |
-| ^ | user-invalid | `:user-invalid` |
-| ^ | ANY-PSEUDO-CLASS-n | `:is(:ANY-PSEUDO-CLASS + *)` |
-| ^ | ANY-PSEUDO-CLASS-s | `:is(:ANY-PSEUDO-CLASS ~ *)` |
-| ^ | n-ANY-PSEUDO-CLASS | `:has(+ :ANY-PSEUDO-CLASS)` |
-| ^ | s-ANY-PSEUDO-CLASS | `:has(~ :ANY-PSEUDO-CLASS)` |
-| ^ | d-ANY-PSEUDO-CLASS | `:has(:ANY-PSEUDO-CLASS)` |
-| ^ | c-ANY-PSEUDO-CLASS | `:has(> :ANY-PSEUDO-CLASS)` |
-| ^ | c2-ANY-PSEUDO-CLASS | `:has(> * > :ANY-PSEUDO-CLASS)` |
-| ^ | c3-ANY-PSEUDO-CLASS | `:has(> * > * > :ANY-PSEUDO-CLASS)` |
-| ^ | not-ANY-PSEUDO-CLASS | `:not(:ANY-PSEUDO-CLASS)` |
-| ^ | not-ANY-PSEUDO-CLASS-n | `:not(:ANY-PSEUDO-CLASS + *)` |
-| ^ | not-ANY-PSEUDO-CLASS-s | `:not(:ANY-PSEUDO-CLASS ~ *)` |
-| ^ | not-n-ANY-PSEUDO-CLASS | `:not(:has(+ :ANY-PSEUDO-CLASS))` |
-| ^ | not-s-ANY-PSEUDO-CLASS | `:not(:has(~ :ANY-PSEUDO-CLASS))` |
-| ^ | not-d-ANY-PSEUDO-CLASS | `:not(:has(:ANY-PSEUDO-CLASS))` |
-| ^ | not-c-ANY-PSEUDO-CLASS | `:not(:has(> :ANY-PSEUDO-CLASS))` |
-| ^ | not-c2-ANY-PSEUDO-CLASS | `:not(:has(> * > :ANY-PSEUDO-CLASS))` |
-| ^ | not-c3-ANY-PSEUDO-CLASS | `:not(:has(> * > * > :ANY-PSEUDO-CLASS))` |
+| " | link | `:link` |
+| " | visited | `:visited` |
+| " | target | `:target` |
+| " | hover | `:hover` |
+| " | active | `:active` |
+| " | focus | `:focus` |
+| " | focus-visible | `:focus-visible` |
+| " | focus-within | `:focus-within` |
+| " | open | `:open` |
+| " | popover-open | `:popover-open` |
+| " | modal | `:modal` |
+| " | fullscreen | `:fullscreen` |
+| " | picture-in-picture | `:picture-in-picture` |
+| " | enabled | `:enabled` |
+| " | disabled | `:disabled` |
+| " | read-only | `:read-only` |
+| " | read-write | `:read-write` |
+| " | placeholder-shown | `:placeholder-shown` |
+| " | autofill | `:autofill` |
+| " | default | `:default` |
+| " | checked | `:checked` |
+| " | unchecked | `:unchecked` |
+| " | indeterminate | `:indeterminate` |
+| " | valid | `:valid` |
+| " | invalid | `:invalid` |
+| " | in-range | `:in-range` |
+| " | out-of-range | `:out-of-range` |
+| " | required | `:required` |
+| " | optional | `:optional` |
+| " | user-valid | `:user-valid` |
+| " | user-invalid | `:user-invalid` |
+| " | ANY-PSEUDO-CLASS-n | `:is(:ANY-PSEUDO-CLASS + *)` |
+| " | ANY-PSEUDO-CLASS-s | `:is(:ANY-PSEUDO-CLASS ~ *)` |
+| " | n-ANY-PSEUDO-CLASS | `:has(+ :ANY-PSEUDO-CLASS)` |
+| " | s-ANY-PSEUDO-CLASS | `:has(~ :ANY-PSEUDO-CLASS)` |
+| " | d-ANY-PSEUDO-CLASS | `:has(:ANY-PSEUDO-CLASS)` |
+| " | c-ANY-PSEUDO-CLASS | `:has(> :ANY-PSEUDO-CLASS)` |
+| " | c2-ANY-PSEUDO-CLASS | `:has(> * > :ANY-PSEUDO-CLASS)` |
+| " | c3-ANY-PSEUDO-CLASS | `:has(> * > * > :ANY-PSEUDO-CLASS)` |
+| " | not-ANY-PSEUDO-CLASS | `:not(:ANY-PSEUDO-CLASS)` |
+| " | not-ANY-PSEUDO-CLASS-n | `:not(:ANY-PSEUDO-CLASS + *)` |
+| " | not-ANY-PSEUDO-CLASS-s | `:not(:ANY-PSEUDO-CLASS ~ *)` |
+| " | not-n-ANY-PSEUDO-CLASS | `:not(:has(+ :ANY-PSEUDO-CLASS))` |
+| " | not-s-ANY-PSEUDO-CLASS | `:not(:has(~ :ANY-PSEUDO-CLASS))` |
+| " | not-d-ANY-PSEUDO-CLASS | `:not(:has(:ANY-PSEUDO-CLASS))` |
+| " | not-c-ANY-PSEUDO-CLASS | `:not(:has(> :ANY-PSEUDO-CLASS))` |
+| " | not-c2-ANY-PSEUDO-CLASS | `:not(:has(> * > :ANY-PSEUDO-CLASS))` |
+| " | not-c3-ANY-PSEUDO-CLASS | `:not(:has(> * > * > :ANY-PSEUDO-CLASS))` |
 | PSEUDO-ELEMENT | backdrop | `::backdrop` |
-| ^ | first-line | `::first-line` |
-| ^ | first-letter | `::first-letter` |
-| ^ | selection | `::selection` |
-| ^ | search-text | `::search-text` |
-| ^ | target-text | `::target-text` |
-| ^ | spelling-error | `::spelling-error` |
-| ^ | grammar-error | `::grammar-error` |
-| ^ | before | `::before` |
-| ^ | after | `::after` |
-| ^ | file-selector-button | `::file-selector-button` |
-| ^ | details-content | `::details-content` |
+| " | first-line | `::first-line` |
+| " | first-letter | `::first-letter` |
+| " | selection | `::selection` |
+| " | search-text | `::search-text` |
+| " | target-text | `::target-text` |
+| " | spelling-error | `::spelling-error` |
+| " | grammar-error | `::grammar-error` |
+| " | before | `::before` |
+| " | after | `::after` |
+| " | file-selector-button | `::file-selector-button` |
+| " | details-content | `::details-content` |
 | PROPERTY | NORMAL-PROPERTY | `& { NORMAL-PROPERTY: var(--(PREFIX_)?NORMAL-PROPERTY--); }` |
-| ^ | aspect-ratio | `& { aspect-ratio: var(--(PREFIX_)?aspect-ratio--); }` <br> `:not(_):not(_):where(&:is(iframe)) { block-size: auto; }` |
-| ^ | background | `& { background: var(--(PREFIX_)?background--); background-attachment: scroll; }` |
-| ^ | background-attachment | `& { clip-path: inset(0); }` <br> `&::before { background: inherit; content: ""; position: fixed; inset: 0; z-index: -1; }` <br> `&::after { content: none; }` |
-| ^ | columns | `& { columns: var(--(PREFIX_)?columns--); }` <br> `:not(_):not(_):where(&) {` <br> `& > * { break-inside: avoid-column; contain: layout; }` <br> `& > :first-child { margin-block-start: 0; }` <br> `& > :last-child { margin-block-end: 0; }` <br> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <br> `&:where(ul, menu) { list-style-type: ""; }` <br> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <br> `}` |
-| ^ | column-count | `& { column-count: var(--(PREFIX_)?column-count--); }` <br> `:not(_):not(_):where(&) {` <br> `& > * { break-inside: avoid-column; contain: layout; }` <br> `& > :first-child { margin-block-start: 0; }` <br> `& > :last-child { margin-block-end: 0; }` <br> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <br> `&:where(ul, menu) { list-style-type: ""; }` <br> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <br> `}` |
-| ^ | column-width | `& { column-width: var(--(PREFIX_)?column-width--); }` <br> `:not(_):not(_):where(&) {` <br> `& > * { break-inside: avoid-column; contain: layout; }` <br> `& > :first-child { margin-block-start: 0; }` <br> `& > :last-child { margin-block-end: 0; }` <br> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <br> `&:where(ul, menu) { list-style-type: ""; }` <br> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <br> `}` |
-| ^ | flex-flow | `& { flex-flow: var(--(PREFIX_)?flex-flow--); }` <br> `:not(_):not(_):where(&) {` <br> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <br> `&:where(ul, menu) { list-style-type: ""; }` <br> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <br> `}` |
-| ^ | flex-direction | `& { flex-direction: var(--(PREFIX_)?flex-direction--); }` <br> `:not(_):not(_):where(&) {` <br> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <br> `&:where(ul, menu) { list-style-type: ""; }` <br> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <br> `}` |
-| ^ | flex-wrap | `& { flex-wrap: var(--(PREFIX_)?flex-wrap--); }` <br> `:not(_):not(_):where(&) {` <br> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <br> `&:where(ul, menu) { list-style-type: ""; }` <br> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <br> `}` |
-| ^ | font-size | `& { font-size: var(--(PREFIX_)?font-size--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
-| ^ | font-style | `& { font-style: var(--(PREFIX_)?font-style--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
-| ^ | font-weight | `& { font-weight: var(--(PREFIX_)?font-weight--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
-| ^ | grid | `& { grid: var(--(PREFIX_)?grid--); }` <br> `:not(_):not(_):where(&) {` <br> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <br> `&:where(ul, menu) { list-style-type: ""; }` <br> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <br> `}` |
-| ^ | grid-template | `& { grid-template: var(--(PREFIX_)?grid-template--); }` <br> `:not(_):not(_):where(&) {` <br> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <br> `&:where(ul, menu) { list-style-type: ""; }` <br> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <br> `}` |
-| ^ | grid-template-rows | `& { grid-template-rows: var(--(PREFIX_)?grid-template-rows--); }` <br> `:not(_):not(_):where(&) {` <br> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <br> `&:where(ul, menu) { list-style-type: ""; }` <br> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <br> `}` |
-| ^ | grid-template-columns | `& { grid-template-columns: var(--(PREFIX_)?grid-template-columns--); }` <br> `:not(_):not(_):where(&) {` <br> `&:where(ol, ul, menu) { list-style-position: inside; padding: 0; }` <br> `&:where(ul, menu) { list-style-type: ""; }` <br> `&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; }` <br> `}` |
-| ^ | text-decoration | `& { text-decoration: var(--(PREFIX_)?text-decoration--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
-| ^ | text-emphasis | `& { text-emphasis: var(--(PREFIX_)?text-emphasis--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
-| ^ | text-shadow | `& { text-shadow: var(--(PREFIX_)?text-shadow--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
-| ^ | text-stroke | `& { -webkit-text-stroke: var(--(PREFIX_)?text-stroke--); text-stroke: var(--(PREFIX_)?text-stroke--); }` <br> `:not(_):not(_):where(&) { paint-order: stroke; background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
-| ^ | x-text-marker | `& { text-decoration: underline 50% var(--(PREFIX_)?x-text-marker--); }` <br> `:not(_):not(_):where(&) { text-decoration-skip-ink: none; text-underline-offset: -50%; text-underline-position: under; background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | aspect-ratio | `& { aspect-ratio: var(--(PREFIX_)?aspect-ratio--); }` <br> `:not(_):not(_):where(&:is(iframe)) { block-size: auto; }` |
+| " | background | `& { background: var(--(PREFIX_)?background--); background-attachment: scroll; }` |
+| " | background-attachment | `& { clip-path: inset(0); }` <br> `&::before { background: inherit; content: ""; position: fixed; inset: 0; z-index: -1; }` <br> `&::after { content: none; }` |
+| " | columns | `& { columns: var(--(PREFIX_)?columns--); }` <br> `:not(_):not(_):where(&) { & > * { break-inside: avoid-column; contain: layout; } & > :first-child { margin-block-start: 0; } & > :last-child { margin-block-end: 0; } }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | column-count | `& { column-count: var(--(PREFIX_)?column-count--); }` <br> `:not(_):not(_):where(&) { & > * { break-inside: avoid-column; contain: layout; } & > :first-child { margin-block-start: 0; } & > :last-child { margin-block-end: 0; } }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | column-width | `& { column-width: var(--(PREFIX_)?column-width--); }` <br> `:not(_):not(_):where(&) { & > * { break-inside: avoid-column; contain: layout; } & > :first-child { margin-block-start: 0; } & > :last-child { margin-block-end: 0; } }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | flex-flow | `& { flex-flow: var(--(PREFIX_)?flex-flow--); }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | flex-direction | `& { flex-direction: var(--(PREFIX_)?flex-direction--); }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | flex-wrap | `& { flex-wrap: var(--(PREFIX_)?flex-wrap--); }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | font-size | `& { font-size: var(--(PREFIX_)?font-size--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | font-style | `& { font-style: var(--(PREFIX_)?font-style--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | font-weight | `& { font-weight: var(--(PREFIX_)?font-weight--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | grid | `& { grid: var(--(PREFIX_)?grid--); }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | grid-template | `& { grid-template: var(--(PREFIX_)?grid-template--); }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | grid-template-rows | `& { grid-template-rows: var(--(PREFIX_)?grid-template-rows--); }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | grid-template-columns | `& { grid-template-columns: var(--(PREFIX_)?grid-template-columns--); }` <br> `:not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | text-decoration | `& { text-decoration: var(--(PREFIX_)?text-decoration--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | text-emphasis | `& { text-emphasis: var(--(PREFIX_)?text-emphasis--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | text-shadow | `& { text-shadow: var(--(PREFIX_)?text-shadow--); }` <br> `:not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | text-stroke | `& { -webkit-text-stroke: var(--(PREFIX_)?text-stroke--); text-stroke: var(--(PREFIX_)?text-stroke--); }` <br> `:not(_):not(_):where(&) { paint-order: stroke; background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | x-text-marker | `& { text-decoration: underline 50% var(--(PREFIX_)?x-text-marker--); }` <br> `:not(_):not(_):where(&) { text-decoration-skip-ink: none; text-underline-offset: -50%; text-underline-position: under; background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
 
 While the properties and prefixes available in ExStyle CSS are limited, ExStyle JS, ExStyle PHP, and ExStyle PostCSS allow all CSS properties to be used with various prefixes.
 
@@ -262,31 +262,31 @@ While tokens from libraries like [Open Props](https://open-props.style/) can be 
   --dark-light: light-dark(var(--black), var(--white));
 
   /* Contrast-based color palette compatible with color modes */
-  --lowest-red:    color-mix(in srgb, var(--light-dark), var(--red) var(--alpha_xl));
-  --lowest-yellow: color-mix(in srgb, var(--light-dark), var(--yellow) var(--alpha_xl));
-  --lowest-green:  color-mix(in srgb, var(--light-dark), var(--green) var(--alpha_xl));
-  --lowest-blue:   color-mix(in srgb, var(--light-dark), var(--blue) var(--alpha_xl));
-  --lowest-gray:   color-mix(in srgb, var(--light-dark), var(--gray) var(--alpha_xl));
-  --lower-red:    color-mix(in srgb, var(--light-dark), var(--red) var(--alpha_l));
-  --lower-yellow: color-mix(in srgb, var(--light-dark), var(--yellow) var(--alpha_l));
-  --lower-green:  color-mix(in srgb, var(--light-dark), var(--green) var(--alpha_l));
-  --lower-blue:   color-mix(in srgb, var(--light-dark), var(--blue) var(--alpha_l));
-  --lower-gray:   color-mix(in srgb, var(--light-dark), var(--gray) var(--alpha_l));
-  --low-red:    color-mix(in srgb, var(--light-dark), var(--red) var(--alpha_m));
-  --low-yellow: color-mix(in srgb, var(--light-dark), var(--yellow) var(--alpha_m));
-  --low-green:  color-mix(in srgb, var(--light-dark), var(--green) var(--alpha_m));
-  --low-blue:   color-mix(in srgb, var(--light-dark), var(--blue) var(--alpha_m));
-  --low-gray:   color-mix(in srgb, var(--light-dark), var(--gray) var(--alpha_m));
-  --high-red:    color-mix(in srgb, var(--dark-light), var(--red) var(--alpha_m));
-  --high-yellow: color-mix(in srgb, var(--dark-light), var(--yellow) var(--alpha_m));
-  --high-green:  color-mix(in srgb, var(--dark-light), var(--green) var(--alpha_m));
-  --high-blue:   color-mix(in srgb, var(--dark-light), var(--blue) var(--alpha_m));
-  --high-gray:   color-mix(in srgb, var(--dark-light), var(--gray) var(--alpha_m));
-  --higher-red:    color-mix(in srgb, var(--dark-light), var(--red) var(--alpha_l));
-  --higher-yellow: color-mix(in srgb, var(--dark-light), var(--yellow) var(--alpha_l));
-  --higher-green:  color-mix(in srgb, var(--dark-light), var(--green) var(--alpha_l));
-  --higher-blue:   color-mix(in srgb, var(--dark-light), var(--blue) var(--alpha_l));
-  --higher-gray:   color-mix(in srgb, var(--dark-light), var(--gray) var(--alpha_l));
+  --lowest-red:     color-mix(in srgb, var(--light-dark), var(--red) var(--alpha_xl));
+  --lowest-yellow:  color-mix(in srgb, var(--light-dark), var(--yellow) var(--alpha_xl));
+  --lowest-green:   color-mix(in srgb, var(--light-dark), var(--green) var(--alpha_xl));
+  --lowest-blue:    color-mix(in srgb, var(--light-dark), var(--blue) var(--alpha_xl));
+  --lowest-gray:    color-mix(in srgb, var(--light-dark), var(--gray) var(--alpha_xl));
+  --lower-red:      color-mix(in srgb, var(--light-dark), var(--red) var(--alpha_l));
+  --lower-yellow:   color-mix(in srgb, var(--light-dark), var(--yellow) var(--alpha_l));
+  --lower-green:    color-mix(in srgb, var(--light-dark), var(--green) var(--alpha_l));
+  --lower-blue:     color-mix(in srgb, var(--light-dark), var(--blue) var(--alpha_l));
+  --lower-gray:     color-mix(in srgb, var(--light-dark), var(--gray) var(--alpha_l));
+  --low-red:        color-mix(in srgb, var(--light-dark), var(--red) var(--alpha_m));
+  --low-yellow:     color-mix(in srgb, var(--light-dark), var(--yellow) var(--alpha_m));
+  --low-green:      color-mix(in srgb, var(--light-dark), var(--green) var(--alpha_m));
+  --low-blue:       color-mix(in srgb, var(--light-dark), var(--blue) var(--alpha_m));
+  --low-gray:       color-mix(in srgb, var(--light-dark), var(--gray) var(--alpha_m));
+  --high-red:       color-mix(in srgb, var(--dark-light), var(--red) var(--alpha_m));
+  --high-yellow:    color-mix(in srgb, var(--dark-light), var(--yellow) var(--alpha_m));
+  --high-green:     color-mix(in srgb, var(--dark-light), var(--green) var(--alpha_m));
+  --high-blue:      color-mix(in srgb, var(--dark-light), var(--blue) var(--alpha_m));
+  --high-gray:      color-mix(in srgb, var(--dark-light), var(--gray) var(--alpha_m));
+  --higher-red:     color-mix(in srgb, var(--dark-light), var(--red) var(--alpha_l));
+  --higher-yellow:  color-mix(in srgb, var(--dark-light), var(--yellow) var(--alpha_l));
+  --higher-green:   color-mix(in srgb, var(--dark-light), var(--green) var(--alpha_l));
+  --higher-blue:    color-mix(in srgb, var(--dark-light), var(--blue) var(--alpha_l));
+  --higher-gray:    color-mix(in srgb, var(--dark-light), var(--gray) var(--alpha_l));
   --highest-red:    color-mix(in srgb, var(--dark-light), var(--red) var(--alpha_xl));
   --highest-yellow: color-mix(in srgb, var(--dark-light), var(--yellow) var(--alpha_xl));
   --highest-green:  color-mix(in srgb, var(--dark-light), var(--green) var(--alpha_xl));
@@ -407,7 +407,5 @@ While tokens from libraries like [Open Props](https://open-props.style/) can be 
 ```
 
 ---
-
-## License
 
 The MIT License. Copyright 2026 Nobuo Nakayama (Shimotsuki/nov-jp).

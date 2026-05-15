@@ -99,6 +99,4 @@ While such concurrent use is possible, please be aware that when selector specif
 
 ---
 
-## License
-
 The MIT License. Copyright 2026 Nobuo Nakayama (Shimotsuki/nov-jp).

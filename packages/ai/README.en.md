@@ -27,6 +27,4 @@ For models with advanced file analysis capabilities (e.g., GPT-4o, Claude 3.5 So
 
 ---
 
-## License
-
 The MIT License. Copyright 2026 Nobuo Nakayama (Shimotsuki/nov-jp).
