@@ -6,20 +6,20 @@ This text was translated from Japanese by Google Gemini.
 
 # ExStyle JS (@exstyle/js)
 
-ExStyle JS is a script that parses ExStyle Properties within HTML code in real-time, generates the corresponding CSS code, and applies it via a `style` element.
+ExStyle JS is a script that parses ExStyle properties within HTML code in real-time, generates the corresponding CSS code, and injects it into a `style` element.
 
 ## Features
 
-* **Easy Implementation**: It offers the simplicity of just loading a script without the need for complex build processes.
-* **High Flexibility**: Unlike ExStyle CSS, you can combine almost any CSS property with various prefixes.
-* **Lightweight Script**: ExStyle JS, which enables a utility-first workflow, is approximately **9KB**. This is less than 4% of the size of Tailwind CSS v4.2 Play CDN (265KB).
-* **Instant Reflection of Changes**: It monitors DOM changes made via JavaScript or browser developer tools and reflects styling immediately.
+* **Easy Implementation**: Offers the convenience of simply loading a script without the need for complex build processes.
+* **High Flexibility**: Unlike ExStyle CSS, it allows you to combine all CSS properties with a wide variety of prefixes.
+* **Lightweight Script**: While supporting a utility-first workflow, ExStyle JS is only about **9KB**. This is less than 4% of the size of Tailwind CSS v4.2 Play CDN (265KB).
+* **Instant Reflection of Changes**: It monitors DOM changes made via JavaScript or browser developer tools, reflecting styling updates immediately.
 
 ## Usage Examples
 
 ### Loading via the src attribute of a script element
 
-This is the most popular method, but a Flash of Unstyled Content (FOUC) may occur. For actual production use, you may need to implement measures such as adding a loading animation.
+This is the most common method, but it may cause a Flash of Unstyled Content (FOUC). When using this in production, you may need to implement measures such as adding a loading animation.
 
 ```HTML
 <!DOCTYPE html>
@@ -42,7 +42,7 @@ This is the most popular method, but a Flash of Unstyled Content (FOUC) may occu
 
 ### Loading as an inline script
 
-This method involves loading the code as an inline script to avoid the state where unstyled content is visible.
+This method involves loading the script as an inline script to avoid the Flash of Unstyled Content (FOUC).
 
 ```HTML
 <!DOCTYPE html>
@@ -73,6 +73,11 @@ This method involves installing the package within a Node.js build process.
 
 ```Bash
 npm install @exstyle/js
+```
+
+```JS
+import ExStyle from '@exstyle/js';
+new ExStyle().init();
 ```
 
 ---

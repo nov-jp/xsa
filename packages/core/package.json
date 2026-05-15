@@ -2,14 +2,17 @@
 	"name": "@exstyle/core",
 	"version": "1.0.0",
 	"description": "ExStyle の各種パッケージで使用するコアデータとコアスクリプト。",
-	"main": "src/index.js",
-	"scripts": {},
-	"keywords": [ "ExStyle", "Core" ],
-	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",
+	"keywords": [
+		"ExStyle",
+		"Core"
+	],
 	"license": "MIT",
+	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",
 	"type": "module",
 	"exports": {
 		".": "./src/index.js",
 		"./data.json": "./src/data.json"
-	}
+	},
+	"main": "src/index.js",
+	"scripts": {}
 }

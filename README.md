@@ -57,11 +57,11 @@ ExStyleプロパティ を機能させるためのパッケージは複数あり
 
 | パッケージ | 名称 | 動作環境 | メリット | デメリット | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| `@exstyle/css` | ExStyle CSS | ブラウザ | 導入が簡単 | 自由度が低い, 未使用コードを含む | ExStyleプロパティ を厳選・限定した、スクリプトなし・ビルドなしの CSSファイル群。 |
-| `@exstyle/js` | ExStyle JS | ブラウザ | 導入が簡単, 自由度が高い | クライアントサイドに依存 | ExStyleプロパティ から動的に CSSコード を生成し、style要素 で適用するスクリプト。 |
-| `@exstyle/php` | ExStyle PHP | サーバ | 自由度が高い | PHP実行環境が必要 | WordPress等 の PHP実行環境 で ExStyleプロパティ から CSSコード を生成するヘルパークラス。 |
-| `@exstyle/postcss` | ExStyle PostCSS | 開発環境 | 自由度が高い | ビルド環境が必要 | ビルドプロセスに組み込み、ExStyleプロパティ から CSSコード を生成し、CSSファイル への出力を行うツール。 |
-| `@exstyle/ai` | ExStyle AI | ブラウザ, 開発環境 | - | < | AI に ExStyle を理解してもらうための仕様書。 |
+| `@exstyle/css` | ExStyle CSS | ブラウザ | 導入が簡単 | 自由度が低い, 未使用コードを含む | 使用できる ExStyleプロパティ を限定した、スクリプトなし・ビルドなしの CSSファイル群。 |
+| `@exstyle/js` | ExStyle JS | ブラウザ | 導入が簡単, 自由度が高い | クライアントサイドに依存 | ExStyleプロパティ から動的に CSSコード の生成と style要素 への出力を行うスクリプト。 |
+| `@exstyle/php` | ExStyle PHP | サーバ | 自由度が高い | PHP実行環境が必要 | WordPress などの PHP実行環境 で ExStyleプロパティ から CSSコード を生成するヘルパークラス。 |
+| `@exstyle/postcss` | ExStyle PostCSS | 開発環境 | 自由度が高い | ビルド環境が必要 | ビルドプロセスに組み込む、ExStyleプロパティ から CSSコード の生成と CSSファイル への出力を行うツール。 |
+| `@exstyle/ai` | ExStyle AI | ブラウザ, 開発環境 | - | - | AI に ExStyle を理解させ、ExStyleプロパティ を使用した HTMLコード を出力してもらうための仕様書。 |
 
 ## ExStyleプロパティ について
 
@@ -71,9 +71,9 @@ ExStyle は ExStyleプロパティ の命名規則と、名称に則したスタ
 --(QUERY_)?(PSEUDO-CLASS_)?(COMBINATOR(-TREE-STRUCTURE)?_)?(PSEUDO-CLASS_)?(PSEUDO-ELEMENT_)?PROPERTY--
 ```
 
-使用できるクエリ (QUERY), 結合子 (COMBINATOR), ツリー構造 (TREE-STRUCTURE), 擬似クラス (PSEUDO-CLASS), 擬似要素 (PSEUDO-ELEMENT), CSSプロパティ (PROPERTY) は次のとおりです。
+クエリ (QUERY), 結合子 (COMBINATOR), ツリー構造擬似クラス (TREE-STRUCTURE), 擬似クラス (PSEUDO-CLASS), 擬似要素 (PSEUDO-ELEMENT), CSSプロパティ (PROPERTY) に使用できる名称は次のとおりです。
 
-| 分類 | 名称 | CSSコード |
+| 分類 | 名称 | 対応する CSSコード |
 | --- | --- | --- |
 | QUERY | cq-i-s | `@container (inline-size > 480px) and (inline-size > 30rem)` |
 | " | cq-i-m | `@container (inline-size > 720px) and (inline-size > 45rem)` |
@@ -198,6 +198,7 @@ ExStyle CSS で使用可能な CSSプロパティ とプレフィックスこそ
 
 ExStyle はデザイントークンを持たないので、カスタムプロパティで定義しておき、ExStyleプロパティ で使用できるようにしておくことを推奨します。
 デザイントークンは、[Open Props](https://open-props.style/) などでも代用できますが、AI の学習効率・生成効率を優先するなら、基準値とその相対値で定義するのがベストです。
+以下はその一例です。
 
 ```CSS
 :root {
@@ -312,7 +313,7 @@ ExStyle はデザイントークンを持たないので、カスタムプロパ
   <tbody style="
       --c-nth-odd_background--: var(--lowest-gray);
       ">
-    <tr>…</tr>
+    <tr> … </tr>
     …
   </tbody>
 </table>
@@ -377,10 +378,10 @@ ExStyle はデザイントークンを持たないので、カスタムプロパ
 
 ```HTML
 <ul style="--columns--: 4 16em; --column-rule--: dotted var(--line_xf); --column-gap--: var(--sp_l); --c_margin-block-end--: var(--sp_m);">
-  <li>…</li>
-  <li>…</li>
-  <li>…</li>
-  <li>…</li>
+  <li> … </li>
+  <li> … </li>
+  <li> … </li>
+  <li> … </li>
 </ul>
 ```
 
@@ -388,10 +389,10 @@ ExStyle はデザイントークンを持たないので、カスタムプロパ
 
 ```HTML
 <div style="--container-type--: inline-size; --flex-flow--: row wrap; --gap--: var(--sp_m); --c_flex--: 1 1 100%;">
-  <div style="--cq-i-m_flex--: 1 1 0%;">…</div>
-  <div style="--cq-i-m_flex--: 1 1 0%;">…</div>
-  <div style="--cq-i-m_flex--: 1 1 0%;">…</div>
-  <div style="--cq-i-m_flex--: 1 1 0%;">…</div>
+  <div style="--cq-i-m_flex--: 1 1 0%;"> … </div>
+  <div style="--cq-i-m_flex--: 1 1 0%;"> … </div>
+  <div style="--cq-i-m_flex--: 1 1 0%;"> … </div>
+  <div style="--cq-i-m_flex--: 1 1 0%;"> … </div>
 </div>
 ```
 
@@ -399,10 +400,10 @@ ExStyle はデザイントークンを持たないので、カスタムプロパ
 
 ```HTML
 <div style="--container-type--: inline-size; --grid--: auto-flow / repeat(12, 1fr); --gap--: var(--sp_m); --c_grid-area--: auto / span 12;">
-  <div style="--cq-i-m_grid-area--: auto / span 3;">…</div>
-  <div style="--cq-i-m_grid-area--: auto / span 3;">…</div>
-  <div style="--cq-i-m_grid-area--: auto / span 3;">…</div>
-  <div style="--cq-i-m_grid-area--: auto / span 3;">…</div>
+  <div style="--cq-i-m_grid-area--: auto / span 3;"> … </div>
+  <div style="--cq-i-m_grid-area--: auto / span 3;"> … </div>
+  <div style="--cq-i-m_grid-area--: auto / span 3;"> … </div>
+  <div style="--cq-i-m_grid-area--: auto / span 3;"> … </div>
 </div>
 ```
 

@@ -2,9 +2,12 @@
 	"name": "@exstyle/ai",
 	"version": "1.0.0",
 	"description": "AI に ExStyle を理解してもらい、ExStyleプロパティ を使用した HTMLコード を生成してもらうための仕様書。",
-	"scripts": {},
-	"keywords": [ "ExStyle", "AI" ],
-	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",
+	"keywords": [
+		"ExStyle",
+		"AI"
+	],
 	"license": "MIT",
-	"type": "module"
+	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",
+	"type": "module",
+	"scripts": {}
 }

@@ -6,29 +6,29 @@ This text was translated from Japanese by Google Gemini.
 
 # ExStyle PostCSS (@exstyle/postcss)
 
-ExStyle PostCSS is a tool designed to be integrated into the Node.js build process. It generates CSS code from the ExStyle Properties found within HTML code and outputs it as a CSS file.
+ExStyle PostCSS is a tool integrated into the build process that generates CSS code from ExStyle properties found within HTML code and outputs it to a CSS file.
 
-The engine used to generate the CSS code is largely shared with ExStyle JS.
+The engine used to generate the CSS code is nearly identical to that of ExStyle JS.
 
 ## Features
 
-* **High Flexibility**: Unlike ExStyle CSS, you can combine any CSS property with complex prefixes.
-* **High Purity**: By scanning the entire project (HTML, PHP, JS, etc.) and extracting only the ExStyle Properties actually in use, it ensures that no unused CSS code is included in the final output.
-* **Optimized Data and Transfer**: Since the process results in a single CSS file, you can benefit from browser-side caching optimizations.
-* **Superior Developer Experience**: It works seamlessly with HMR (Hot Module Replacement) in tools like Vite and Webpack, reflecting style changes in the browser the moment you save your HTML.
+* **High Flexibility**: Unlike ExStyle CSS, it allows for the combination of all CSS properties with complex prefixes.
+* **High Purity**: It scans the entire project's HTML, PHP, and JS files to extract only the ExStyle properties actually in use, ensuring that no unused CSS code is included in the final bundle.
+* **Optimized Data and Transfer**: Since it results in a single CSS file, it leverages browser caching for maximum optimization.
+* **Superior Developer Experience**: It integrates seamlessly with HMR (Hot Module Replacement) in tools like Vite or Webpack, reflecting changes in the browser the moment you save your HTML.
 
 ## Build Workflow
 
 1. Scans target files such as HTML, PHP, and JS files within the `src` directory.
-2. Extracts the ExStyle Properties used within those files.
-3. Generates CSS code from the extracted properties and outputs it as a CSS file.
+2. Extracts the ExStyle properties being used.
+3. Generates CSS code from those properties and outputs it as a CSS file.
 
 ## Usage Example
 
 ### 1. Installation
 
 ```Bash
-npm install -D postcss @exstyle/postcss
+npm install @exstyle/postcss
 ```
 
 ### 2. Configuration
@@ -51,18 +51,18 @@ export default ( { env } ) => ( {
       minify: true,
     } ),
 
-    // Handle browser compatibility
+    // Process for browser compatibility
     autoprefixer(),
 
-    // Compress CSS file
+    // CSS compression
     ( 'production' === env ? cssnano() : null )
   ].filter( Boolean );
 } );
 ```
 
-Since PostCSS performs static text analysis during the build, it may not be able to pick up variable names dynamically constructed in JavaScript, such as `var(--${varName})`.
+Since PostCSS performs static text analysis during the build, it may be unable to pick up dynamically constructed variable names in JS, such as `var(--${varName})`.
 
-ExStyle is a meta-framework designed to establish styling infrastructure, meaning it can coexist with existing frameworks. The following code is an example of coexisting with Tailwind CSS.
+As ExStyle is a meta-framework designed to establish a styling infrastructure, it can coexist with existing frameworks. The following code is an example of coexisting with Tailwind CSS.
 
 ```postcss.config.js
 import tailwindcss from 'tailwindcss';
@@ -86,16 +86,16 @@ export default ( { env } ) => ( {
       minify: true,
     } ),
 
-    // Handle browser compatibility
+    // Process for browser compatibility
     autoprefixer(),
 
-    // Compress CSS file
+    // CSS compression
     ( 'production' === env ? cssnano() : null )
   ].filter( Boolean );
 } );
 ```
 
-While such concurrent use is possible, please be aware that when selector specificity is equal, the priority will be determined by the order of the PostCSS plugin declarations or the CSS loading order.
+While concurrent use is possible, care must be taken regarding priority; if selector specificity is equal, the order is determined by the PostCSS plugin sequence or the CSS loading order.
 
 ---
 

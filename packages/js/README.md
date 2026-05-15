@@ -4,7 +4,7 @@
 
 # ExStyle JS (@exstyle/js)
 
-ExStyle JS は、リアルタイムで HTMLコード内 の ExStyleプロパティ を解析し、CSSコード を生成、style要素 で適用するスクリプトです。
+ExStyle JS は、リアルタイムで HTMLコード内 の ExStyleプロパティ を解析し、CSSコード の生成と style要素 への出力を行うスクリプトです。
 
 ## 特徴
 
@@ -71,6 +71,11 @@ Node.js のビルドプロセスでインストールする方法です。
 
 ```Bash
 npm install @exstyle/js
+```
+
+```JS
+import ExStyle from '@exstyle/js';
+new ExStyle().init();
 ```
 
 ---

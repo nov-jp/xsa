@@ -6,10 +6,10 @@ This text was translated from Japanese by Google Gemini.
 
 # ExStyle Core (@exstyle/core)
 
-Core data used by various ExStyle packages.
+Core data and core scripts used across various ExStyle packages.
 
-The **data.json** file consolidates all metadata regarding ExStyle Property prefixes and their corresponding CSS properties.
-Note that the sequence of data within this file directly dictates the cascade and sort order of the generated CSS code.
+The `data.json` file contains compiled data regarding ExStyle property prefixes and properties.
+The order of the data significantly affects the sequence of the generated CSS code.
 
 ---
 

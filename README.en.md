@@ -6,31 +6,31 @@ This text was translated from Japanese by Google Gemini.
 
 # ExStyle (@exstyle)
 
-ExStyle is a meta-framework designed to establish a "styling infrastructure" that pushes the boundaries of the HTML `style` attribute by leveraging CSS Custom Properties and Attribute Selectors.
+ExStyle is a styling infrastructure meta-framework that breaks the limits of the HTML `style` attribute by leveraging CSS custom properties and attribute selectors.
 
-It elevates the traditional idealism of "HTML for structure, CSS for appearance" into the practical reality of "**HTML as a Design Specification,**" enabling the construction of websites that balance creativity with rational efficiency.
+It elevates the traditional ideal of "HTML for structure, CSS for presentation" into the practical reality of "HTML as a blueprint," enabling the construction of websites that balance creativity with logical reasoning.
 
 ## Overview
 
-A CSS property wrapped in double hyphens, such as `--property--`, is converted into a Custom Property known as an **ExStyle Property**. When this ExStyle Property is set within a `style` attribute:
+A CSS property wrapped in double hyphens, such as `--css-property--`, is defined as an **ExStyle Property**. When you set an ExStyle Property within a `style` attribute:
 
 ```HTML
 <p style="--color--: var(--red);"> … </p>
 ```
 
-It establishes a styling infrastructure where the value is applied to that specific CSS property:
+It establishes a styling infrastructure where the value is applied to the corresponding CSS property.
 
 ```CSS
 [style*="--color--:"] { color: var(--color--); }
 ```
 
-Typically, the `style` attribute can only target the element it is defined on. However, by combining **Custom Property inheritance** with **specialized prefixes**, ExStyle enables:
+While the standard `style` attribute is limited to styling the element it is attached to, ExStyle utilizes custom property inheritance and specific prefixes to enable:
 
 ```HTML
-<ul style="--cq-i-s_hover_c-first-child_active_after_content--: 'Hello, World!';"> … </ul>
+<ul style="--cq-i-s_hover_c-first-child_active_after_content--: 'Hello, World!';" … </ul>
 ```
 
-styling of descendant and pseudo-elements, as well as conditional branching via Media Queries, Container Queries, and Pseudo-classes.
+Styling of descendants and pseudo-elements, as well as conditional branching via Media Queries, Container Queries, and pseudo-classes.
 
 ```CSS
 @container (inline-size > 480px) and (inline-size > 30rem) {
@@ -38,42 +38,42 @@ styling of descendant and pseudo-elements, as well as conditional branching via 
 }
 ```
 
-This is the **Extended Style attribute**, or ExStyle.
+This is the "Extended Style attribute" - **ExStyle**.
 
 ## Features
 
-* **Adherence to Web Standards**: Realizes the ideal state where the `class` attribute holds logical/semantic values and the `style` attribute holds physical/presentational values.
-* **Consolidation into HTML**: Enables a "Utility-First" workflow, allowing for rapid web page development.
-* **Code Minimization**: Eliminates the need for single-purpose class values (e.g., `.what-do`). By decoupling into `--what--` and `var(--do)`, total CSS code is reduced.
-* **No `!important` Required**: ExStyle CSS code generally has the specificity of a single attribute selector, allowing for easy overrides or resets without `!important`.
-* **High Versatility**: ExStyle Properties allow for free value assignment, meaning no specific design tokens are enforced.
-* **Low Learning Curve**: Since it only requires adding `--` and prefixes to standard CSS properties, it is accessible even to CSS beginners.
-* **AI-Friendly**: The explicit mapping of `--what--` and `var(--do)` makes it easy for AI to learn and ideal for "vibe coding."
-* **UI-Friendly**: Values entered into a UI can be mapped directly to ExStyle Properties, making it highly compatible with CMSs like WordPress, as well as no-code/low-code applications.
+* **Web Standards Compliance**: Achieves the ideal state where the `class` attribute handles logical values and the `style` attribute handles physical/visual values.
+* **HTML Consolidation**: Allows for a utility-first workflow, enabling rapid webpage development.
+* **Code Minimization**: Eliminates the need for single-purpose classes like `.what-do`. By separating logic into `--what--` and `var(--do)`, CSS boilerplate is significantly reduced.
+* **No !important Needed**: ExStyle CSS typically uses a single attribute selector's specificity, allowing for easy overrides or resets without resorting to `!important`.
+* **High Versatility**: Does not force specific design tokens; ExStyle properties accept any valid value.
+* **Low Learning Curve**: Since it simply involves adding `--` and prefixes to standard CSS properties, it is accessible to CSS beginners.
+* **AI-Friendly**: The clear structure of `--what--` and `var(--do)` results in low training overhead for AI, making it ideal for "Vibe Coding."
+* **UI-Friendly**: Since UI input values can be mapped directly to ExStyle properties, it integrates seamlessly with CMSs like WordPress and no-code/low-code applications.
 
 ## Packages
 
-Multiple packages are available to make ExStyle Properties functional. Choose the one best suited for your project.
+Multiple packages are available to power ExStyle properties. Choose the best fit for your project.
 
 | Package | Name | Environment | Pros | Cons | Description |
 | --- | --- | --- | --- | --- | --- |
-| `@exstyle/css` | ExStyle CSS | Browser | Easy to implement | Low flexibility, includes unused code | A collection of CSS files with selected/limited ExStyle Properties. No scripts or build required. |
-| `@exstyle/js` | ExStyle JS | Browser | Easy to implement, high flexibility | Dependent on client-side | A script that dynamically generates CSS from ExStyle Properties and applies them via `style` elements. |
-| `@exstyle/php` | ExStyle PHP | Server | High flexibility | Requires PHP environment | A helper class for PHP environments (like WordPress) to generate CSS code from ExStyle Properties. |
-| `@exstyle/postcss` | ExStyle PostCSS | Dev Env | High flexibility | Requires build environment | A tool integrated into the build process to generate and output CSS from ExStyle Properties into CSS files. |
-| `@exstyle/ai` | ExStyle AI | Browser/Dev | - | - | Specifications designed for AI to understand ExStyle. |
+| `@exstyle/css` | ExStyle CSS | Browser | Easy to install | Low flexibility; includes unused code | A collection of scriptless, buildless CSS files with a predefined set of ExStyle properties. |
+| `@exstyle/js` | ExStyle JS | Browser | Easy to install; high flexibility | Dependency on client-side JS | A script that dynamically generates CSS and injects it into a `style` element based on ExStyle properties. |
+| `@exstyle/php` | ExStyle PHP | Server | High flexibility | Requires PHP environment | A helper class for generating CSS from ExStyle properties in environments like WordPress. |
+| `@exstyle/postcss` | ExStyle PostCSS | Build Environment | High flexibility | Requires build setup | A tool integrated into the build process to generate CSS from ExStyle properties and output it to a CSS file. |
+| `@exstyle/ai` | ExStyle AI | Browser / Build Env | - | - | A specification set to help AI understand ExStyle and output HTML code using ExStyle properties. |
 
 ## About ExStyle Properties
 
-ExStyle establishes a naming convention for ExStyle Properties and the corresponding styling infrastructure. The convention can be expressed with the following regex:
+ExStyle establishes a naming convention for properties and the infrastructure that supports them. The naming convention can be expressed by the following regular expression:
 
 ```
 --(QUERY_)?(PSEUDO-CLASS_)?(COMBINATOR(-TREE-STRUCTURE)?_)?(PSEUDO-CLASS_)?(PSEUDO-ELEMENT_)?PROPERTY--
 ```
 
-The available Queries, Combinators, Tree Structures, Pseudo-classes, Pseudo-elements, and CSS Properties are as follows:
+The available names for Query (QUERY), Combinator (COMBINATOR), Tree-structure pseudo-classes (TREE-STRUCTURE), Pseudo-classes (PSEUDO-CLASS), Pseudo-elements (PSEUDO-ELEMENT), and CSS Properties (PROPERTY) are as follows:
 
-| Category | Name | CSS Code |
+| Category | Name | Corresponding CSS |
 | --- | --- | --- |
 | QUERY | cq-i-s | `@container (inline-size > 480px) and (inline-size > 30rem)` |
 | " | cq-i-m | `@container (inline-size > 720px) and (inline-size > 45rem)` |
@@ -192,61 +192,61 @@ The available Queries, Combinators, Tree Structures, Pseudo-classes, Pseudo-elem
 | " | text-stroke | `& { -webkit-text-stroke: var(--(PREFIX_)?text-stroke--); text-stroke: var(--(PREFIX_)?text-stroke--); }` <br> `:not(_):not(_):where(&) { paint-order: stroke; background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
 | " | x-text-marker | `& { text-decoration: underline 50% var(--(PREFIX_)?x-text-marker--); }` <br> `:not(_):not(_):where(&) { text-decoration-skip-ink: none; text-underline-offset: -50%; text-underline-position: under; background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
 
-While the properties and prefixes available in ExStyle CSS are limited, ExStyle JS, ExStyle PHP, and ExStyle PostCSS allow all CSS properties to be used with various prefixes.
+While **ExStyle CSS** is limited to specific properties and prefixes, **ExStyle JS**, **ExStyle PHP**, and **ExStyle PostCSS** allow any CSS property to be used with a wide array of prefixes.
 
-## About Design Tokens
+## Design Tokens
 
-Since ExStyle does not include design tokens, it is recommended to define them using Custom Properties and use them within ExStyle Properties.
-While tokens from libraries like [Open Props](https://open-props.style/) can be used, defining them with base values and relative adjustments is best for prioritizing AI training and generation efficiency.
+ExStyle does not come with built-in design tokens. It is recommended to define them as custom properties to be used within ExStyle properties.
+While [Open Props](https://open-props.style/) is a great alternative, for maximum AI training and generation efficiency, it is best to define tokens based on base values and their relative scales. Below is an example:
 
 ```CSS
 :root {
-  /* Alpha values. Based on m (middle), ranging from xl (extra low) to xh (extra high). */
-  --alpha_xl: 12.5%; /* calc(100% * 1 / 8) */
-  --alpha_l:  25%;   /* calc(100% * 1 / 4) */
-  --alpha_m:  50%;   /* calc(100% * 1 / 2) */
-  --alpha_h:  75%;   /* calc(100% * 3 / 4) */
-  --alpha_xh: 87.5%; /* calc(100% * 7 / 8) */
+  /* Alpha values. Based on m (middle), from xl (extra low) to xh (extra high). */
+  --alpha_xl: 12.5%;
+  --alpha_l:  25%;
+  --alpha_m:  50%;
+  --alpha_h:  75%;
+  --alpha_xh: 87.5%;
 
-  /* Size per character. Based on m (medium), ranging from xxs (double extra small) to xxxl (triple extra large). */
-  --em_xxs:  0.666666em; /* calc(1em * 6 / 9) */
-  --em_xs:   0.75em;      /* calc(1em * 6 / 8) */
-  --em_s:    0.857142em; /* calc(1em * 6 / 7) */
-  --em_m:    1em;        /* calc(1em * 6 / 6) */
-  --em_l:    1.2em;      /* calc(1em * 6 / 5) */
-  --em_xl:   1.5em;      /* calc(1em * 6 / 4) */
-  --em_xxl:  2em;        /* calc(1em * 6 / 3) */
-  --em_xxxl: 3em;        /* calc(1em * 6 / 2) */
+  /* Font sizing (em). Based on m (medium). */
+  --em_xxs:  0.666666em;
+  --em_xs:   0.75em;
+  --em_s:    0.857142em;
+  --em_m:    1em;
+  --em_l:    1.2em;
+  --em_xl:   1.5em;
+  --em_xxl:  2em;
+  --em_xxxl: 3em;
 
-  /* Shadows per elevation level. Based on m (middle), ranging from xl (extra low) to xh (extra high). */
-  --eval_xl: 0 1px 4px -1px;    /* 0 calc(4px * 1 / 4) calc(16px * 1 / 4) calc(-4px * 1 / 4) */
-  --eval_l:  0 2px 8px -2px;    /* 0 calc(4px * 1 / 2) calc(16px * 1 / 2) calc(-4px * 1 / 2) */
-  --eval_m:  0 4px 16px -4px;   /* 0 calc(4px * 1)      calc(16px * 1)      calc(-4px * 1) */
-  --eval_h:  0 8px 32px -8px;   /* 0 calc(4px * 2)      calc(16px * 2)      calc(-4px * 2) */
-  --eval_xh: 0 16px 64px -16px; /* 0 calc(4px * 4)      calc(16px * 4)      calc(-4px * 4) */
+  /* Elevation shadows. Based on m (middle). */
+  --eval_xl: 0 1px 4px -1px;
+  --eval_l:  0 2px 8px -2px;
+  --eval_m:  0 4px 16px -4px;
+  --eval_h:  0 8px 32px -8px;
+  --eval_xh: 0 16px 64px -16px;
 
-  /* Line thickness. Based on m (medium), ranging from xf (extra fine) to xb (extra broad). */
-  --line_xf: 1px;  /* calc(4px * 1 / 4) */
-  --line_f:  2px;  /* calc(4px * 1 / 2) */
-  --line_m:  4px;  /* calc(4px * 1) */
-  --line_b:  8px;  /* calc(4px * 2) */
-  --line_xb: 16px; /* calc(4px * 4) */
+  /* Line thickness. Based on m (medium). */
+  --line_xf: 1px;
+  --line_f:  2px;
+  --line_m:  4px;
+  --line_b:  8px;
+  --line_xb: 16px;
 
-  /* Border radius. Based on m (medium), ranging from xs (extra small) to xl (extra large). */
-  --radius_xs: 2px;  /* calc(8px * 1 / 4) */
-  --radius_s:  4px;  /* calc(8px * 1 / 2) */
-  --radius_m:  8px;  /* calc(8px * 1) */
-  --radius_l:  16px; /* calc(8px * 2) */
-  --radius_xl: 32px; /* calc(8px * 4) */
+  /* Border radius. Based on m (medium). */
+  --radius_xs: 2px;
+  --radius_s:  4px;
+  --radius_m:  8px;
+  --radius_l:  16px;
+  --radius_xl: 32px;
 
-  /* Spacing amount. Based on m (medium), ranging from xxs (double extra small) to xxl (double extra large). */
-  --sp_xxs: 0.125rem; /* calc(1rem * 1 / 8) */
-  --sp_xs:  0.25rem;  /* calc(1rem * 1 / 4) */
-  --sp_s:   0.5rem;   /* calc(1rem * 1 / 2) */
-  --sp_m:   1rem;     /* calc(1rem * 1) */
-  --sp_l:   2rem;     /* calc(1rem * 2) */
-  --sp_xl:  4rem;     /* calc(1rem * 4) */
-  --sp_xxl: 8rem;     /* calc(1rem * 8) */
+  /* Spacing/Margins. Based on m (medium). */
+  --sp_xxs: 0.125rem;
+  --sp_xs:  0.25rem;
+  --sp_s:   0.5rem;
+  --sp_m:   1rem;
+  --sp_l:   2rem;
+  --sp_xl:  4rem;
+  --sp_xxl: 8rem;
 
   /* Base Colors */
   --red:    #f75;
@@ -261,7 +261,7 @@ While tokens from libraries like [Open Props](https://open-props.style/) can be 
   --light-dark: light-dark(var(--white), var(--black));
   --dark-light: light-dark(var(--black), var(--white));
 
-  /* Contrast-based color palette compatible with color modes */
+  /* Color Palette based on contrast corresponding to color mode */
   --lowest-red:     color-mix(in srgb, var(--light-dark), var(--red) var(--alpha_xl));
   --lowest-yellow:  color-mix(in srgb, var(--light-dark), var(--yellow) var(--alpha_xl));
   --lowest-green:   color-mix(in srgb, var(--light-dark), var(--green) var(--alpha_xl));
@@ -295,9 +295,9 @@ While tokens from libraries like [Open Props](https://open-props.style/) can be 
 }
 ```
 
-## Usage Examples of ExStyle Properties
+## Usage Examples
 
-### Table Styling
+### Table Decoration
 
 ```HTML
 <table style="
@@ -312,21 +312,21 @@ While tokens from libraries like [Open Props](https://open-props.style/) can be 
   <tbody style="
       --c-nth-odd_background--: var(--lowest-gray);
       ">
-    <tr>…</tr>
+    <tr> … </tr>
     …
   </tbody>
 </table>
 ```
 
-### Component Extension 1
+### Component Extension Example 1
 
 ```HTML
 <style>
 .button {
   border-style: solid;
-  inline-size: auto; /* Ignored even if --inline-size-- is set */
+  inline-size: auto; /* Ignores --inline-size-- even if set */
   …
-  /* Default settings if ExStyle Properties are not set */
+  /* Default settings if ExStyle properties are not set */
   &:not([style*="--background--:"]) {
     background: none;
   }
@@ -345,15 +345,15 @@ While tokens from libraries like [Open Props](https://open-props.style/) can be 
 <p><button class="button">Outlined Button</button></p>
 <p><button class="button" style="--background--: var(--red); --color--: var(--white);">Red Button</button></p>
 <p><button class="button" style="--border-radius--: var(--radius_xl);">Rounded Button</button></p>
-<p><button class="button" style="--inline-size--: 50%;">Wide Button</button></p><!-- Will not become wide due to inline-size: auto; -->
+<p><button class="button" style="--inline-size--: 50%;">Wide Button</button></p><!-- Won't be wide due to inline-size: auto; override -->
 ```
 
-### Component Extension 2
+### Component Extension Example 2
 
 ```HTML
 <style>
 .button {
-  /* Default settings if not overridden by ExStyle Properties */
+  /* Default settings if not overridden by ExStyle properties */
   --background--: none;
   --border-width--: var(--line_xf);
   --border-color--: transparent;
@@ -362,25 +362,20 @@ While tokens from libraries like [Open Props](https://open-props.style/) can be 
   background: var(--background--);
   border: solid var(--border-width--) var(--border-color--);
   color: var(--color--);
-  inline-size: auto; /* Ignored even if --inline-size-- is set */
+  inline-size: auto; /* Ignores --inline-size-- even if set */
   …
 }
 </style>
-…
-<p><button class="button">Outlined Button</button></p>
-<p><button class="button" style="--background--: var(--red); --color--: var(--white);">Red Button</button></p>
-<p><button class="button" style="--border-radius--: var(--radius_xl);">Rounded Button</button></p>
-<p><button class="button" style="--inline-size--: 50%;">Wide Button</button></p><!-- Will not become wide due to inline-size: auto; -->
 ```
 
 ### Column Layout
 
 ```HTML
 <ul style="--columns--: 4 16em; --column-rule--: dotted var(--line_xf); --column-gap--: var(--sp_l); --c_margin-block-end--: var(--sp_m);">
-  <li>…</li>
-  <li>…</li>
-  <li>…</li>
-  <li>…</li>
+  <li> … </li>
+  <li> … </li>
+  <li> … </li>
+  <li> … </li>
 </ul>
 ```
 
@@ -388,10 +383,10 @@ While tokens from libraries like [Open Props](https://open-props.style/) can be 
 
 ```HTML
 <div style="--container-type--: inline-size; --flex-flow--: row wrap; --gap--: var(--sp_m); --c_flex--: 1 1 100%;">
-  <div style="--cq-i-m_flex--: 1 1 0%;">…</div>
-  <div style="--cq-i-m_flex--: 1 1 0%;">…</div>
-  <div style="--cq-i-m_flex--: 1 1 0%;">…</div>
-  <div style="--cq-i-m_flex--: 1 1 0%;">…</div>
+  <div style="--cq-i-m_flex--: 1 1 0%;"> … </div>
+  <div style="--cq-i-m_flex--: 1 1 0%;"> … </div>
+  <div style="--cq-i-m_flex--: 1 1 0%;"> … </div>
+  <div style="--cq-i-m_flex--: 1 1 0%;"> … </div>
 </div>
 ```
 
@@ -399,10 +394,10 @@ While tokens from libraries like [Open Props](https://open-props.style/) can be 
 
 ```HTML
 <div style="--container-type--: inline-size; --grid--: auto-flow / repeat(12, 1fr); --gap--: var(--sp_m); --c_grid-area--: auto / span 12;">
-  <div style="--cq-i-m_grid-area--: auto / span 3;">…</div>
-  <div style="--cq-i-m_grid-area--: auto / span 3;">…</div>
-  <div style="--cq-i-m_grid-area--: auto / span 3;">…</div>
-  <div style="--cq-i-m_grid-area--: auto / span 3;">…</div>
+  <div style="--cq-i-m_grid-area--: auto / span 3;"> … </div>
+  <div style="--cq-i-m_grid-area--: auto / span 3;"> … </div>
+  <div style="--cq-i-m_grid-area--: auto / span 3;"> … </div>
+  <div style="--cq-i-m_grid-area--: auto / span 3;"> … </div>
 </div>
 ```
 

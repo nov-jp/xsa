@@ -2,14 +2,44 @@
 	"name": "@exstyle/css",
 	"version": "1.0.0",
 	"description": "厳選した ExStyleプロパティ を収録した CSSファイル群。",
+	"keywords": [
+		"ExStyle",
+		"CSS"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nov-jp/exstyle.git",
+		"directory": "packages/css"
+	},
+	"license": "MIT",
+	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",
+	"type": "module",
+	"exports": {
+		".": "./dist/exstyle.min.css",
+		"./box-margin": "./dist/exstyle-box-margin.min.css",
+		"./box-padding": "./dist/exstyle-box-padding.min.css",
+		"./color": "./dist/exstyle-color.min.css",
+		"./effects": "./dist/exstyle-effects.min.css",
+		"./layout": "./dist/exstyle-layout.min.css",
+		"./lists": "./dist/exstyle-lists.min.css",
+		"./sizing": "./dist/exstyle-sizing.min.css",
+		"./tables": "./dist/exstyle-tables.min.css",
+		"./text": "./dist/exstyle-text.min.css"
+	},
+	"main": "dist/exstyle.min.css",
+	"style": "dist/exstyle.min.css",
+	"files": [
+		"dist",
+		"README.md",
+		"README.en.md"
+	],
 	"scripts": {
 		"build": "node build.js"
 	},
-	"keywords": [ "ExStyle", "CSS" ],
-	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",
-	"license": "MIT",
-	"type": "module",
 	"devDependencies": {
 		"lightningcss": "^1.32.0"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }

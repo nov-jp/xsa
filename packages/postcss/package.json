@@ -2,17 +2,38 @@
 	"name": "@exstyle/postcss",
 	"version": "1.0.0",
 	"description": "ビルドプロセスに組み込む、HTMLコード内 の ExStyleプロパティ から CSSコード の生成と CSSファイル の出力を行うツール。",
-	"main": "index.js",
-	"scripts": {},
-	"keywords": [ "ExStyle", "PostCSS" ],
-	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",
-	"license": "MIT",
-	"type": "module",
-	"peerDependencies": {
-		"postcss": "^8.0.0"
+	"keywords": [
+		"ExStyle",
+		"PostCSS"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nov-jp/exstyle.git",
+		"directory": "packages/postcss"
 	},
+	"license": "MIT",
+	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",
+	"type": "module",
+	"exports": {
+		".": "./src/index.js"
+	},
+	"main": "src/index.js",
+	"types": "src/index.d.ts",
+	"files": [
+		"src/index.d.ts",
+		"src/index.js",
+		"README.md",
+		"README.en.md"
+	],
+	"scripts": {},
 	"dependencies": {
 		"@exstyle/core": "*",
 		"glob": "^10.0.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.0.0"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }

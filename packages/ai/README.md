@@ -12,7 +12,7 @@ AI の利用形態に合わせて、以下の3つの方法が効果的です。
 
 新しいセッション・チャットを始める際、最初にマニュアルを流し込みます。
 
-> 次の YAML を理解して、ExStyleプロパティ を使用した HTMLコード を生成してください。
+> 次の YAML を理解して、ExStyleプロパティ を使用した HTMLコード を生成してください。  
 > https://raw.githubusercontent.com/nov-jp/exstyle/refs/heads/main/packages/ai/exstyle.yaml
 
 ## 2. カスタム指示

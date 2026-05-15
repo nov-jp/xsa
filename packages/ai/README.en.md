@@ -6,24 +6,24 @@ This text was translated from Japanese by Google Gemini.
 
 # ExStyle AI (@exstyle/ai)
 
-By providing **exstyle.yaml** to an AI, you can train it to understand the ExStyle logic and generate HTML code utilizing ExStyle Properties.
+By providing `exstyle.yaml` to an AI, you can enable it to understand the rules of ExStyle and generate HTML code utilizing ExStyle properties.
 
-Depending on your AI workflow, the following three methods are most effective:
+Depending on how you use the AI, the following three methods are effective:
 
-## 1. Prompt Injection (Context Seeding)
+## 1. Paste at the Beginning of the Prompt
 
-When starting a new session or chat, feed the manual as the initial context.
+When starting a new session or chat, feed the manual in first.
 
-> The following YAML is the ExStyle specification. Please internalize these rules and generate HTML code using ExStyle Properties from now on.
-> https://raw.githubusercontent.com/nov-jp/exstyle/refs/heads/main/packages/ai/exstyle.yaml
+> Please understand the following YAML and generate HTML code using ExStyle properties.
+> [https://raw.githubusercontent.com/nov-jp/exstyle/refs/heads/main/packages/ai/exstyle.yaml](https://raw.githubusercontent.com/nov-jp/exstyle/refs/heads/main/packages/ai/exstyle.yaml)
 
-## 2. System Instructions / Knowledge Bases
+## 2. Custom Instructions
 
-For persistent workflows, embed the specification into persistent configurations such as ChatGPT's **"Custom Instructions,"** Claude's **"Projects,"** or Gemini's **"Gems."** Include a core directive in the system prompt like: "Always output HTML code utilizing ExStyle Properties."
+Make `exstyle.yaml` a permanent part of the AI's context using ChatGPT's "Custom Instructions," Claude's "Projects," or Gemini's "Gems." Include the instruction "Output HTML code using ExStyle properties" within your prompt.
 
-## 3. Direct Source Code Analysis
+## 3. Direct Loading of ExStyle JS or ExStyle PHP
 
-For models with advanced file analysis capabilities (e.g., GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro), attaching the actual **exstyle.js** or **exstyle.php** source code is highly effective. The AI will reverse-engineer the logic directly from the implementation to ensure accurate property generation.
+For models with high file-analysis capabilities like GPT-4o or Claude, it is also effective to directly attach the source code of `exstyle.js` or `exstyle.php`.
 
 ---
 
