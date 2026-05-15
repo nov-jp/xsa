@@ -305,9 +305,9 @@ While [Open Props](https://open-props.style/) is a great alternative, for maximu
     --border-collapse--: collapse;
     --inline-size--: 100%;
     --table-layout--: fixed;
-    --c2-of-td-th_border--: var(--border--);
-    --c2-of-td-th_padding-block--: var(--sp_s);
-    --c2-of-td-th_padding-inline--: var(--sp_m);
+    --c3-of-td-th_border--: var(--border--);
+    --c3-of-td-th_padding-block--: var(--sp_s);
+    --c3-of-td-th_padding-inline--: var(--sp_m);
     ">
   <tbody style="
       --c-nth-odd_background--: var(--lowest-gray);
