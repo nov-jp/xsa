@@ -27,14 +27,14 @@ It establishes a styling infrastructure where the value is applied to the corres
 While the standard `style` attribute is limited to styling the element it is attached to, ExStyle utilizes custom property inheritance and specific prefixes to enable:
 
 ```HTML
-<ul style="--cq-i-s_hover_c-nth-2np1-of-attr-style_active_after_content--: 'Hello, World!';" … </ul>
+<ul style="--cqi-s_hover_c-nth-2np1-of-attr-style_active_after_content--: 'Hello, World!';" … </ul>
 ```
 
 Styling of descendants and pseudo-elements, as well as conditional branching via Media Queries, Container Queries, and pseudo-classes.
 
 ```CSS
 @container (inline-size > 480px) and (inline-size > 30rem) {
-  [style*="--cq-i-s_hover_c-nth-2np1-of-attr-style_active_after_content--:"]:where(:hover) > *:where(:nth-child(2n+1 of [style])):where(:active)::after { content: var(--cq-i-s_hover_c-nth-2np1-of-attr-style_active_after_content--); }
+  [style*="--cqi-s_hover_c-nth-2np1-of-attr-style_active_after_content--:"]:where(:hover) > *:where(:nth-child(2n+1 of [style])):where(:active)::after { content: var(--cqi-s_hover_c-nth-2np1-of-attr-style_active_after_content--); }
 }
 ```
 
@@ -74,14 +74,22 @@ The available names for QUERY (Queries), COMBINATOR (Combinators), TREE-STRUCTUR
 
 | Category | Name | Corresponding CSS |
 | --- | --- | --- |
-| QUERY | cq-i-s | `@container (inline-size > 480px) and (inline-size > 30rem)` |
-| " | cq-i-m | `@container (inline-size > 720px) and (inline-size > 45rem)` |
-| " | cq-i-l | `@container (inline-size > 960px) and (inline-size > 60rem)` |
-| " | cq-i-xl | `@container (inline-size > 1200px) and (inline-size > 75rem)` |
-| " | mq-w-s | `@media (width > 480px) and (width > 30rem)` |
-| " | mq-w-m | `@media (width > 720px) and (width > 45rem)` |
-| " | mq-w-l | `@media (width > 960px) and (width > 60rem)` |
-| " | mq-w-xl | `@media (width > 1200px) and (width > 75rem)` |
+| QUERY | cqb-s | `@container (block-size > 480px) and (block-size > 30rem)` |
+| " | cqb-m | `@container (block-size > 720px) and (block-size > 45rem)` |
+| " | cqb-l | `@container (block-size > 960px) and (block-size > 60rem)` |
+| " | cqb-xl | `@container (block-size > 1200px) and (block-size > 75rem)` |
+| " | cqi-s | `@container (inline-size > 480px) and (inline-size > 30rem)` |
+| " | cqi-m | `@container (inline-size > 720px) and (inline-size > 45rem)` |
+| " | cqi-l | `@container (inline-size > 960px) and (inline-size > 60rem)` |
+| " | cqi-xl | `@container (inline-size > 1200px) and (inline-size > 75rem)` |
+| " | vh-s | `@media (height > 480px) and (height > 30rem)` |
+| " | vh-m | `@media (height > 720px) and (height > 45rem)` |
+| " | vh-l | `@media (height > 960px) and (height > 60rem)` |
+| " | vh-xl | `@media (height > 1200px) and (height > 75rem)` |
+| " | vw-s | `@media (width > 480px) and (width > 30rem)` |
+| " | vw-m | `@media (width > 720px) and (width > 45rem)` |
+| " | vw-l | `@media (width > 960px) and (width > 60rem)` |
+| " | vw-xl | `@media (width > 1200px) and (width > 75rem)` |
 | COMBINATOR | d | `& *` |
 | " | c | `& > *` |
 | " | c2 | `& > * > *` |
@@ -379,10 +387,10 @@ While [Open Props](https://open-props.style/) is a great alternative, for maximu
 
 ```HTML
 <div style="--container-type--: inline-size; --flex-flow--: row wrap; --gap--: var(--sp_m); --c_flex--: 1 1 100%;">
-  <div style="--cq-i-m_flex--: 1 1 0%;"> … </div>
-  <div style="--cq-i-m_flex--: 1 1 0%;"> … </div>
-  <div style="--cq-i-m_flex--: 1 1 0%;"> … </div>
-  <div style="--cq-i-m_flex--: 1 1 0%;"> … </div>
+  <div style="--cqi-m_flex--: 1 1 0%;"> … </div>
+  <div style="--cqi-m_flex--: 1 1 0%;"> … </div>
+  <div style="--cqi-m_flex--: 1 1 0%;"> … </div>
+  <div style="--cqi-m_flex--: 1 1 0%;"> … </div>
 </div>
 ```
 
@@ -390,10 +398,10 @@ While [Open Props](https://open-props.style/) is a great alternative, for maximu
 
 ```HTML
 <div style="--container-type--: inline-size; --grid--: auto-flow / repeat(12, 1fr); --gap--: var(--sp_m); --c_grid-area--: auto / span 12;">
-  <div style="--cq-i-m_grid-area--: auto / span 3;"> … </div>
-  <div style="--cq-i-m_grid-area--: auto / span 3;"> … </div>
-  <div style="--cq-i-m_grid-area--: auto / span 3;"> … </div>
-  <div style="--cq-i-m_grid-area--: auto / span 3;"> … </div>
+  <div style="--cqi-m_grid-area--: auto / span 3;"> … </div>
+  <div style="--cqi-m_grid-area--: auto / span 3;"> … </div>
+  <div style="--cqi-m_grid-area--: auto / span 3;"> … </div>
+  <div style="--cqi-m_grid-area--: auto / span 3;"> … </div>
 </div>
 ```
 

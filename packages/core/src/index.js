@@ -58,7 +58,7 @@ export class ExStyleCore {
 
 	// 解析
 	_parseExStyle( varName ) {
-		const parts = varName.replace( /^--|--$/g, '' ).split( '_' ); // '--cq-i-s_hover_c-nth-m2np4-of-p_active_after_content--' => [ 'cq-i-s', 'hover', 'c-nth-m2np4-of-p', 'active', 'after', 'content' ]
+		const parts = varName.replace( /^--|--$/g, '' ).split( '_' ); // '--cqi-s_hover_c-nth-m2np4-of-p_active_after_content--' => [ 'cq-i-s', 'hover', 'c-nth-m2np4-of-p', 'active', 'after', 'content' ]
 
 		const slot = {
 			query: null,
@@ -145,7 +145,7 @@ export class ExStyleCore {
 		const body = this._properties[ slot.prop ] ? this._properties[ slot.prop ].replace( '/*@prop@*/', varName ).replace( '/*@layout_style@*/', this._layoutStyle ).replace( '/*@column_style@*/', this._columnStyle ).replace( '/*@text_style@*/', this._textStyle ) : `${ slot.prop }:var(${ varName });`;
 		return {
 			selector: `[style*="${ varName }:"]`,
-			css: `&${ slot.pC1Val }${ slot.dVal }${ slot.pC2Val }${ slot.pEVal }{${ body }}` // '&:hover>*:nth-child(-2n+4 of p):active::after{content:var(--cq-i-s_hover_c-nth-m2np4-of-p_active_after_content--);}'
+			css: `&${ slot.pC1Val }${ slot.dVal }${ slot.pC2Val }${ slot.pEVal }{${ body }}` // '&:hover>*:nth-child(-2n+4 of p):active::after{content:var(--cqi-s_hover_c-nth-m2np4-of-p_active_after_content--);}'
 		};
 	}
 

@@ -2,14 +2,22 @@ var ExStyle = (function () {
 	'use strict';
 
 	var queries = {
-		"cq-i-s": "@container (inline-size>480px) and (inline-size>30rem)",
-		"cq-i-m": "@container (inline-size>720px) and (inline-size>45rem)",
-		"cq-i-l": "@container (inline-size>960px) and (inline-size>60rem)",
-		"cq-i-xl": "@container (inline-size>1200px) and (inline-size>75rem)",
-		"mq-w-s": "@media (width>480px) and (width>30rem)",
-		"mq-w-m": "@media (width>720px) and (width>45rem)",
-		"mq-w-l": "@media (width>960px) and (width>60rem)",
-		"mq-w-xl": "@media (width>1200px) and (width>75rem)"
+		"cqb-s": "@container (block-size>480px) and (block-size>30rem)",
+		"cqb-m": "@container (block-size>720px) and (block-size>45rem)",
+		"cqb-l": "@container (block-size>960px) and (block-size>60rem)",
+		"cqb-xl": "@container (block-size>1200px) and (block-size>75rem)",
+		"cqi-s": "@container (inline-size>480px) and (inline-size>30rem)",
+		"cqi-m": "@container (inline-size>720px) and (inline-size>45rem)",
+		"cqi-l": "@container (inline-size>960px) and (inline-size>60rem)",
+		"cqi-xl": "@container (inline-size>1200px) and (inline-size>75rem)",
+		"vh-s": "@media (height>480px) and (height>30rem)",
+		"vh-m": "@media (height>720px) and (height>45rem)",
+		"vh-l": "@media (height>960px) and (height>60rem)",
+		"vh-xl": "@media (height>1200px) and (height>75rem)",
+		"vw-s": "@media (width>480px) and (width>30rem)",
+		"vw-m": "@media (width>720px) and (width>45rem)",
+		"vw-l": "@media (width>960px) and (width>60rem)",
+		"vw-xl": "@media (width>1200px) and (width>75rem)"
 	};
 	var combinators = {
 		d: "& *",
@@ -179,7 +187,7 @@ var ExStyle = (function () {
 
 		// 解析
 		_parseExStyle( varName ) {
-			const parts = varName.replace( /^--|--$/g, '' ).split( '_' ); // '--cq-i-s_hover_c-nth-m2np4-of-p_active_after_content--' => [ 'cq-i-s', 'hover', 'c-nth-m2np4-of-p', 'active', 'after', 'content' ]
+			const parts = varName.replace( /^--|--$/g, '' ).split( '_' ); // '--cqi-s_hover_c-nth-m2np4-of-p_active_after_content--' => [ 'cq-i-s', 'hover', 'c-nth-m2np4-of-p', 'active', 'after', 'content' ]
 
 			const slot = {
 				query: null,
@@ -266,7 +274,7 @@ var ExStyle = (function () {
 			const body = this._properties[ slot.prop ] ? this._properties[ slot.prop ].replace( '/*@prop@*/', varName ).replace( '/*@layout_style@*/', this._layoutStyle ).replace( '/*@column_style@*/', this._columnStyle ).replace( '/*@text_style@*/', this._textStyle ) : `${ slot.prop }:var(${ varName });`;
 			return {
 				selector: `[style*="${ varName }:"]`,
-				css: `&${ slot.pC1Val }${ slot.dVal }${ slot.pC2Val }${ slot.pEVal }{${ body }}` // '&:hover>*:nth-child(-2n+4 of p):active::after{content:var(--cq-i-s_hover_c-nth-m2np4-of-p_active_after_content--);}'
+				css: `&${ slot.pC1Val }${ slot.dVal }${ slot.pC2Val }${ slot.pEVal }{${ body }}` // '&:hover>*:nth-child(-2n+4 of p):active::after{content:var(--cqi-s_hover_c-nth-m2np4-of-p_active_after_content--);}'
 			};
 		}
 
