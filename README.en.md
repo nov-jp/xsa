@@ -27,14 +27,14 @@ It establishes a styling infrastructure where the value is applied to the corres
 While the standard `style` attribute is limited to styling the element it is attached to, ExStyle utilizes custom property inheritance and specific prefixes to enable:
 
 ```HTML
-<ul style="--cq-i-s_hover_c-first-child_active_after_content--: 'Hello, World!';" … </ul>
+<ul style="--cq-i-s_hover_c-first_active_after_content--: 'Hello, World!';" … </ul>
 ```
 
 Styling of descendants and pseudo-elements, as well as conditional branching via Media Queries, Container Queries, and pseudo-classes.
 
 ```CSS
 @container (inline-size > 480px) and (inline-size > 30rem) {
-  [style*="--cq-i-s_hover_c-first-child_active_after_content--:"]:where(:hover) > *:where(:first-child):where(:active)::after { content: var(--cq-i-s_hover_c-first-child_active_after_content--); }
+  [style*="--cq-i-s_hover_c-first_active_after_content--:"]:where(:hover) > *:where(:first-child):where(:active)::after { content: var(--cq-i-s_hover_c-first_active_after_content--); }
 }
 ```
 

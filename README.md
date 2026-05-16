@@ -27,14 +27,14 @@ CSSプロパティ の前後に `--` を付け、`--CSSプロパティ--` のよ
 style属性 は通常、設定した要素に対するスタイリングしかできませんが、カスタムプロパティの継承と特殊なプレフィックスを組み合わせることで、
 
 ```HTML
-<ul style="--cq-i-s_hover_c-first-child_active_after_content--: 'Hello, World!';" … </ul>
+<ul style="--cq-i-s_hover_c-first_active_after_content--: 'Hello, World!';" … </ul>
 ```
 
 子孫要素と擬似要素へのスタイリングや、メディアクエリ、コンテナクエリ、擬似クラスによる条件分岐を可能にします。
 
 ```CSS
 @container (inline-size > 480px) and (inline-size > 30rem) {
-  [style*="--cq-i-s_hover_c-first-child_active_after_content--:"]:where(:hover) > *:where(:first-child):where(:active)::after { content: var(--cq-i-s_hover_c-first-child_active_after_content--); }
+  [style*="--cq-i-s_hover_c-first_active_after_content--:"]:where(:hover) > *:where(:first-child):where(:active)::after { content: var(--cq-i-s_hover_c-first_active_after_content--); }
 }
 ```
 

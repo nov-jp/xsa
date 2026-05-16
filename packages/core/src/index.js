@@ -58,7 +58,7 @@ export class ExStyleCore {
 
 	// 解析
 	_parseExStyle( varName ) {
-		const parts = varName.replace( /^--|--$/g, '' ).split( '_' ); // '--cq-i-s_hover_d-nth-m2np4-of-p_active_after_content--' => [ 'cq-i-s', 'hover', 'd-nth-m2np4-of-p', 'active', 'after', 'content' ]
+		const parts = varName.replace( /^--|--$/g, '' ).split( '_' ); // '--cq-i-s_hover_c-nth-m2np4-of-p_active_after_content--' => [ 'cq-i-s', 'hover', 'c-nth-m2np4-of-p', 'active', 'after', 'content' ]
 
 		const slot = {
 			query: null,
@@ -75,14 +75,14 @@ export class ExStyleCore {
 
 		for ( const part of parts ) {
 			if ( this._queries[ part ] ) { // '(cq-i|mq-w)-(s|m|l|xl)'
-				slot.query = this._queries[ part ]; // '(@container|@media) …'
+				slot.query = this._queries[ part ]; // '@container …'
 				continue;
 			}
 			if ( this._descendants[ part ] ) { // '(d|c|c2|c3)(-empty)?'
 				[ slot.dKey, slot.dVal ] = [ part, this._descendants[ part ] ]; // '( *|(>*){1,3})(:empty)?'
 				continue;
 			}
-			if ( this._descendants[ `${ part }-child` ] ) { // '(d|c|c2|c3)(-first|-last|-only)'
+			if ( this._descendants[ `${ part }-child` ] ) { // '(d|c|c2|c3)-(first|last|only)'
 				[ slot.dKey, slot.dVal ] = [ `${ part }-child`, this._descendants[ `${ part }-child` ] ]; // '( *|(>*){1,3}):(first|last|only)-child'
 				continue;
 			}
@@ -117,7 +117,7 @@ export class ExStyleCore {
 						}
 						n += ` of ${ s }`; // '-An+B of S'
 					}
-					[ slot.dKey, slot.dVal ] = [ nthPart, this._descendants[ nthPart ].replace( '(n)', `(${ n })` ) ]; // ' *:where(:nth-child(n))' => ' *:where(:nth-child(-2n+4 of p))'
+					[ slot.dKey, slot.dVal ] = [ nthPart, this._descendants[ nthPart ].replace( '(n)', `(${ n })` ) ]; // '>*:where(:nth-child(-2n+4 of p))'
 					continue;
 				}
 			}
@@ -145,7 +145,7 @@ export class ExStyleCore {
 		const body = this._properties[ slot.prop ] ? this._properties[ slot.prop ].replace( '/*@prop@*/', varName ).replace( '/*@layout_style@*/', this._layoutStyle ).replace( '/*@column_style@*/', this._columnStyle ).replace( '/*@text_style@*/', this._textStyle ) : `${ slot.prop }:var(${ varName });`;
 		return {
 			selector: `[style*="${ varName }:"]`,
-			css: `&${ slot.pC1Val }${ slot.dVal }${ slot.pC2Val }${ slot.pEVal }{${ body }}` // '&:hover *:nth-child(-2n+4 of p):active::after'
+			css: `&${ slot.pC1Val }${ slot.dVal }${ slot.pC2Val }${ slot.pEVal }{${ body }}` // '&:hover>*:nth-child(-2n+4 of p):active::after{content:var(--cq-i-s_hover_c-nth-m2np4-of-p_active_after_content--);}'
 		};
 	}
 
