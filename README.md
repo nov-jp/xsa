@@ -61,7 +61,6 @@ ExStyleプロパティ を機能させるためのパッケージは複数あり
 | `@exstyle/js` | ExStyle JS | ブラウザ | 導入が簡単, 自由度が高い | クライアントサイドに依存 | ExStyleプロパティ から動的に CSSコード の生成と style要素 への出力を行うスクリプト。 |
 | `@exstyle/php` | ExStyle PHP | サーバ | 自由度が高い | PHP実行環境が必要 | WordPress などの PHP実行環境 で ExStyleプロパティ から CSSコード を生成するヘルパークラス。 |
 | `@exstyle/postcss` | ExStyle PostCSS | 開発環境 | 自由度が高い | ビルド環境が必要 | ビルドプロセスに組み込む、ExStyleプロパティ から CSSコード の生成と CSSファイル への出力を行うツール。 |
-| `@exstyle/ai` | ExStyle AI | ブラウザ, 開発環境 | - | - | AI に ExStyle を理解させ、ExStyleプロパティ を使用した HTMLコード を出力してもらうための仕様書。 |
 
 ## ExStyleプロパティ について
 
@@ -71,7 +70,7 @@ ExStyle は ExStyleプロパティ の命名規則と、名称に則したスタ
 --(QUERY_)?(PSEUDO-CLASS_)?(COMBINATOR(-TREE-STRUCTURE)?_)?(PSEUDO-CLASS_)?(PSEUDO-ELEMENT_)?PROPERTY--
 ```
 
-クエリ (QUERY), 結合子 (COMBINATOR), ツリー構造擬似クラス (TREE-STRUCTURE), 擬似クラス (PSEUDO-CLASS), 擬似要素 (PSEUDO-ELEMENT), CSSプロパティ (PROPERTY) に使用できる名称は次のとおりです。
+QUERY (クエリ), COMBINATOR (結合子), TREE-STRUCTURE (ツリー構造擬似クラス), PSEUDO-CLASS (擬似クラス), PSEUDO-ELEMENT (擬似要素), PROPERTY (CSSプロパティ) に使用できる名称は次のとおりです。
 
 | 分類 | 名称 | 対応する CSSコード |
 | --- | --- | --- |

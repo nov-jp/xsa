@@ -61,7 +61,6 @@ Multiple packages are available to power ExStyle properties. Choose the best fit
 | `@exstyle/js` | ExStyle JS | Browser | Easy to install; high flexibility | Dependency on client-side JS | A script that dynamically generates CSS and injects it into a `style` element based on ExStyle properties. |
 | `@exstyle/php` | ExStyle PHP | Server | High flexibility | Requires PHP environment | A helper class for generating CSS from ExStyle properties in environments like WordPress. |
 | `@exstyle/postcss` | ExStyle PostCSS | Build Environment | High flexibility | Requires build setup | A tool integrated into the build process to generate CSS from ExStyle properties and output it to a CSS file. |
-| `@exstyle/ai` | ExStyle AI | Browser / Build Env | - | - | A specification set to help AI understand ExStyle and output HTML code using ExStyle properties. |
 
 ## About ExStyle Properties
 
@@ -71,7 +70,7 @@ ExStyle establishes a naming convention for properties and the infrastructure th
 --(QUERY_)?(PSEUDO-CLASS_)?(COMBINATOR(-TREE-STRUCTURE)?_)?(PSEUDO-CLASS_)?(PSEUDO-ELEMENT_)?PROPERTY--
 ```
 
-The available names for Query (QUERY), Combinator (COMBINATOR), Tree-structure pseudo-classes (TREE-STRUCTURE), Pseudo-classes (PSEUDO-CLASS), Pseudo-elements (PSEUDO-ELEMENT), and CSS Properties (PROPERTY) are as follows:
+The available names for QUERY (Queries), COMBINATOR (Combinators), TREE-STRUCTURE (Tree-structure pseudo-classes), PSEUDO-CLASS (Pseudo-classes), PSEUDO-ELEMENT (Pseudo-elements), and PROPERTY (CSS Properties) are as follows:
 
 | Category | Name | Corresponding CSS |
 | --- | --- | --- |
