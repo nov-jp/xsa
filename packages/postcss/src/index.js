@@ -1,5 +1,5 @@
 /*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
-import { XSACore } from '@xsa/core';
+import { XSACore } from '@nov-xsa/core';
 import fs from 'fs';
 import { globSync } from 'glob';
 

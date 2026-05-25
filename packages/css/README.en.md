@@ -4,7 +4,7 @@ This text was translated from Japanese by Google Gemini.
 
 ---
 
-# XSA CSS (@xsa/css)
+# XSA CSS (@nov-xsa/css)
 
 A collection of CSS files requiring no scripts or build steps. XSA properties to be used must be selected manually.
 
@@ -256,35 +256,35 @@ A collection of CSS files requiring no scripts or build steps. XSA properties to
 If you are using a build tool, you can install and import it.
 
 ```Bash
-npm install @xsa/css
+npm install @nov-xsa/css
 ```
 
 In environments where files are loaded via CSS, import them as follows:
 
 ```CSS
 /* All modules */
-@import "@xsa/css";
-@import "@xsa/css/effects";
+@import "@nov-xsa/css";
+@import "@nov-xsa/css/effects";
 
 /* Specific module */
-@import "@xsa/css/text";
+@import "@nov-xsa/css/text";
 
 /* Specific module specified by file name */
-@import "@xsa/css/dist/xsa-text.min.css";
+@import "@nov-xsa/css/dist/xsa-text.min.css";
 ```
 
 In environments where files are loaded via JavaScript, import them as follows:
 
 ```JS
 /* All modules */
-import "@xsa/css";
-import "@xsa/css/effects";
+import "@nov-xsa/css";
+import "@nov-xsa/css/effects";
 
 /* Specific module */
-import "@xsa/css/text";
+import "@nov-xsa/css/text";
 
 /* Specific module specified by file name */
-import "@xsa/css/dist/xsa-text.min.css";
+import "@nov-xsa/css/dist/xsa-text.min.css";
 ```
 
 ## Usage

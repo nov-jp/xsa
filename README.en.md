@@ -4,7 +4,7 @@ This text was translated from Japanese by Google Gemini.
 
 ---
 
-# XSA (@xsa)
+# XSA (@nov-xsa)
 
 XSA is a meta-framework designed to establish a styling infrastructure that breaks through the limitations of the HTML `style` attribute by leveraging CSS attribute selectors and custom properties.
 
@@ -48,10 +48,10 @@ Multiple packages are available to make XSA properties functional. You can choos
 
 | Package | Name | Runtime Environment | Pros | Cons | Description |
 | --- | --- | --- | --- | --- | --- |
-| `@xsa/css` | XSA CSS | Browser | Easy to adopt | Low flexibility | A collection of CSS files requiring no scripts or build steps. XSA properties to be used must be selected manually. |
-| `@xsa/js` | XSA JS | Browser | Easy to adopt, High flexibility | Dependent on client-side | A script that generates CSS code from XSA properties and injects it into a `style` element. |
-| `@xsa/php` | XSA PHP | Server | High flexibility | Requires PHP environment | A helper class that generates CSS code from XSA properties within a PHP environment. |
-| `@xsa/postcss` | XSA PostCSS | Dev Environment | High flexibility | Requires build environment | A tool that extracts XSA properties from within the project, generates CSS code, and outputs it to a CSS file. |
+| `@nov-xsa/css` | XSA CSS | Browser | Easy to adopt | Low flexibility | A collection of CSS files requiring no scripts or build steps. XSA properties to be used must be selected manually. |
+| `@nov-xsa/js` | XSA JS | Browser | Easy to adopt, High flexibility | Dependent on client-side | A script that generates CSS code from XSA properties and injects it into a `style` element. |
+| `@nov-xsa/php` | XSA PHP | Server | High flexibility | Requires PHP environment | A helper class that generates CSS code from XSA properties within a PHP environment. |
+| `@nov-xsa/postcss` | XSA PostCSS | Dev Environment | High flexibility | Requires build environment | A tool that extracts XSA properties from within the project, generates CSS code, and outputs it to a CSS file. |
 
 ## XSA Property Syntax Reference
 

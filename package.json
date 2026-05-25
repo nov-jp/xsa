@@ -1,5 +1,5 @@
 {
-	"name": "@xsa",
+	"name": "@nov-xsa",
 	"version": "1.0.0",
 	"private": true,
 	"description": "XSA は、CSS のカスタムプロパティと属性セレクタを使用して、HTML の style属性 を限界突破させる、スタイリング・インフラを確立するためのメタ・フレームワークです。",

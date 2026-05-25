@@ -2,20 +2,20 @@
 
 ---
 
-# XSA PostCSS (@xsa/postcss)
+# XSA PostCSS (@nov-xsa/postcss)
 
 プロジェクト内の XSAプロパティ から CSSコード の生成と CSSファイル への出力を行うツールです。
 
 ## インストール
 
 ```Bash
-npm install @xsa/postcss
+npm install @nov-xsa/postcss
 ```
 
 ## postcss.config.js の設定例
 
 ```JS
-import xsa from '@xsa/postcss';
+import xsa from '@nov-xsa/postcss';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 export default ( { env } ) => ( {

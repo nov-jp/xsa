@@ -4,20 +4,20 @@ This text was translated from Japanese by Google Gemini.
 
 ---
 
-# XSA PostCSS (@xsa/postcss)
+# XSA PostCSS (@nov-xsa/postcss)
 
 A tool that extracts XSA properties from within the project, generates CSS code, and outputs it to a CSS file.
 
 ## Installation
 
 ```Bash
-npm install @xsa/postcss
+npm install @nov-xsa/postcss
 ```
 
 ## Example settings for postcss.config.js
 
 ```JS
-import xsa from '@xsa/postcss';
+import xsa from '@nov-xsa/postcss';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 export default ( { env } ) => ( {

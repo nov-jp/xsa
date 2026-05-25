@@ -4,7 +4,7 @@ This text was translated from Japanese by Google Gemini.
 
 ---
 
-# XSA JS (@xsa/js)
+# XSA JS (@nov-xsa/js)
 
 A script that generates CSS code from XSA properties and injects it into a `style` element.
 
@@ -13,11 +13,11 @@ A script that generates CSS code from XSA properties and injects it into a `styl
 If you are using a build tool, you can install and import it.
 
 ```Bash
-npm install @xsa/js
+npm install @nov-xsa/js
 ```
 
 ```JS
-import XSA from '@xsa/js';
+import XSA from '@nov-xsa/js';
 new XSA().init();
 ```
 

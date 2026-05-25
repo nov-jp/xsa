@@ -2,7 +2,7 @@
 
 ---
 
-# XSA CSS (@xsa/css)
+# XSA CSS (@nov-xsa/css)
 
 使用する XSAプロパティ を手動で選択するスクリプトなし・ビルドなしの CSSファイル群 です。
 
@@ -254,35 +254,35 @@
 ビルドツールを使用している場合はインストールとインポートができます。
 
 ```Bash
-npm install @xsa/css
+npm install @nov-xsa/css
 ```
 
 CSS で読み込む環境では次のようにインポートします。
 
 ```CSS
 /* 全部 */
-@import "@xsa/css";
-@import "@xsa/css/effects";
+@import "@nov-xsa/css";
+@import "@nov-xsa/css/effects";
 
 /* 任意のモジュール */
-@import "@xsa/css/text";
+@import "@nov-xsa/css/text";
 
 /* 任意のモジュールをファイル名で指定 */
-@import "@xsa/css/dist/xsa-text.min.css";
+@import "@nov-xsa/css/dist/xsa-text.min.css";
 ```
 
 JavaScript で読み込む環境では次のようにインポートします。
 
 ```JS
 /* 全部 */
-import "@xsa/css";
-import "@xsa/css/effects";
+import "@nov-xsa/css";
+import "@nov-xsa/css/effects";
 
 /* 任意のモジュール */
-import "@xsa/css/text";
+import "@nov-xsa/css/text";
 
 /* 任意のモジュールをファイル名で指定 */
-import "@xsa/css/dist/xsa-text.min.css";
+import "@nov-xsa/css/dist/xsa-text.min.css";
 ```
 
 ## 使用例

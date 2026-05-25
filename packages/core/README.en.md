@@ -4,7 +4,7 @@ This text was translated from Japanese by Google Gemini.
 
 ---
 
-# XSA Core (@xsa/core)
+# XSA Core (@nov-xsa/core)
 
 Core data and core scripts used across various XSA packages.
 

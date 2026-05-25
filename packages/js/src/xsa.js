@@ -1,5 +1,5 @@
 /*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
-import { XSACore } from '@xsa/core';
+import { XSACore } from '@nov-xsa/core';
 class XSA extends XSACore {
 	constructor() {
 		super(); // Coreの初期化

@@ -1,5 +1,5 @@
 {
-	"name": "@xsa/core",
+	"name": "@nov-xsa/core",
 	"version": "1.0.0",
 	"description": "XSA の各種パッケージで使用するコアデータとコアスクリプト。",
 	"keywords": [

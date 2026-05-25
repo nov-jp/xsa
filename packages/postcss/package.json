@@ -1,5 +1,5 @@
 {
-	"name": "@xsa/postcss",
+	"name": "@nov-xsa/postcss",
 	"version": "1.0.0",
 	"description": "プロジェクト内の XSAプロパティ から CSSコード の生成と CSSファイル への出力を行うツールです。",
 	"keywords": [
@@ -27,7 +27,7 @@
 	],
 	"scripts": {},
 	"dependencies": {
-		"@xsa/core": "*",
+		"@nov-xsa/core": "*",
 		"glob": "^10.0.0"
 	},
 	"peerDependencies": {

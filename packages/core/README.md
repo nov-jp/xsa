@@ -2,7 +2,7 @@
 
 ---
 
-# XSA Core (@xsa/core)
+# XSA Core (@nov-xsa/core)
 
 XSA の各種パッケージで使用するコアデータとコアスクリプト。
 
