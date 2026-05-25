@@ -1,0 +1,2 @@
+/*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
+[style*=--z-index--\:]{z-index:var(--z-index--)}@container (inline-size>480px){[style*=--cqi-s_z-index--\:]{z-index:var(--cqi-s_z-index--)}}@container (inline-size>720px){[style*=--cqi-m_z-index--\:]{z-index:var(--cqi-m_z-index--)}}@container (inline-size>960px){[style*=--cqi-l_z-index--\:]{z-index:var(--cqi-l_z-index--)}}@container (inline-size>1200px){[style*=--cqi-xl_z-index--\:]{z-index:var(--cqi-xl_z-index--)}}

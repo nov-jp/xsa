@@ -1,0 +1,18 @@
+/*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
+/**
+ * https://www.w3.org/TR/css-backgrounds-3/
+ * https://www.w3.org/TR/css-logical-1/
+ */
+:where(:nth-child(n of :is(dd, dt, td, th))) {
+	[style*="--d-of-dd-dt-td-th_border-radius--:"] & {
+		border-radius: var(--d-of-dd-dt-td-th_border-radius--);
+	}
+}
+* {
+	[style*="--c_border-radius--:"] > & {
+		border-radius: var(--c_border-radius--);
+	}
+}
+[style*="--border-radius--:"] {
+	border-radius: var(--border-radius--);
+}

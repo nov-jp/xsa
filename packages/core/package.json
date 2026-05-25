@@ -1,13 +1,13 @@
 {
-	"name": "@exstyle/core",
+	"name": "@xsa/core",
 	"version": "1.0.0",
-	"description": "ExStyle の各種パッケージで使用するコアデータとコアスクリプト。",
+	"description": "XSA の各種パッケージで使用するコアデータとコアスクリプト。",
 	"keywords": [
-		"ExStyle",
+		"XSA",
 		"Core"
 	],
 	"license": "MIT",
-	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",
+	"author": "Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/)",
 	"type": "module",
 	"exports": {
 		".": "./src/index.js",

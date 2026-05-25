@@ -1,11 +1,11 @@
 {
-	"name": "@exstyle",
+	"name": "@xsa",
 	"version": "1.0.0",
 	"private": true,
-	"description": "ExStyle は、CSS のカスタムプロパティと属性セレクタを使用して、HTML の style属性 を限界突破させる、スタイリング・インフラを確立するためのメタ・フレームワークです。",
+	"description": "XSA は、CSS のカスタムプロパティと属性セレクタを使用して、HTML の style属性 を限界突破させる、スタイリング・インフラを確立するためのメタ・フレームワークです。",
 	"keywords": [],
 	"license": "MIT",
-	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",
+	"author": "Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/)",
 	"type": "commonjs",
 	"workspaces": [
 		"packages/*"

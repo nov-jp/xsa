@@ -1,21 +1,21 @@
 {
-	"name": "@exstyle/js",
+	"name": "@xsa/js",
 	"version": "1.0.0",
-	"description": "リアルタイムで HTMLコード内 の ExStyleプロパティ を解析し、CSSコード と style要素 を生成するスクリプト。",
+	"description": "XSAプロパティ から CSSコード の生成と style要素 への出力を行うスクリプト。",
 	"keywords": [
-		"ExStyle",
+		"XSA",
 		"JS"
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/nov-jp/exstyle.git",
+		"url": "git+https://github.com/nov-jp/xsa.git",
 		"directory": "packages/js"
 	},
 	"license": "MIT",
-	"author": "Nobuo Nakayama (Shimotsuki/nov-jp)",
+	"author": "Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/)",
 	"type": "module",
-	"main": "dist/exstyle.mjs",
-	"module": "dist/exstyle.mjs",
+	"main": "dist/xsa.mjs",
+	"module": "dist/xsa.mjs",
 	"types": "src/index.d.ts",
 	"files": [
 		"src/index.d.ts",
@@ -28,7 +28,7 @@
 		"dev": "rollup -c rollup.config.mjs -w"
 	},
 	"dependencies": {
-		"@exstyle/core": "*"
+		"@xsa/core": "*"
 	},
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^29.0.2",

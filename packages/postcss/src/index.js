@@ -1,9 +1,9 @@
-/*! The MIT License. Copyright 2026 Nobuo Nakayama (Shimotsuki/nov-jp). */
-import { ExStyleCore } from '@exstyle/core';
+/*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
+import { XSACore } from '@xsa/core';
 import fs from 'fs';
 import { globSync } from 'glob';
 
-const exStylePostCSS = ( opts = {} ) => {
+const xsaPostCSS = ( opts = {} ) => {
 	// デフォルトオプション
 	const options = {
 		// スキャン対象
@@ -15,10 +15,10 @@ const exStylePostCSS = ( opts = {} ) => {
 		...opts
 	};
 
-	const core = new ExStyleCore();
+	const core = new XSACore();
 
 	return {
-		postcssPlugin: 'postcss-exstyle',
+		postcssPlugin: 'postcss-xsa',
 		Once( root ) {
 			const cacheMap = new Map();
 			const files = globSync( options.content );
@@ -46,7 +46,7 @@ const exStylePostCSS = ( opts = {} ) => {
 			// 解析結果からCSS文字列を構築
 			const sortedList = Array.from( cacheMap.values() ).sort( ( a, b ) => core._comparePriority( a, b ) );
 
-			let output = '/* ExStyle Generated */\n';
+			let output = '/* XSA Generated */\n';
 
 			// 通常ルール
 			sortedList.filter( d => ! d.slot.query ).forEach( d => {
@@ -75,5 +75,5 @@ const exStylePostCSS = ( opts = {} ) => {
 	};
 };
 
-exStylePostCSS.postcss = true;
-export default exStylePostCSS;
+xsaPostCSS.postcss = true;
+export default xsaPostCSS;

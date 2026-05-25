@@ -4,13 +4,13 @@ This text was translated from Japanese by Google Gemini.
 
 ---
 
-# ExStyle Core (@exstyle/core)
+# XSA Core (@xsa/core)
 
-Core data and core scripts used across various ExStyle packages.
+Core data and core scripts used across various XSA packages.
 
-The `data.json` file contains compiled data regarding ExStyle property prefixes and properties.
-The order of the data significantly affects the sequence of the generated CSS code.
+The `data.json` file contains a compilation of data regarding XSA prefixes and properties for XSA properties.
+The order of the data affects the cascade and sorting order of the generated CSS code.
 
 ---
 
-The MIT License. Copyright 2026 Nobuo Nakayama (Shimotsuki/nov-jp).
+The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/).

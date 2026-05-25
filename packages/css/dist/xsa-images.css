@@ -1,0 +1,10 @@
+/*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
+/**
+ * https://www.w3.org/TR/css-images-3/
+ */
+[style*="--object-fit--:"] {
+	object-fit: var(--object-fit--);
+}
+[style*="--object-position--:"] {
+	object-position: var(--object-position--);
+}

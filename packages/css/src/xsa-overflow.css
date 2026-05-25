@@ -1,0 +1,7 @@
+/*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
+/**
+ * https://www.w3.org/TR/css-overflow-3/
+ */
+[style*="--overflow--:"] {
+	overflow: var(--overflow--);
+}

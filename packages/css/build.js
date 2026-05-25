@@ -14,18 +14,27 @@ if ( ! fs.existsSync( distDir ) ) {
 }
 
 const cssFiles = [
-	'exstyle.css',
-
-	'exstyle-box-margin.css',
-	'exstyle-box-padding.css',
-	'exstyle-color.css',
-	'exstyle-layout.css',
-	'exstyle-lists.css',
-	'exstyle-sizing.css',
-	'exstyle-tables.css',
-	'exstyle-text.css',
-
-	'exstyle-effects.css'
+	'xsa.css',
+	'xsa-align.css',
+	'xsa-border.css',
+	'xsa-border-radius.css',
+	'xsa-box-margin.css',
+	'xsa-box-padding.css',
+	'xsa-color.css',
+	'xsa-display.css',
+	'xsa-gaps.css',
+	'xsa-images.css',
+	'xsa-layout-flexbox.css',
+	'xsa-layout-grid.css',
+	'xsa-layout-multicol.css',
+	'xsa-lists.css',
+	'xsa-overflow.css',
+	'xsa-sizing.css',
+	'xsa-tables.css',
+	'xsa-text.css',
+	'xsa-token.css',
+	'xsa-transitions.css',
+	'xsa-z-index.css'
 ];
 
 console.log( 'Processing CSS files...' );

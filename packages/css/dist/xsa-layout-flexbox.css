@@ -1,0 +1,66 @@
+/*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
+/**
+ * https://www.w3.org/TR/css-conditional-5/
+ * https://www.w3.org/TR/css-flexbox-1/
+ */
+:not(_):not(_):where([style*="--flex-flow--:"]) {
+	&:where(ol, ul, menu) {
+		list-style-position: inside;
+		padding: 0;
+	}
+	&:where(ul, menu) {
+		list-style-type: "";
+	}
+	&:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) {
+		margin: 0;
+	}
+}
+* {
+	[style*="--c_flex--:"] > & {
+		flex: var(--c_flex--);
+	}
+}
+[style*="--container-type--:"] {
+	container-type: var(--container-type--);
+}
+[style*="--flex--:"] {
+	flex: var(--flex--);
+}
+[style*="--flex-flow--:"] {
+	flex-flow: var(--flex-flow--);
+	:not(_):not(_):where(&) {
+		display: flex;
+	}
+}
+@container (inline-size > 480px) {
+	[style*="--cqi-s_flex--:"] {
+		flex: var(--cqi-s_flex--);
+	}
+	[style*="--cqi-s_flex-flow--:"] {
+		flex-flow: var(--cqi-s_flex-flow--);
+	}
+}
+@container (inline-size > 720px) {
+	[style*="--cqi-m_flex--:"] {
+		flex: var(--cqi-m_flex--);
+	}
+	[style*="--cqi-m_flex-flow--:"] {
+		flex-flow: var(--cqi-m_flex-flow--);
+	}
+}
+@container (inline-size > 960px) {
+	[style*="--cqi-l_flex--:"] {
+		flex: var(--cqi-l_flex--);
+	}
+	[style*="--cqi-l_flex-flow--:"] {
+		flex-flow: var(--cqi-l_flex-flow--);
+	}
+}
+@container (inline-size > 1200px) {
+	[style*="--cqi-xl_flex--:"] {
+		flex: var(--cqi-xl_flex--);
+	}
+	[style*="--cqi-xl_flex-flow--:"] {
+		flex-flow: var(--cqi-xl_flex-flow--);
+	}
+}

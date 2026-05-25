@@ -5,20 +5,20 @@ import commonjs from '@rollup/plugin-commonjs';
 
 export default [
 	{
-		input: 'src/exstyle.js',
+		input: 'src/xsa.js',
 		output: [
 			// ブラウザ用 (IIFE)
 			{
-				file: 'dist/exstyle.js',
+				file: 'dist/xsa.js',
 				format: 'iife',
-				name: 'ExStyle',
+				name: 'XSA',
 				sourcemap: true
 			},
 			// ブラウザ用 Minify版
 			{
-				file: 'dist/exstyle.min.js',
+				file: 'dist/xsa.min.js',
 				format: 'iife',
-				name: 'ExStyle',
+				name: 'XSA',
 				plugins: [
 					terser( {
 						mangle: {
@@ -33,7 +33,7 @@ export default [
 			},
 			// モダン環境用 (ESM)
 			{
-				file: 'dist/exstyle.mjs',
+				file: 'dist/xsa.mjs',
 				format: 'es',
 				sourcemap: true
 			}

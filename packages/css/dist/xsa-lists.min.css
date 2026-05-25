@@ -1,0 +1,2 @@
+/*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
+[style*=--list-style--\:]{list-style:var(--list-style--)}[style*=--list-style-type--\:]{list-style-type:var(--list-style-type--)}[style*=--list-style-image--\:]{list-style-image:var(--list-style-image--)}[style*=--list-style-position--\:]{list-style-position:var(--list-style-position--)}

@@ -4,75 +4,66 @@ This text was translated from Japanese by Google Gemini.
 
 ---
 
-# ExStyle (@exstyle)
+# XSA (@xsa)
 
-ExStyle is a styling infrastructure meta-framework that breaks the limits of the HTML `style` attribute by leveraging CSS custom properties and attribute selectors.
-
-It elevates the traditional ideal of "HTML for structure, CSS for presentation" into the practical reality of "HTML as a blueprint," enabling the construction of websites that balance creativity with logical reasoning.
+XSA is a meta-framework designed to establish a styling infrastructure that breaks through the limitations of the HTML `style` attribute by leveraging CSS attribute selectors and custom properties.
 
 ## Overview
 
-A CSS property wrapped in double hyphens, such as `--css-property--`, is defined as an **ExStyle Property**. When you set an ExStyle Property within a `style` attribute:
-
 ```HTML
-<p style="--color--: var(--red);"> … </p>
+<div style="--color--: var(--red);"> … </div>
 ```
 
-It establishes a styling infrastructure where the value is applied to the corresponding CSS property.
+When you set an "XSA Property"?a CSS property wrapped with leading and trailing `--` to turn it into a custom property?inside a `style` attribute:
 
 ```CSS
-[style*="--color--:"] { color: var(--color--); }
-```
-
-While the standard `style` attribute is limited to styling the element it is attached to, ExStyle utilizes custom property inheritance and specific prefixes to enable:
-
-```HTML
-<ul style="--cqi-s_hover_c-nth-2np1-of-attr-style_active_after_content--: 'Hello, World!';" … </ul>
-```
-
-Styling of descendants and pseudo-elements, as well as conditional branching via Media Queries, Container Queries, and pseudo-classes.
-
-```CSS
-@container (inline-size > 480px) and (inline-size > 30rem) {
-  [style*="--cqi-s_hover_c-nth-2np1-of-attr-style_active_after_content--:"]:where(:hover) > *:where(:nth-child(2n+1 of [style])):where(:active)::after { content: var(--cqi-s_hover_c-nth-2np1-of-attr-style_active_after_content--); }
+[style*="--color--:"] {
+  color: var(--color--);
 }
 ```
 
-This is the "Extended Style attribute" - **ExStyle**.
+It establishes a styling infrastructure where the value is resolved and applied to that specific CSS property.
 
-## Features
+```HTML
+<div style="--cqi-s_c3-first_hover_color--: var(--red);" … </div>
+```
 
-* **Web Standards Compliance**: Achieves the ideal state where the `class` attribute handles logical values and the `style` attribute handles physical/visual values.
-* **HTML Consolidation**: Allows for a utility-first workflow, enabling rapid webpage development.
-* **Code Minimization**: You can reduce your CSS code by replacing class attribute values that have only one role, such as `.what-do`, with `--what--` and `var(--do)`.
-* **No !important Needed**: ExStyle CSS typically uses a single attribute selector's specificity, allowing for easy overrides or resets without resorting to `!important`.
-* **High Versatility**: Does not force specific design tokens; ExStyle properties accept any valid value.
-* **Low Learning Curve**: Since it simply involves adding `--` and prefixes to standard CSS properties, it is accessible to CSS beginners.
-* **AI-Friendly**: The clear structure of `--what--` and `var(--do)` results in low training overhead for AI, making it ideal for "Vibe Coding."
-* **UI-Friendly**: Since UI input values can be mapped directly to ExStyle properties, it integrates seamlessly with CMSs like WordPress and no-code/low-code applications.
+By utilizing the inheritance of custom properties and the "XSA Prefix" which encodes CSS selectors:
+
+```CSS
+@container (inline-size > 480px) {
+  [style*="--cqi-s_c3-first_hover_color--:"] > * > * > *:where(:first-child):where(:hover) {
+    color: var(--cqi-s_c3-first_hover_color--);
+  }
+}
+```
+
+It enables conditional styling via media queries, container queries, and pseudo-classes, as well as targeting descendant elements and pseudo-elements.
+
+This is XSA: the EXtended Style Attribute that pushes past traditional boundaries.
 
 ## Packages
 
-Multiple packages are available to power ExStyle properties. Choose the best fit for your project.
+Multiple packages are available to make XSA properties functional. You can choose the optimal one based on your project requirements.
 
-| Package | Name | Environment | Pros | Cons | Description |
+| Package | Name | Runtime Environment | Pros | Cons | Description |
 | --- | --- | --- | --- | --- | --- |
-| `@exstyle/css` | ExStyle CSS | Browser | Easy to install | Low flexibility; includes unused code | A collection of scriptless, buildless CSS files with a predefined set of ExStyle properties. |
-| `@exstyle/js` | ExStyle JS | Browser | Easy to install; high flexibility | Dependency on client-side JS | A script that dynamically generates CSS and injects it into a `style` element based on ExStyle properties. |
-| `@exstyle/php` | ExStyle PHP | Server | High flexibility | Requires PHP environment | A helper class for generating CSS from ExStyle properties in environments like WordPress. |
-| `@exstyle/postcss` | ExStyle PostCSS | Build Environment | High flexibility | Requires build setup | A tool integrated into the build process to generate CSS from ExStyle properties and output it to a CSS file. |
+| `@xsa/css` | XSA CSS | Browser | Easy to adopt | Low flexibility | A collection of CSS files requiring no scripts or build steps. XSA properties to be used must be selected manually. |
+| `@xsa/js` | XSA JS | Browser | Easy to adopt, High flexibility | Dependent on client-side | A script that generates CSS code from XSA properties and injects it into a `style` element. |
+| `@xsa/php` | XSA PHP | Server | High flexibility | Requires PHP environment | A helper class that generates CSS code from XSA properties within a PHP environment. |
+| `@xsa/postcss` | XSA PostCSS | Dev Environment | High flexibility | Requires build environment | A tool that extracts XSA properties from within the project, generates CSS code, and outputs it to a CSS file. |
 
-## About ExStyle Properties
+## XSA Property Syntax Reference
 
-ExStyle establishes a naming convention for properties and the infrastructure that supports them. The naming convention can be expressed by the following regular expression:
+The naming convention for XSA properties can be expressed using the following regular expression:
 
+```RegExp
+--(QUERY_)?(PSEUDO-CLASS_)?(COMBINATOR(-SIBLING)?_)?(PSEUDO-CLASS_)?(PSEUDO-ELEMENT_)?PROPERTY--
 ```
---(QUERY_)?(PSEUDO-CLASS_)?(COMBINATOR(-TREE-STRUCTURE)?_)?(PSEUDO-CLASS_)?(PSEUDO-ELEMENT_)?PROPERTY--
-```
 
-The available names for QUERY (Queries), COMBINATOR (Combinators), TREE-STRUCTURE (Tree-structure pseudo-classes), PSEUDO-CLASS (Pseudo-classes), PSEUDO-ELEMENT (Pseudo-elements), and PROPERTY (CSS Properties) are as follows:
+The segments QUERY, COMBINATOR, SIBLING, PSEUDO-CLASS, PSEUDO-ELEMENT, and PROPERTY map to the following strings:
 
-| Category | Name | Corresponding CSS |
+| Classification | Name | CSS Code |
 | --- | --- | --- |
 | QUERY | cqi-s | `@container (inline-size > 480px) and (inline-size > 30rem)` |
 | " | cqi-m | `@container (inline-size > 720px) and (inline-size > 45rem)` |
@@ -86,288 +77,203 @@ The available names for QUERY (Queries), COMBINATOR (Combinators), TREE-STRUCTUR
 | " | c | `& > *` |
 | " | c2 | `& > * > *` |
 | " | c3 | `& > * > * > *` |
-| TREE-STRUCTURE | empty | `:empty` |
-| " | first | `:first-child` |
-| " | last | `:last-child` |
-| " | only | `:only-child` |
-| " | nth-mAnpB | `:nth-child(-An+B)` |
-| " | nth-mAnpB-of-TYPE | `:nth-child(-An+B of TYPE)` |
-| " | nth-mAnpB-of-TYPE-TYPE | `:nth-child(-An+B of :is(TYPE, TYPE))` |
-| " | nth-mAnpB-of-attr-NAME | `:nth-child(-An+B of [NAME])` |
-| " | nth-mAnpB-of-pseudo-NAME | `:nth-child(-An+B of :NAME)` |
-| " | nth-last-mAnpB | `:nth-last-child(-An+B)` |
-| " | nth-last-mAnpB-of-TYPE | `:nth-last-child(-An+B of TYPE)` |
-| " | nth-last-mAnpB-of-TYPE-TYPE | `:nth-last-child(-An+B of :is(TYPE, TYPE))` |
-| " | nth-last-mAnpB-of-attr-NAME | `:nth-last-child(-An+B of [NAME])` |
-| " | nth-last-mAnpB-of-pseudo-NAME | `:nth-last-child(-An+B of :NAME)` |
-| " | of-TYPE | `:nth-child(n of TYPE)` |
-| " | of-TYPE-TYPE | `:nth-child(n of :is(TYPE, TYPE))` |
-| " | of-attr-NAME | `:nth-child(n of [NAME])` |
-| " | of-pseudo-NAME | `:nth-child(n of :NAME)` |
-| PSEUDO-CLASS | any-link | `:any-link` |
-| " | link | `:link` |
-| " | visited | `:visited` |
-| " | target | `:target` |
-| " | hover | `:hover` |
-| " | active | `:active` |
-| " | focus | `:focus` |
-| " | focus-visible | `:focus-visible` |
-| " | focus-within | `:focus-within` |
-| " | open | `:open` |
-| " | popover-open | `:popover-open` |
-| " | modal | `:modal` |
-| " | fullscreen | `:fullscreen` |
-| " | picture-in-picture | `:picture-in-picture` |
-| " | enabled | `:enabled` |
-| " | disabled | `:disabled` |
-| " | read-only | `:read-only` |
-| " | read-write | `:read-write` |
-| " | placeholder-shown | `:placeholder-shown` |
-| " | autofill | `:autofill` |
-| " | default | `:default` |
-| " | checked | `:checked` |
-| " | unchecked | `:unchecked` |
-| " | indeterminate | `:indeterminate` |
-| " | valid | `:valid` |
-| " | invalid | `:invalid` |
-| " | in-range | `:in-range` |
-| " | out-of-range | `:out-of-range` |
-| " | required | `:required` |
-| " | optional | `:optional` |
-| " | user-valid | `:user-valid` |
-| " | user-invalid | `:user-invalid` |
-| " | PSEUDO-CLASS-n | `:is(:PSEUDO-CLASS + *)` |
-| " | PSEUDO-CLASS-s | `:is(:PSEUDO-CLASS ~ *)` |
-| " | n-PSEUDO-CLASS | `:has(+ :PSEUDO-CLASS)` |
-| " | s-PSEUDO-CLASS | `:has(~ :PSEUDO-CLASS)` |
-| " | d-PSEUDO-CLASS | `:has(:PSEUDO-CLASS)` |
-| " | c-PSEUDO-CLASS | `:has(> :PSEUDO-CLASS)` |
-| " | c2-PSEUDO-CLASS | `:has(> * > :PSEUDO-CLASS)` |
-| " | c3-PSEUDO-CLASS | `:has(> * > * > :PSEUDO-CLASS)` |
-| " | not-PSEUDO-CLASS | `:not(:PSEUDO-CLASS)` |
-| " | not-PSEUDO-CLASS-n | `:not(:PSEUDO-CLASS + *)` |
-| " | not-PSEUDO-CLASS-s | `:not(:PSEUDO-CLASS ~ *)` |
-| " | not-n-PSEUDO-CLASS | `:not(:has(+ :PSEUDO-CLASS))` |
-| " | not-s-PSEUDO-CLASS | `:not(:has(~ :PSEUDO-CLASS))` |
-| " | not-d-PSEUDO-CLASS | `:not(:has(:PSEUDO-CLASS))` |
-| " | not-c-PSEUDO-CLASS | `:not(:has(> :PSEUDO-CLASS))` |
-| " | not-c2-PSEUDO-CLASS | `:not(:has(> * > :PSEUDO-CLASS))` |
-| " | not-c3-PSEUDO-CLASS | `:not(:has(> * > * > :PSEUDO-CLASS))` |
-| PSEUDO-ELEMENT | backdrop | `::backdrop` |
-| " | first-line | `::first-line` |
+| SIBLING | first | `:where(:first-child)` |
+| " | last | `:where(:last-child)` |
+| " | only | `:where(:only-child)` |
+| " | nth-N-of-S | `:where(:nth-child(N of S))` |
+| " | nth-last-N-of-S | `:where(:nth-last-child(N of S))` |
+| " | of-S | `:where(:nth-child(n of S))` |
+| PSEUDO-CLASS | open | `:where(:open)` |
+| " | popover-open | `:where(:popover-open)` |
+| " | modal | `:where(:modal)` |
+| " | fullscreen | `:where(:fullscreen)` |
+| " | picture-in-picture | `:where(:picture-in-picture)` |
+| " | enabled | `:where(:enabled)` |
+| " | disabled | `:where(:disabled)` |
+| " | read-only | `:where(:read-only)` |
+| " | read-write | `:where(:read-write)` |
+| " | placeholder-shown | `:where(:placeholder-shown)` |
+| " | autofill | `:where(:autofill)` |
+| " | default | `:where(:default)` |
+| " | checked | `:where(:checked)` |
+| " | indeterminate | `:where(:indeterminate)` |
+| " | valid | `:where(:valid)` |
+| " | invalid | `:where(:invalid)` |
+| " | in-range | `:where(:in-range)` |
+| " | out-of-range | `:where(:out-of-range)` |
+| " | required | `:where(:required)` |
+| " | optional | `:where(:optional)` |
+| " | user-valid | `:where(:user-valid)` |
+| " | user-invalid | `:where(:user-invalid)` |
+| " | any-link | `:where(:any-link)` |
+| " | link | `:where(:link)` |
+| " | visited | `:where(:visited)` |
+| " | target | `:where(:target)` |
+| " | scope | `:where(:scope)` |
+| " | playing | `:where(:playing)` |
+| " | paused | `:where(:paused)` |
+| " | seeking | `:where(:seeking)` |
+| " | buffering | `:where(:buffering)` |
+| " | stalled | `:where(:stalled)` |
+| " | muted | `:where(:muted)` |
+| " | volume-locked | `:where(:volume-locked)` |
+| " | empty | `:where(:empty)` |
+| " | hover | `:where(:hover)` |
+| " | active | `:where(:active)` |
+| " | focus | `:where(:focus)` |
+| " | focus-visible | `:where(:focus-visible)` |
+| " | focus-within | `:where(:focus-within)` |
+| " | target-current | `:where(:target-current)` |
+| " | not-PSEUDO-CLASS | `:where(:not(:PSEUDO-CLASS))` |
+| " | PSEUDO-CLASS-n | `:where(:PSEUDO-CLASS + *)` |
+| " | not-PSEUDO-CLASS-n | `:where(:not(:PSEUDO-CLASS) + *)` |
+| " | PSEUDO-CLASS-s | `:where(:PSEUDO-CLASS ~ *)` |
+| " | not-PSEUDO-CLASS-s | `:where(:not(:PSEUDO-CLASS) ~ *)` |
+| " | n-PSEUDO-CLASS | `:where(:has(+ :PSEUDO-CLASS))` |
+| " | n-not-PSEUDO-CLASS | `:where(:has(+ :not(:PSEUDO-CLASS)))` |
+| " | s-PSEUDO-CLASS | `:where(:has(~ :PSEUDO-CLASS))` |
+| " | s-not-PSEUDO-CLASS | `:where(:has(~ :not(:PSEUDO-CLASS)))` |
+| " | d-PSEUDO-CLASS | `:where(:has(:PSEUDO-CLASS))` |
+| " | d-not-PSEUDO-CLASS | `:where(:has(:not(:PSEUDO-CLASS)))` |
+| " | c-PSEUDO-CLASS | `:where(:has(> :PSEUDO-CLASS))` |
+| " | c-not-PSEUDO-CLASS | `:where(:has(> :not(:PSEUDO-CLASS)))` |
+| " | c2-PSEUDO-CLASS | `:where(:has(> * > :PSEUDO-CLASS))` |
+| " | c2-not-PSEUDO-CLASS | `:where(:has(> * > :not(:PSEUDO-CLASS)))` |
+| " | c3-PSEUDO-CLASS | `:where(:has(> * > * > :PSEUDO-CLASS))` |
+| " | c3-not-PSEUDO-CLASS | `:where(:has(> * > * > :not(:PSEUDO-CLASS)))` |
+| " | nth-N-of-S-is-PSEUDO-CLASS-n | `:where(:nth-child(N of S):is(:PSEUDO-CLASS) + *)` |
+| " | nth-N-of-S-not-PSEUDO-CLASS-n | `:where(:nth-child(N of S):not(:PSEUDO-CLASS) + *)` |
+| " | nth-N-of-S-is-PSEUDO-CLASS-s | `:where(:nth-child(N of S):is(:PSEUDO-CLASS) ~ *)` |
+| " | nth-N-of-S-not-PSEUDO-CLASS-s | `:where(:nth-child(N of S):not(:PSEUDO-CLASS) ~ *)` |
+| " | n-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(+ :nth-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | n-nth-N-of-S-not-PSEUDO-CLASS | `:where(:has(+ :nth-child(N of S):not(:PSEUDO-CLASS)))` |
+| " | s-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(~ :nth-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | s-nth-N-of-S-not-PSEUDO-CLASS | `:where(:has(~ :nth-child(N of S):not(:PSEUDO-CLASS)))` |
+| " | d-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(:nth-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | d-nth-N-of-S-not-PSEUDO-CLASS | `:where(:has(:nth-child(N of S):not(:PSEUDO-CLASS)))` |
+| " | c-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(> :nth-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | c-nth-N-of-S-not-PSEUDO-CLASS | `:where(:has(> :nth-child(N of S):not(:PSEUDO-CLASS)))` |
+| " | c2-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > :nth-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | c2-nth-N-of-S-not-PSEUDO-CLASS | `:where(:has(> * > :nth-child(N of S):not(:PSEUDO-CLASS)))` |
+| " | c3-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > * > :nth-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | c3-nth-N-of-S-not-PSEUDO-CLASS | `:where(:has(> * > * > :nth-child(N of S):not(:PSEUDO-CLASS)))` |
+| " | nth-last-N-of-S-is-PSEUDO-CLASS-n | `:where(:nth-last-child(N of S):is(:PSEUDO-CLASS) + *)` |
+| " | nth-last-N-of-S-not-PSEUDO-CLASS-n | `:where(:nth-last-child(N of S):not(:PSEUDO-CLASS) + *)` |
+| " | nth-last-N-of-S-is-PSEUDO-CLASS-s | `:where(:nth-last-child(N of S):is(:PSEUDO-CLASS) ~ *)` |
+| " | nth-last-N-of-S-not-PSEUDO-CLASS-s | `:where(:nth-last-child(N of S):not(:PSEUDO-CLASS) ~ *)` |
+| " | n-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(+ :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | n-nth-last-N-of-S-not-PSEUDO-CLASS | `:where(:has(+ :nth-last-child(N of S):not(:PSEUDO-CLASS)))` |
+| " | s-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(~ :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | s-nth-last-N-of-S-not-PSEUDO-CLASS | `:where(:has(~ :nth-last-child(N of S):not(:PSEUDO-CLASS)))` |
+| " | d-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(:nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | d-nth-last-N-of-S-not-PSEUDO-CLASS | `:where(:has(:nth-last-child(N of S):not(:PSEUDO-CLASS)))` |
+| " | c-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(> :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | c-nth-last-N-of-S-not-PSEUDO-CLASS | `:where(:has(> :nth-last-child(N of S):not(:PSEUDO-CLASS)))` |
+| " | c2-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | c2-nth-last-N-of-S-not-PSEUDO-CLASS | `:where(:has(> * > :nth-last-child(N of S):not(:PSEUDO-CLASS)))` |
+| " | c3-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > * > :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | c3-nth-last-N-of-S-not-PSEUDO-CLASS | `:where(:has(> * > * > :nth-last-child(N of S):not(:PSEUDO-CLASS)))` |
+| " | S-is-PSEUDO-CLASS-n | `:where(:nth-child(n of S):is(:PSEUDO-CLASS) + *)` |
+| " | S-not-PSEUDO-CLASS-n | `:where(:nth-child(n of S):not(:PSEUDO-CLASS) + *)` |
+| " | S-is-PSEUDO-CLASS-s | `:where(:nth-child(n of S):is(:PSEUDO-CLASS) ~ *)` |
+| " | S-not-PSEUDO-CLASS-s | `:where(:nth-child(n of S):not(:PSEUDO-CLASS) ~ *)` |
+| " | n-S-is-PSEUDO-CLASS | `:where(:has(+ :nth-child(n of S):is(:PSEUDO-CLASS)))` |
+| " | n-S-not-PSEUDO-CLASS | `:where(:has(+ :nth-child(n of S):not(:PSEUDO-CLASS)))` |
+| " | s-S-is-PSEUDO-CLASS | `:where(:has(~ :nth-child(n of S):is(:PSEUDO-CLASS)))` |
+| " | s-S-not-PSEUDO-CLASS | `:where(:has(~ :nth-child(n of S):not(:PSEUDO-CLASS)))` |
+| " | d-of-S-is-PSEUDO-CLASS | `:where(:has(:nth-child(n of S):is(:PSEUDO-CLASS)))` |
+| " | d-of-S-not-PSEUDO-CLASS | `:where(:has(:nth-child(n of S):not(:PSEUDO-CLASS)))` |
+| " | c-of-S-is-PSEUDO-CLASS | `:where(:has(> :nth-child(n of S):is(:PSEUDO-CLASS)))` |
+| " | c-of-S-not-PSEUDO-CLASS | `:where(:has(> :nth-child(n of S):not(:PSEUDO-CLASS)))` |
+| " | c2-of-S-is-PSEUDO-CLASS | `:where(:has(> * > :nth-child(n of S):is(:PSEUDO-CLASS)))` |
+| " | c2-of-S-not-PSEUDO-CLASS | `:where(:has(> * > :nth-child(n of S):not(:PSEUDO-CLASS)))` |
+| " | c3-of-S-is-PSEUDO-CLASS | `:where(:has(> * > * > :nth-child(n of S):is(:PSEUDO-CLASS)))` |
+| " | c3-of-S-not-PSEUDO-CLASS | `:where(:has(> * > * > :nth-child(n of S):not(:PSEUDO-CLASS)))` |
+| PSEUDO-ELEMENT | first-line | `::first-line` |
 | " | first-letter | `::first-letter` |
-| " | selection | `::selection` |
-| " | search-text | `::search-text` |
-| " | target-text | `::target-text` |
-| " | spelling-error | `::spelling-error` |
+| " | cue | `::cue` |
 | " | grammar-error | `::grammar-error` |
+| " | selection | `::selection` |
+| " | spelling-error | `::spelling-error` |
+| " | target-text | `::target-text` |
 | " | before | `::before` |
 | " | after | `::after` |
-| " | file-selector-button | `::file-selector-button` |
+| " | column | `::column` |
+| " | marker | `::marker` |
+| " | backdrop | `::backdrop` |
+| " | scroll-marker | `::scroll-marker` |
+| " | scroll-marker-group | `::scroll-marker-group` |
 | " | details-content | `::details-content` |
-| PROPERTY | NORMAL-PROPERTY | `& { NORMAL-PROPERTY: var(--EXSTYLE-PROPERTY--); }` |
-| " | aspect-ratio | `& { aspect-ratio: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&:is(iframe)) { block-size: auto; }` |
-| " | background | `& { background: var(--EXSTYLE-PROPERTY--); background-attachment: scroll; }` |
+| " | checkmark | `::checkmark` |
+| " | file-selector-button | `::file-selector-button` |
+| " | picker-icon | `::picker-icon` |
+| " | placeholder | `::placeholder` |
+| PROPERTY | NORMAL-PROPERTY | `& { NORMAL-PROPERTY: var(--XSA-PROPERTY--); }` |
+| " | aspect-ratio | `& { aspect-ratio: var(--XSA-PROPERTY--); } :not(_):not(_):where(&:is(iframe)) { block-size: auto; }` |
+| " | background | `& { background: var(--XSA-PROPERTY--); background-attachment: scroll; }` |
 | " | background-attachment | `& { clip-path: inset(0); } &::before { background: inherit; content: ""; position: fixed; inset: 0; z-index: -1; } &::after { content: none; }` |
-| " | columns | `& { columns: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { & > * { break-inside: avoid-column; contain: layout; } & > :first-child { margin-block-start: 0; } & > :last-child { margin-block-end: 0; } } :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | column-count | `& { column-count: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { & > * { break-inside: avoid-column; contain: layout; } & > :first-child { margin-block-start: 0; } & > :last-child { margin-block-end: 0; } } :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | column-width | `& { column-width: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { & > * { break-inside: avoid-column; contain: layout; } & > :first-child { margin-block-start: 0; } & > :last-child { margin-block-end: 0; } } :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | flex-flow | `& { flex-flow: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { display: flex; } :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | flex-direction | `& { flex-direction: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { display: flex; } :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | flex-wrap | `& { flex-wrap: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { display: flex; } :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | font-size | `& { font-size: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
-| " | font-style | `& { font-style: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
-| " | font-weight | `& { font-weight: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
-| " | grid | `& { grid: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { display: grid; } :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | grid-template | `& { grid-template: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { display: grid; } :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | grid-template-rows | `& { grid-template-rows: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { display: grid; } :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | grid-template-columns | `& { grid-template-columns: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { display: grid; } :not(_):not(_):where(&) { &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
-| " | text-decoration | `& { text-decoration: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
-| " | text-emphasis | `& { text-emphasis: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
-| " | text-shadow | `& { text-shadow: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
-| " | text-stroke | `& { -webkit-text-stroke: var(--EXSTYLE-PROPERTY--); text-stroke: var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { paint-order: stroke; background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
-| " | x-text-marker | `& { text-decoration: underline 50% var(--EXSTYLE-PROPERTY--); } :not(_):not(_):where(&) { text-decoration-skip-ink: none; text-underline-offset: -50%; text-underline-position: under; background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | columns | `& { columns: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { & > * { break-inside: avoid-column; contain: layout; } & > :first-child { margin-block-start: 0; } & > :last-child { margin-block-end: 0; } &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | column-count | `& { column-count: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { & > * { break-inside: avoid-column; contain: layout; } & > :first-child { margin-block-start: 0; } & > :last-child { margin-block-end: 0; } &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | column-width | `& { column-width: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { & > * { break-inside: avoid-column; contain: layout; } & > :first-child { margin-block-start: 0; } & > :last-child { margin-block-end: 0; } &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | flex-flow | `& { flex-flow: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { & { display: flex; } &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | flex-direction | `& { flex-direction: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { & { display: flex; } &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | flex-wrap | `& { flex-wrap: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { & { display: flex; } &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | font-size | `& { font-size: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | font-style | `& { font-style: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | font-weight | `& { font-weight: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | grid | `& { grid: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { & { display: grid; } &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | grid-template | `& { grid-template: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { & { display: grid; } &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | grid-template-rows | `& { grid-template-rows: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { & { display: grid; } &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | grid-template-columns | `& { grid-template-columns: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { & { display: grid; } &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
+| " | text-decoration | `& { text-decoration: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | text-emphasis | `& { text-emphasis: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | text-shadow | `& { text-shadow: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | text-stroke | `& { -webkit-text-stroke: var(--XSA-PROPERTY--); text-stroke: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { paint-order: stroke; background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
+| " | x-text-marker | `& { text-decoration: underline 50% var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { text-decoration-skip-ink: none; text-underline-offset: -50%; text-underline-position: under; background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
 
-While **ExStyle CSS** is limited to specific properties and prefixes, **ExStyle JS**, **ExStyle PHP**, and **ExStyle PostCSS** allow any CSS property to be used with a wide array of prefixes.
+### The nth pseudo-class argument
 
-## Design Tokens
+- 'N'
+  - /[0-9]+/
+  - 'even' = '2n'
+  - '2n' = '2n'
+  - 'odd' = '2n+1'
+  - '2nP1' = '2n+1'
+  - '2nM1' = '2n-1'
+- 'S'
+  - 'name' = 'name'
+  - 'name-name' = ':is(name, name)'
+  - 'ID-name' = '#name'
+  - 'CLASS-name' = '.name'
+  - 'PSEUDO-name' = ':name'
+  - 'ATTR-name' = '[name]'
+  - 'ATTR-name-EQ-value' = '[name="value"]'
+  - 'ATTR-name-A-EQ-value' = '[name*="value"]'
+  - 'ATTR-name-C-EQ-value' = '[name^="value"]'
+  - 'ATTR-name-D-EQ-value' = '[name$="value"]'
+  - 'ATTR-name-T-EQ-value' = '[name~="value"]'
+  - 'ATTR-name-P-EQ-value' = '[name|="value"]'
 
-ExStyle does not come with built-in design tokens. It is recommended to define them as custom properties to be used within ExStyle properties.
-While [Open Props](https://open-props.style/) is a great alternative, for maximum AI training and generation efficiency, it is best to define tokens based on base values and their relative scales. Below is an example:
+## XSA Property Usage Examples
 
-```CSS
-:root {
-  /* Alpha values. Based on m (middle), from xl (extra low) to xh (extra high). */
-  --alpha_xl: 12.5%;
-  --alpha_l:  25%;
-  --alpha_m:  50%;
-  --alpha_h:  75%;
-  --alpha_xh: 87.5%;
-
-  /* Font sizing (em). Based on m (medium). */
-  --em_xxs:  0.666666em;
-  --em_xs:   0.75em;
-  --em_s:    0.857142em;
-  --em_m:    1em;
-  --em_l:    1.2em;
-  --em_xl:   1.5em;
-  --em_xxl:  2em;
-  --em_xxxl: 3em;
-
-  /* Elevation shadows. Based on m (middle). */
-  --eval_xl: 0 1px 4px -1px;
-  --eval_l:  0 2px 8px -2px;
-  --eval_m:  0 4px 16px -4px;
-  --eval_h:  0 8px 32px -8px;
-  --eval_xh: 0 16px 64px -16px;
-
-  /* Line thickness. Based on m (medium). */
-  --line_xf: 1px;
-  --line_f:  2px;
-  --line_m:  4px;
-  --line_b:  8px;
-  --line_xb: 16px;
-
-  /* Border radius. Based on m (medium). */
-  --radius_xs: 2px;
-  --radius_s:  4px;
-  --radius_m:  8px;
-  --radius_l:  16px;
-  --radius_xl: 32px;
-
-  /* Spacing/Margins. Based on m (medium). */
-  --sp_xxs: 0.125rem;
-  --sp_xs:  0.25rem;
-  --sp_s:   0.5rem;
-  --sp_m:   1rem;
-  --sp_l:   2rem;
-  --sp_xl:  4rem;
-  --sp_xxl: 8rem;
-
-  /* Base Colors */
-  --red:    #f75;
-  --yellow: #d91;
-  --green:  #5b3;
-  --blue:   #59f;
-  --gray:   #999;
-  --white:  #fff;
-  --black:  #111;
-
-  /* Color Modes */
-  --light-dark: light-dark(var(--white), var(--black));
-  --dark-light: light-dark(var(--black), var(--white));
-
-  /* Color Palette based on contrast corresponding to color mode */
-  --lowest-red:     color-mix(in srgb, var(--light-dark), var(--red) var(--alpha_xl));
-  --lowest-yellow:  color-mix(in srgb, var(--light-dark), var(--yellow) var(--alpha_xl));
-  --lowest-green:   color-mix(in srgb, var(--light-dark), var(--green) var(--alpha_xl));
-  --lowest-blue:    color-mix(in srgb, var(--light-dark), var(--blue) var(--alpha_xl));
-  --lowest-gray:    color-mix(in srgb, var(--light-dark), var(--gray) var(--alpha_xl));
-  --lower-red:      color-mix(in srgb, var(--light-dark), var(--red) var(--alpha_l));
-  --lower-yellow:   color-mix(in srgb, var(--light-dark), var(--yellow) var(--alpha_l));
-  --lower-green:    color-mix(in srgb, var(--light-dark), var(--green) var(--alpha_l));
-  --lower-blue:     color-mix(in srgb, var(--light-dark), var(--blue) var(--alpha_l));
-  --lower-gray:     color-mix(in srgb, var(--light-dark), var(--gray) var(--alpha_l));
-  --low-red:        color-mix(in srgb, var(--light-dark), var(--red) var(--alpha_m));
-  --low-yellow:     color-mix(in srgb, var(--light-dark), var(--yellow) var(--alpha_m));
-  --low-green:      color-mix(in srgb, var(--light-dark), var(--green) var(--alpha_m));
-  --low-blue:       color-mix(in srgb, var(--light-dark), var(--blue) var(--alpha_m));
-  --low-gray:       color-mix(in srgb, var(--light-dark), var(--gray) var(--alpha_m));
-  --high-red:       color-mix(in srgb, var(--dark-light), var(--red) var(--alpha_m));
-  --high-yellow:    color-mix(in srgb, var(--dark-light), var(--yellow) var(--alpha_m));
-  --high-green:     color-mix(in srgb, var(--dark-light), var(--green) var(--alpha_m));
-  --high-blue:      color-mix(in srgb, var(--dark-light), var(--blue) var(--alpha_m));
-  --high-gray:      color-mix(in srgb, var(--dark-light), var(--gray) var(--alpha_m));
-  --higher-red:     color-mix(in srgb, var(--dark-light), var(--red) var(--alpha_l));
-  --higher-yellow:  color-mix(in srgb, var(--dark-light), var(--yellow) var(--alpha_l));
-  --higher-green:   color-mix(in srgb, var(--dark-light), var(--green) var(--alpha_l));
-  --higher-blue:    color-mix(in srgb, var(--dark-light), var(--blue) var(--alpha_l));
-  --higher-gray:    color-mix(in srgb, var(--dark-light), var(--gray) var(--alpha_l));
-  --highest-red:    color-mix(in srgb, var(--dark-light), var(--red) var(--alpha_xl));
-  --highest-yellow: color-mix(in srgb, var(--dark-light), var(--yellow) var(--alpha_xl));
-  --highest-green:  color-mix(in srgb, var(--dark-light), var(--green) var(--alpha_xl));
-  --highest-blue:   color-mix(in srgb, var(--dark-light), var(--blue) var(--alpha_xl));
-  --highest-gray:   color-mix(in srgb, var(--dark-light), var(--gray) var(--alpha_xl));
-}
-```
-
-## Usage Examples
-
-### Table Decoration
+### Table Styling
 
 ```HTML
-<table style="
-    --border--: solid var(--line_xf) var(--gray);
-    --border-collapse--: collapse;
-    --inline-size--: 100%;
-    --table-layout--: fixed;
-    --c3-of-td-th_border--: var(--border--);
-    --c3-of-td-th_padding-block--: var(--sp_s);
-    --c3-of-td-th_padding-inline--: var(--sp_m);
-    ">
-  <tbody style="
-      --c-nth-odd_background--: var(--lowest-gray);
-      ">
+<table style="--border--: solid thin; --border-collapse--: collapse; --inline-size--: 100%; --table-layout--: fixed; --c3_border--: var(--border--); --c3_padding-block--: calc(0.5lh - 0.5em); --c3_padding-inline--: calc(1lh - 1em); --c3-of-th_background--: color-mix(in srgb, transparent, currentcolor 6.25%);">
+  <thead>
+    <tr> … </tr>
+  </thead>
+  <tbody style="--c-nth-odd_background--: var(in srgb, transparent, currentcolor 6.25%);">
     <tr> … </tr>
     …
   </tbody>
 </table>
 ```
 
-### Component Extension Example 1
+### Multi-column Layout
 
 ```HTML
-<style>
-.button {
-  border-style: solid;
-  inline-size: auto; /* Ignores --inline-size-- even if set */
-  …
-  /* Default settings if ExStyle properties are not set */
-  &:not([style*="--background--:"]) {
-    background: none;
-  }
-  &:not([style*="--border-width--:"]) {
-    border-width: var(--line_xf);
-  }
-  &:not([style*="--border-color--:"]) {
-    border-color: transparent;
-  }
-  &:not([style*="--color--:"]) {
-    color: currentcolor;
-  }
-}
-</style>
-…
-<p><button class="button">Outlined Button</button></p>
-<p><button class="button" style="--background--: var(--red); --color--: var(--white);">Red Button</button></p>
-<p><button class="button" style="--border-radius--: var(--radius_xl);">Rounded Button</button></p>
-<p><button class="button" style="--inline-size--: 50%;">Wide Button</button></p><!-- Won't be wide due to inline-size: auto; override -->
-```
-
-### Component Extension Example 2
-
-```HTML
-<style>
-.button {
-  /* Default settings if not overridden by ExStyle properties */
-  --background--: none;
-  --border-width--: var(--line_xf);
-  --border-color--: transparent;
-  --color--: currentcolor;
-  
-  background: var(--background--);
-  border: solid var(--border-width--) var(--border-color--);
-  color: var(--color--);
-  inline-size: auto; /* Ignores --inline-size-- even if set */
-  …
-}
-</style>
-```
-
-### Column Layout
-
-```HTML
-<ul style="--columns--: 4 16em; --column-rule--: dotted var(--line_xf); --column-gap--: var(--sp_l); --c_margin-block-end--: var(--sp_m);">
+<ul style="--columns--: 4 16em; --column-rule--: dotted thin; --column-gap--: 2em; --c_margin-block-end--: 1lh;">
   <li> … </li>
   <li> … </li>
   <li> … </li>
@@ -375,10 +281,10 @@ While [Open Props](https://open-props.style/) is a great alternative, for maximu
 </ul>
 ```
 
-### Flex Layout
+### Flexbox Layout
 
 ```HTML
-<div style="--container-type--: inline-size; --flex-flow--: row wrap; --gap--: var(--sp_m); --c_flex--: 1 1 100%;">
+<div style="--container-type--: inline-size; --flex-flow--: row wrap; --gap--: 1lh 1em; --c_flex--: 1 1 100%;">
   <div style="--cqi-m_flex--: 1 1 0%;"> … </div>
   <div style="--cqi-m_flex--: 1 1 0%;"> … </div>
   <div style="--cqi-m_flex--: 1 1 0%;"> … </div>
@@ -389,14 +295,67 @@ While [Open Props](https://open-props.style/) is a great alternative, for maximu
 ### Grid Layout
 
 ```HTML
-<div style="--container-type--: inline-size; --grid--: auto-flow / repeat(12, 1fr); --gap--: var(--sp_m); --c_grid-area--: auto / span 12;">
-  <div style="--cqi-m_grid-area--: auto / span 3;"> … </div>
-  <div style="--cqi-m_grid-area--: auto / span 3;"> … </div>
-  <div style="--cqi-m_grid-area--: auto / span 3;"> … </div>
-  <div style="--cqi-m_grid-area--: auto / span 3;"> … </div>
+<div style="--container-type--: inline-size; --grid--: auto-flow / repeat(12, 1fr); --gap--: 1lh 1em; --c_grid-area--: auto / span 12;">
+  <div style="--cqi-m_grid-area--: auto / span 2;"> … </div>
+  <div style="--cqi-m_grid-area--: auto / span 4;"> … </div>
+  <div style="--cqi-m_grid-area--: auto / span 6;"> … </div>
 </div>
+```
+
+### Component Extension Example 1
+
+```HTML
+<style>
+.button {
+  border-style: solid;
+  …
+  &:not([style*="--background--:"]) {
+    background: none;
+  }
+  &:not([style*="--border-width--:"]) {
+    border-width: thin;
+  }
+  &:not([style*="--border-color--:"]) {
+    border-color: currentcolor;
+  }
+  &:not([style*="--color--:"]) {
+    color: currentcolor;
+  }
+  &[style*="--background--:"] {
+    border-color: transparent;
+  }
+}
+</style>
+…
+<p><button class="button">Outlined Button</button></p>
+<p><button class="button" style="--background--: var(--red); --color--: var(--white);">Red Button</button></p>
+<p><button class="button" style="--inline-size--: 100%;">Full-width Button</button></p>
+```
+
+### Component Extension Example 2
+
+```HTML
+<style>
+.button {
+  --background--: none;
+  --border-width--: thin;
+  --border-color--: currentcolor;
+  --color--: currentcolor;
+  background: var(--background--);
+  border: solid var(--border-width--) var(--border-color--);
+  color: var(--color--);
+  …
+  &[style*="--background--:"] {
+    border-color: transparent;
+  }
+}
+</style>
+…
+<p><button class="button">Outlined Button</button></p>
+<p><button class="button" style="--background--: var(--red); --color--: var(--white);">Red Button</button></p>
+<p><button class="button" style="--inline-size--: 100%;">Full-width Button</button></p>
 ```
 
 ---
 
-The MIT License. Copyright 2026 Nobuo Nakayama (Shimotsuki/nov-jp).
+The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/).

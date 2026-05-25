@@ -1,0 +1,72 @@
+/*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
+/**
+ * https://www.w3.org/TR/css-box-4/
+ * https://www.w3.org/TR/css-logical-1/
+ */
+:where(:nth-child(n of :is(dd, dt, td, th))) {
+	[style*="--d-of-dd-dt-td-th_padding--:"] & {
+		padding: var(--d-of-dd-dt-td-th_padding--);
+	}
+	[style*="--d-of-dd-dt-td-th_padding-block--:"] & {
+		padding-block: var(--d-of-dd-dt-td-th_padding-block--);
+	}
+	[style*="--d-of-dd-dt-td-th_padding-block-start--:"] & {
+		padding-block-start: var(--d-of-dd-dt-td-th_padding-block-start--);
+	}
+	[style*="--d-of-dd-dt-td-th_padding-block-end--:"] & {
+		padding-block-end: var(--d-of-dd-dt-td-th_padding-block-end--);
+	}
+	[style*="--d-of-dd-dt-td-th_padding-inline--:"] & {
+		padding-inline: var(--d-of-dd-dt-td-th_padding-inline--);
+	}
+	[style*="--d-of-dd-dt-td-th_padding-inline-start--:"] & {
+		padding-inline-start: var(--d-of-dd-dt-td-th_padding-inline-start--);
+	}
+	[style*="--d-of-dd-dt-td-th_padding-inline-end--:"] & {
+		padding-inline-end: var(--d-of-dd-dt-td-th_padding-inline-end--);
+	}
+}
+* {
+	[style*="--c_padding--:"] > & {
+		padding: var(--c_padding--);
+	}
+	[style*="--c_padding-block--:"] > & {
+		padding-block: var(--c_padding-block--);
+	}
+	[style*="--c_padding-block-start--:"] > & {
+		padding-block-start: var(--c_padding-block-start--);
+	}
+	[style*="--c_padding-block-end--:"] > & {
+		padding-block-end: var(--c_padding-block-end--);
+	}
+	[style*="--c_padding-inline--:"] > & {
+		padding-inline: var(--c_padding-inline--);
+	}
+	[style*="--c_padding-inline-start--:"] > & {
+		padding-inline-start: var(--c_padding-inline-start--);
+	}
+	[style*="--c_padding-inline-end--:"] > & {
+		padding-inline-end: var(--c_padding-inline-end--);
+	}
+}
+[style*="--padding--:"] {
+	padding: var(--padding--);
+}
+[style*="--padding-block--:"] {
+	padding-block: var(--padding-block--);
+}
+[style*="--padding-block-start--:"] {
+	padding-block-start: var(--padding-block-start--);
+}
+[style*="--padding-block-end--:"] {
+	padding-block-end: var(--padding-block-end--);
+}
+[style*="--padding-inline--:"] {
+	padding-inline: var(--padding-inline--);
+}
+[style*="--padding-inline-start--:"] {
+	padding-inline-start: var(--padding-inline-start--);
+}
+[style*="--padding-inline-end--:"] {
+	padding-inline-end: var(--padding-inline-end--);
+}

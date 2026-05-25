@@ -1,0 +1,78 @@
+:root {
+	--a_xl: 12.5%; /* calc(100% * 1 / 8) */
+	--a_l:  25%;   /* calc(100% * 1 / 4) */
+	--a_m:  50%;   /* calc(100% * 1 / 2) */
+	--a_h:  75%;   /* calc(100% * 3 / 4) */
+	--a_xh: 87.5%; /* calc(100% * 7 / 8) */
+
+	--em_xxs:  0.666666em; /* calc(1em * 6 / 9) */
+	--em_xs:   0.75em;     /* calc(1em * 6 / 8) */
+	--em_s:    0.857142em; /* calc(1em * 6 / 7) */
+	--em_m:    1em;        /* calc(1em * 6 / 6) */
+	--em_l:    1.2em;      /* calc(1em * 6 / 5) */
+	--em_xl:   1.5em;      /* calc(1em * 6 / 4) */
+	--em_xxl:  2em;        /* calc(1em * 6 / 3) */
+	--em_xxxl: 3em;        /* calc(1em * 6 / 2) */
+
+	--elev_xl: 0 1px 4px -1px;    /* 0 calc(4px * 1 / 4) calc(16px * 1 / 4) calc(-4px * 1 / 4) */
+	--elev_l:  0 2px 8px -2px;    /* 0 calc(4px * 1 / 2) calc(16px * 1 / 2) calc(-4px * 1 / 2) */
+	--elev_m:  0 4px 16px -4px;   /* 0 calc(4px * 1)     calc(16px * 1)     calc(-4px * 1) */
+	--elev_h:  0 8px 32px -8px;   /* 0 calc(4px * 2)     calc(16px * 2)     calc(-4px * 2) */
+	--elev_xh: 0 16px 64px -16px; /* 0 calc(4px * 4)     calc(16px * 4)     calc(-4px * 4) */
+
+	--l_xf: 1px;  /* calc(4px * 1 / 4) */
+	--l_f:  2px;  /* calc(4px * 1 / 2) */
+	--l_m:  4px;  /* calc(4px * 1) */
+	--l_b:  8px;  /* calc(4px * 2) */
+	--l_xb: 16px; /* calc(4px * 4) */
+
+	--r_xs: 2px;  /* calc(8px * 1 / 4) */
+	--r_s:  4px;  /* calc(8px * 1 / 2) */
+	--r_m:  8px;  /* calc(8px * 1) */
+	--r_l:  16px; /* calc(8px * 2) */
+	--r_xl: 32px; /* calc(8px * 4) */
+
+	--sp_xxs: 0.125rem; /* calc(1rem * 1 / 8) */
+	--sp_xs:  0.25rem;  /* calc(1rem * 1 / 4) */
+	--sp_s:   0.5rem;   /* calc(1rem * 1 / 2) */
+	--sp_m:   1rem;     /* calc(1rem * 1) */
+	--sp_l:   2rem;     /* calc(1rem * 2) */
+	--sp_xl:  4rem;     /* calc(1rem * 4) */
+	--sp_xxl: 8rem;     /* calc(1rem * 8) */
+
+	--red:    #f75;
+	--yellow: #d91;
+	--green:  #5b3;
+	--blue:   #59f;
+	--gray:   #999;
+	--white:  #fff;
+	--black:  #111;
+
+	--light-dark: light-dark(var(--white), var(--black));
+	--dark-light: light-dark(var(--black), var(--white));
+
+	--sheer-red:       color-mix(in srgb, transparent, var(--red) var(--a_m));
+	--sheer-yellow:    color-mix(in srgb, transparent, var(--yellow) var(--a_m));
+	--sheer-green:     color-mix(in srgb, transparent, var(--green) var(--a_m));
+	--sheer-blue:      color-mix(in srgb, transparent, var(--blue) var(--a_m));
+	--sheer-gray:      color-mix(in srgb, transparent, var(--gray) var(--a_m));
+	--sheer-white:     color-mix(in srgb, transparent, var(--white) var(--a_m));
+	--sheer-black:     color-mix(in srgb, transparent, var(--black) var(--a_m));
+	--sheer-text:      color-mix(in srgb, transparent, currentcolor var(--a_m));
+	--sheerer-red:     color-mix(in srgb, transparent, var(--red) var(--a_l));
+	--sheerer-yellow:  color-mix(in srgb, transparent, var(--yellow) var(--a_l));
+	--sheerer-green:   color-mix(in srgb, transparent, var(--green) var(--a_l));
+	--sheerer-blue:    color-mix(in srgb, transparent, var(--blue) var(--a_l));
+	--sheerer-gray:    color-mix(in srgb, transparent, var(--gray) var(--a_l));
+	--sheerer-white:   color-mix(in srgb, transparent, var(--white) var(--a_l));
+	--sheerer-black:   color-mix(in srgb, transparent, var(--black) var(--a_l));
+	--sheerer-text:    color-mix(in srgb, transparent, currentcolor var(--a_l));
+	--sheerest-red:    color-mix(in srgb, transparent, var(--red) var(--a_xl));
+	--sheerest-yellow: color-mix(in srgb, transparent, var(--yellow) var(--a_xl));
+	--sheerest-green:  color-mix(in srgb, transparent, var(--green) var(--a_xl));
+	--sheerest-blue:   color-mix(in srgb, transparent, var(--blue) var(--a_xl));
+	--sheerest-gray:   color-mix(in srgb, transparent, var(--gray) var(--a_xl));
+	--sheerest-white:  color-mix(in srgb, transparent, var(--white) var(--a_xl));
+	--sheerest-black:  color-mix(in srgb, transparent, var(--black) var(--a_xl));
+	--sheerest-text:   color-mix(in srgb, transparent, currentcolor var(--a_xl));
+}

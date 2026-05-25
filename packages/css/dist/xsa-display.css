@@ -1,0 +1,30 @@
+/*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
+/**
+ * https://www.w3.org/TR/css-display-3/
+ */
+[style*="--display--:"] {
+	display: var(--display--);
+}
+[style*="--order--:"] {
+	order: var(--order--);
+}
+@container (inline-size > 480px) {
+	[style*="--cqi-s_order--:"] {
+		order: var(--cqi-s_order--);
+	}
+}
+@container (inline-size > 720px) {
+	[style*="--cqi-m_order--:"] {
+		order: var(--cqi-m_order--);
+	}
+}
+@container (inline-size > 960px) {
+	[style*="--cqi-l_order--:"] {
+		order: var(--cqi-l_order--);
+	}
+}
+@container (inline-size > 1200px) {
+	[style*="--cqi-xl_order--:"] {
+		order: var(--cqi-xl_order--);
+	}
+}

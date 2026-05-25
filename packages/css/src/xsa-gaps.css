@@ -1,0 +1,57 @@
+/*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
+/**
+ * https://drafts.csswg.org/css-gaps-1/
+ */
+[style*="--gap--:"] {
+	gap: var(--gap--);
+}
+[style*="--row-gap--:"] {
+	row-gap: var(--row-gap--);
+}
+[style*="--column-gap--:"] {
+	column-gap: var(--column-gap--);
+}
+@container (inline-size > 480px) {
+	[style*="--cqi-s_gap--:"] {
+		gap: var(--cqi-s_gap--);
+	}
+	[style*="--cqi-s_row-gap--:"] {
+		row-gap: var(--cqi-s_row-gap--);
+	}
+	[style*="--cqi-s_column-gap--:"] {
+		column-gap: var(--cqi-s_column-gap--);
+	}
+}
+@container (inline-size > 720px) {
+	[style*="--cqi-m_gap--:"] {
+		gap: var(--cqi-m_gap--);
+	}
+	[style*="--cqi-m_row-gap--:"] {
+		row-gap: var(--cqi-m_row-gap--);
+	}
+	[style*="--cqi-m_column-gap--:"] {
+		column-gap: var(--cqi-m_column-gap--);
+	}
+}
+@container (inline-size > 960px) {
+	[style*="--cqi-l_gap--:"] {
+		gap: var(--cqi-l_gap--);
+	}
+	[style*="--cqi-l_row-gap--:"] {
+		row-gap: var(--cqi-l_row-gap--);
+	}
+	[style*="--cqi-l_column-gap--:"] {
+		column-gap: var(--cqi-l_column-gap--);
+	}
+}
+@container (inline-size > 1200px) {
+	[style*="--cqi-xl_gap--:"] {
+		gap: var(--cqi-xl_gap--);
+	}
+	[style*="--cqi-xl_row-gap--:"] {
+		row-gap: var(--cqi-xl_row-gap--);
+	}
+	[style*="--cqi-xl_column-gap--:"] {
+		column-gap: var(--cqi-xl_column-gap--);
+	}
+}

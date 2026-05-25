@@ -1,0 +1,57 @@
+/*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
+/**
+ * https://www.w3.org/TR/css-align-3/
+ */
+[style*="--place-content--:"] {
+	place-content: var(--place-content--);
+}
+[style*="--place-items--:"] {
+	place-items: var(--place-items--);
+}
+[style*="--place-self--:"] {
+	place-self: var(--place-self--);
+}
+@container (inline-size > 480px) {
+	[style*="--cqi-s_place-content--:"] {
+		place-content: var(--cqi-s_place-content--);
+	}
+	[style*="--cqi-s_place-items--:"] {
+		place-items: var(--cqi-s_place-items--);
+	}
+	[style*="--cqi-s_place-self--:"] {
+		place-self: var(--cqi-s_place-self--);
+	}
+}
+@container (inline-size > 720px) {
+	[style*="--cqi-m_place-content--:"] {
+		place-content: var(--cqi-m_place-content--);
+	}
+	[style*="--cqi-m_place-items--:"] {
+		place-items: var(--cqi-m_place-items--);
+	}
+	[style*="--cqi-m_place-self--:"] {
+		place-self: var(--cqi-m_place-self--);
+	}
+}
+@container (inline-size > 960px) {
+	[style*="--cqi-l_place-content--:"] {
+		place-content: var(--cqi-l_place-content--);
+	}
+	[style*="--cqi-l_place-items--:"] {
+		place-items: var(--cqi-l_place-items--);
+	}
+	[style*="--cqi-l_place-self--:"] {
+		place-self: var(--cqi-l_place-self--);
+	}
+}
+@container (inline-size > 1200px) {
+	[style*="--cqi-xl_place-content--:"] {
+		place-content: var(--cqi-xl_place-content--);
+	}
+	[style*="--cqi-xl_place-items--:"] {
+		place-items: var(--cqi-xl_place-items--);
+	}
+	[style*="--cqi-xl_place-self--:"] {
+		place-self: var(--cqi-xl_place-self--);
+	}
+}
