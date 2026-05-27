@@ -122,71 +122,103 @@ XSAプロパティ の命名規則を正規表現で表すと次のようにな�
 | " | focus-visible | `:where(:focus-visible)` |
 | " | focus-within | `:where(:focus-within)` |
 | " | target-current | `:where(:target-current)` |
-| " | not-PSEUDO-CLASS | `:where(:not(:PSEUDO-CLASS))` |
 | " | PSEUDO-CLASS-n | `:where(:PSEUDO-CLASS + *)` |
-| " | not-PSEUDO-CLASS-n | `:where(:not(:PSEUDO-CLASS) + *)` |
 | " | PSEUDO-CLASS-s | `:where(:PSEUDO-CLASS ~ *)` |
-| " | not-PSEUDO-CLASS-s | `:where(:not(:PSEUDO-CLASS) ~ *)` |
 | " | n-PSEUDO-CLASS | `:where(:has(+ :PSEUDO-CLASS))` |
-| " | n-not-PSEUDO-CLASS | `:where(:has(+ :not(:PSEUDO-CLASS)))` |
 | " | s-PSEUDO-CLASS | `:where(:has(~ :PSEUDO-CLASS))` |
-| " | s-not-PSEUDO-CLASS | `:where(:has(~ :not(:PSEUDO-CLASS)))` |
 | " | d-PSEUDO-CLASS | `:where(:has(:PSEUDO-CLASS))` |
-| " | d-not-PSEUDO-CLASS | `:where(:has(:not(:PSEUDO-CLASS)))` |
 | " | c-PSEUDO-CLASS | `:where(:has(> :PSEUDO-CLASS))` |
-| " | c-not-PSEUDO-CLASS | `:where(:has(> :not(:PSEUDO-CLASS)))` |
 | " | c2-PSEUDO-CLASS | `:where(:has(> * > :PSEUDO-CLASS))` |
-| " | c2-not-PSEUDO-CLASS | `:where(:has(> * > :not(:PSEUDO-CLASS)))` |
 | " | c3-PSEUDO-CLASS | `:where(:has(> * > * > :PSEUDO-CLASS))` |
-| " | c3-not-PSEUDO-CLASS | `:where(:has(> * > * > :not(:PSEUDO-CLASS)))` |
-| " | nth-N-of-S-is-PSEUDO-CLASS-n | `:where(:nth-child(N of S):is(:PSEUDO-CLASS) + *)` |
-| " | nth-N-of-S-not-PSEUDO-CLASS-n | `:where(:nth-child(N of S):not(:PSEUDO-CLASS) + *)` |
-| " | nth-N-of-S-is-PSEUDO-CLASS-s | `:where(:nth-child(N of S):is(:PSEUDO-CLASS) ~ *)` |
-| " | nth-N-of-S-not-PSEUDO-CLASS-s | `:where(:nth-child(N of S):not(:PSEUDO-CLASS) ~ *)` |
-| " | n-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(+ :nth-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | n-nth-N-of-S-not-PSEUDO-CLASS | `:where(:has(+ :nth-child(N of S):not(:PSEUDO-CLASS)))` |
-| " | s-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(~ :nth-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | s-nth-N-of-S-not-PSEUDO-CLASS | `:where(:has(~ :nth-child(N of S):not(:PSEUDO-CLASS)))` |
-| " | d-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(:nth-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | d-nth-N-of-S-not-PSEUDO-CLASS | `:where(:has(:nth-child(N of S):not(:PSEUDO-CLASS)))` |
-| " | c-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(> :nth-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | c-nth-N-of-S-not-PSEUDO-CLASS | `:where(:has(> :nth-child(N of S):not(:PSEUDO-CLASS)))` |
-| " | c2-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > :nth-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | c2-nth-N-of-S-not-PSEUDO-CLASS | `:where(:has(> * > :nth-child(N of S):not(:PSEUDO-CLASS)))` |
-| " | c3-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > * > :nth-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | c3-nth-N-of-S-not-PSEUDO-CLASS | `:where(:has(> * > * > :nth-child(N of S):not(:PSEUDO-CLASS)))` |
-| " | nth-last-N-of-S-is-PSEUDO-CLASS-n | `:where(:nth-last-child(N of S):is(:PSEUDO-CLASS) + *)` |
-| " | nth-last-N-of-S-not-PSEUDO-CLASS-n | `:where(:nth-last-child(N of S):not(:PSEUDO-CLASS) + *)` |
-| " | nth-last-N-of-S-is-PSEUDO-CLASS-s | `:where(:nth-last-child(N of S):is(:PSEUDO-CLASS) ~ *)` |
-| " | nth-last-N-of-S-not-PSEUDO-CLASS-s | `:where(:nth-last-child(N of S):not(:PSEUDO-CLASS) ~ *)` |
-| " | n-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(+ :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | n-nth-last-N-of-S-not-PSEUDO-CLASS | `:where(:has(+ :nth-last-child(N of S):not(:PSEUDO-CLASS)))` |
-| " | s-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(~ :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | s-nth-last-N-of-S-not-PSEUDO-CLASS | `:where(:has(~ :nth-last-child(N of S):not(:PSEUDO-CLASS)))` |
-| " | d-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(:nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | d-nth-last-N-of-S-not-PSEUDO-CLASS | `:where(:has(:nth-last-child(N of S):not(:PSEUDO-CLASS)))` |
-| " | c-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(> :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | c-nth-last-N-of-S-not-PSEUDO-CLASS | `:where(:has(> :nth-last-child(N of S):not(:PSEUDO-CLASS)))` |
-| " | c2-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | c2-nth-last-N-of-S-not-PSEUDO-CLASS | `:where(:has(> * > :nth-last-child(N of S):not(:PSEUDO-CLASS)))` |
-| " | c3-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > * > :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | c3-nth-last-N-of-S-not-PSEUDO-CLASS | `:where(:has(> * > * > :nth-last-child(N of S):not(:PSEUDO-CLASS)))` |
 | " | S-is-PSEUDO-CLASS-n | `:where(:nth-child(n of S):is(:PSEUDO-CLASS) + *)` |
-| " | S-not-PSEUDO-CLASS-n | `:where(:nth-child(n of S):not(:PSEUDO-CLASS) + *)` |
 | " | S-is-PSEUDO-CLASS-s | `:where(:nth-child(n of S):is(:PSEUDO-CLASS) ~ *)` |
-| " | S-not-PSEUDO-CLASS-s | `:where(:nth-child(n of S):not(:PSEUDO-CLASS) ~ *)` |
 | " | n-S-is-PSEUDO-CLASS | `:where(:has(+ :nth-child(n of S):is(:PSEUDO-CLASS)))` |
-| " | n-S-not-PSEUDO-CLASS | `:where(:has(+ :nth-child(n of S):not(:PSEUDO-CLASS)))` |
 | " | s-S-is-PSEUDO-CLASS | `:where(:has(~ :nth-child(n of S):is(:PSEUDO-CLASS)))` |
-| " | s-S-not-PSEUDO-CLASS | `:where(:has(~ :nth-child(n of S):not(:PSEUDO-CLASS)))` |
 | " | d-of-S-is-PSEUDO-CLASS | `:where(:has(:nth-child(n of S):is(:PSEUDO-CLASS)))` |
-| " | d-of-S-not-PSEUDO-CLASS | `:where(:has(:nth-child(n of S):not(:PSEUDO-CLASS)))` |
 | " | c-of-S-is-PSEUDO-CLASS | `:where(:has(> :nth-child(n of S):is(:PSEUDO-CLASS)))` |
-| " | c-of-S-not-PSEUDO-CLASS | `:where(:has(> :nth-child(n of S):not(:PSEUDO-CLASS)))` |
 | " | c2-of-S-is-PSEUDO-CLASS | `:where(:has(> * > :nth-child(n of S):is(:PSEUDO-CLASS)))` |
-| " | c2-of-S-not-PSEUDO-CLASS | `:where(:has(> * > :nth-child(n of S):not(:PSEUDO-CLASS)))` |
 | " | c3-of-S-is-PSEUDO-CLASS | `:where(:has(> * > * > :nth-child(n of S):is(:PSEUDO-CLASS)))` |
-| " | c3-of-S-not-PSEUDO-CLASS | `:where(:has(> * > * > :nth-child(n of S):not(:PSEUDO-CLASS)))` |
+| " | nth-N-is-PSEUDO-CLASS-n | `:where(:nth-child(N):is(:PSEUDO-CLASS) + *)` |
+| " | nth-N-is-PSEUDO-CLASS-s | `:where(:nth-child(N):is(:PSEUDO-CLASS) ~ *)` |
+| " | n-nth-N-is-PSEUDO-CLASS | `:where(:has(+ :nth-child(N):is(:PSEUDO-CLASS)))` |
+| " | s-nth-N-is-PSEUDO-CLASS | `:where(:has(~ :nth-child(N):is(:PSEUDO-CLASS)))` |
+| " | d-nth-N-is-PSEUDO-CLASS | `:where(:has(:nth-child(N):is(:PSEUDO-CLASS)))` |
+| " | c-nth-N-is-PSEUDO-CLASS | `:where(:has(> :nth-child(N):is(:PSEUDO-CLASS)))` |
+| " | c2-nth-N-is-PSEUDO-CLASS | `:where(:has(> * > :nth-child(N):is(:PSEUDO-CLASS)))` |
+| " | c3-nth-N-is-PSEUDO-CLASS | `:where(:has(> * > * > :nth-child(N):is(:PSEUDO-CLASS)))` |
+| " | nth-N-of-S-is-PSEUDO-CLASS-n | `:where(:nth-child(N of S):is(:PSEUDO-CLASS) + *)` |
+| " | nth-N-of-S-is-PSEUDO-CLASS-s | `:where(:nth-child(N of S):is(:PSEUDO-CLASS) ~ *)` |
+| " | n-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(+ :nth-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | s-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(~ :nth-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | d-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(:nth-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | c-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(> :nth-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | c2-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > :nth-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | c3-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > * > :nth-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | nth-last-N-is-PSEUDO-CLASS-n | `:where(:nth-last-child(N):is(:PSEUDO-CLASS) + *)` |
+| " | nth-last-N-is-PSEUDO-CLASS-s | `:where(:nth-last-child(N):is(:PSEUDO-CLASS) ~ *)` |
+| " | n-nth-last-N-is-PSEUDO-CLASS | `:where(:has(+ :nth-last-child(N):is(:PSEUDO-CLASS)))` |
+| " | s-nth-last-N-is-PSEUDO-CLASS | `:where(:has(~ :nth-last-child(N):is(:PSEUDO-CLASS)))` |
+| " | d-nth-last-N-is-PSEUDO-CLASS | `:where(:has(:nth-last-child(N):is(:PSEUDO-CLASS)))` |
+| " | c-nth-last-N-is-PSEUDO-CLASS | `:where(:has(> :nth-last-child(N):is(:PSEUDO-CLASS)))` |
+| " | c2-nth-last-N-is-PSEUDO-CLASS | `:where(:has(> * > :nth-last-child(N):is(:PSEUDO-CLASS)))` |
+| " | c3-nth-last-N-is-PSEUDO-CLASS | `:where(:has(> * > * > :nth-last-child(N):is(:PSEUDO-CLASS)))` |
+| " | nth-last-N-of-S-is-PSEUDO-CLASS-n | `:where(:nth-last-child(N of S):is(:PSEUDO-CLASS) + *)` |
+| " | nth-last-N-of-S-is-PSEUDO-CLASS-s | `:where(:nth-last-child(N of S):is(:PSEUDO-CLASS) ~ *)` |
+| " | n-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(+ :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | s-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(~ :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | d-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(:nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | c-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(> :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | c2-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | c3-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > * > :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
+| " | not-PSEUDO-CLASS | `:where(:not(:PSEUDO-CLASS))` |
+| " | not-PSEUDO-CLASS-n | `:where(:not(:PSEUDO-CLASS + *))` |
+| " | not-PSEUDO-CLASS-s | `:where(:not(:PSEUDO-CLASS ~ *))` |
+| " | not-n-PSEUDO-CLASS | `:where(:not(:has(+ :PSEUDO-CLASS)))` |
+| " | not-s-PSEUDO-CLASS | `:where(:not(:has(~ :PSEUDO-CLASS)))` |
+| " | not-d-PSEUDO-CLASS | `:where(:not(:has(:PSEUDO-CLASS)))` |
+| " | not-c-PSEUDO-CLASS | `:where(:not(:has(> :PSEUDO-CLASS)))` |
+| " | not-c2-PSEUDO-CLASS | `:where(:not(:has(> * > :PSEUDO-CLASS)))` |
+| " | not-c3-PSEUDO-CLASS | `:where(:not(:has(> * > * > :PSEUDO-CLASS)))` |
+| " | not-S-is-PSEUDO-CLASS-n | `:where(:not(:nth-child(n of S):is(:PSEUDO-CLASS) + *))` |
+| " | not-S-is-PSEUDO-CLASS-s | `:where(:not(:nth-child(n of S):is(:PSEUDO-CLASS) ~ *))` |
+| " | not-n-S-is-PSEUDO-CLASS | `:where(:not(:has(+ :nth-child(n of S):is(:PSEUDO-CLASS))))` |
+| " | not-s-S-is-PSEUDO-CLASS | `:where(:not(:has(~ :nth-child(n of S):is(:PSEUDO-CLASS))))` |
+| " | not-d-of-S-is-PSEUDO-CLASS | `:where(:not(:has(:nth-child(n of S):is(:PSEUDO-CLASS))))` |
+| " | not-c-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> :nth-child(n of S):is(:PSEUDO-CLASS))))` |
+| " | not-c2-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> * > :nth-child(n of S):is(:PSEUDO-CLASS))))` |
+| " | not-c3-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> * > * > :nth-child(n of S):is(:PSEUDO-CLASS))))` |
+| " | not-nth-N-is-PSEUDO-CLASS-n | `:where(:not(:nth-child(N):is(:PSEUDO-CLASS) + *))` |
+| " | not-nth-N-is-PSEUDO-CLASS-s | `:where(:not(:nth-child(N):is(:PSEUDO-CLASS) ~ *))` |
+| " | not-n-nth-N-is-PSEUDO-CLASS | `:where(:not(:has(+ :nth-child(N):is(:PSEUDO-CLASS))))` |
+| " | not-s-nth-N-is-PSEUDO-CLASS | `:where(:not(:has(~ :nth-child(N):is(:PSEUDO-CLASS))))` |
+| " | not-d-nth-N-is-PSEUDO-CLASS | `:where(:not(:has(:nth-child(N):is(:PSEUDO-CLASS))))` |
+| " | not-c-nth-N-is-PSEUDO-CLASS | `:where(:not(:has(> :nth-child(N):is(:PSEUDO-CLASS))))` |
+| " | not-c2-nth-N-is-PSEUDO-CLASS | `:where(:not(:has(> * > :nth-child(N):is(:PSEUDO-CLASS))))` |
+| " | not-c3-nth-N-is-PSEUDO-CLASS | `:where(:not(:has(> * > * > :nth-child(N):is(:PSEUDO-CLASS))))` |
+| " | not-nth-N-of-S-is-PSEUDO-CLASS-n | `:where(:not(:nth-child(N of S):is(:PSEUDO-CLASS) + *))` |
+| " | not-nth-N-of-S-is-PSEUDO-CLASS-s | `:where(:not(:nth-child(N of S):is(:PSEUDO-CLASS) ~ *))` |
+| " | not-n-nth-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(+ :nth-child(N of S):is(:PSEUDO-CLASS))))` |
+| " | not-s-nth-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(~ :nth-child(N of S):is(:PSEUDO-CLASS))))` |
+| " | not-d-nth-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(:nth-child(N of S):is(:PSEUDO-CLASS))))` |
+| " | not-c-nth-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> :nth-child(N of S):is(:PSEUDO-CLASS))))` |
+| " | not-c2-nth-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> * > :nth-child(N of S):is(:PSEUDO-CLASS))))` |
+| " | not-c3-nth-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> * > * > :nth-child(N of S):is(:PSEUDO-CLASS))))` |
+| " | not-nth-last-N-is-PSEUDO-CLASS-n | `:where(:not(:nth-last-child(N):is(:PSEUDO-CLASS) + *))` |
+| " | not-nth-last-N-is-PSEUDO-CLASS-s | `:where(:not(:nth-last-child(N):is(:PSEUDO-CLASS) ~ *))` |
+| " | not-n-nth-last-N-is-PSEUDO-CLASS | `:where(:not(:has(+ :nth-last-child(N):is(:PSEUDO-CLASS))))` |
+| " | not-s-nth-last-N-is-PSEUDO-CLASS | `:where(:not(:has(~ :nth-last-child(N):is(:PSEUDO-CLASS))))` |
+| " | not-d-nth-last-N-is-PSEUDO-CLASS | `:where(:not(:has(:nth-last-child(N):is(:PSEUDO-CLASS))))` |
+| " | not-c-nth-last-N-is-PSEUDO-CLASS | `:where(:not(:has(> :nth-last-child(N):is(:PSEUDO-CLASS))))` |
+| " | not-c2-nth-last-N-is-PSEUDO-CLASS | `:where(:not(:has(> * > :nth-last-child(N):is(:PSEUDO-CLASS))))` |
+| " | not-c3-nth-last-N-is-PSEUDO-CLASS | `:where(:not(:has(> * > * > :nth-last-child(N):is(:PSEUDO-CLASS))))` |
+| " | not-nth-last-N-of-S-is-PSEUDO-CLASS-n | `:where(:not(:nth-last-child(N of S):is(:PSEUDO-CLASS) + *))` |
+| " | not-nth-last-N-of-S-is-PSEUDO-CLASS-s | `:where(:not(:nth-last-child(N of S):is(:PSEUDO-CLASS) ~ *))` |
+| " | not-n-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(+ :nth-last-child(N of S):is(:PSEUDO-CLASS))))` |
+| " | not-s-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(~ :nth-last-child(N of S):is(:PSEUDO-CLASS))))` |
+| " | not-d-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(:nth-last-child(N of S):is(:PSEUDO-CLASS))))` |
+| " | not-c-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> :nth-last-child(N of S):is(:PSEUDO-CLASS))))` |
+| " | not-c2-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> * > :nth-last-child(N of S):is(:PSEUDO-CLASS))))` |
+| " | not-c3-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> * > * > :nth-last-child(N of S):is(:PSEUDO-CLASS))))` |
 | PSEUDO-ELEMENT | first-line | `::first-line` |
 | " | first-letter | `::first-letter` |
 | " | cue | `::cue` |

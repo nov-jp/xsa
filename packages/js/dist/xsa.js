@@ -91,40 +91,40 @@ var XSA = (function () {
 		"placeholder"
 	];
 	var property_styles = {
-		"aspect-ratio": "&{aspect-ratio:var(/*@prop@*/);}:not(_):not(_):where(&:is(iframe)){block-size:auto;}",
-		background: "&{background:var(/*@prop@*/);background-attachment:scroll;}",
-		"background-attachment": "&{clip-path:inset(0);}&::before{background:inherit;content:'';position:fixed;inset:0;z-index:-1;}&::after{content:none;}",
-		columns: "&{columns:var(/*@prop@*/);}:not(_):not(_):where(&){/*@column_style@*//*@layout_style@*/}",
-		"column-count": "&{column-count:var(/*@prop@*/);}:not(_):not(_):where(&){/*@column_style@*//*@layout_style@*/}",
-		"column-width": "&{column-width:var(/*@prop@*/);}:not(_):not(_):where(&){/*@column_style@*//*@layout_style@*/}",
-		"flex-flow": "&{flex-flow:var(/*@prop@*/);}:not(_):not(_):where(&){display:flex;/*@layout_style@*/}",
-		"flex-direction": "&{flex-direction:var(/*@prop@*/);}:not(_):not(_):where(&){display:flex;/*@layout_style@*/}",
-		"flex-wrap": "&{flex-wrap:var(/*@prop@*/);}:not(_):not(_):where(&){display:flex;/*@layout_style@*/}",
-		"font-size": "&{font-size:var(/*@prop@*/);}:not(_):not(_):where(&){/*@text_style@*/}",
-		"font-style": "&{font-style:var(/*@prop@*/);}:not(_):not(_):where(&){/*@text_style@*/}",
-		"font-weight": "&{font-weight:var(/*@prop@*/);}:not(_):not(_):where(&){/*@text_style@*/}",
-		grid: "&{grid:var(/*@prop@*/);}:not(_):not(_):where(&){display:grid;/*@layout_style@*/}",
-		"grid-template": "&{grid-template:var(/*@prop@*/);}:not(_):not(_):where(&){display:grid;/*@layout_style@*/}",
-		"grid-template-rows": "&{grid-template-rows:var(/*@prop@*/);}:not(_):not(_):where(&){display:grid;/*@layout_style@*/}",
-		"grid-template-columns": "&{grid-template-columns:var(/*@prop@*/);}:not(_):not(_):where(&){display:grid;/*@layout_style@*/}",
-		"place-content": "&{place-content:var(/*@prop@*/);}",
-		"align-content": "&{align-content:var(/*@prop@*/);}",
-		"justify-content": "&{justify-content:var(/*@prop@*/);}",
-		"place-items": "&{place-items:var(/*@prop@*/);}",
-		"align-items": "&{align-items:var(/*@prop@*/);}",
-		"justify-items": "&{justify-items:var(/*@prop@*/);}",
-		"place-self": "&{place-self:var(/*@prop@*/);}",
-		"align-self": "&{align-self:var(/*@prop@*/);}",
-		"justify-self": "&{justify-self:var(/*@prop@*/);}",
-		"text-decoration": "&{text-decoration:var(/*@prop@*/);}:not(_):not(_):where(&){/*@text_style@*/}",
-		"text-emphasis": "&{text-emphasis:var(/*@prop@*/);}:not(_):not(_):where(&){/*@text_style@*/}",
-		"text-shadow": "&{text-shadow:var(/*@prop@*/);}:not(_):not(_):where(&){/*@text_style@*/}",
-		"text-stroke": "&{-webkit-text-stroke:var(/*@prop@*/);text-stroke:var(/*@prop@*/);}:not(_):not(_):where(&){paint-order:stroke;/*@text_style@*/}",
-		"x-text-marker": "&{text-decoration:underline 50% var(/*@prop@*/);}:not(_):not(_):where(&){text-decoration-skip-ink:none;text-underline-offset:-50%;text-underline-position:under;/*@text_style@*/}"
+		"aspect-ratio": "aspect-ratio:var(/*@prop@*/);:not(_):not(_):where(&:is(iframe)){block-size:auto;}",
+		background: "background:var(/*@prop@*/);background-attachment:scroll;",
+		"background-attachment": "clip-path:inset(0);&::before{background:inherit;content:'';position:fixed;inset:0;z-index:-1;}&::after{content:none;}",
+		columns: "columns:var(/*@prop@*/);:not(_):not(_):where(&){/*@column_style@*//*@layout_style@*/}",
+		"column-count": "column-count:var(/*@prop@*/);:not(_):not(_):where(&){/*@column_style@*//*@layout_style@*/}",
+		"column-width": "column-width:var(/*@prop@*/);:not(_):not(_):where(&){/*@column_style@*//*@layout_style@*/}",
+		"flex-flow": "flex-flow:var(/*@prop@*/);:not(_):not(_):where(&){display:flex;/*@layout_style@*/}",
+		"flex-direction": "flex-direction:var(/*@prop@*/);:not(_):not(_):where(&){display:flex;/*@layout_style@*/}",
+		"flex-wrap": "flex-wrap:var(/*@prop@*/);:not(_):not(_):where(&){display:flex;/*@layout_style@*/}",
+		"font-size": "font-size:var(/*@prop@*/);:not(_):not(_):where(&){/*@text_style@*/}",
+		"font-style": "font-style:var(/*@prop@*/);:not(_):not(_):where(&){/*@text_style@*/}",
+		"font-weight": "font-weight:var(/*@prop@*/);:not(_):not(_):where(&){/*@text_style@*/}",
+		grid: "grid:var(/*@prop@*/);:not(_):not(_):where(&){display:grid;/*@layout_style@*/}",
+		"grid-template": "grid-template:var(/*@prop@*/);:not(_):not(_):where(&){display:grid;/*@layout_style@*/}",
+		"grid-template-rows": "grid-template-rows:var(/*@prop@*/);:not(_):not(_):where(&){display:grid;/*@layout_style@*/}",
+		"grid-template-columns": "grid-template-columns:var(/*@prop@*/);:not(_):not(_):where(&){display:grid;/*@layout_style@*/}",
+		"place-content": "place-content:var(/*@prop@*/);",
+		"align-content": "align-content:var(/*@prop@*/);",
+		"justify-content": "justify-content:var(/*@prop@*/);",
+		"place-items": "place-items:var(/*@prop@*/);",
+		"align-items": "align-items:var(/*@prop@*/);",
+		"justify-items": "justify-items:var(/*@prop@*/);",
+		"place-self": "place-self:var(/*@prop@*/);",
+		"align-self": "align-self:var(/*@prop@*/);",
+		"justify-self": "justify-self:var(/*@prop@*/);",
+		"text-decoration": "text-decoration:var(/*@prop@*/);:not(_):not(_):where(&){/*@text_style@*/}",
+		"text-emphasis": "text-emphasis:var(/*@prop@*/);:not(_):not(_):where(&){/*@text_style@*/}",
+		"text-shadow": "text-shadow:var(/*@prop@*/);:not(_):not(_):where(&){/*@text_style@*/}",
+		"text-stroke": "-webkit-text-stroke:var(/*@prop@*/);text-stroke:var(/*@prop@*/);:not(_):not(_):where(&){paint-order:stroke;/*@text_style@*/}",
+		"x-text-marker": "text-decoration:underline 50% var(/*@prop@*/);:not(_):not(_):where(&){text-decoration-skip-ink:none;text-underline-offset:-50%;text-underline-position:under;/*@text_style@*/}"
 	};
 	var column_style = "&>*{break-inside:avoid-column;contain:layout;}&>:first-child{margin-block-start:0;}&>:last-child{margin-block-end:0;}";
 	var layout_style = "&:where(ol,ul,menu){list-style-position:inside;padding:0;}&:where(ul,menu){list-style-type:'';}&:where(dl)>:where(div)>*,&>*,&:where(li,dt,dd){margin:0;}";
-	var text_style = "&{background:none;color:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;text-decoration:none;}";
+	var text_style = "background:none;color:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;text-decoration:none;";
 	var data = {
 		queries: queries,
 		combinators: combinators,
@@ -162,24 +162,24 @@ var XSA = (function () {
 			// 擬似クラス
 			this._pClasses = {};
 			const pCPatterns = [
-				[ 'S-is-P', ':where(:S:P)' ],
-				[ 'S-not-P', ':where(:S:not(:P))' ],
-				[ 'S-is-P-s', ':where(:S:P~*)' ],
-				[ 'S-not-P-s', ':where(:S:not(:P)~*)' ],
-				[ 'S-is-P-n', ':where(:S:P+*)' ],
-				[ 'S-not-P-n', ':where(:S:not(:P)+*)' ],
-				[ 's-S-is-P', ':where(:has(~:S:P))' ],
-				[ 's-S-not-P', ':where(:has(~:S:not(:P)))' ],
-				[ 'n-S-is-P', ':where(:has(+:S:P))' ],
-				[ 'n-S-not-P', ':where(:has(+:S:not(:P)))' ],
-				[ 'd-S-is-P', ':where(:has(:S:P))' ],
-				[ 'd-S-not-P', ':where(:has(:S:not(:P)))' ],
-				[ 'c-S-is-P', ':where(:has(>:S:P))' ],
-				[ 'c-S-not-P', ':where(:has(>:S:not(:P)))' ],
-				[ 'c2-S-is-P', ':where(:has(>*>:S:P))' ],
-				[ 'c2-S-not-P', ':where(:has(>*>:S:not(:P)))' ],
-				[ 'c3-S-is-P', ':where(:has(>*>*>:S:P))' ],
-				[ 'c3-S-not-P', ':where(:has(>*>*>:S:not(:P)))' ]
+				[ 'S-P', ':where(:S:P)' ],
+				[ 'not-S-P', ':where(:not(:S:P))' ],
+				[ 'S-P-s', ':where(:S:P~*)' ],
+				[ 'not-S-P-s', ':where(:not(:S:P~*))' ],
+				[ 'S-P-n', ':where(:S:P+*)' ],
+				[ 'not-S-P-n', ':where(:not(:S:P+*))' ],
+				[ 's-S-P', ':where(:has(~:S:P))' ],
+				[ 'not-s-S-P', ':where(:not(:has(~:S:P)))' ],
+				[ 'n-S-P', ':where(:has(+:S:P))' ],
+				[ 'not-n-S-P', ':where(:not(:has(+:S:P)))' ],
+				[ 'd-S-P', ':where(:has(:S:P))' ],
+				[ 'not-d-S-P', ':where(:not(:has(:S:P)))' ],
+				[ 'c-S-P', ':where(:has(>:S:P))' ],
+				[ 'not-c-S-P', ':where(:not(:has(>:S:P)))' ],
+				[ 'c2-S-P', ':where(:has(>*>:S:P))' ],
+				[ 'not-c2-S-P', ':where(:not(:has(>*>:S:P)))' ],
+				[ 'c3-S-P', ':where(:has(>*>*>:S:P))' ],
+				[ 'not-c3-S-P', ':where(:not(:has(>*>*>:S:P)))' ]
 			];
 			const pCOffset = data.pseudo_classes.length * pCPatterns.length;
 			let pCIndex = 1;
@@ -251,55 +251,71 @@ var XSA = (function () {
 					continue;
 				}
 
-				// '(d|c|c2|c3)-(nth-(last-)?mAnpB(-of-S)?|of-S)'
-				// '(nth-(last-)?mAnpB-of-S|S)-(is|not)-PSEUDO-CLASS-(n|s)'
-				// '(n|s)-(nth-(last-)?mAnpB-of-S|S)-(is|not)-PSEUDO-CLASS'
-				// '(d|c|c2|c3)-(nth-(last-)?mAnpB(-of-S)?|of-S)-(is|not)-PSEUDO-CLASS'
+				// '(d|c|c2|c3)-nth-(last-)?MAnPB(-of-S)?'
+				// '(d|c|c2|c3)-of-S'
+				// '(not-)?nth-(last-)?MAnPB(-of-S)?-is-PSEUDO-CLASS-(n|s)'
+				// '(not-)?S-is-PSEUDO-CLASS-(n|s)'
+				// '(not-)?(n|s|d|c|c2|c3)-nth-(last-)?MAnPB(-of-S)?-is-PSEUDO-CLASS'
+				// '(not-)?(n|s)-S-is-PSEUDO-CLASS'
+				// '(not-)?(d|c|c2|c3)-of-S-is-PSEUDO-CLASS'
 				let nthPart = '';
 				let n = 'n';
-				if ( ! this._pClasses[ part ] && ! this._pClasses[ `is-${ part }` ] && ! part.includes( '-child-' ) && ! part.includes( '-of-type-' ) ) {
-					let s = ''; // 'name', 'name-name', 'id-name', 'class-name', 'attr-name', 'pseudo-name'
+				if ( ! this._pClasses[ part ] && ! part.includes( '-child-' ) && ! part.includes( '-of-type-' ) ) {
+					let s = ''; // 'name', 'name-name', 'ID-name', 'CLASS-name', 'PSEUDO-name', 'ATTR-name'
 					let isDescendants = 0;
 					const posNth = part.indexOf( 'nth-' );
 					const posNthLast = part.indexOf( 'nth-last-' );
 					const posOf = part.indexOf( '-of-' );
-					const posFunc = part.includes( '-is-' ) ? part.indexOf( '-is-' ) : part.indexOf( '-not-' );
-					if ( -1 !== posFunc ) {
-						if ( part.endsWith( '-n' ) || part.endsWith( '-s' ) ) {// '(nth-(last-)?mAnpB-of-S|S)-(is|not)-PSEUDO-CLASS-(n|s)'
-							nthPart = ( -1 !== posNthLast ? 'nth-last' : 'nth' ) + part.slice( posFunc );
-							s = -1 !== posOf ? part.slice( posOf + 4, posFunc ) : part.slice( 0, posFunc );
-						} else if ( part.startsWith( 'n-' ) || part.startsWith( 's-' ) ) { // '(n|s)-(nth-(last-)?mAnpB-of-S|S)-(is|not)-PSEUDO-CLASS'
-							nthPart = part.slice( 0, 2 ) + ( -1 !== posNthLast ? 'nth-last' : 'nth' ) + part.slice( posFunc );
-							s = -1 !== posOf ? part.slice( posOf + 4, posFunc ) : part.slice( 2, posFunc );
-						} else if ( -1 !== posNth || -1 !== posOf ) { // '(d|c|c2|c3)-(nth-(last-)?mAnpB(-of-S)?|of-S)-(is|not)-PSEUDO-CLASS'
-							if ( -1 !== posNthLast ) {
-								nthPart = part.slice( 0, posNthLast + 8 );
-							} else if ( -1 !== posNth ) {
-								nthPart = part.slice( 0, posNth + 3 );
-							} else {
-								nthPart = part.slice( 0, posOf ) + '-nth';
-							}
-							nthPart += part.slice( posFunc );
-							if ( -1 !== posOf ) {
-								s = part.slice( posOf + 4, posFunc );
-							}
-						}
-						if ( -1 !== posNth ) {
-							n = -1 !== posNthLast ? part.slice( posNthLast + 9, posOf ) : part.slice( posNth + 4, posOf );
-						}
-					} else {
+					const posIs = part.indexOf( '-is-' );
+					if ( -1 === posIs ) { // '(d|c|c2|c3)-(nth-(last-)?MAnPB(-of-S)?|of-S)'
 						isDescendants = 1;
-						if ( -1 !== posNthLast ) { // '(d|c|c2|c3)-nth-last-mAnpB(-of-S)?'
+						if ( -1 !== posNthLast ) { // '(d|c|c2|c3)-nth-last-MAnPB(-of-S)?'
 							nthPart = part.slice( 0, posNthLast + 8 ); // '(d|c|c2|c3)-nth-last'
-							n = part.slice( posNthLast + 9 );
-						} else if ( -1 !== posNth ) { // '(d|c|c2|c3)-nth-mAnpB(-of-S)?'
+							n = part.slice( posNthLast + 9 ); // 'MAnPB(-of-S)?'
+						} else if ( -1 !== posNth ) { // '(d|c|c2|c3)-nth-MAnPB(-of-S)?'
 							nthPart = part.slice( 0, posNth + 3 ); // '(d|c|c2|c3)-nth'
-							n = part.slice( posNth + 4 );
+							n = part.slice( posNth + 4 ); // 'MAnPB(-of-S)?'
 						} else if ( -1 !== posOf ) { // '(d|c|c2|c3)-of-S'
 							nthPart = part.slice( 0, posOf ) + '-nth'; // '(d|c|c2|c3)-nth'
 						}
 						if ( -1 !== posOf ) {
-							s = part.slice( posOf + 4 );
+							s = part.slice( posOf + 4 ); // 'S'
+						}
+					} else {
+						const hasNot = part.startsWith( 'not-' );
+						const start = hasNot ? 4 : 0;
+						const combinator = part.slice( start, part.indexOf( '-', start ) + 1 ); // '(n|s|d|c|c2|c3)-'
+						if ( part.endsWith( '-n' ) || part.endsWith( '-s' ) ) { // '(not-)?(nth-(last-)?MAnPB(-of-S)?|S)-is-PSEUDO-CLASS-(n|s)'
+							nthPart = ( hasNot ? 'not-' : '' ) + 'nth' + ( -1 !== posNthLast ? '-last' : '' ) + part.slice( posIs + 3 ); // (not-)?nth(-last)?-PSEUDO-CLASS-(n|s)
+							if ( -1 !== posOf ) {
+								s = part.slice( posOf + 4, posIs ); // '-of-S-is-'
+							} else if ( -1 === posNth ) {
+								s = part.slice( start, posIs ); // '(not-)?S-is-'
+							}
+						} else if ( 'n-' === combinator || 's-' === combinator ) { // '(not-)?(n|s)-(nth-(last-)?MAnPB(-of-S)?|S)-is-PSEUDO-CLASS'
+							nthPart = ( hasNot ? 'not-' : '' ) + combinator + 'nth' + ( -1 !== posNthLast ? '-last' : '' ) + part.slice( posIs + 3 ); // (not-)?(n|s)-nth(-last)?-PSEUDO-CLASS
+							if ( -1 !== posOf ) {
+								s = part.slice( posOf + 4, posIs ); // '-of-S-is-'
+							} else if ( -1 === posNth ) {
+								s = part.slice( start + 2, posIs ); // '(not-)?(n|s)-S-is-'
+							}
+						} else if ( -1 !== posNth || -1 !== posOf ) { // '(not-)?(d|c|c2|c3)-(nth-(last-)?MAnPB(-of-S)?|of-S)-is-PSEUDO-CLASS'
+							if ( -1 !== posNthLast ) {
+								nthPart = part.slice( 0, posNthLast + 8 ); // '(not-)?(d|c|c2|c3)-nth-last'
+							} else if ( -1 !== posNth ) {
+								nthPart = part.slice( 0, posNth + 3 ); // '(not-)?(d|c|c2|c3)-nth'
+							} else {
+								nthPart = part.slice( 0, posOf ) + '-nth'; // '(not-)?(d|c|c2|c3)-nth'
+							}
+							nthPart += part.slice( posIs + 3 ); // '-PSEUDO-CLASS'
+							if ( -1 !== posOf ) { // '-of-S-is-'
+								s = part.slice( posOf + 4, posIs );
+							}
+						}
+						if ( -1 !== posNthLast ) {
+							n = part.slice( posNthLast + 9, ( -1 !== posOf ? posOf : posIs ) );
+						} else if ( -1 !== posNth ) {
+							n = part.slice( posNth + 4, ( -1 !== posOf ? posOf : posIs ) );
 						}
 					}
 					if ( 'n' !== n ) {
@@ -351,12 +367,11 @@ var XSA = (function () {
 					}
 				}
 
-				// '((not-)?focus|(not-)?focus(-n|-s)|(n-|s-)(not-)?focus|(d|c|c2|c3)-(not-)?focus|…)'
-				if ( this._pClasses[ part ] || this._pClasses[ `is-${ part }` ] || ( nthPart && this._pClasses[ nthPart ] ) ) {
+				// '((not-)?focus|(not-)?focus(-n|-s)|(not-)?(n-|s-)focus|(not-)?(d|c|c2|c3)-focus|…)'
+				if ( this._pClasses[ part ] || ( nthPart && this._pClasses[ nthPart ] ) ) {
 					const prefix = slot.dKey ? 'dPC' : 'pC';
-					const nonNthPart = this._pClasses[ `is-${ part }` ] ? `is-${ part }` : part;
-					slot[ `${ prefix }Key` ] = nthPart || nonNthPart;
-					slot[ `${ prefix }Val` ] = nthPart ? this._pClasses[ nthPart ].val.replace( '(n)', `(${ n })` ) : this._pClasses[ nonNthPart ].val;
+					slot[ `${ prefix }Key` ] = nthPart || part;
+					slot[ `${ prefix }Val` ] = nthPart ? this._pClasses[ nthPart ].val.replace( '(n)', `(${ n })` ) : this._pClasses[ part ].val;
 					continue;
 				}
 

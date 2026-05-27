@@ -10,8 +10,12 @@
 	"author": "Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/)",
 	"type": "module",
 	"exports": {
-		".": "./src/index.js",
-		"./data.json": "./src/data.json"
+		".": {
+			"import": "./src/index.js",
+			"default": "./src/index.js"
+		},
+		"./data.json": "./src/data.json",
+		"./*": "./*"
 	},
 	"main": "src/index.js",
 	"scripts": {}
