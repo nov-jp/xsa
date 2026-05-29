@@ -1,7 +1,5 @@
 {
 	"queries": {
-		"screen": "@media screen",
-		"print": "@media print",
 		"vw-s": "@media (width>480px)",
 		"vw-m": "@media (width>720px)",
 		"vw-l": "@media (width>960px)",
