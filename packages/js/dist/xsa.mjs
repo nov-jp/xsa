@@ -1,6 +1,4 @@
 var queries = {
-	screen: "@media screen",
-	print: "@media print",
 	"vw-s": "@media (width>480px)",
 	"vw-m": "@media (width>720px)",
 	"vw-l": "@media (width>960px)",
@@ -148,11 +146,12 @@ class XSACore {
 
 		// 子孫要素
 		this._descendants = {};
-		let dIndex = 1;
+		let cIndex = 0;
+		let dIndex = 0;
 		for ( const [ k, v ] of Object.entries( this._combinators ) ) {
-			this._descendants[ k ] = { val: v.slice( 1 ), index: dIndex++ };
+			this._descendants[ k ] = { val: v.slice( 1 ), cIndex: ++cIndex, dIndex: ++dIndex };
 			for ( const v2 of this._siblings ) {
-				this._descendants[ `${ k }-${ v2.replace( /-child$/, '' ) }` ] = { val: `${ v.slice( 1 ) }:where(:${ v2 }${ v2.startsWith( 'nth' ) ? '(n)' : '' })`, index: dIndex++ };
+				this._descendants[ `${ k }-${ v2.replace( /-child$/, '' ) }` ] = { val: `${ v.slice( 1 ) }:where(:${ v2 }${ v2.startsWith( 'nth' ) ? '(n)' : '' })`, cIndex: cIndex, dIndex: ++dIndex };
 			} // for
 		} // for
 
@@ -179,12 +178,12 @@ class XSACore {
 			[ 'not-c3-S-P', ':where(:not(:has(>*>*>:S:P)))' ]
 		];
 		const pCOffset = data.pseudo_classes.length * pCPatterns.length;
-		let pCIndex = 1;
+		let pCIndex = 0;
 		for ( const [ k, v ] of pCPatterns ) {
 			for ( const v2 of data.pseudo_classes ) {
 				const key = k.replace( 'P', v2 );
 				const val = v.replace( 'P', v2 );
-				const index = pCIndex++;
+				const index = ++pCIndex;
 				this._pClasses[ key.replace( 'S-', '' ) ] = { val: val.replace( ':S', '' ), index: index };
 				this._pClasses[ key.replace( 'S', 'nth' ) ] = { val: val.replace( 'S', 'nth-child(n)' ), index: pCOffset + index };
 				this._pClasses[ key.replace( 'S', 'nth-last' ) ] = { val: val.replace( 'S', 'nth-last-child(n)' ), index: pCOffset * 2 + index };
@@ -193,16 +192,16 @@ class XSACore {
 
 		// 擬似要素
 		this._pElements = {};
-		let pEIndex = 1;
+		let pEIndex = 0;
 		for ( const v of data.pseudo_elements ) {
-			this._pElements[ v ] = { val: `::${ v }`, index: pEIndex++ };
+			this._pElements[ v ] = { val: `::${ v }`, index: ++pEIndex };
 		} // for
 
 		// プロパティ
 		this._properties = {};
-		let propIndex = 1;
+		let propIndex = 0;
 		for ( const [ k, v ] of Object.entries( data.property_styles ) ) {
-			this._properties[ k ] = { val: v, index: propIndex++ };
+			this._properties[ k ] = { val: v, index: ++propIndex };
 		} // for
 
 		this._columnStyle = data.column_style;
@@ -401,9 +400,10 @@ class XSACore {
 	// 優先度計算
 	_getPriorityArray( slot ) {
 		return [
-			( this._pClasses[ slot.pCKey ]?.index || 0 ),
-			( this._descendants[ slot.dKey ]?.index || 1e3 ),
+			( this._descendants[ slot.dKey ]?.cIndex || 1e3 ),
 			( this._pClasses[ slot.dPCKey ]?.index || 0 ),
+			( this._pClasses[ slot.pCKey ]?.index || 0 ),
+			( this._descendants[ slot.dKey ]?.dIndex || 1e3 ),
 			( this._pElements[ slot.pEKey ]?.index || 0 ),
 			( this._properties[ slot.prop ]?.index || 1e3 )
 		];

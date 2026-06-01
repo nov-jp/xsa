@@ -24,14 +24,15 @@ class XSA
 		$this->siblings = {{DATA_SIBLINGS}};
 
 		// 子孫要素
-		$d_index = 1;
+		$c_index = 0;
+		$d_index = 0;
 		foreach ( $this->combinators as $k => $v ) {
 			$trimmed_v = substr( $v, 1 ); // 先頭の '&' を除去
-			$this->descendants[ $k ] = [ 'val' => $trimmed_v, 'index' => $d_index++ ];
+			$this->descendants[ $k ] = [ 'val' => $trimmed_v, 'c_index' => ++$c_index, 'd_index' => ++$d_index ];
 			foreach ( $this->siblings as $v2 ) {
 				$trimmed_v2 = ( '-child' === substr( $v2, -6 ) ) ? substr( $v2, 0, -6 ) : $v2; // 末尾の '-child' を除去
 				$args = str_contains( $v2, 'nth-' ) ? '(n)' : '';
-				$this->descendants[ "{$k}-{$trimmed_v2}" ] = [ 'val' => "{$trimmed_v}:where(:{$v2}{$args})", 'index' => $d_index++ ];
+				$this->descendants[ "{$k}-{$trimmed_v2}" ] = [ 'val' => "{$trimmed_v}:where(:{$v2}{$args})", 'c_index' => $c_index, 'd_index' => ++$d_index ];
 			} // foreach
 		} // foreach
 
@@ -58,30 +59,30 @@ class XSA
 			'not-c3-S-P' => ':where(:not(:has(>*>*>:S:P)))',
 		];
 		$pc_offset = count( $p_classes ) + count( $pc_patterns );
-		$pc_index = 1;
+		$pc_index = 0;
 		foreach ( $pc_patterns as $k => $v ) {
 			foreach ( $p_classes as $v2 ) {
 				$key = str_replace( 'P', $v2, $k );
 				$val = str_replace( 'P', $v2, $v );
-				$index = $pc_index++;
+				$index = ++$pc_index;
 				$this->p_classes[ str_replace( 'S-', '', $key ) ] = [ 'val' => str_replace( ':S', '', $val ), 'index' => $index ];
-				$this->p_classes[ str_replace( 'S', 'nth', $key ) ] = [ 'val' => str_replace( 'S', 'nth-child(n)', $val ), 'index' => $index ];
-				$this->p_classes[ str_replace( 'S', 'nth-last', $key ) ] = [ 'val' => str_replace( 'S', 'nth-last-child(n)', $val ), 'index' => $index ];
+				$this->p_classes[ str_replace( 'S', 'nth', $key ) ] = [ 'val' => str_replace( 'S', 'nth-child(n)', $val ), 'index' => $pc_offset + $index ];
+				$this->p_classes[ str_replace( 'S', 'nth-last', $key ) ] = [ 'val' => str_replace( 'S', 'nth-last-child(n)', $val ), 'index' => $pc_offset * 2 + $index ];
 			}
 		} // foreach
 
 		// 擬似要素
 		$p_elements = {{DATA_PSEUDO_ELEMENTS}};
-		$pe_index = 1;
+		$pe_index = 0;
 		foreach ( $p_elements as $v ) {
-			$this->p_elements[ $v ] = [ 'val' => "::{$v}", 'index' => $pe_index++ ];
+			$this->p_elements[ $v ] = [ 'val' => "::{$v}", 'index' => ++$pe_index ];
 		} // foreach
 
 		// プロパティ
 		$properties = {{DATA_PROPERTIES}};
-		$p_index = 1;
+		$p_index = 0;
 		foreach ( $properties as $k => $v ) {
-			$this->properties[ $k ] = [ 'val' => $v, 'index' => $p_index++ ];
+			$this->properties[ $k ] = [ 'val' => $v, 'index' => ++$p_index ];
 		} // foreach
 
 		$this->column_style = {{DATA_COLUMN_STYLE}};
@@ -274,9 +275,10 @@ class XSA
 	{
 		$slot = $data[ 'slot' ];
 		return [
-			( isset( $this->descendants[ $slot[ 'pc_key' ] ] ) ? $this->p_classes[ $slot[ 'pc_key' ] ][ 'index' ] : 0 ),
-			( isset( $this->descendants[ $slot[ 'd_key' ] ] ) ? $this->descendants[ $slot[ 'd_key' ] ][ 'index' ] : 1e3 ),
+			( isset( $this->descendants[ $slot[ 'd_key' ] ] ) ? $this->descendants[ $slot[ 'd_key' ] ][ 'c_index' ] : 1e3 ),
 			( isset( $this->descendants[ $slot[ 'dpc_key' ] ] ) ? $this->p_classes[ $slot[ 'dpc_key' ] ][ 'index' ] : 0 ),
+			( isset( $this->descendants[ $slot[ 'pc_key' ] ] ) ? $this->p_classes[ $slot[ 'pc_key' ] ][ 'index' ] : 0 ),
+			( isset( $this->descendants[ $slot[ 'd_key' ] ] ) ? $this->descendants[ $slot[ 'd_key' ] ][ 'd_index' ] : 1e3 ),
 			( isset( $this->descendants[ $slot[ 'pe_key' ] ] ) ? $this->p_elements[ $slot[ 'pe_key' ] ][ 'index' ] : 0 ),
 			( isset( $this->descendants[ $slot[ 'prop' ] ] ) ? $this->properties[ $slot[ 'prop' ] ][ 'index' ] : 1e3 ),
 		];
