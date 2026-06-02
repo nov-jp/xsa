@@ -35,7 +35,14 @@ ob_start();
   </head>
   <body>
     …
-    <p style="--background--: var(--indigo-6); --color--: var(--gray-0) --padding-block--: var(--size-2); --padding-inline--: var(--size-3);"> … </p>
+    <p style="
+        --background--: var(--sheerest-blue);
+        --color--: var(--blue);
+        --padding-block--: calc(0.5lh - 0.5em);
+        --padding-inline--: calc(1lh - 1em);
+        ">
+      …
+    </p>
     …
   </body>
 </html>

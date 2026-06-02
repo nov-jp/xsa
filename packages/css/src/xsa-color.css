@@ -65,6 +65,7 @@
 	clip-path: inset(0);
 	&::before {
 		background: inherit;
+		background-attachment: scroll;
 		content: "";
 		position: fixed;
 		inset: 0;

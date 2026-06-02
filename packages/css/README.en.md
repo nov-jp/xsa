@@ -6,7 +6,7 @@ This text was translated from Japanese by Google Gemini.
 
 # XSA CSS (@nov-xsa/css)
 
-A collection of CSS files requiring no scripts or build steps. XSA properties to be used must be selected manually.
+A script-free, build-free CSS library where you select and use specific XSA properties.
 
 ## Description of Files
 
@@ -122,7 +122,7 @@ A collection of CSS files requiring no scripts or build steps. XSA properties to
   ```
   
   * `--container-type--`
-  * `--(cqi-(s|m|l|xl)_|c_)?flex--`
+  * `--(cqi-(s|m|l|xl)_)?(c_)?flex--`
   * `--(cqi-(s|m|l|xl)_)?flex-flow--`
   
 * **xsa-layout-grid.css**: Allows you to configure settings related to Grid layouts.
@@ -133,7 +133,7 @@ A collection of CSS files requiring no scripts or build steps. XSA properties to
   
   * `--container-type--`
   * `--(cqi-(s|m|l|xl)_)?grid--`
-  * `--(cqi-(s|m|l|xl)_|c_)?grid-area--`
+  * `--(cqi-(s|m|l|xl)_)?(c_)?grid-area--`
   
 * **xsa-layout-multicol.css**: Allows you to configure settings related to multi-column layouts.
   
@@ -298,11 +298,21 @@ This is an example using a CDN.
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-sizing.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-table.min.css" />
 …
-<table style="--border--: solid thin; --border-collapse--: collapse; --inline-size--: 100%; --table-layout--: fixed; --d-of-dd-dt-td-th_border--: var(--border--); --d-of-dd-dt-td-th_padding-block--: calc(0.5lh - 0.5em); --d-of-dd-dt-td-th_padding-inline--: calc(1lh - 1em); --d-of-dt-th_background--: color-mix(in srgb, transparent, currentcolor 6.25%);">
+<table style="
+    --border--: solid thin;
+    --border-collapse--: collapse;
+    --inline-size--: 100%;
+    --d-of-dd-dt-td-th_border--: var(--border--);
+    --d-of-dd-dt-td-th_padding-block--: calc(0.5lh - 0.5em);
+    --d-of-dd-dt-td-th_padding-inline--: calc(1lh - 1em);
+    --d-of-dt-th_background--: color-mix(in srgb, transparent, currentcolor 12.5%);
+    ">
   <thead>
     <tr> … </tr>
   </thead>
-  <tbody style="--c-nth-odd_background--: var(in srgb, transparent, currentcolor 6.25%);">
+  <tbody style="
+      --c-nth-odd_background--: var(in srgb, transparent, currentcolor 6.25%);
+      ">
     <tr> … </tr>
     …
   </tbody>

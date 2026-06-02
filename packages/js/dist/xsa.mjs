@@ -88,7 +88,7 @@ var pseudo_elements = [
 var property_styles = {
 	"aspect-ratio": "aspect-ratio:var(/*@prop@*/);:not(_):not(_):where(&:is(iframe)){block-size:auto;}",
 	background: "background:var(/*@prop@*/);background-attachment:scroll;",
-	"background-attachment": "clip-path:inset(0);&::before{background:inherit;content:'';position:fixed;inset:0;z-index:-1;}&::after{content:none;}",
+	"background-attachment": "clip-path:inset(0);&::before{background:inherit;background-attachment:scroll;content:'';position:fixed;inset:0;z-index:-1;}&::after{content:none;}",
 	columns: "columns:var(/*@prop@*/);:not(_):not(_):where(&){/*@column_style@*//*@layout_style@*/}",
 	"column-count": "column-count:var(/*@prop@*/);:not(_):not(_):where(&){/*@column_style@*//*@layout_style@*/}",
 	"column-width": "column-width:var(/*@prop@*/);:not(_):not(_):where(&){/*@column_style@*//*@layout_style@*/}",

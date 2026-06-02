@@ -4,7 +4,7 @@
 
 # XSA (@nov-xsa)
 
-XSA は、CSS の属性セレクタとカスタムプロパティを使用して、HTML の style属性 を限界突破させる、スタイリング・インフラを確立するためのメタ・フレームワークです。
+XSA (EXtended Style Attribute) は、CSS の属性セレクタとカスタムプロパティで、HTML の style属性 を限界突破させる、シンプルなメタ・フレームワークです。
 
 ## 概要
 
@@ -20,13 +20,13 @@ CSSプロパティ の前後に `--` を付けてカスタムプロパティ化�
 }
 ```
 
-その CSSプロパティ に値が適用されるスタイリング・インフラを確立します。
+それ自体をトリガーとして CSSプロパティ に値を設定します。
 
 ```HTML
 <div style="--cqi-s_c3-first_hover_color--: var(--red);" … </div>
 ```
 
-カスタムプロパティの継承と CSSセレクタ をエンコードした XSAプレフィックス によって、
+クエリやセレクタをエンコードした XSAプレフィックス とカスタムプロパティの継承を組み合わせることで、
 
 ```CSS
 @container (inline-size > 480px) {
@@ -36,20 +36,18 @@ CSSプロパティ の前後に `--` を付けてカスタムプロパティ化�
 }
 ```
 
-子孫要素と擬似要素へのスタイリングや、メディアクエリ、コンテナクエリ、擬似クラスによる条件分岐を可能にします。
-
-これが限界突破した style属性 (EXtended Style Attribute)、XSA です。
+子孫要素や擬似要素のスタイリングと、メディアクエリ、コンテナクエリ、擬似クラスによる条件分岐を可能にします。
 
 ## パッケージ
 
-XSAプロパティ を機能させるためのパッケージは複数あります。プロジェクトに応じて最適なものが使用できます。
+XSAプロパティ を機能させるためのパッケージは複数あり、プロジェクトに応じて最適なものが使用できます。
 
 | パッケージ | 名称 | 動作環境 | メリット | デメリット | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| `@nov-xsa/css` | XSA CSS | ブラウザ | 導入が簡単 | 自由度が低い | 使用する XSAプロパティ を手動で選択するスクリプトなし・ビルドなしの CSSライブラリ です。 |
+| `@nov-xsa/css` | XSA CSS | ブラウザ | 導入が簡単 | 自由度が低い | XSAプロパティ を選んで使用するスクリプトなし・ビルドなしの CSSライブラリ です。 |
 | `@nov-xsa/js` | XSA JS | ブラウザ | 導入が簡単, 自由度が高い | クライアントサイドに依存 | XSAプロパティ から CSSコード の生成と style要素 への出力を行うスクリプトです。 |
-| `@nov-xsa/php` | XSA PHP | サーバ | 自由度が高い | PHP実行環境が必要 | PHP実行環境 で XSAプロパティ から CSSコード を生成するヘルパークラスです。 |
 | `@nov-xsa/postcss` | XSA PostCSS | 開発環境 | 自由度が高い | ビルド環境が必要 | プロジェクト内の XSAプロパティ から CSSコード の生成と CSSファイル への出力を行うツールです。 |
+| `@nov-xsa/php` | XSA PHP | サーバ | 自由度が高い | PHP実行環境が必要 | PHP実行環境 で XSAプロパティ から CSSコード を生成するヘルパークラスです。 |
 
 ## XSAプロパティ の構文リファレンス
 
@@ -81,144 +79,167 @@ XSAプロパティ の命名規則を正規表現で表すと次のようにな�
 | " | nth-N-of-S | `:where(:nth-child(N of S))` |
 | " | nth-last-N-of-S | `:where(:nth-last-child(N of S))` |
 | " | of-S | `:where(:nth-child(n of S))` |
-| PSEUDO-CLASS | open | `:where(:open)` |
-| " | popover-open | `:where(:popover-open)` |
-| " | modal | `:where(:modal)` |
-| " | fullscreen | `:where(:fullscreen)` |
-| " | picture-in-picture | `:where(:picture-in-picture)` |
-| " | enabled | `:where(:enabled)` |
-| " | disabled | `:where(:disabled)` |
-| " | read-only | `:where(:read-only)` |
-| " | read-write | `:where(:read-write)` |
-| " | placeholder-shown | `:where(:placeholder-shown)` |
-| " | autofill | `:where(:autofill)` |
-| " | default | `:where(:default)` |
-| " | checked | `:where(:checked)` |
-| " | indeterminate | `:where(:indeterminate)` |
-| " | valid | `:where(:valid)` |
-| " | invalid | `:where(:invalid)` |
-| " | in-range | `:where(:in-range)` |
-| " | out-of-range | `:where(:out-of-range)` |
-| " | required | `:where(:required)` |
-| " | optional | `:where(:optional)` |
-| " | user-valid | `:where(:user-valid)` |
-| " | user-invalid | `:where(:user-invalid)` |
-| " | any-link | `:where(:any-link)` |
-| " | link | `:where(:link)` |
-| " | visited | `:where(:visited)` |
-| " | target | `:where(:target)` |
-| " | scope | `:where(:scope)` |
-| " | playing | `:where(:playing)` |
-| " | paused | `:where(:paused)` |
-| " | seeking | `:where(:seeking)` |
-| " | buffering | `:where(:buffering)` |
-| " | stalled | `:where(:stalled)` |
-| " | muted | `:where(:muted)` |
-| " | volume-locked | `:where(:volume-locked)` |
-| " | empty | `:where(:empty)` |
-| " | hover | `:where(:hover)` |
-| " | active | `:where(:active)` |
-| " | focus | `:where(:focus)` |
-| " | focus-visible | `:where(:focus-visible)` |
-| " | focus-within | `:where(:focus-within)` |
-| " | target-current | `:where(:target-current)` |
-| " | PSEUDO-CLASS-n | `:where(:PSEUDO-CLASS + *)` |
-| " | PSEUDO-CLASS-s | `:where(:PSEUDO-CLASS ~ *)` |
-| " | n-PSEUDO-CLASS | `:where(:has(+ :PSEUDO-CLASS))` |
-| " | s-PSEUDO-CLASS | `:where(:has(~ :PSEUDO-CLASS))` |
-| " | d-PSEUDO-CLASS | `:where(:has(:PSEUDO-CLASS))` |
-| " | c-PSEUDO-CLASS | `:where(:has(> :PSEUDO-CLASS))` |
-| " | c2-PSEUDO-CLASS | `:where(:has(> * > :PSEUDO-CLASS))` |
-| " | c3-PSEUDO-CLASS | `:where(:has(> * > * > :PSEUDO-CLASS))` |
-| " | S-is-PSEUDO-CLASS-n | `:where(:nth-child(n of S):is(:PSEUDO-CLASS) + *)` |
-| " | S-is-PSEUDO-CLASS-s | `:where(:nth-child(n of S):is(:PSEUDO-CLASS) ~ *)` |
-| " | n-S-is-PSEUDO-CLASS | `:where(:has(+ :nth-child(n of S):is(:PSEUDO-CLASS)))` |
-| " | s-S-is-PSEUDO-CLASS | `:where(:has(~ :nth-child(n of S):is(:PSEUDO-CLASS)))` |
-| " | d-of-S-is-PSEUDO-CLASS | `:where(:has(:nth-child(n of S):is(:PSEUDO-CLASS)))` |
-| " | c-of-S-is-PSEUDO-CLASS | `:where(:has(> :nth-child(n of S):is(:PSEUDO-CLASS)))` |
-| " | c2-of-S-is-PSEUDO-CLASS | `:where(:has(> * > :nth-child(n of S):is(:PSEUDO-CLASS)))` |
-| " | c3-of-S-is-PSEUDO-CLASS | `:where(:has(> * > * > :nth-child(n of S):is(:PSEUDO-CLASS)))` |
-| " | nth-N-is-PSEUDO-CLASS-n | `:where(:nth-child(N):is(:PSEUDO-CLASS) + *)` |
-| " | nth-N-is-PSEUDO-CLASS-s | `:where(:nth-child(N):is(:PSEUDO-CLASS) ~ *)` |
-| " | n-nth-N-is-PSEUDO-CLASS | `:where(:has(+ :nth-child(N):is(:PSEUDO-CLASS)))` |
-| " | s-nth-N-is-PSEUDO-CLASS | `:where(:has(~ :nth-child(N):is(:PSEUDO-CLASS)))` |
-| " | d-nth-N-is-PSEUDO-CLASS | `:where(:has(:nth-child(N):is(:PSEUDO-CLASS)))` |
-| " | c-nth-N-is-PSEUDO-CLASS | `:where(:has(> :nth-child(N):is(:PSEUDO-CLASS)))` |
-| " | c2-nth-N-is-PSEUDO-CLASS | `:where(:has(> * > :nth-child(N):is(:PSEUDO-CLASS)))` |
-| " | c3-nth-N-is-PSEUDO-CLASS | `:where(:has(> * > * > :nth-child(N):is(:PSEUDO-CLASS)))` |
-| " | nth-N-of-S-is-PSEUDO-CLASS-n | `:where(:nth-child(N of S):is(:PSEUDO-CLASS) + *)` |
-| " | nth-N-of-S-is-PSEUDO-CLASS-s | `:where(:nth-child(N of S):is(:PSEUDO-CLASS) ~ *)` |
-| " | n-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(+ :nth-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | s-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(~ :nth-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | d-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(:nth-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | c-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(> :nth-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | c2-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > :nth-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | c3-nth-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > * > :nth-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | nth-last-N-is-PSEUDO-CLASS-n | `:where(:nth-last-child(N):is(:PSEUDO-CLASS) + *)` |
-| " | nth-last-N-is-PSEUDO-CLASS-s | `:where(:nth-last-child(N):is(:PSEUDO-CLASS) ~ *)` |
-| " | n-nth-last-N-is-PSEUDO-CLASS | `:where(:has(+ :nth-last-child(N):is(:PSEUDO-CLASS)))` |
-| " | s-nth-last-N-is-PSEUDO-CLASS | `:where(:has(~ :nth-last-child(N):is(:PSEUDO-CLASS)))` |
-| " | d-nth-last-N-is-PSEUDO-CLASS | `:where(:has(:nth-last-child(N):is(:PSEUDO-CLASS)))` |
-| " | c-nth-last-N-is-PSEUDO-CLASS | `:where(:has(> :nth-last-child(N):is(:PSEUDO-CLASS)))` |
-| " | c2-nth-last-N-is-PSEUDO-CLASS | `:where(:has(> * > :nth-last-child(N):is(:PSEUDO-CLASS)))` |
-| " | c3-nth-last-N-is-PSEUDO-CLASS | `:where(:has(> * > * > :nth-last-child(N):is(:PSEUDO-CLASS)))` |
-| " | nth-last-N-of-S-is-PSEUDO-CLASS-n | `:where(:nth-last-child(N of S):is(:PSEUDO-CLASS) + *)` |
-| " | nth-last-N-of-S-is-PSEUDO-CLASS-s | `:where(:nth-last-child(N of S):is(:PSEUDO-CLASS) ~ *)` |
-| " | n-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(+ :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | s-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(~ :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | d-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(:nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | c-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(> :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | c2-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | c3-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:has(> * > * > :nth-last-child(N of S):is(:PSEUDO-CLASS)))` |
-| " | not-PSEUDO-CLASS | `:where(:not(:PSEUDO-CLASS))` |
-| " | not-PSEUDO-CLASS-n | `:where(:not(:PSEUDO-CLASS + *))` |
-| " | not-PSEUDO-CLASS-s | `:where(:not(:PSEUDO-CLASS ~ *))` |
-| " | not-n-PSEUDO-CLASS | `:where(:not(:has(+ :PSEUDO-CLASS)))` |
-| " | not-s-PSEUDO-CLASS | `:where(:not(:has(~ :PSEUDO-CLASS)))` |
-| " | not-d-PSEUDO-CLASS | `:where(:not(:has(:PSEUDO-CLASS)))` |
-| " | not-c-PSEUDO-CLASS | `:where(:not(:has(> :PSEUDO-CLASS)))` |
-| " | not-c2-PSEUDO-CLASS | `:where(:not(:has(> * > :PSEUDO-CLASS)))` |
-| " | not-c3-PSEUDO-CLASS | `:where(:not(:has(> * > * > :PSEUDO-CLASS)))` |
-| " | not-S-is-PSEUDO-CLASS-n | `:where(:not(:nth-child(n of S):is(:PSEUDO-CLASS) + *))` |
-| " | not-S-is-PSEUDO-CLASS-s | `:where(:not(:nth-child(n of S):is(:PSEUDO-CLASS) ~ *))` |
-| " | not-n-S-is-PSEUDO-CLASS | `:where(:not(:has(+ :nth-child(n of S):is(:PSEUDO-CLASS))))` |
-| " | not-s-S-is-PSEUDO-CLASS | `:where(:not(:has(~ :nth-child(n of S):is(:PSEUDO-CLASS))))` |
-| " | not-d-of-S-is-PSEUDO-CLASS | `:where(:not(:has(:nth-child(n of S):is(:PSEUDO-CLASS))))` |
-| " | not-c-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> :nth-child(n of S):is(:PSEUDO-CLASS))))` |
-| " | not-c2-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> * > :nth-child(n of S):is(:PSEUDO-CLASS))))` |
-| " | not-c3-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> * > * > :nth-child(n of S):is(:PSEUDO-CLASS))))` |
-| " | not-nth-N-is-PSEUDO-CLASS-n | `:where(:not(:nth-child(N):is(:PSEUDO-CLASS) + *))` |
-| " | not-nth-N-is-PSEUDO-CLASS-s | `:where(:not(:nth-child(N):is(:PSEUDO-CLASS) ~ *))` |
-| " | not-n-nth-N-is-PSEUDO-CLASS | `:where(:not(:has(+ :nth-child(N):is(:PSEUDO-CLASS))))` |
-| " | not-s-nth-N-is-PSEUDO-CLASS | `:where(:not(:has(~ :nth-child(N):is(:PSEUDO-CLASS))))` |
-| " | not-d-nth-N-is-PSEUDO-CLASS | `:where(:not(:has(:nth-child(N):is(:PSEUDO-CLASS))))` |
-| " | not-c-nth-N-is-PSEUDO-CLASS | `:where(:not(:has(> :nth-child(N):is(:PSEUDO-CLASS))))` |
-| " | not-c2-nth-N-is-PSEUDO-CLASS | `:where(:not(:has(> * > :nth-child(N):is(:PSEUDO-CLASS))))` |
-| " | not-c3-nth-N-is-PSEUDO-CLASS | `:where(:not(:has(> * > * > :nth-child(N):is(:PSEUDO-CLASS))))` |
-| " | not-nth-N-of-S-is-PSEUDO-CLASS-n | `:where(:not(:nth-child(N of S):is(:PSEUDO-CLASS) + *))` |
-| " | not-nth-N-of-S-is-PSEUDO-CLASS-s | `:where(:not(:nth-child(N of S):is(:PSEUDO-CLASS) ~ *))` |
-| " | not-n-nth-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(+ :nth-child(N of S):is(:PSEUDO-CLASS))))` |
-| " | not-s-nth-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(~ :nth-child(N of S):is(:PSEUDO-CLASS))))` |
-| " | not-d-nth-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(:nth-child(N of S):is(:PSEUDO-CLASS))))` |
-| " | not-c-nth-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> :nth-child(N of S):is(:PSEUDO-CLASS))))` |
-| " | not-c2-nth-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> * > :nth-child(N of S):is(:PSEUDO-CLASS))))` |
-| " | not-c3-nth-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> * > * > :nth-child(N of S):is(:PSEUDO-CLASS))))` |
-| " | not-nth-last-N-is-PSEUDO-CLASS-n | `:where(:not(:nth-last-child(N):is(:PSEUDO-CLASS) + *))` |
-| " | not-nth-last-N-is-PSEUDO-CLASS-s | `:where(:not(:nth-last-child(N):is(:PSEUDO-CLASS) ~ *))` |
-| " | not-n-nth-last-N-is-PSEUDO-CLASS | `:where(:not(:has(+ :nth-last-child(N):is(:PSEUDO-CLASS))))` |
-| " | not-s-nth-last-N-is-PSEUDO-CLASS | `:where(:not(:has(~ :nth-last-child(N):is(:PSEUDO-CLASS))))` |
-| " | not-d-nth-last-N-is-PSEUDO-CLASS | `:where(:not(:has(:nth-last-child(N):is(:PSEUDO-CLASS))))` |
-| " | not-c-nth-last-N-is-PSEUDO-CLASS | `:where(:not(:has(> :nth-last-child(N):is(:PSEUDO-CLASS))))` |
-| " | not-c2-nth-last-N-is-PSEUDO-CLASS | `:where(:not(:has(> * > :nth-last-child(N):is(:PSEUDO-CLASS))))` |
-| " | not-c3-nth-last-N-is-PSEUDO-CLASS | `:where(:not(:has(> * > * > :nth-last-child(N):is(:PSEUDO-CLASS))))` |
-| " | not-nth-last-N-of-S-is-PSEUDO-CLASS-n | `:where(:not(:nth-last-child(N of S):is(:PSEUDO-CLASS) + *))` |
-| " | not-nth-last-N-of-S-is-PSEUDO-CLASS-s | `:where(:not(:nth-last-child(N of S):is(:PSEUDO-CLASS) ~ *))` |
-| " | not-n-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(+ :nth-last-child(N of S):is(:PSEUDO-CLASS))))` |
-| " | not-s-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(~ :nth-last-child(N of S):is(:PSEUDO-CLASS))))` |
-| " | not-d-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(:nth-last-child(N of S):is(:PSEUDO-CLASS))))` |
-| " | not-c-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> :nth-last-child(N of S):is(:PSEUDO-CLASS))))` |
-| " | not-c2-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> * > :nth-last-child(N of S):is(:PSEUDO-CLASS))))` |
-| " | not-c3-nth-last-N-of-S-is-PSEUDO-CLASS | `:where(:not(:has(> * > * > :nth-last-child(N of S):is(:PSEUDO-CLASS))))` |
+| PSEUDO-CLASS | PC | `:where(:PC)` |
+| " | PC-n | `:where(:PC + *)` |
+| " | nth-N-is-PC-n | `:where(:nth-child(N):is(:PC) + *)` |
+| " | nth-N-of-S-is-PC-n | `:where(:nth-child(N of S):is(:PC) + *)` |
+| " | nth-last-N-is-PC-n | `:where(:nth-last-child(N):is(:PC) + *)` |
+| " | nth-last-N-of-S-is-PC-n | `:where(:nth-last-child(N of S):is(:PC) + *)` |
+| " | S-is-PC-n | `:where(:nth-child(n of S):is(:PC) + *)` |
+| " | PC-s | `:where(:PC ~ *)` |
+| " | nth-N-is-PC-s | `:where(:nth-child(N):is(:PC) ~ *)` |
+| " | nth-N-of-S-is-PC-s | `:where(:nth-child(N of S):is(:PC) ~ *)` |
+| " | nth-last-N-is-PC-s | `:where(:nth-last-child(N):is(:PC) ~ *)` |
+| " | nth-last-N-of-S-is-PC-s | `:where(:nth-last-child(N of S):is(:PC) ~ *)` |
+| " | S-is-PC-s | `:where(:nth-child(n of S):is(:PC) ~ *)` |
+| " | n-PC | `:where(:has(+ :PC))` |
+| " | n-nth-N-is-PC | `:where(:has(+ :nth-child(N):is(:PC)))` |
+| " | n-nth-N-of-S-is-PC | `:where(:has(+ :nth-child(N of S):is(:PC)))` |
+| " | n-nth-last-N-is-PC | `:where(:has(+ :nth-last-child(N):is(:PC)))` |
+| " | n-nth-last-N-of-S-is-PC | `:where(:has(+ :nth-last-child(N of S):is(:PC)))` |
+| " | n-S-is-PC | `:where(:has(+ :nth-child(n of S):is(:PC)))` |
+| " | s-PC | `:where(:has(~ :PC))` |
+| " | s-nth-N-is-PC | `:where(:has(~ :nth-child(N):is(:PC)))` |
+| " | s-nth-N-of-S-is-PC | `:where(:has(~ :nth-child(N of S):is(:PC)))` |
+| " | s-nth-last-N-is-PC | `:where(:has(~ :nth-last-child(N):is(:PC)))` |
+| " | s-nth-last-N-of-S-is-PC | `:where(:has(~ :nth-last-child(N of S):is(:PC)))` |
+| " | s-S-is-PC | `:where(:has(~ :nth-child(n of S):is(:PC)))` |
+| " | d-PC | `:where(:has(:PC))` |
+| " | d-nth-N-is-PC | `:where(:has(:nth-child(N):is(:PC)))` |
+| " | d-nth-N-of-S-is-PC | `:where(:has(:nth-child(N of S):is(:PC)))` |
+| " | d-nth-last-N-is-PC | `:where(:has(:nth-last-child(N):is(:PC)))` |
+| " | d-nth-last-N-of-S-is-PC | `:where(:has(:nth-last-child(N of S):is(:PC)))` |
+| " | d-of-S-is-PC | `:where(:has(:nth-child(n of S):is(:PC)))` |
+| " | c-PC | `:where(:has(> :PC))` |
+| " | c-nth-N-is-PC | `:where(:has(> :nth-child(N):is(:PC)))` |
+| " | c-nth-N-of-S-is-PC | `:where(:has(> :nth-child(N of S):is(:PC)))` |
+| " | c-nth-last-N-is-PC | `:where(:has(> :nth-last-child(N):is(:PC)))` |
+| " | c-nth-last-N-of-S-is-PC | `:where(:has(> :nth-last-child(N of S):is(:PC)))` |
+| " | c-of-S-is-PC | `:where(:has(> :nth-child(n of S):is(:PC)))` |
+| " | c2-PC | `:where(:has(> * > :PC))` |
+| " | c2-nth-N-is-PC | `:where(:has(> * > :nth-child(N):is(:PC)))` |
+| " | c2-nth-N-of-S-is-PC | `:where(:has(> * > :nth-child(N of S):is(:PC)))` |
+| " | c2-nth-last-N-is-PC | `:where(:has(> * > :nth-last-child(N):is(:PC)))` |
+| " | c2-nth-last-N-of-S-is-PC | `:where(:has(> * > :nth-last-child(N of S):is(:PC)))` |
+| " | c2-of-S-is-PC | `:where(:has(> * > :nth-child(n of S):is(:PC)))` |
+| " | c3-PC | `:where(:has(> * > * > :PC))` |
+| " | c3-nth-N-is-PC | `:where(:has(> * > * > :nth-child(N):is(:PC)))` |
+| " | c3-nth-N-of-S-is-PC | `:where(:has(> * > * > :nth-child(N of S):is(:PC)))` |
+| " | c3-nth-last-N-is-PC | `:where(:has(> * > * > :nth-last-child(N):is(:PC)))` |
+| " | c3-nth-last-N-of-S-is-PC | `:where(:has(> * > * > :nth-last-child(N of S):is(:PC)))` |
+| " | c3-of-S-is-PC | `:where(:has(> * > * > :nth-child(n of S):is(:PC)))` |
+| " | not-PC | `:where(:not(:PC))` |
+| " | not-PC-n | `:where(:not(:PC + *))` |
+| " | not-nth-N-is-PC-n | `:where(:not(:nth-child(N):is(:PC) + *))` |
+| " | not-nth-N-of-S-is-PC-n | `:where(:not(:nth-child(N of S):is(:PC) + *))` |
+| " | not-nth-last-N-is-PC-n | `:where(:not(:nth-last-child(N):is(:PC) + *))` |
+| " | not-nth-last-N-of-S-is-PC-n | `:where(:not(:nth-last-child(N of S):is(:PC) + *))` |
+| " | not-S-is-PC-n | `:where(:not(:nth-child(n of S):is(:PC) + *))` |
+| " | not-PC-s | `:where(:not(:PC ~ *))` |
+| " | not-nth-N-is-PC-s | `:where(:not(:nth-child(N):is(:PC) ~ *))` |
+| " | not-nth-N-of-S-is-PC-s | `:where(:not(:nth-child(N of S):is(:PC) ~ *))` |
+| " | not-nth-last-N-is-PC-s | `:where(:not(:nth-last-child(N):is(:PC) ~ *))` |
+| " | not-nth-last-N-of-S-is-PC-s | `:where(:not(:nth-last-child(N of S):is(:PC) ~ *))` |
+| " | not-S-is-PC-s | `:where(:not(:nth-child(n of S):is(:PC) ~ *))` |
+| " | not-n-PC | `:where(:not(:has(+ :PC)))` |
+| " | not-n-nth-N-is-PC | `:where(:not(:has(+ :nth-child(N):is(:PC))))` |
+| " | not-n-nth-N-of-S-is-PC | `:where(:not(:has(+ :nth-child(N of S):is(:PC))))` |
+| " | not-n-nth-last-N-is-PC | `:where(:not(:has(+ :nth-last-child(N):is(:PC))))` |
+| " | not-n-nth-last-N-of-S-is-PC | `:where(:not(:has(+ :nth-last-child(N of S):is(:PC))))` |
+| " | not-n-S-is-PC | `:where(:not(:has(+ :nth-child(n of S):is(:PC))))` |
+| " | not-s-PC | `:where(:not(:has(~ :PC)))` |
+| " | not-s-nth-N-is-PC | `:where(:not(:has(~ :nth-child(N):is(:PC))))` |
+| " | not-s-nth-N-of-S-is-PC | `:where(:not(:has(~ :nth-child(N of S):is(:PC))))` |
+| " | not-s-nth-last-N-is-PC | `:where(:not(:has(~ :nth-last-child(N):is(:PC))))` |
+| " | not-s-nth-last-N-of-S-is-PC | `:where(:not(:has(~ :nth-last-child(N of S):is(:PC))))` |
+| " | not-s-S-is-PC | `:where(:not(:has(~ :nth-child(n of S):is(:PC))))` |
+| " | not-d-PC | `:where(:not(:has(:PC)))` |
+| " | not-d-nth-N-is-PC | `:where(:not(:has(:nth-child(N):is(:PC))))` |
+| " | not-d-nth-N-of-S-is-PC | `:where(:not(:has(:nth-child(N of S):is(:PC))))` |
+| " | not-d-nth-last-N-is-PC | `:where(:not(:has(:nth-last-child(N):is(:PC))))` |
+| " | not-d-nth-last-N-of-S-is-PC | `:where(:not(:has(:nth-last-child(N of S):is(:PC))))` |
+| " | not-d-of-S-is-PC | `:where(:not(:has(:nth-child(n of S):is(:PC))))` |
+| " | not-c-PC | `:where(:not(:has(> :PC)))` |
+| " | not-c-nth-N-is-PC | `:where(:not(:has(> :nth-child(N):is(:PC))))` |
+| " | not-c-nth-N-of-S-is-PC | `:where(:not(:has(> :nth-child(N of S):is(:PC))))` |
+| " | not-c-nth-last-N-is-PC | `:where(:not(:has(> :nth-last-child(N):is(:PC))))` |
+| " | not-c-nth-last-N-of-S-is-PC | `:where(:not(:has(> :nth-last-child(N of S):is(:PC))))` |
+| " | not-c-of-S-is-PC | `:where(:not(:has(> :nth-child(n of S):is(:PC))))` |
+| " | not-c2-PC | `:where(:not(:has(> * > :PC)))` |
+| " | not-c2-nth-N-is-PC | `:where(:not(:has(> * > :nth-child(N):is(:PC))))` |
+| " | not-c2-nth-N-of-S-is-PC | `:where(:not(:has(> * > :nth-child(N of S):is(:PC))))` |
+| " | not-c2-nth-last-N-is-PC | `:where(:not(:has(> * > :nth-last-child(N):is(:PC))))` |
+| " | not-c2-nth-last-N-of-S-is-PC | `:where(:not(:has(> * > :nth-last-child(N of S):is(:PC))))` |
+| " | not-c2-of-S-is-PC | `:where(:not(:has(> * > :nth-child(n of S):is(:PC))))` |
+| " | not-c3-PC | `:where(:not(:has(> * > * > :PC)))` |
+| " | not-c3-nth-N-is-PC | `:where(:not(:has(> * > * > :nth-child(N):is(:PC))))` |
+| " | not-c3-nth-N-of-S-is-PC | `:where(:not(:has(> * > * > :nth-child(N of S):is(:PC))))` |
+| " | not-c3-nth-last-N-is-PC | `:where(:not(:has(> * > * > :nth-last-child(N):is(:PC))))` |
+| " | not-c3-nth-last-N-of-S-is-PC | `:where(:not(:has(> * > * > :nth-last-child(N of S):is(:PC))))` |
+| " | not-c3-of-S-is-PC | `:where(:not(:has(> * > * > :nth-child(n of S):is(:PC))))` |
+| PC | open | `:open` |
+| " | popover-open | `:popover-open` |
+| " | modal | `:modal` |
+| " | fullscreen | `:fullscreen` |
+| " | picture-in-picture | `:picture-in-picture` |
+| " | enabled | `:enabled` |
+| " | disabled | `:disabled` |
+| " | read-only | `:read-only` |
+| " | read-write | `:read-write` |
+| " | placeholder-shown | `:placeholder-shown` |
+| " | autofill | `:autofill` |
+| " | default | `:default` |
+| " | checked | `:checked` |
+| " | indeterminate | `:indeterminate` |
+| " | valid | `:valid` |
+| " | invalid | `:invalid` |
+| " | in-range | `:in-range` |
+| " | out-of-range | `:out-of-range` |
+| " | required | `:required` |
+| " | optional | `:optional` |
+| " | user-valid | `:user-valid` |
+| " | user-invalid | `:user-invalid` |
+| " | any-link | `:any-link` |
+| " | link | `:link` |
+| " | visited | `:visited` |
+| " | target | `:target` |
+| " | scope | `:scope` |
+| " | playing | `:playing` |
+| " | paused | `:paused` |
+| " | seeking | `:seeking` |
+| " | buffering | `:buffering` |
+| " | stalled | `:stalled` |
+| " | muted | `:muted` |
+| " | volume-locked | `:volume-locked` |
+| " | empty | `:empty` |
+| " | hover | `:hover` |
+| " | active | `:active` |
+| " | focus | `:focus` |
+| " | focus-visible | `:focus-visible` |
+| " | focus-within | `:focus-within` |
+| " | target-current | `:target-current` |
+| N (example) | odd | `odd` |
+| " | even | `even` |
+| " | n | `n` |
+| " | 2 | `2` |
+| " | 2n | `2n` |
+| " | nP9 | `n+9` |
+| " | 2nP1 | `2n+1` |
+| " | 2nM1 | `2n-1` |
+| " | MnP8 | `-n+8` |
+| " | M2nP8 | `-2n+8` |
+| S (example) | name | `name` |
+| " | name-name | `:is(name, name)` |
+| " | ID-name | `#name` |
+| " | CLASS-name | `.name` |
+| " | PSEUDO-name | `:name` |
+| " | ATTR-name | `[name]` |
+| " | ATTR-name-EQ-value | `[name="value"]` |
+| " | ATTR-name-A-EQ-value | `[name*="value"]` |
+| " | ATTR-name-C-EQ-value | `[name^="value"]` |
+| " | ATTR-name-D-EQ-value | `[name$="value"]` |
+| " | ATTR-name-T=EQ-value | `[name~="value"]` |
+| " | ATTR-name-P-EQ-value | `[name|="value"]` |
 | PSEUDO-ELEMENT | first-line | `::first-line` |
 | " | first-letter | `::first-letter` |
 | " | cue | `::cue` |
@@ -241,7 +262,7 @@ XSAプロパティ の命名規則を正規表現で表すと次のようにな�
 | PROPERTY | NORMAL-PROPERTY | `& { NORMAL-PROPERTY: var(--XSA-PROPERTY--); }` |
 | " | aspect-ratio | `& { aspect-ratio: var(--XSA-PROPERTY--); } :not(_):not(_):where(&:is(iframe)) { block-size: auto; }` |
 | " | background | `& { background: var(--XSA-PROPERTY--); background-attachment: scroll; }` |
-| " | background-attachment | `& { clip-path: inset(0); } &::before { background: inherit; content: ""; position: fixed; inset: 0; z-index: -1; } &::after { content: none; }` |
+| " | background-attachment | `& { clip-path: inset(0); } &::before { background: inherit; background-attachment: scroll; content: ""; position: fixed; inset: 0; z-index: -1; } &::after { content: none; }` |
 | " | columns | `& { columns: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { & > * { break-inside: avoid-column; contain: layout; } & > :first-child { margin-block-start: 0; } & > :last-child { margin-block-end: 0; } &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
 | " | column-count | `& { column-count: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { & > * { break-inside: avoid-column; contain: layout; } & > :first-child { margin-block-start: 0; } & > :last-child { margin-block-end: 0; } &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
 | " | column-width | `& { column-width: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { & > * { break-inside: avoid-column; contain: layout; } & > :first-child { margin-block-start: 0; } & > :last-child { margin-block-end: 0; } &:where(ol, ul, menu) { list-style-position: inside; padding: 0; } &:where(ul, menu) { list-style-type: ""; } &:where(dl) > :where(div) > *, & > *, &:where(li, dt, dd) { margin:0; } }` |
@@ -261,39 +282,27 @@ XSAプロパティ の命名規則を正規表現で表すと次のようにな�
 | " | text-stroke | `& { -webkit-text-stroke: var(--XSA-PROPERTY--); text-stroke: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { paint-order: stroke; background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
 | " | x-text-marker | `& { text-decoration: underline 50% var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { text-decoration-skip-ink: none; text-underline-offset: -50%; text-underline-position: under; background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
 
-### nth系擬似クラス の引数
-
-- 'N'
-  - /[0-9]+/
-  - 'even' = '2n'
-  - '2n' = '2n'
-  - 'odd' = '2n+1'
-  - '2nP1' = '2n+1'
-  - '2nM1' = '2n-1'
-- 'S'
-  - 'name' = 'name'
-  - 'name-name' = ':is(name, name)'
-  - 'ID-name' = '#name'
-  - 'CLASS-name' = '.name'
-  - 'PSEUDO-name' = ':name'
-  - 'ATTR-name' = '[name]'
-  - 'ATTR-name-EQ-value' = '[name="value"]'
-  - 'ATTR-name-A-EQ-value' = '[name*="value"]'
-  - 'ATTR-name-C-EQ-value' = '[name^="value"]'
-  - 'ATTR-name-D-EQ-value' = '[name$="value"]'
-  - 'ATTR-name-T-EQ-value' = '[name~="value"]'
-  - 'ATTR-name-P-EQ-value' = '[name|="value"]'
-
 ## XSAプロパティ の使用例
 
 ### 表の装飾
 
 ```HTML
-<table style="--border--: solid thin; --border-collapse--: collapse; --inline-size--: 100%; --table-layout--: fixed; --c3_border--: var(--border--); --c3_padding-block--: calc(0.5lh - 0.5em); --c3_padding-inline--: calc(1lh - 1em); --c3-of-th_background--: color-mix(in srgb, transparent, currentcolor 6.25%);">
+<table style="
+    --border--: solid thin;
+    --border-collapse--: collapse;
+    --inline-size--: 100%;
+    --c3_border--: var(--border--);
+    --c3_padding-block--: calc(0.5lh - 0.5em);
+    --c3_padding-inline--: calc(1lh - 1em);
+    --c3-of-th_background--: color-mix(in srgb, transparent, currentcolor 6.25%);
+    ">
   <thead>
     <tr> … </tr>
   </thead>
-  <tbody style="--c-nth-odd_background--: var(in srgb, transparent, currentcolor 6.25%);">
+  <tbody style="
+      --c-nth-odd_background--: var(in srgb, transparent, currentcolor 12.5%);
+      --c_hover_background--: var(in srgb, transparent, currentcolor 25%);
+      ">
     <tr> … </tr>
     …
   </tbody>
@@ -303,7 +312,12 @@ XSAプロパティ の命名規則を正規表現で表すと次のようにな�
 ### 段組みレイアウト
 
 ```HTML
-<ul style="--columns--: 4 16em; --column-rule--: dotted thin; --column-gap--: 2em; --c_margin-block-end--: 1lh;">
+<ul style="
+    --columns--: 4 16em;
+    --column-rule--: dotted thin;
+    --column-gap--: 2em;
+    --c_margin-block-end--: 1lh;
+    ">
   <li> … </li>
   <li> … </li>
   <li> … </li>
@@ -311,58 +325,39 @@ XSAプロパティ の命名規則を正規表現で表すと次のようにな�
 </ul>
 ```
 
-### フレックスレイアウト
+### フレックスボックスレイアウト
 
 ```HTML
-<div style="--container-type--: inline-size; --flex-flow--: row wrap; --gap--: 1lh 1em; --c_flex--: 1 1 100%;">
-  <div style="--cqi-m_flex--: 1 1 0%;"> … </div>
-  <div style="--cqi-m_flex--: 1 1 0%;"> … </div>
-  <div style="--cqi-m_flex--: 1 1 0%;"> … </div>
-  <div style="--cqi-m_flex--: 1 1 0%;"> … </div>
+<div style="
+    --container-type--: inline-size;
+    --flex-flow--: row wrap;
+    --gap--: 1lh 1em;
+    --c_flex--: 1 1 100%;
+    ">
+  <div style="--cqi-m_flex-basis--: 0%;"> … </div>
+  <div style="--cqi-m_flex-basis--: 0%;"> … </div>
+  <div style="--cqi-m_flex-basis--: 0%;"> … </div>
+  <div style="--cqi-m_flex-basis--: 0%;"> … </div>
 </div>
 ```
 
 ### グリッドレイアウト
 
 ```HTML
-<div style="--container-type--: inline-size; --grid--: auto-flow / repeat(12, 1fr); --gap--: 1lh 1em; --c_grid-area--: auto / span 12;">
-  <div style="--cqi-m_grid-area--: auto / span 2;"> … </div>
-  <div style="--cqi-m_grid-area--: auto / span 4;"> … </div>
-  <div style="--cqi-m_grid-area--: auto / span 6;"> … </div>
+<div style="
+    --container-type--: inline-size;
+    --grid--: auto-flow / repeat(12, 1fr);
+    --gap--: 1lh 1em;
+    --c_grid-column--: span 12;
+    ">
+  <div style="--cqi-m_grid-column--: span 3;"> … </div>
+  <div style="--cqi-m_grid-column--: span 3;"> … </div>
+  <div style="--cqi-m_grid-column--: span 3;"> … </div>
+  <div style="--cqi-m_grid-column--: span 3;"> … </div>
 </div>
 ```
 
-### コンポーネントの拡張例1
-
-```HTML
-<style>
-.button {
-  border-style: solid;
-  …
-  &:not([style*="--background--:"]) {
-    background: none;
-  }
-  &:not([style*="--border-width--:"]) {
-    border-width: thin;
-  }
-  &:not([style*="--border-color--:"]) {
-    border-color: currentcolor;
-  }
-  &:not([style*="--color--:"]) {
-    color: currentcolor;
-  }
-  &[style*="--background--:"] {
-    border-color: transparent;
-  }
-}
-</style>
-…
-<p><button class="button">枠線のボタン</button></p>
-<p><button class="button" style="--background--: var(--red); --color--: var(--white);">赤色のボタン</button></p>
-<p><button class="button" style="--inline-size--: 100%;">横長のボタン</button></p>
-```
-
-### コンポーネントの拡張例2
+### コンポーネントの拡張例
 
 ```HTML
 <style>

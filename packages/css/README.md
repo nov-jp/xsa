@@ -4,7 +4,7 @@
 
 # XSA CSS (@nov-xsa/css)
 
-使用する XSAプロパティ を手動で選択するスクリプトなし・ビルドなしの CSSライブラリ です。
+XSAプロパティ を選んで使用するスクリプトなし・ビルドなしの CSSライブラリ です。
 
 ## 各種ファイルの説明
 
@@ -120,7 +120,7 @@
   ```
   
   - `--container-type--`
-  - `--(cqi-(s|m|l|xl)_|c_)?flex--`
+  - `--(cqi-(s|m|l|xl)_)?(c_)?flex--`
   - `--(cqi-(s|m|l|xl)_)?flex-flow--`
   
 - **xsa-layout-grid.css**: グリッドレイアウトに関する設定ができるようになります。
@@ -131,7 +131,7 @@
   
   - `--container-type--`
   - `--(cqi-(s|m|l|xl)_)?grid--`
-  - `--(cqi-(s|m|l|xl)_|c_)?grid-area--`
+  - `--(cqi-(s|m|l|xl)_)?(c_)?grid-area--`
   
 - **xsa-layout-multicol.css**: 段組みレイアウトに関する設定ができるようになります。
   
@@ -296,11 +296,21 @@ CDN を利用した場合の例です。
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-sizing.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-table.min.css" />
 …
-<table style="--border--: solid thin; --border-collapse--: collapse; --inline-size--: 100%; --table-layout--: fixed; --d-of-dd-dt-td-th_border--: var(--border--); --d-of-dd-dt-td-th_padding-block--: calc(0.5lh - 0.5em); --d-of-dd-dt-td-th_padding-inline--: calc(1lh - 1em); --d-of-dt-th_background--: color-mix(in srgb, transparent, currentcolor 6.25%);">
+<table style="
+    --border--: solid thin;
+    --border-collapse--: collapse;
+    --inline-size--: 100%;
+    --d-of-dd-dt-td-th_border--: var(--border--);
+    --d-of-dd-dt-td-th_padding-block--: calc(0.5lh - 0.5em);
+    --d-of-dd-dt-td-th_padding-inline--: calc(1lh - 1em);
+    --d-of-dt-th_background--: color-mix(in srgb, transparent, currentcolor 12.5%);
+    ">
   <thead>
     <tr> … </tr>
   </thead>
-  <tbody style="--c-nth-odd_background--: var(in srgb, transparent, currentcolor 6.25%);">
+  <tbody style="
+      --c-nth-odd_background--: var(in srgb, transparent, currentcolor 6.25%);
+      ">
     <tr> … </tr>
     …
   </tbody>

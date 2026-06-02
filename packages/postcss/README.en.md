@@ -6,7 +6,7 @@ This text was translated from Japanese by Google Gemini.
 
 # XSA PostCSS (@nov-xsa/postcss)
 
-A tool that extracts XSA properties from within the project, generates CSS code, and outputs it to a CSS file.
+A tool that generates CSS code from XSA properties within a project and outputs it to a CSS file.
 
 ## Installation
 
