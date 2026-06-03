@@ -11,7 +11,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa.css**: xsa-transitions.css と xsa-token.css を除く XSA CSS を1つにまとめたものです。
   
   ```
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa.min.css" />
   ```
   
   - xsa-align.css
@@ -36,7 +36,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-align.css**: アイテムの配置に関する設定ができるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-align.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-align.min.css" />
   ```
   
   - `--(cqi-(s|m|l|xl)_)?place-content--`
@@ -46,7 +46,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-border.css**: ボックスの境界と影が設定できるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-border.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-border.min.css" />
   ```
   
   - `--(d-of-dd-dt-td-th_|c_)?border(-block(-start|-end)?|-inline(-start|-end)?)?(-style|-width|-color)?--`
@@ -55,7 +55,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-border-radius.css**: 角丸の設定ができるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-border-radius.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-border-radius.min.css" />
   ```
   
   - `--(d-of-dd-dt-td-th_|c_)?border-radius--`
@@ -63,7 +63,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-box-margin.css**: ボックスの外側の余白が設定できるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-box-margin.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-box-margin.min.css" />
   ```
   
   - `--(d-of-dd-dt-td-th_|c_)?margin(-block(-start|-end)?|-inline(-start|-end)?)?--`
@@ -71,7 +71,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-box-padding.css**: ボックスの内側の余白が設定できるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-box-padding.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-box-padding.min.css" />
   ```
   
   - `--(d-of-dd-dt-td-th_|c_)?padding(-block(-start|-end)?|-inline(-start|-end)?)?--`
@@ -79,7 +79,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-color.css**: 背景色と文字色が設定できるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-color.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-color.min.css" />
   ```
   
   - `--(d-of-dd-dt-td-th_|d-of-dt-th_|d-of-dd-td_|c_|c-nth-even_|c-nth-odd_)?background--`
@@ -90,7 +90,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-display.css**: 表示に関する設定ができるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-display.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-display.min.css" />
   ```
   
   - `--display--`
@@ -99,7 +99,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-gaps.css**: ギャップに関する設定ができるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-gaps.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-gaps.min.css" />
   ```
   
   - `--(cqi-(s|m|l|xl)_)?(row-|column-)?gap--`
@@ -107,7 +107,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-images.css**: 画像などの置換要素に関する設定ができるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-images.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-images.min.css" />
   ```
   
   - `--object-fit--`
@@ -116,7 +116,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-layout-flexbox.css**: フレックスボックスレイアウトに関する設定ができるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-layout-flexbox.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-layout-flexbox.min.css" />
   ```
   
   - `--container-type--`
@@ -126,7 +126,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-layout-grid.css**: グリッドレイアウトに関する設定ができるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-layout-grid.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-layout-grid.min.css" />
   ```
   
   - `--container-type--`
@@ -136,7 +136,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-layout-multicol.css**: 段組みレイアウトに関する設定ができるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-layout-multicol.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-layout-multicol.min.css" />
   ```
   
   - `--columns--`
@@ -150,7 +150,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-lists.css**: リストに関する設定ができるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-lists.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-lists.min.css" />
   ```
   
   - `--list-style(-type|-image|-position)?--`
@@ -158,7 +158,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-overflow.css**: オーバーフローに関する設定ができるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-overflow.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-overflow.min.css" />
   ```
   
   - `--overflow--`
@@ -166,7 +166,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-sizing.css**: サイズに関する設定ができるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-sizing.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-sizing.min.css" />
   ```
   
   - `--aspect-ratio--`
@@ -180,7 +180,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-tables.css**: テーブルに関する設定ができるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-tables.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-tables.min.css" />
   ```
   
   - `--border-collapse--`
@@ -192,7 +192,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-text.css**: テキスト装飾に関する設定ができるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-text.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-text.min.css" />
   ```
   
   - `--font(-family|-size|-style|-weight)--`
@@ -209,7 +209,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-transitions.css**: ユーザー操作擬似クラスとトランジションの設定ができるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-transitions.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-transitions.min.css" />
   ```
   
   - `--transition--`
@@ -223,7 +223,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-z-index.css**: スタックレベルに関する設定ができるようになります。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-z-index.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-z-index.min.css" />
   ```
   
   - `--(cqi-(s|m|l|xl)_)?z-index--`
@@ -231,7 +231,7 @@ XSAプロパティ を選んで使用するスクリプトなし・ビルドな�
 - **xsa-token.css**: デザイントークンを持たない XSA のためのデザイントークン・サンプルです。
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-token.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-token.min.css" />
   ```
   
   - `不透明度: --a_(xl|l|m|h|xh)`
@@ -290,11 +290,11 @@ import "@nov-xsa/css/dist/xsa-text.min.css";
 CDN を利用した場合の例です。
 
 ```HTML
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-border.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-box-padding.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-color.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-sizing.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-table.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-border.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-box-padding.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-color.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-sizing.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-table.min.css" />
 …
 <table style="
     --border--: solid thin;

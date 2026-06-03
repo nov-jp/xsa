@@ -14,7 +14,9 @@
 		"build": "node packages/css/build.js && npm run build --workspace=packages/js && npm run build --workspace=packages/php",
 		"build:css": "node packages/css/build.js",
 		"build:js": "npm run build --workspace=packages/js",
-		"build:php": "npm run build --workspace=packages/php"
+		"build:php": "npm run build --workspace=packages/php",
+		"version-up": "changeset version && node ./scripts/update-versions.mjs",
+		"release-tag": "changeset tag && git push origin main --tags"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.31.0"

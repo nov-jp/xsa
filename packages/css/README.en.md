@@ -13,7 +13,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa.css**: A bundled version of XSA CSS, excluding `xsa-transitions.css` and `xsa-token.css`.
   
   ```
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa.min.css" />
   ```
   
   * xsa-align.css
@@ -38,7 +38,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-align.css**: Allows you to configure settings related to item alignment.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-align.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-align.min.css" />
   ```
   
   * `--(cqi-(s|m|l|xl)_)?place-content--`
@@ -48,7 +48,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-border.css**: Allows you to configure box borders and shadows.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-border.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-border.min.css" />
   ```
   
   * `--(d-of-dd-dt-td-th_|c_)?border(-block(-start|-end)?|-inline(-start|-end)?)?(-style|-width|-color)?--`
@@ -57,7 +57,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-border-radius.css**: Allows you to configure border radiuses (rounded corners).
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-border-radius.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-border-radius.min.css" />
   ```
   
   * `--(d-of-dd-dt-td-th_|c_)?border-radius--`
@@ -65,7 +65,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-box-margin.css**: Allows you to configure box margins (outer spacing).
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-box-margin.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-box-margin.min.css" />
   ```
   
   * `--(d-of-dd-dt-td-th_|c_)?margin(-block(-start|-end)?|-inline(-start|-end)?)?--`
@@ -73,7 +73,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-box-padding.css**: Allows you to configure box paddings (inner spacing).
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-box-padding.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-box-padding.min.css" />
   ```
   
   * `--(d-of-dd-dt-td-th_|c_)?padding(-block(-start|-end)?|-inline(-start|-end)?)?--`
@@ -81,7 +81,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-color.css**: Allows you to configure background colors and text colors.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-color.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-color.min.css" />
   ```
   
   * `--(d-of-dd-dt-td-th_|d-of-dt-th_|d-of-dd-td_|c_|c-nth-even_|c-nth-odd_)?background--`
@@ -92,7 +92,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-display.css**: Allows you to configure display-related settings.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-display.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-display.min.css" />
   ```
   
   * `--display--`
@@ -101,7 +101,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-gaps.css**: Allows you to configure settings related to gaps.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-gaps.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-gaps.min.css" />
   ```
   
   * `--(cqi-(s|m|l|xl)_)?(row-|column-)?gap--`
@@ -109,7 +109,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-images.css**: Allows you to configure settings for replaced elements such as images.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-images.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-images.min.css" />
   ```
   
   * `--object-fit--`
@@ -118,7 +118,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-layout-flexbox.css**: Allows you to configure settings related to Flexbox layouts.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-layout-flexbox.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-layout-flexbox.min.css" />
   ```
   
   * `--container-type--`
@@ -128,7 +128,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-layout-grid.css**: Allows you to configure settings related to Grid layouts.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-layout-grid.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-layout-grid.min.css" />
   ```
   
   * `--container-type--`
@@ -138,7 +138,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-layout-multicol.css**: Allows you to configure settings related to multi-column layouts.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-layout-multicol.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-layout-multicol.min.css" />
   ```
   
   * `--columns--`
@@ -152,7 +152,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-lists.css**: Allows you to configure settings related to lists.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-lists.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-lists.min.css" />
   ```
   
   * `--list-style(-type|-image|-position)?--`
@@ -160,7 +160,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-overflow.css**: Allows you to configure settings related to overflow.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-overflow.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-overflow.min.css" />
   ```
   
   * `--overflow--`
@@ -168,7 +168,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-sizing.css**: Allows you to configure settings related to sizing.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-sizing.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-sizing.min.css" />
   ```
   
   * `--aspect-ratio--`
@@ -182,7 +182,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-tables.css**: Allows you to configure settings related to tables.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-tables.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-tables.min.css" />
   ```
   
   * `--border-collapse--`
@@ -194,7 +194,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-text.css**: Allows you to configure settings related to text decoration and typography.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-text.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-text.min.css" />
   ```
   
   * `--font(-family|-size|-style|-weight)--`
@@ -211,7 +211,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-transitions.css**: Allows you to configure settings for user-action pseudo-classes and transitions.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-transitions.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-transitions.min.css" />
   ```
   
   * `--transition--`
@@ -225,7 +225,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-z-index.css**: Allows you to configure settings related to stacking levels.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-z-index.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-z-index.min.css" />
   ```
   
   * `--(cqi-(s|m|l|xl)_)?z-index--`
@@ -233,7 +233,7 @@ A script-free, build-free CSS library where you select and use specific XSA prop
 * **xsa-token.css**: A sample design token sheet for XSA setups that do not natively have design tokens.
   
   ```HTML
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-token.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-token.min.css" />
   ```
   
   * `Opacity: --a_(xl|l|m|h|xh)`
@@ -292,11 +292,11 @@ import "@nov-xsa/css/dist/xsa-text.min.css";
 This is an example using a CDN.
 
 ```HTML
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-border.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-box-padding.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-color.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-sizing.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/css/dist/xsa-table.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-border.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-box-padding.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-color.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-sizing.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/css/dist/xsa-table.min.css" />
 …
 <table style="
     --border--: solid thin;

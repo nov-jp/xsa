@@ -24,7 +24,7 @@ new XSA().init();
 CDN を利用した場合の例です。
 
 ```HTML
-<script src="https://cdn.jsdelivr.net/gh/nov-jp/xsa@main/packages/js/dist/xsa.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/js/dist/xsa.min.js"></script>
 …
 <table style="
     --border--: solid thin;
