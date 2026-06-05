@@ -1,18 +1,18 @@
-[日本語](README.md) | [English](README.en.md)
+[English](README.md) | [日本語](README.ja.md)
 
 ---
 
 # XSA (@nov-xsa)
 
-XSA (EXtended Style Attribute) は、CSS の属性セレクタとカスタムプロパティで、HTML の style属性 を限界突破させる、シンプルなメタ・フレームワークです。
+XSA (EXtended Style Attribute) is a simple meta-framework that breaks through the limitations of the HTML `style` attribute using CSS attribute selectors and custom properties.
 
-## 概要
+## Overview
 
 ```HTML
 <div style="--color--: var(--red);"> … </div>
 ```
 
-CSSプロパティ の前後に `--` を付けてカスタムプロパティ化した XSAプロパティ を style属性 に設定したとき、
+When you set an XSA property?which is a CSS property wrapped with `--` to make it a custom property?inside a `style` attribute:
 
 ```CSS
 [style*="--color--:"] {
@@ -20,13 +20,13 @@ CSSプロパティ の前後に `--` を付けてカスタムプロパティ化�
 }
 ```
 
-それ自体をトリガーとして CSSプロパティ に値を設定します。
+It acts as its own trigger to apply the value to the CSS property.
 
 ```HTML
 <div style="--cqi-s_c3-first_hover_color--: var(--red);" … </div>
 ```
 
-クエリやセレクタをエンコードした XSAプレフィックス とカスタムプロパティの継承を組み合わせることで、
+By combining XSA prefixes (which encode queries and selectors) with custom property inheritance:
 
 ```CSS
 @container (inline-size > 480px) {
@@ -36,30 +36,30 @@ CSSプロパティ の前後に `--` を付けてカスタムプロパティ化�
 }
 ```
 
-子孫要素や擬似要素のスタイリングと、メディアクエリ、コンテナクエリ、擬似クラスによる条件分岐を可能にします。
+It enables styling of descendant and pseudo-elements, as well as conditional branching via media queries, container queries, and pseudo-classes.
 
-## パッケージ
+## Packages
 
-XSAプロパティ を機能させるためのパッケージは複数あり、プロジェクトに応じて最適なものが使用できます。
+Multiple packages are available to make XSA properties work, allowing you to choose the best option for your project.
 
-| パッケージ | 名称 | 動作環境 | メリット | デメリット | 説明 |
+| Package | Name | Environment | Pros | Cons | Description |
 | --- | --- | --- | --- | --- | --- |
-| `@nov-xsa/css` | XSA CSS | ブラウザ | 導入が簡単 | 自由度が低い | XSAプロパティ を選んで使用するスクリプトなし・ビルドなしの CSSライブラリ です。 |
-| `@nov-xsa/js` | XSA JS | ブラウザ | 導入が簡単, 自由度が高い | クライアントサイドに依存 | XSAプロパティ から CSSコード の生成と style要素 への出力を行うスクリプトです。 |
-| `@nov-xsa/postcss` | XSA PostCSS | 開発環境 | 自由度が高い | ビルド環境が必要 | プロジェクト内の XSAプロパティ から CSSコード の生成と CSSファイル への出力を行うツールです。 |
-| `@nov-xsa/php` | XSA PHP | サーバ | 自由度が高い | PHP実行環境が必要 | PHP実行環境 で XSAプロパティ から CSSコード を生成するヘルパークラスです。 |
+| `@nov-xsa/css` | XSA CSS | Browser | Easy to introduce | Low flexibility | A script-free, build-free CSS library where you select and use specific XSA properties. |
+| `@nov-xsa/js` | XSA JS | Browser | Easy to introduce, high flexibility | Dependent on client-side | A script that generates CSS code from XSA properties and outputs it to a `style` element. |
+| `@nov-xsa/postcss` | XSA PostCSS | Dev Environment | High flexibility | Requires build environment | A tool that generates CSS code from XSA properties within a project and outputs it to a CSS file. |
+| `@nov-xsa/php` | XSA PHP | Server | High flexibility | Requires PHP environment | A helper class for generating CSS code from XSA properties within a PHP execution environment. |
 
-## XSAプロパティ の構文リファレンス
+## XSA Property Syntax Reference
 
-XSAプロパティ の命名規則を正規表現で表すと次のようになります。
+The naming convention for XSA properties can be expressed as the following regular expression:
 
 ```RegExp
 --(QUERY_)?(PSEUDO-CLASS_)?(COMBINATOR(-SIBLING)?_)?(PSEUDO-CLASS_)?(PSEUDO-ELEMENT_)?PROPERTY--
 ```
 
-そして、QUERY (クエリ), COMBINATOR (結合子), SIBLING (兄弟擬似クラス), PSEUDO-CLASS (擬似クラス), PSEUDO-ELEMENT (擬似要素), PROPERTY (CSSプロパティ) は以下の文字列に対応しています。
+The components QUERY, COMBINATOR, SIBLING, PSEUDO-CLASS, PSEUDO-ELEMENT, and PROPERTY map to specific character strings below:
 
-| 分類 | 名称 | CSSコード |
+| Classification | Name | CSS Code |
 | --- | --- | --- |
 | QUERY | cqi-s | `@container (inline-size > 480px) and (inline-size > 30rem)` |
 | " | cqi-m | `@container (inline-size > 720px) and (inline-size > 45rem)` |
@@ -282,9 +282,9 @@ XSAプロパティ の命名規則を正規表現で表すと次のようにな�
 | " | text-stroke | `& { -webkit-text-stroke: var(--XSA-PROPERTY--); text-stroke: var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { paint-order: stroke; background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
 | " | x-text-marker | `& { text-decoration: underline 50% var(--XSA-PROPERTY--); } :not(_):not(_):where(&) { text-decoration-skip-ink: none; text-underline-offset: -50%; text-underline-position: under; background: none; color: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; text-decoration: none; }` |
 
-## XSAプロパティ の使用例
+## XSA Property Examples
 
-### 表の装飾
+### Table Decoration
 
 ```HTML
 <table style="
@@ -309,7 +309,7 @@ XSAプロパティ の命名規則を正規表現で表すと次のようにな�
 </table>
 ```
 
-### 段組みレイアウト
+### Multi-column Layout
 
 ```HTML
 <ul style="
@@ -325,7 +325,7 @@ XSAプロパティ の命名規則を正規表現で表すと次のようにな�
 </ul>
 ```
 
-### フレックスボックスレイアウト
+### Flexbox Layout
 
 ```HTML
 <div style="
@@ -341,7 +341,7 @@ XSAプロパティ の命名規則を正規表現で表すと次のようにな�
 </div>
 ```
 
-### グリッドレイアウト
+### Grid Layout
 
 ```HTML
 <div style="
@@ -357,7 +357,7 @@ XSAプロパティ の命名規則を正規表現で表すと次のようにな�
 </div>
 ```
 
-### コンポーネントの拡張例
+### Component Extension Example
 
 ```HTML
 <style>
@@ -376,17 +376,10 @@ XSAプロパティ の命名規則を正規表現で表すと次のようにな�
 }
 </style>
 …
-<p><button class="button">枠線のボタン</button></p>
-<p><button class="button" style="--background--: var(--red); --color--: var(--white);">赤色のボタン</button></p>
-<p><button class="button" style="--inline-size--: 100%;">横長のボタン</button></p>
+<p><button class="button">Outlined Button</button></p>
+<p><button class="button" style="--background--: var(--red); --color--: var(--white);">Red Button</button></p>
+<p><button class="button" style="--inline-size--: 100%;">Full-width Button</button></p>
 ```
-
----
-
-XSA公式マニュアルを販売しています。XSA を使いこなしたい方は、是非お買い求めください。
-
-- **日本国内向け**: [note](https://note.com/nobuo_nakayama/n/ne52711259081)
-- **日本国外向け**: [Gumroad](https://nobuonakayama.gumroad.com/l/xsa-html-manual)
 
 ---
 

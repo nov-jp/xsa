@@ -1,18 +1,18 @@
-[日本語](README.md) | [English](README.en.md)
+[English](README.md) | [日本語](README.ja.md)
 
 ---
 
 # XSA PostCSS (@nov-xsa/postcss)
 
-プロジェクト内の XSAプロパティ から CSSコード の生成と CSSファイル への出力を行うツールです。
+A tool that generates CSS code from XSA properties within a project and outputs it to a CSS file.
 
-## インストール
+## Installation
 
 ```Bash
 npm install @nov-xsa/postcss
 ```
 
-## postcss.config.js の設定例
+## Example settings for postcss.config.js
 
 ```JS
 import xsa from '@nov-xsa/postcss';
@@ -22,7 +22,7 @@ export default ( { env } ) => ( {
   plugins: [
     xsa( {
       content: [
-        './src/**/*.{html,php}' // プロジェクト内のスキャン対象ファイルを設定
+        './src/**/*.{html,php}' // Set the files to be scanned within the project.
       ],
       minify: true,
     } ),

@@ -1,13 +1,13 @@
-[日本語](README.md) | [English](README.en.md)
+[English](README.md) | [日本語](README.ja.md)
 
 ---
 
 # XSA Core (@nov-xsa/core)
 
-XSA の各種パッケージで使用するコアデータとコアスクリプト。
+Core data and core scripts used across various XSA packages.
 
-data.json には、XSAプロパティ の XSAプレフィックス とプロパティに関するデータがまとめられています。
-データの並び順は、生成される CSSコード の並び順に影響します。
+The `data.json` file contains a compilation of data regarding XSA prefixes and properties for XSA properties.
+The order of the data affects the cascade and sorting order of the generated CSS code.
 
 ---
 

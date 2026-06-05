@@ -1,16 +1,14 @@
-[日本語](README.md) | [English](README.en.md)
-
-This text was translated from Japanese by Google Gemini.
+[English](README.md) | [日本語](README.ja.md)
 
 ---
 
 # XSA JS (@nov-xsa/js)
 
-A script that generates CSS code from XSA properties and outputs it to a `style` element.
+XSAプロパティ から CSSコード の生成と style要素 への出力を行うスクリプトです。
 
-## Installation
+## インストール
 
-If you are using a build tool, you can install and import it.
+ビルドツールを使用している場合はインストールとインポートができます。
 
 ```Bash
 npm install @nov-xsa/js
@@ -21,9 +19,9 @@ import XSA from '@nov-xsa/js';
 new XSA().init();
 ```
 
-## Usage
+## 使用例
 
-This is an example using a CDN.
+CDN を利用した場合の例です。
 
 ```HTML
 <script src="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/js/dist/xsa.min.js"></script>

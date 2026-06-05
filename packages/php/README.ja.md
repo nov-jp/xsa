@@ -1,16 +1,14 @@
-[日本語](README.md) | [English](README.en.md)
-
-This text was translated from Japanese by Google Gemini.
+[English](README.md) | [日本語](README.ja.md)
 
 ---
 
 # XSA PHP (@nov-xsa/php)
 
-A helper class for generating CSS code from XSA properties within a PHP execution environment.
+PHP実行環境 で XSAプロパティ から CSSコード を生成するヘルパークラスです。
 
-## Installation
+## インストール
 
-If you are using a build tool, you can install it via npm or composer.
+ビルドツールなどを使用している場合は npm や composer からインストールできます。
 
 ```Bash
 npm install @nov-xsa/php
@@ -20,7 +18,7 @@ npm install @nov-xsa/php
 composer require nov-jp/xsa-php
 ```
 
-## General Usage
+## 一般的な使用例
 
 ```PHP
 <?php
@@ -59,9 +57,9 @@ if ( ! empty( $css ) ) {
 echo $html;
 ```
 
-## Usage in WordPress
+## WordPress での使用例
 
-Add a hook to functions.php and use a helper class.
+functions.php にフックを追加してヘルパークラスを使用します。
 
 ```PHP
 require_once __DIR__ . '/path/XSA.php';
