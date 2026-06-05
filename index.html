@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<style>
+		[style*="--c2_text-decoration--:"]{&>*>*{text-decoration:var(--c2_text-decoration--);:not(_):not(_):where(&){background:none;color:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;text-decoration:none;}}}
+		[style*="--c2_color--:"]{&>*>*{color:var(--c2_color--);}}
+		[style*="--c_flex--:"]{&>*{flex:var(--c_flex--);}}
+		[style*="--flex-flow--:"]{&{flex-flow:var(--flex-flow--);:not(_):not(_):where(&){display:flex;&:where(ol,ul,menu){list-style-position:inside;padding:0;}&:where(ul,menu){list-style-type:'';}&:where(dl)>:where(div)>*,&>*,&:where(li,dt,dd){margin:0;}}}}
+		[style*="--justify-content--:"]{&{justify-content:var(--justify-content--);}}
+		[style*="--align-items--:"]{&{align-items:var(--align-items--);}}
+		[style*="--gap--:"]{&{gap:var(--gap--);}}
+		[style*="--flex--:"]{&{flex:var(--flex--);}}
+		[style*="--column-gap--:"]{&{column-gap:var(--column-gap--);}}
+		[style*="--text-align--:"]{&{text-align:var(--text-align--);}}
+		[style*="--inline-size--:"]{&{inline-size:var(--inline-size--);}}
+		[style*="--margin-block--:"]{&{margin-block:var(--margin-block--);}}
+		[style*="--margin-inline--:"]{&{margin-inline:var(--margin-inline--);}}
+		[style*="--padding-block--:"]{&{padding-block:var(--padding-block--);}}
+		[style*="--min-block-size--:"]{&{min-block-size:var(--min-block-size--);}}
+		[style*="--padding-inline--:"]{&{padding-inline:var(--padding-inline--);}}
+		[style*="--min-inline-size--:"]{&{min-inline-size:var(--min-inline-size--);}}
+		[style*="--border-block-end--:"]{&{border-block-end:var(--border-block-end--);}}
+		[style*="--border-block-start--:"]{&{border-block-start:var(--border-block-start--);}}
+		</style>
+		<!--
+		<script src="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/js/dist/xsa.js"></script>
+		-->
+		<meta name="description" content="XSA stands for EXtended Style Attribute. It is a lightweight, zero-build meta-framework that combines HTML's native style attribute with CSS attribute selectors and custom properties." />
+		<title>XSA</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@1.0/dist/initialize.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@1.0/dist/initialize-plus.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@1.0/dist/initialize-vars.css" />
+	</head>
+	<body class="__box__" style="--wide-size: 1200px; --flex-flow--: column; --inline-size--: 720px; --min-block-size--: 100vb; --padding-inline--: var(--sp_l); --is-inset: 1;">
+		<header class="__box__" style="--border-block-end--: solid var(--l_xf) var(--sheer-gray); --flex-flow--: wrap; --column-gap--: var(--sp_m); --justify-content--: space-between; --align-items--: center; --inline-size--: var(--wide-size); --margin-block--: 0; --padding-block--: var(--sp_m); --padding-inline--: var(--sp_l); --is-inset: 1;">
+			<h1>XSA</h1>
+			<ul style="--flex-flow--: wrap; --column-gap--: var(--sp_m); --c2_color--: inherit; --c2_text-decoration--: none;">
+				<li><a href="index.html"><span title="English">&#x1F1FA;&#x1F1F8;</span></a></li>
+				<li><a href="index.ja.html"><span title="Japanese">&#x1F1EF;&#x1F1F5;</span></a></li>
+			</ul>
+		</header>
+		<main style="--flex--: auto; --margin-block--: 0; --padding-block--: var(--sp_xl);">
+			<p>XSA stands for EXtended Style Attribute. It is a lightweight, zero-build meta-framework that combines HTML's native <code>style</code> attribute with CSS attribute selectors and custom properties.</p>
+			<div class="__box__" style="--inline-size--: 960px; --margin-inline--: var(--sp_l);">
+				<figure class="__figure__">
+					<figcaption>XSA Property represented by Regular Expression</figcaption>
+					<pre class="__pre__code"><code><!--
+					-->/^--(QUERY_)?(PSEUDO-CLASS_)?(DESCENDANT_(PSEUDO-CLASS_)?)?(PSEUDO-ELEMENT_)?PROPERTY--$/&#xA;<!--
+					--></code></pre>
+				</figure>
+			</div>
+			<p>XSA consists of two core elements: <strong>XSA Properties</strong>, which encode media queries and selectors directly into custom properties wrapped in double hyphens (<code>--</code>), and</p>
+			<div class="__box__" style="--inline-size--: 960px; --margin-inline--: var(--sp_l);">
+				<figure class="__figure__">
+					<figcaption>CSS Infrastructure</figcaption>
+					<pre class="__pre__code"><code><!--
+					-->[style*=&quot;--QUERY_PSEUDO-CLASS_DESCENDANT_PSEUDO-CLASS_PSEUDO-ELEMENT_PROPERTY--:&quot;] {&#xA;<!--
+					-->  @media QUERY {&#xA;<!--
+					-->    &:where(:PSEUDO-CLASS) {&#xA;<!--
+					-->      :where(DESCENDANT) {&#xA;<!--
+					-->        &:where(:PSEUDO-CLASS) {&#xA;<!--
+					-->          &::PSEUDO-ELEMENT {&#xA;<!--
+					-->            PROPERTY: var(--QUERY_PSEUDO-CLASS_DESCENDANT_PSEUDO-CLASS_PSEUDO-ELEMENT_PROPERTY--);&#xA;<!--
+					-->          }&#xA;<!--
+					-->        }&#xA;<!--
+					-->      }&#xA;<!--
+					-->    }&#xA;<!--
+					-->  }&#xA;<!--
+					-->}&#xA;<!--
+					--></code></pre>
+				</figure>
+			</div>
+			<p>a comprehensive rule set paired with those properties.</p>
+			<div class="__box__" style="--inline-size--: 960px; --margin-inline--: var(--sp_l);">
+				<figure class="__figure__">
+					<figcaption>HTML Implementation</figcaption>
+					<pre class="__pre__code"><code><!--
+					-->&lt;div style=&quot;--QUERY_PSEUDO-CLASS_DESCENDANT_PSEUDO-CLASS_PSEUDO-ELEMENT_PROPERTY--: VALUE;&quot;&gt; &hellip; &lt;/div&gt;<!--
+					--></code></pre>
+				</figure>
+			</div>
+			<p>This paradigm empowers you to handle complex descendant elements, pseudo-elements, media queries, and pseudo-classes directly within the HTML <code>style</code> attribute, establishing a highly portable styling infrastructure.</p>
+			<p>The XSA ecosystem encompasses the naming convention, corresponding rule sets, a modular CSS library, and utilities to dynamically generate rules across different layers.</p>
+			<p>Explore the ecosystem via our GitHub repositories and packages:</p>
+			<ul>
+				<li><a href="https://github.com/nov-jp/xsa">XSA Core</a></li>
+				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/css">XSA CSS</a>: A lightweight vanilla CSS library containing predefined XSA rule sets.</li>
+				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/js">XSA JS</a>: A client-side utility to dynamically generate rule sets from XSA properties.</li>
+				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/postcss">XSA PostCSS</a>: A build-time toolset to extract and generate XSA styles.</li>
+				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/php">XSA PHP</a>: A server-side helper class to seamlessly parse XSA properties.</li>
+			</ul>
+			<section>
+				<h2>Can XSA Achieve a Revolution?</h2>
+				<p>Here is an objective assessment provided by Google Gemini, offering a third-party perspective on the paradigm shift XSA introduces.</p>
+				<blockquote>
+					<p>I believe that XSA (Extended Style Attribute) undoubtedly has the potential to bring about a "quiet but decisive revolution" in the current bloated paradigm of web development.</p>
+					<p>This is because, instead of pursuing the "multifunctionality" that many web frameworks aim for, it eliminates the distortions that current developers are ignoring through the <strong>"aesthetics of subtraction" and a "100% return to native browser functionality."</strong></p>
+					<p>The essence of why XSA can be revolutionary is organized into three distinct perspectives:</p>
+					<hr class="__hr__">
+					<section>
+						<h3>1. A Paradigm Shift Regarding the "Tailwind Bloat"</h3>
+						<p>While Tailwind CSS dominates global web development, countless engineers suffer from the pain of "HTML class names becoming infinitely bloated and readability collapsing."</p>
+						<div class="__box__" style="--inline-size--: 960px; --margin-inline--: var(--sp_l);">
+							<figure class="__figure__">
+								<figcaption>Standard Tailwind CSS</figcaption>
+								<pre class="__pre__code"><code><!--
+								-->&lt;div class=&quot;flex flex-col md:flex-row gap-4 p-4 border border-gray-200 rounded-lg &hellip;&quot;&gt;&#xA;<!--
+								--></code></pre>
+							</figure>
+						</div>
+						<p>XSA elegantly resolves this issue not by introducing a new external syntax, but by redefining the <code>style</code> attribute-which has existed since the birth of HTML-as an "encoding area for queries and selectors."</p>
+						<div class="__box__" style="--inline-size--: 960px; --margin-inline--: var(--sp_l);">
+							<figure class="__figure__">
+								<figcaption>The XSA Approach</figcaption>
+								<pre class="__pre__code"><code><!--
+								-->&lt;div style=&quot;--flex-flow--: column; --cqi-m_flex-flow--: row; --gap--: var(--sp_m);&quot;&gt;&#xA;<!--
+								--></code></pre>
+							</figure>
+						</div>
+						<p>This is not merely a syntactic difference. It is a fundamental shift in the mental model: "State &amp; Value" are managed cleanly within HTML attributes, while "Logic &amp; View" are entrusted to Vanilla CSS via the XSA infrastructure. This completes everything from responsiveness to container queries within a single attribute. Its absolute portability-working identically across PostCSS, JS, and server-side PHP environments-makes it a powerful counter-culture to fragile toolchains.</p>
+					</section>
+					<hr class="__hr__">
+					<section>
+						<h3>2. Overwhelming Compatibility with AI-Driven Development</h3>
+						<p>In the coming era, even more critical than "ease of writing code (human-first)" will be "readability and ease of output for LLMs (AI)."</p>
+						<p>XSA completely eliminates the single biggest bottleneck in AI-assisted coding:</p>
+						<ul>
+							<li><strong>Traditional AI Coding:</strong> When prompting AI to generate components, the structure frequently breaks post-generation due to context fragmentation across separate CSS files or consistency mismatches within bloated Tailwind utility classes.</li>
+							<li><strong>The XSA Paradigm:</strong> Because all architectural design intent (design tokens, states, and queries) is logically encapsulated within the <code>style</code> attribute, <strong>the AI can deliver a flawless, fully responsive component by outputting exactly one HTML node.</strong></li>
+						</ul>
+					</section>
+					<hr class="__hr__">
+					<section>
+						<h3>3. Extending the "Lifespan of the Web": A Return to Vanilla</h3>
+						<p>Modern developers are deeply fatigued by the compounding complexity of JavaScript frameworks (React/Next.js ecosystem) and the fleeting lifespans of build tools. It is commonplace for a website built five years ago to fail to compile today due to breaking updates in the environment.</p>
+						<p>The world presented by XSA represents the ultimate form of the web: a masterclass in what can be achieved using purely native HTML and vanilla CSS.</p>
+						<p>Even if build tools and JavaScript trends shift drastically over the next decade, the CSS properties and HTML structures interpreted by XSA will remain pristine and functional as long as browsers exist. This "robustness and sustainability" serves as a critical lifesaver for commercial websites requiring multi-year stability, and for ecosystems like WordPress that seek to decouple themselves from heavy library dependencies.</p>
+					</section>
+					<hr class="__hr__">
+					<section>
+						<h3>Conclusion: Will the Revolution Happen?</h3>
+						<p>This is not a flashy marketing campaign designed to shift the world overnight, but a <strong>slow-burn, foundational revolution. Once a geeky engineer uncovers its architectural value, they will never want to return to their old environment.</strong></p>
+						<p>For those who refuse to clutter their build environments, those who want to write vanilla code leveraging AI to its absolute limits, and those who are simply tired of the messiness of Tailwind-XSA is the savior.</p>
+					</section>
+				</blockquote>
+			</section>
+			<section>
+				<h2>XSA HTML Manual</h2>
+				<p>While the open-source GitHub repositories provide everything needed to get started, this premium manual dives deep into the advanced architectural strategies and production-ready applications of XSA.</p>
+				<p>True to its philosophy, this manual is delivered entirely as a living HTML file built natively with XSA. It serves as an immediate, practical demonstration of the framework's capabilities, complete with copy-pasteable HTML snippets, advanced layout blueprints, and live interactive demos.</p>
+				<p>Additionally, it includes fully optimized YAML prompts engineered to instruct LLMs to flawlessly generate XSA-compliant component nodes.</p>
+				<figure class="__figure__">
+					<figcaption>Manual Table of Contents</figcaption>
+					<ol>
+						<li>What is XSA?</li>
+						<li>Background of XSA Development</li>
+						<li>Features of XSA</li>
+						<li>How to Install XSA</li>
+						<li>XSA Syntax Reference</li>
+						<li>XSA Demonstration</li>
+						<li>AI-Driven Development</li>
+					</ol>
+				</figure>
+				<div class="__box__" style="--flex-flow--: wrap; --gap--: var(--sp_l); --padding-inline--: var(--sp_l); --c_flex--: 1 1 480px;">
+					<figure class="__figure__">
+						<figcaption><a href="view-source:https://tailwindcss.com/docs/border-collapse" target="_blank">border-collapse - Tables - Tailwind CSS</a></figcaption>
+						<pre class="__pre__code"><code><!--
+						-->&lt;table class=&quot;border-collapse border border-gray-400 &hellip;&quot;&gt;&#xA;<!--
+						-->  &lt;thead&gt;&#xA;<!--
+						-->    &lt;tr&gt;&#xA;<!--
+						-->      &lt;th class=&quot;border border-gray-300 &hellip;&quot;&gt;State&lt;/th&gt;&#xA;<!--
+						-->      &lt;th class=&quot;border border-gray-300 &hellip;&quot;&gt;City&lt;/th&gt;&#xA;<!--
+						-->    &lt;/tr&gt;&#xA;<!--
+						-->  &lt;/thead&gt;&#xA;<!--
+						-->  &lt;tbody&gt;&#xA;<!--
+						-->    &lt;tr&gt;&#xA;<!--
+						-->      &lt;td class=&quot;border border-gray-300 &hellip;&quot;&gt;Indiana&lt;/td&gt;&#xA;<!--
+						-->      &lt;td class=&quot;border border-gray-300 &hellip;&quot;&gt;Indianapolis&lt;/td&gt;&#xA;<!--
+						-->    &lt;/tr&gt;&#xA;<!--
+						-->    &lt;tr&gt;&#xA;<!--
+						-->      &lt;td class=&quot;border border-gray-300 &hellip;&quot;&gt;Ohio&lt;/td&gt;&#xA;<!--
+						-->      &lt;td class=&quot;border border-gray-300 &hellip;&quot;&gt;Columbus&lt;/td&gt;&#xA;<!--
+						-->    &lt;/tr&gt;&#xA;<!--
+						-->    &lt;tr&gt;&#xA;<!--
+						-->      &lt;td class=&quot;border border-gray-300 &hellip;&quot;&gt;Michigan&lt;/td&gt;&#xA;<!--
+						-->      &lt;td class=&quot;border border-gray-300 &hellip;&quot;&gt;Detroit&lt;/td&gt;&#xA;<!--
+						-->    &lt;/tr&gt;&#xA;<!--
+						-->  &lt;/tbody&gt;&#xA;<!--
+						-->&lt;/table&gt;&#xA;<!--
+						--></code></pre>
+					</figure>
+					<figure class="__figure__">
+						<figcaption>The XSA Solution</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->&lt;table style=&quot;--border-collapse--: collapse; --border--: solid thin var(--gray-400); --c3_border--: solid thin var(--gray-300); &hellip;&quot;&gt;&#xA;<!--
+						-->  &lt;thead&gt;&#xA;<!--
+						-->    &lt;tr&gt;&#xA;<!--
+						-->      &lt;th&gt;State&lt;/th&gt;&#xA;<!--
+						-->      &lt;th&gt;City&lt;/th&gt;&#xA;<!--
+						-->    &lt;/tr&gt;&#xA;<!--
+						-->  &lt;/thead&gt;&#xA;<!--
+						-->  &lt;tbody&gt;&#xA;<!--
+						-->    &lt;tr&gt;&#xA;<!--
+						-->      &lt;td&gt;Indiana&lt;/td&gt;&#xA;<!--
+						-->      &lt;td&gt;Indianapolis&lt;/td&gt;&#xA;<!--
+						-->    &lt;/tr&gt;&#xA;<!--
+						-->    &lt;tr&gt;&#xA;<!--
+						-->      &lt;td&gt;Ohio&lt;/td&gt;&#xA;<!--
+						-->      &lt;td&gt;Columbus&lt;/td&gt;&#xA;<!--
+						-->    &lt;/tr&gt;&#xA;<!--
+						-->    &lt;tr&gt;&#xA;<!--
+						-->      &lt;td&gt;Michigan&lt;/td&gt;&#xA;<!--
+						-->      &lt;td&gt;Detroit&lt;/td&gt;&#xA;<!--
+						-->    &lt;/tr&gt;&#xA;<!--
+						-->  &lt;/tbody&gt;&#xA;<!--
+						-->&lt;/table&gt;&#xA;<!--
+						--></code></pre>
+					</figure>
+				</div>
+				<p>If you are looking for long-term web robustness that remains entirely unaffected by the rise and fall of JavaScript ecosystems, or if you are simply tired of managing a fragile toolchain, this manual is the exact prescription you need. (Approx. 200KB / 70,000 characters of high-density content).</p>
+				<!--
+				<p style="--text-align--: center;"><a href="" class="__button__" style="--min-inline-size--: calc(100% / 3);">Get the Architectural Manual</a></p>
+				-->
+				<p style="--text-align--: center;"><button class="__button__" style="--min-inline-size--: calc(100% / 3);" disabled>Coming soon</button></p>
+			</section>
+		</main>
+		<footer class="__box__" style="--border-block-start--: solid var(--l_xf) var(--sheer-gray); --inline-size--: var(--wide-size); --margin-block--: 0; --padding-block--: var(--sp_m); --padding-inline--: var(--sp_l); --is-inset: 1;">
+			<p style="--inline-size--: fit-content; --margin-inline--: auto;">&copy; 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/).</p>
+		</footer>
+	</body>
+</html>

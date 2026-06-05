@@ -383,4 +383,11 @@ XSAプロパティ の命名規則を正規表現で表すと次のようにな�
 
 ---
 
+XSA公式マニュアルを販売しています。XSA を使いこなしたい方は、是非お買い求めください。
+
+- **日本国内向け**: [note](https://note.com/nobuo_nakayama/n/ne52711259081)
+- **日本国外向け**: [Gumroad](https://nobuonakayama.gumroad.com/l/xsa-html-manual)
+
+---
+
 The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/).
