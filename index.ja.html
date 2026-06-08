@@ -15,6 +15,7 @@
 		[style*="--c2_border-radius--:"]{&>*>*{border-radius:var(--c2_border-radius--);}}
 		[style*="--c2_hover_border-color--:"]{&>*>*:where(:hover){border-color:var(--c2_hover_border-color--);}}
 		[style*="--c_flex--:"]{&>*{flex:var(--c_flex--);}}
+		[style*="--c_margin-block--:"]{&>*{margin-block:var(--c_margin-block--);}}
 		[style*="--flex-flow--:"]{&{flex-flow:var(--flex-flow--);:not(_):not(_):where(&){display:flex;&:where(ol,ul,menu){list-style-position:inside;padding:0;}&:where(ul,menu){list-style-type:'';}&:where(dl)>:where(div)>*,&>*,&:where(li,dt,dd){margin:0;}}}}
 		[style*="--justify-content--:"]{&{justify-content:var(--justify-content--);}}
 		[style*="--align-items--:"]{&{align-items:var(--align-items--);}}
@@ -23,7 +24,9 @@
 		[style*="--column-gap--:"]{&{column-gap:var(--column-gap--);}}
 		[style*="--text-align--:"]{&{text-align:var(--text-align--);}}
 		[style*="--inline-size--:"]{&{inline-size:var(--inline-size--);}}
+		[style*="--white-space--:"]{&{white-space:var(--white-space--);}}
 		[style*="--margin-block--:"]{&{margin-block:var(--margin-block--);}}
+		[style*="--border-radius--:"]{&{border-radius:var(--border-radius--);}}
 		[style*="--margin-inline--:"]{&{margin-inline:var(--margin-inline--);}}
 		[style*="--padding-block--:"]{&{padding-block:var(--padding-block--);}}
 		[style*="--min-block-size--:"]{&{min-block-size:var(--min-block-size--);}}
@@ -177,14 +180,9 @@
 			</ul>
 			<p>Tailwind CSS と比較した例を挙げましたが、<strong>XSA はユーティリティファーストを推奨している訳ではありません</strong>。どういった情報を HTML に持たせるか、どのように運用するかは、使用する人次第です。</p>
 			<p>XSA の客観的な評価や、使用することで何がどう変わるかが知りたい場合は、ChatGPT や Google Gemini に次の質問をしてみてください。</p>
-			<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
-				<figure class="__figure__">
-					<figcaption>XSA についてのプロンプト</figcaption>
-					<pre class="__pre__code"><code><!--
-					-->次のページを Web検索 やブラウジング機能で確認し、そこに書かれている XSA について客観的に評価した上で、使用することで何がどう変わるか説明してください。&#xA;<!--
-					-->[XSA](https://nov-jp.github.io/xsa/)&#xA;<!--
-					--></code></pre>
-				</figure>
+			<div style="--c_margin-block--: 0;">
+				<p class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);"><textarea name="ai-prompt" id="ai-prompt" class="__text__" style="--white-space--: nowrap;" readonly>次のページを Web検索 やブラウジング機能で確認し、そこに書かれている XSA について客観的に評価した上で、使用することで何がどう変わるか説明してください。&#xA;[XSA](https://nov-jp.github.io/xsa/)</textarea></p>
+				<p><button class="__button__" style="--border-radius--: 1e6px; --inline-size--: 100%;" onclick="document.getElementById('ai-prompt').select();document.execCommand('copy');">COPY</button></p>
 			</div>
 			<section>
 				<h2>XSA HTMLマニュアル</h2>
