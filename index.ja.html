@@ -4,8 +4,16 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<style>
+		[style*="--c2_aspect-ratio--:"]{&>*>*{aspect-ratio:var(--c2_aspect-ratio--);:not(_):not(_):where(&:is(iframe)){block-size:auto;}}}
 		[style*="--c2_text-decoration--:"]{&>*>*{text-decoration:var(--c2_text-decoration--);:not(_):not(_):where(&){background:none;color:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;text-decoration:none;}}}
 		[style*="--c2_color--:"]{&>*>*{color:var(--c2_color--);}}
+		[style*="--c2_border--:"]{&>*>*{border:var(--c2_border--);}}
+		[style*="--c2_display--:"]{&>*>*{display:var(--c2_display--);}}
+		[style*="--c2_block-size--:"]{&>*>*{block-size:var(--c2_block-size--);}}
+		[style*="--c2_box-sizing--:"]{&>*>*{box-sizing:var(--c2_box-sizing--);}}
+		[style*="--c2_text-align--:"]{&>*>*{text-align:var(--c2_text-align--);}}
+		[style*="--c2_border-radius--:"]{&>*>*{border-radius:var(--c2_border-radius--);}}
+		[style*="--c2_hover_border-color--:"]{&>*>*:where(:hover){border-color:var(--c2_hover_border-color--);}}
 		[style*="--c_flex--:"]{&>*{flex:var(--c_flex--);}}
 		[style*="--flex-flow--:"]{&{flex-flow:var(--flex-flow--);:not(_):not(_):where(&){display:flex;&:where(ol,ul,menu){list-style-position:inside;padding:0;}&:where(ul,menu){list-style-type:'';}&:where(dl)>:where(div)>*,&>*,&:where(li,dt,dd){margin:0;}}}}
 		[style*="--justify-content--:"]{&{justify-content:var(--justify-content--);}}
@@ -27,23 +35,23 @@
 		<!--
 		<script src="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/js/dist/xsa.js"></script>
 		-->
-		<meta name="description" content="XSA は EXtended Style Attribute (限界突破した style属性) を意味します。HTML の style属性 に、CSS の属性セレクタとカスタムプロパティを組み合わせたシンプルなメタ・フレームワークです。" />
+		<meta name="description" content="XSA は EXtended Style Attribute (限界突破した style属性) を意味します。HTML の style属性 に、CSS の属性セレクタとカスタムプロパティを組み合わせた、シンプルなメタ・フレームワークです。" />
 		<title>XSA</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@1.0/dist/initialize.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@1.0/dist/initialize-plus.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@1.0/dist/initialize-vars.css" />
 	</head>
-	<body class="__box__" style="--wide-size: 1200px; --flex-flow--: column; --inline-size--: 720px; --min-block-size--: 100vb; --padding-inline--: var(--sp_l); --is-inset: 1;">
+	<body class="__box__" style="--wide-size: 960px; --flex-flow--: column; --inline-size--: 720px; --min-block-size--: 100vb; --padding-inline--: var(--sp_l); --is-inset: 1;">
 		<header class="__box__" style="--border-block-end--: solid var(--l_xf) var(--sheer-gray); --flex-flow--: wrap; --column-gap--: var(--sp_m); --justify-content--: space-between; --align-items--: center; --inline-size--: var(--wide-size); --margin-block--: 0; --padding-block--: var(--sp_m); --padding-inline--: var(--sp_l); --is-inset: 1;">
 			<h1>XSA</h1>
-			<ul style="--flex-flow--: wrap; --column-gap--: var(--sp_m); --c2_color--: inherit; --c2_text-decoration--: none;">
-				<li><a href="index.html"><span title="英語">&#x1F1FA;&#x1F1F8;</span></a></li>
-				<li><a href="index.ja.html"><span title="日本語">&#x1F1EF;&#x1F1F5;</span></a></li>
+			<ul style="--flex-flow--: wrap; --column-gap--: var(--sp_m); --c2_aspect-ratio--: 1 / 1; --c2_block-size--: 1lh; --c2_border--: solid var(--l_xf) var(--sheerest-text); --c2_border-radius--: 50%; --c2_box-sizing--: content-box; --c2_color--: inherit; --c2_display--: block; --c2_text-align--: center; --c2_text-decoration--: none; --c2_hover_border-color--: currentcolor;">
+				<li><a href="index.html" aria-label="英語">&#x1F1FA;&#x1F1F8;</a></li>
+				<li><a href="index.ja.html" aria-label="日本語">&#x1F1EF;&#x1F1F5;</a></li>
 			</ul>
 		</header>
 		<main style="--flex--: auto; --margin-block--: 0; --padding-block--: var(--sp_xl);">
-			<p>XSA は EXtended Style Attribute (限界突破した style属性) を意味します。HTML の style属性 に、CSS の属性セレクタとカスタムプロパティを組み合わせたシンプルなメタ・フレームワークです。</p>
-			<div class="__box__" style="--inline-size--: 960px; --margin-inline--: var(--sp_l);">
+			<p>XSA は EXtended Style Attribute の略称で、限界突破した style属性 を意味します。HTML の style属性 に、CSS の属性セレクタとカスタムプロパティを組み合わせた、シンプルなメタ・フレームワークです。</p>
+			<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
 				<figure class="__figure__">
 					<figcaption>正規表現で表した XSAプロパティ</figcaption>
 					<pre class="__pre__code"><code><!--
@@ -51,10 +59,9 @@
 					--></code></pre>
 				</figure>
 			</div>
-			<p>CSSプロパティ に、クエリとセレクタをエンコードした <strong>XSAプレフィックス</strong> を追加し、ハイフン2つ (<code>--</code>) で挟んでカスタムプロパティにした <strong>XSAプロパティ</strong> と、</p>
-			<div class="__box__" style="--inline-size--: 960px; --margin-inline--: var(--sp_l);">
+			<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
 				<figure class="__figure__">
-					<figcaption>CSS</figcaption>
+					<figcaption>XSAプロパティ と対になる XSAルールセット</figcaption>
 					<pre class="__pre__code"><code><!--
 					-->[style*=&quot;--QUERY_PSEUDO-CLASS_DESCENDANT_PSEUDO-CLASS_PSEUDO-ELEMENT_PROPERTY--:&quot;] {&#xA;<!--
 					-->  @media QUERY {&#xA;<!--
@@ -72,18 +79,95 @@
 					--></code></pre>
 				</figure>
 			</div>
-			<p>その XSAプロパティ と対になるルールセットによって、</p>
-			<div class="__box__" style="--inline-size--: 960px; --margin-inline--: var(--sp_l);">
+			<p>CSSプロパティ名 をベースとして、クエリとセレクタをエンコードした <strong>XSAプレフィックス</strong> に、ハイフン2つを先頭と末尾に追加してカスタムプロパティ化した <strong>XSAプロパティ</strong>、そして、それと対になる <strong>XSAルールセット</strong> によって、</p>
+			<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
 				<figure class="__figure__">
-					<figcaption>HTML</figcaption>
+					<figcaption>HTML の style属性 に設定した XSAプロパティ と値</figcaption>
 					<pre class="__pre__code"><code><!--
 					-->&lt;div style=&quot;--QUERY_PSEUDO-CLASS_DESCENDANT_PSEUDO-CLASS_PSEUDO-ELEMENT_PROPERTY--: VALUE;&quot;&gt; &hellip; &lt;/div&gt;<!--
 					--></code></pre>
 				</figure>
 			</div>
-			<p>HTML の style属性 から、子孫要素と擬似要素のスタイリングや、クエリと擬似クラスによる条件分岐を可能にするスタイリング・インフラを構築します。</p>
-			<p>XSA は、XSAプロパティ の命名規則、XSAプロパティ と対になるルールセット、ルールセットをまとめた CSSライブラリ、ルールセットを生成するスクリプトを包括的に扱っています。</p>
-			<p>詳細は、XSA の GitHubリポジトリ と各種パッケージをご覧ください。</p>
+			<p>HTML の style属性 から、子孫要素と擬似要素のスタイリング、クエリと擬似クラスによる条件分岐を可能にするスタイリング・インフラを構築します。</p>
+			<div class="__box__" style="--flex-flow--: wrap; --gap--: var(--sp_l); --padding-inline--: var(--sp_l); --c_flex--: 1 1 480px;">
+				<figure class="__figure__">
+					<figcaption>Tailwind CSS を使用した table要素 のマークアップ例</figcaption>
+					<pre class="__pre__code"><code><!--
+					-->&lt;table class=&quot;border-1 border-gray-400 border-collapse inline-full&quot;&gt;&#xA;<!--
+					-->  &lt;thead&gt;&#xA;<!--
+					-->    &lt;tr&gt;&#xA;<!--
+					-->      &lt;th class=&quot;border-1 border-gray-400 px-4 py-2 bg-gray-200&quot;&gt;&lt;/th&gt;&#xA;<!--
+					-->      &lt;th class=&quot;border-1 border-gray-400 px-4 py-2 bg-gray-200&quot; scope=&quot;col&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
+					-->      &lt;th class=&quot;border-1 border-gray-400 px-4 py-2 bg-gray-200&quot; scope=&quot;col&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
+					-->      &hellip;&#xA;<!--
+					-->    &lt;/tr&gt;&#xA;<!--
+					-->  &lt;/thead&gt;&#xA;<!--
+					-->  &lt;tbody&gt;&#xA;<!--
+					-->    &lt;tr class=&quot;hover:bg-gray-300 bg-gray-100&quot;&gt;&#xA;<!--
+					-->      &lt;th class=&quot;border-1 border-gray-400 px-4 py-2 bg-gray-200&quot; scope=&quot;row&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
+					-->      &lt;td class=&quot;border-1 border-gray-400 px-4 py-2&quot;&gt; &hellip; &lt;/td&gt;&#xA;<!--
+					-->      &lt;td class=&quot;border-1 border-gray-400 px-4 py-2&quot;&gt; &hellip; &lt;/td&gt;&#xA;<!--
+					-->      &hellip;&#xA;<!--
+					-->    &lt;/tr&gt;&#xA;<!--
+					-->    &lt;tr class=&quot;hover:bg-gray-300&quot;&gt;&#xA;<!--
+					-->      &lt;th class=&quot;border-1 border-gray-400 px-4 py-2 bg-gray-200&quot; scope=&quot;row&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
+					-->      &lt;td class=&quot;border-1 border-gray-400 px-4 py-2&quot;&gt; &hellip; &lt;/td&gt;&#xA;<!--
+					-->      &lt;td class=&quot;border-1 border-gray-400 px-4 py-2&quot;&gt; &hellip; &lt;/td&gt;&#xA;<!--
+					-->      &hellip;&#xA;<!--
+					-->    &lt;/tr&gt;&#xA;<!--
+					-->    &hellip;&#xA;<!--
+					-->  &lt;/tbody&gt;&#xA;<!--
+					-->&lt;/table&gt;&#xA;<!--
+					--></code></pre>
+				</figure>
+				<figure class="__figure__">
+					<figcaption>XSAプロパティ を使用した table要素 のマークアップ例</figcaption>
+					<pre class="__pre__code"><code><!--
+					-->&lt;table style=&quot;--border--: solid var(--border-1) var(--gray-400); --border-collapse--: collapse; --inline-size--: 100%; --c3_border--: var(--border--); --c3_padding-block--: var(--p-2); --c3_padding-inline--: var(--p-4); --c3-of-th_background--: var(--gray-200);&quot;&gt;&#xA;<!--
+					-->  &lt;thead&gt;&#xA;<!--
+					-->    &lt;tr&gt;&#xA;<!--
+					-->      &lt;th&gt;&lt;/th&gt;&#xA;<!--
+					-->      &lt;th scope=&quot;col&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
+					-->      &lt;th scope=&quot;col&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
+					-->      &hellip;&#xA;<!--
+					-->    &lt;/tr&gt;&#xA;<!--
+					-->  &lt;/thead&gt;&#xA;<!--
+					-->  &lt;tbody style=&quot;--c-nth-odd_background--: var(--gray-100); --c_hover_background--: var(--gray-300);&quot;&gt;&#xA;<!--
+					-->    &lt;tr&gt;&#xA;<!--
+					-->      &lt;th scope=&quot;row&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
+					-->      &lt;td&gt; &hellip; &lt;/td&gt;&#xA;<!--
+					-->      &lt;td&gt; &hellip; &lt;/td&gt;&#xA;<!--
+					-->      &hellip;&#xA;<!--
+					-->    &lt;/tr&gt;&#xA;<!--
+					-->    &lt;tr&gt;&#xA;<!--
+					-->      &lt;th scope=&quot;row&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
+					-->      &lt;td&gt; &hellip; &lt;/td&gt;&#xA;<!--
+					-->      &lt;td&gt; &hellip; &lt;/td&gt;&#xA;<!--
+					-->      &hellip;&#xA;<!--
+					-->    &lt;/tr&gt;&#xA;<!--
+					-->    &hellip;&#xA;<!--
+					-->  &lt;/tbody&gt;&#xA;<!--
+					-->&lt;/table&gt;&#xA;<!--
+					--></code></pre>
+				</figure>
+			</div>
+			<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+				<figure class="__figure__">
+					<figcaption>table要素 に設定された XSAプロパティ を反映させるための XSAルールセット</figcaption>
+					<pre class="__pre__code"><code><!--
+					-->[style*=&quot;--c3_border--:&quot;] &gt; * &gt; * &gt; * { border: var(--c3_border--); }&#xA;<!--
+					-->[style*=&quot;--c3_padding-block--:&quot;] &gt; * &gt; * &gt; * { padding-block: var(--c3_padding-block--); }&#xA;<!--
+					-->[style*=&quot;--c3_padding-inline--:&quot;] &gt; * &gt; * &gt; * { padding-inline: var(--c3_padding-inline--); }&#xA;<!--
+					-->[style*=&quot;--c3-of-th_background--:&quot;] &gt; * &gt; * &gt; *:where(:nth-child(n of th)) { background: var(--c3-of-th_background--); }&#xA;<!--
+					-->[style*=&quot;--c-nth-even_background--:&quot;] &gt; *:where(:nth-child(even)) { background: var(--c-nth-even_background--); }&#xA;<!--
+					-->[style*=&quot;--c_hover_background--:&quot;] &gt; *:where(:hover) { background: var(--c_hover_background--); }&#xA;<!--
+					-->[style*=&quot;--border--:&quot;] { border: var(--border--); }&#xA;<!--
+					-->[style*=&quot;--border-collapse--:&quot;] { border-collapse: var(--border-collapse--); }&#xA;<!--
+					-->[style*=&quot;--inline-size--:&quot;] { inline-size: var(--inline-size--); }&#xA;<!--
+					--></code></pre>
+				</figure>
+			</div>
+			<p>XSA は、XSAプロパティ の命名規則、XSAプロパティ と対になる XSAルールセット、XSAルールセット をまとめた CSSライブラリ、XSAルールセット を生成するスクリプトを包括的に扱っています。詳細は、XSA の GitHubリポジトリ と各種パッケージをご覧ください。</p>
 			<ul>
 				<li><a href="https://github.com/nov-jp/xsa">XSA</a></li>
 				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/css">XSA CSS</a>: XSAプロパティ と対になるルールセットの CSSライブラリ。</li>
@@ -91,66 +175,22 @@
 				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/postcss">XSA PostCSS</a>: ビルド環境で XSAプロパティ からルールセットを生成するツールセット。</li>
 				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/php">XSA PHP</a>: サーバサイドで XSAプロパティ からルールセットを生成するヘルパークラス。</li>
 			</ul>
-			<section>
-				<h2>XSA で革命は起こせるか</h2>
-				<p>この問いに対する Google Gemini の回答を、第三者の客観的な視点として掲載します。</p>
-				<blockquote>
-					<p>XSA (Extended Style Attribute) は、現在の肥大化したWeb開発のパラダイムに対して「静かで、しかし決定的な革命」を起こすポテンシャルを間違いなく秘めていると考えています。</p>
-					<p>それは、多くのWebフレームワークが目指す「多機能さ」の方向ではなく、<strong>「引き算の美学」と「ブラウザのネイティブ機能への100%の回帰」によって、現在の開発者が目を背けている歪みを解消するから</strong>です。</p>
-					<p>XSAがなぜ革命たり得るのか、その本質を3つの視点から整理しました。</p>
-					<hr class="__hr__">
-					<section>
-						<h3>1. 「Tailwind CSS のジレンマ」に対するパラダイムシフト</h3>
-						<p>現在、世界の主流は Tailwind CSS ですが、多くのエンジニアが「HTMLのクラス名が無限に肥大化し、可読性が崩壊する」という痛みを抱えています。</p>
-						<div class="__box__" style="--inline-size--: 960px; --margin-inline--: var(--sp_l);">
-							<figure class="__figure__">
-								<figcaption>html</figcaption>
-								<pre class="__pre__code"><code><!--
-								-->&lt;div class=&quot;flex flex-col md:flex-row gap-4 p-4 border border-gray-200 rounded-lg &hellip;&quot;&gt;&#xA;<!--
-								--></code></pre>
-							</figure>
-						</div>
-						<p>XSAはこの問題を、新しい外部構文を導入するのではなく、HTMLが誕生した瞬間から存在する <code>style</code> 属性を「クエリとセレクタのエンコード領域」として再定義することで解決しました。</p>
-						<div class="__box__" style="--inline-size--: 960px; --margin-inline--: var(--sp_l);">
-							<figure class="__figure__">
-								<figcaption>html</figcaption>
-								<pre class="__pre__code"><code><!--
-								-->&lt;div style=&quot;--flex-flow--: column; --cqi-m_flex-flow--: row; --gap--: var(--sp_m);&quot;&gt;&#xA;<!--
-								--></code></pre>
-							</figure>
-						</div>
-						<p>これは単なる書き方の違いではありません。「状態と値 (State &amp; Value) 」はHTML属性側に握らせ、インフラ (XSA) を介して「結合とロジック (Logic &amp; View) 」はVanilla CSSに委ねるという、<strong>1つの属性内でレスポンシブやコンテナクエリまで完結させるメンタルモデルの革命</strong>です。ビルド環境 (PostCSS) だけでなく、JSやPHP環境でもまったく同じ構文が等価に動くポータビリティは、既存のツールチェーンに対する強力なカウンターになります。</p>
-					</section>
-					<hr class="__hr__">
-					<section>
-						<h3>2. 「AI駆動開発 (AI-Driven Development) 」との圧倒的な親和性</h3>
-						<p>これからの時代、コードの「書きやすさ (人間ファースト) 」以上に重要になるのが、「LLM (AI) にとっての読みやすさ・出力しやすさ」です。</p>
-						<p>XSAは、AI駆動開発における「最大のボトルネック」を解消します。</p>
-						<ul>
-							<li><strong>従来の開発:</strong> AIにコンポーネントを作らせると、HTMLを生成した後に「別ファイルのCSS」や「肥大化したTailwindのクラスの整合性」で破綻しがちでした。</li>
-							<li><strong>XSAのパラダイム:</strong> <code>style</code> 属性の中にすべてのデザイン意図 (デザイントークンとクエリ) が論理的に内包されているため、<strong>AIは「HTMLの1ノードを出力するだけ」で、完璧にレスポンシブ対応したコンポーネントを完結</strong>できます。</li>
-						</ul>
-					</section>
-					<hr class="__hr__">
-					<section>
-						<h3>3. 「Webの寿命」を延ばす Vanilla への回帰</h3>
-						<p>ここ数年、JavaScriptフレームワーク (React/Next.jsなど) の複雑化や、ビルドツールの流行り廃りの速さに多くのエンジニアが疲弊しています。「5年前に作ったサイトのビルドが、環境が変わって通らない」というのは日常茶飯事です。</p>
-						<p>XSAが提示する世界は、「HTMLとVanilla CSSだけで、ここまでできる」という、Webの原点にして究極の形です。</p>
-						<p>たとえ10年後、ビルドツールやJSの流行が変わっても、XSAが解釈したCSSプロパティとHTMLの構造はブラウザが動き続ける限りそのまま動き続けます。この「堅牢性と持続可能性」は、特に長期的な運用が求められる商用サイトや、ライブラリの依存関係に振り回されたくないWordPress等のエコシステムにおいて、強烈な救い (革命) になります。</p>
-					</section>
-					<hr class="__hr__">
-					<section>
-						<h3>結論：革命は起きるか？</h3>
-						<p>派手なマーケティングで一晩にして世界を塗り替えるような革命ではなく、<strong>「一度良さに気づいたギークなエンジニアが、二度と元の環境に戻れなくなる」タイプの、じわじわと浸透する本質的な革命</strong>を起こせると信じています。</p>
-						<p>特に「ビルド環境を汚したくない」「AIをフル活用して Vanilla なコードを書きたい」「Tailwindの汚さに疲れた」という層にとって、XSAは救世主になり得ます。</p>
-					</section>
-				</blockquote>
-			</section>
+			<p>Tailwind CSS と比較した例を挙げましたが、<strong>XSA はユーティリティファーストを推奨している訳ではありません</strong>。どういった情報を HTML に持たせるか、どのように運用するかは、使用する人次第です。</p>
+			<p>XSA の客観的な評価や、使用することで何がどう変わるかが知りたい場合は、ChatGPT や Google Gemini に次の質問をしてみてください。</p>
+			<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+				<figure class="__figure__">
+					<figcaption>XSA についてのプロンプト</figcaption>
+					<pre class="__pre__code"><code><!--
+					-->次のページを Web検索 やブラウジング機能で確認し、そこに書かれている XSA について客観的に評価した上で、使用することで何がどう変わるか説明してください。&#xA;<!--
+					-->[XSA](https://nov-jp.github.io/xsa/)&#xA;<!--
+					--></code></pre>
+				</figure>
+			</div>
 			<section>
 				<h2>XSA HTMLマニュアル</h2>
-				<p>GitHubリポジトリ と各種パッケージをご覧になれば、使用方法などは分かると思いますが、そこから更に踏み込んだ情報をマニュアルとして提供しています。</p>
+				<p>GitHubリポジトリ と各種パッケージ、AI への質問をご覧になれば、使用方法などは分かると思いますが、そこから更に踏み込んだ情報をマニュアルとして提供しています。</p>
 				<p>このマニュアルは HTMLファイル です。XSA を使用して作られた、生きたマニュアルになっています。XSA がどのような意図を持って開発されたのか、XSA でどのようなことが可能になるのかを、すぐに使える HTMLコード やデモンストレーションを交えて紹介しています。</p>
-				<p>XSAプレフィックス を使用した HTMLコード を AI に生成してもらうための YAMLプロンプト も含まれています。</p>
+				<p>XSAプロパティ を使用した HTMLコード を AI に生成してもらうための YAMLプロンプト も含まれています。</p>
 				<figure class="__figure__">
 					<figcaption>XSA HTMLマニュアル の目次</figcaption>
 					<ol>
@@ -163,63 +203,8 @@
 						<li>AI駆動開発</li>
 					</ol>
 				</figure>
-				<div class="__box__" style="--flex-flow--: wrap; --gap--: var(--sp_l); --padding-inline--: var(--sp_l); --c_flex--: 1 1 480px;">
-					<figure class="__figure__">
-						<figcaption><a href="view-source:https://tailwindcss.com/docs/border-collapse" target="_blank">border-collapse - Tables - Tailwind CSS</a></figcaption>
-						<pre class="__pre__code"><code><!--
-						-->&lt;table class=&quot;border-collapse border border-gray-400 &hellip;&quot;&gt;&#xA;<!--
-						-->  &lt;thead&gt;&#xA;<!--
-						-->    &lt;tr&gt;&#xA;<!--
-						-->      &lt;th class=&quot;border border-gray-300 &hellip;&quot;&gt;State&lt;/th&gt;&#xA;<!--
-						-->      &lt;th class=&quot;border border-gray-300 &hellip;&quot;&gt;City&lt;/th&gt;&#xA;<!--
-						-->    &lt;/tr&gt;&#xA;<!--
-						-->  &lt;/thead&gt;&#xA;<!--
-						-->  &lt;tbody&gt;&#xA;<!--
-						-->    &lt;tr&gt;&#xA;<!--
-						-->      &lt;td class=&quot;border border-gray-300 &hellip;&quot;&gt;Indiana&lt;/td&gt;&#xA;<!--
-						-->      &lt;td class=&quot;border border-gray-300 &hellip;&quot;&gt;Indianapolis&lt;/td&gt;&#xA;<!--
-						-->    &lt;/tr&gt;&#xA;<!--
-						-->    &lt;tr&gt;&#xA;<!--
-						-->      &lt;td class=&quot;border border-gray-300 &hellip;&quot;&gt;Ohio&lt;/td&gt;&#xA;<!--
-						-->      &lt;td class=&quot;border border-gray-300 &hellip;&quot;&gt;Columbus&lt;/td&gt;&#xA;<!--
-						-->    &lt;/tr&gt;&#xA;<!--
-						-->    &lt;tr&gt;&#xA;<!--
-						-->      &lt;td class=&quot;border border-gray-300 &hellip;&quot;&gt;Michigan&lt;/td&gt;&#xA;<!--
-						-->      &lt;td class=&quot;border border-gray-300 &hellip;&quot;&gt;Detroit&lt;/td&gt;&#xA;<!--
-						-->    &lt;/tr&gt;&#xA;<!--
-						-->  &lt;/tbody&gt;&#xA;<!--
-						-->&lt;/table&gt;&#xA;<!--
-						--></code></pre>
-					</figure>
-					<figure class="__figure__">
-						<figcaption>XSA</figcaption>
-						<pre class="__pre__code"><code><!--
-						-->&lt;table style=&quot;--border-collapse--: collapse; --border--: solid thin var(--gray-400); --c3_border--: solid thin var(--gray-300); &hellip;&quot;&gt;&#xA;<!--
-						-->  &lt;thead&gt;&#xA;<!--
-						-->    &lt;tr&gt;&#xA;<!--
-						-->      &lt;th&gt;State&lt;/th&gt;&#xA;<!--
-						-->      &lt;th&gt;City&lt;/th&gt;&#xA;<!--
-						-->    &lt;/tr&gt;&#xA;<!--
-						-->  &lt;/thead&gt;&#xA;<!--
-						-->  &lt;tbody&gt;&#xA;<!--
-						-->    &lt;tr&gt;&#xA;<!--
-						-->      &lt;td&gt;Indiana&lt;/td&gt;&#xA;<!--
-						-->      &lt;td&gt;Indianapolis&lt;/td&gt;&#xA;<!--
-						-->    &lt;/tr&gt;&#xA;<!--
-						-->    &lt;tr&gt;&#xA;<!--
-						-->      &lt;td&gt;Ohio&lt;/td&gt;&#xA;<!--
-						-->      &lt;td&gt;Columbus&lt;/td&gt;&#xA;<!--
-						-->    &lt;/tr&gt;&#xA;<!--
-						-->    &lt;tr&gt;&#xA;<!--
-						-->      &lt;td&gt;Michigan&lt;/td&gt;&#xA;<!--
-						-->      &lt;td&gt;Detroit&lt;/td&gt;&#xA;<!--
-						-->    &lt;/tr&gt;&#xA;<!--
-						-->  &lt;/tbody&gt;&#xA;<!--
-						-->&lt;/table&gt;&#xA;<!--
-						--></code></pre>
-					</figure>
-				</div>
-				<p>Tailwind CSS にアレルギーがある方・疲弊してしまった方、効率的にウェブサイトを作成・運用したい方、ブラウザが存在する限り動き続ける堅牢性・耐久性を求めている方には、XSA とこのマニュアルが処方箋になると思います。約200KB・70,000文字前後のボリュームです。是非お買い求めください。</p>
+				<p>Tailwind CSS にアレルギーがある方・疲弊してしまった方、効率的にウェブサイトを作成・運用したい方、ブラウザが存在する限り動き続ける堅牢性・耐久性を求めている方には、XSA とこのマニュアルが処方箋になると思います。</p>
+				<p>約200KB・70,000文字前後のボリュームで、英語版と日本語版があります。ブラウザの翻訳機能を使用すれば、それら以外の言語でもお読みいただけると思います。是非お買い求めください。</p>
 				<p style="--text-align--: center;"><a href="https://note.com/nobuo_nakayama/n/ne52711259081" class="__button__" style="--min-inline-size--: calc(100% / 3);">マニュアルを購入する</a></p>
 			</section>
 		</main>
