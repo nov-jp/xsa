@@ -384,3 +384,5 @@ The components QUERY, COMBINATOR, SIBLING, PSEUDO-CLASS, PSEUDO-ELEMENT, and PRO
 ---
 
 The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/).
+
+[For those who want to learn more about XSA, we offer an XSA HTML Manual for sale. Please consider purchasing it.](https://xsa.lemonsqueezy.com/)
