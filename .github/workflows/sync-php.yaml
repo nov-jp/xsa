@@ -21,9 +21,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           # 同期先リポジトリのURLをセット
-          # PATを使用して認証済みのURLを生成
           REMOTE_URL="https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/${{ github.repository_owner }}/exstyle-php.git"
 
           # subtreeを分割してプッシュ
-          # --prefix=packages/php の中身だけを送り出す
-          git subtree push --prefix=packages/php "$REMOTE_URL" main
+          git subtree push --prefix=packages/php "$REMOTE_URL" main || echo "No changes to sync or subtree is up-to-date."
