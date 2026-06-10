@@ -38,7 +38,7 @@ By combining an XSA Prefix (which encodes complex media/container queries and de
 }
 ```
 
-XSA unlocks advanced responsive queries, pseudo-classes, and deep descendant targetings directly from the HTML layer?capabilities previously impossible with native inline styles.
+XSA unlocks advanced responsive queries, pseudo-classes, and deep descendant targetings directly from the HTML layer - capabilities previously impossible with native inline styles.
 
 ## Packages
 
