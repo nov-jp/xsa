@@ -12,7 +12,7 @@ XSA (EXtended Style Attribute) is a simple meta-framework that breaks through th
 <div style="--color--: var(--red);"> … </div>
 ```
 
-When you set an XSA property?which is a CSS property wrapped with `--` to make it a custom property?inside a `style` attribute:
+By appending double hyphens (`--`) to both the beginning and end of a standard CSS property, we convert it into an XSA Property. When declared inside an inline style attribute,
 
 ```CSS
 [style*="--color--:"] {
@@ -20,13 +20,15 @@ When you set an XSA property?which is a CSS property wrapped with `--` to make i
 }
 ```
 
-It acts as its own trigger to apply the value to the CSS property.
+the declaration itself acts as a trigger, dynamically mapping the scoped value back to the native CSS property to render the style.
+
+These underlying CSS rules can be loaded via a lightweight core stylesheet or automatically generated on the fly using JavaScript or PHP compilation scripts.
 
 ```HTML
 <div style="--cqi-s_c3-first_hover_color--: var(--red);" … </div>
 ```
 
-By combining XSA prefixes (which encode queries and selectors) with custom property inheritance:
+By combining an XSA Prefix (which encodes complex media/container queries and descendant selectors) with the native cascading inheritance of CSS custom properties,
 
 ```CSS
 @container (inline-size > 480px) {
@@ -36,7 +38,7 @@ By combining XSA prefixes (which encode queries and selectors) with custom prope
 }
 ```
 
-It enables styling of descendant and pseudo-elements, as well as conditional branching via media queries, container queries, and pseudo-classes.
+XSA unlocks advanced responsive queries, pseudo-classes, and deep descendant targetings directly from the HTML layer?capabilities previously impossible with native inline styles.
 
 ## Packages
 
@@ -45,9 +47,9 @@ Multiple packages are available to make XSA properties work, allowing you to cho
 | Package | Name | Environment | Pros | Cons | Description |
 | --- | --- | --- | --- | --- | --- |
 | `@nov-xsa/css` | XSA CSS | Browser | Easy to introduce | Low flexibility | A script-free, build-free CSS library where you select and use specific XSA properties. |
-| `@nov-xsa/js` | XSA JS | Browser | Easy to introduce, high flexibility | Dependent on client-side | A script that generates CSS code from XSA properties and outputs it to a `style` element. |
-| `@nov-xsa/postcss` | XSA PostCSS | Dev Environment | High flexibility | Requires build environment | A tool that generates CSS code from XSA properties within a project and outputs it to a CSS file. |
-| `@nov-xsa/php` | XSA PHP | Server | High flexibility | Requires PHP environment | A helper class for generating CSS code from XSA properties within a PHP execution environment. |
+| `@nov-xsa/js` | XSA JS | Browser | Easy to introduce, high flexibility | Dependent on client-side | A script that generates CSS rule from XSA properties and outputs it to a `style` element. |
+| `@nov-xsa/postcss` | XSA PostCSS | Dev Environment | High flexibility | Requires build environment | A tool that generates CSS rule from XSA properties within a project and outputs it to a CSS file. |
+| `@nov-xsa/php` | XSA PHP | Server | High flexibility | Requires PHP environment | A helper class for generating CSS rule from XSA properties within a PHP execution environment. |
 
 ## XSA Property Syntax Reference
 

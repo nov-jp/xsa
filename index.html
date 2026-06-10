@@ -38,13 +38,13 @@
 		<!--
 		<script src="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/js/dist/xsa.js"></script>
 		-->
-		<meta name="description" content="XSA stands for EXtended Style Attribute, representing a next-level extension of the native <code>style</code> attribute. It is a lightweight, zero-build meta-framework that seamlessly combines HTML's inline style attribute with CSS attribute selectors and custom properties." />
+		<meta name="description" content="XSA stands for EXtended Style Attribute. It is a lightweight, low-level meta-framework that unlocks the full potential of the native HTML style attribute by orchestrating three core web standards: the style attribute, CSS attribute selectors, and CSS custom properties." />
 		<title>XSA</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@1.0/dist/initialize.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@1.0/dist/initialize-plus.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@1.0/dist/initialize-vars.css" />
 	</head>
-	<body class="__box__" style="--wide-size: 960px; --flex-flow--: column; --inline-size--: 720px; --min-block-size--: 100vb; --padding-inline--: var(--sp_l); --is-inset: 1;">
+	<body class="__box__" style="--wide-size: 1200px; --flex-flow--: column; --inline-size--: 720px; --min-block-size--: 100vb; --padding-inline--: var(--sp_l); --is-inset: 1;">
 		<header class="__box__" style="--border-block-end--: solid var(--l_xf) var(--sheer-gray); --flex-flow--: wrap; --column-gap--: var(--sp_m); --justify-content--: space-between; --align-items--: center; --inline-size--: var(--wide-size); --margin-block--: 0; --padding-block--: var(--sp_m); --padding-inline--: var(--sp_l); --is-inset: 1;">
 			<h1>XSA</h1>
 			<ul style="--flex-flow--: wrap; --column-gap--: var(--sp_m); --c2_aspect-ratio--: 1 / 1; --c2_block-size--: 1lh; --c2_border--: solid var(--l_xf) var(--sheerest-text); --c2_border-radius--: 50%; --c2_box-sizing--: content-box; --c2_color--: inherit; --c2_display--: block; --c2_text-align--: center; --c2_text-decoration--: none; --c2_hover_border-color--: currentcolor;">
@@ -53,135 +53,126 @@
 			</ul>
 		</header>
 		<main style="--flex--: auto; --margin-block--: 0; --padding-block--: var(--sp_xl);">
-			<p>XSA stands for EXtended Style Attribute, representing a next-level extension of the native <code>style</code> attribute. It is a lightweight, zero-build meta-framework that seamlessly combines HTML's inline <code>style</code> attribute with CSS attribute selectors and custom properties.</p>
-			<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
-				<figure class="__figure__">
-					<figcaption>XSA Property represented by Regular Expression</figcaption>
-					<pre class="__pre__code"><code><!--
-					-->/^--(QUERY_)?(PSEUDO-CLASS_)?(DESCENDANT_(PSEUDO-CLASS_)?)?(PSEUDO-ELEMENT_)?PROPERTY--$/&#xA;<!--
-					--></code></pre>
-				</figure>
-			</div>
-			<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
-				<figure class="__figure__">
-					<figcaption>The corresponding XSA Rule Set paired with the property</figcaption>
-					<pre class="__pre__code"><code><!--
-					-->[style*=&quot;--QUERY_PSEUDO-CLASS_DESCENDANT_PSEUDO-CLASS_PSEUDO-ELEMENT_PROPERTY--:&quot;] {&#xA;<!--
-					-->  @media QUERY {&#xA;<!--
-					-->    &:where(:PSEUDO-CLASS) {&#xA;<!--
-					-->      :where(DESCENDANT) {&#xA;<!--
-					-->        &:where(:PSEUDO-CLASS) {&#xA;<!--
-					-->          &::PSEUDO-ELEMENT {&#xA;<!--
-					-->            PROPERTY: var(--QUERY_PSEUDO-CLASS_DESCENDANT_PSEUDO-CLASS_PSEUDO-ELEMENT_PROPERTY--);&#xA;<!--
-					-->          }&#xA;<!--
-					-->        }&#xA;<!--
-					-->      }&#xA;<!--
-					-->    }&#xA;<!--
-					-->  }&#xA;<!--
-					-->}&#xA;<!--
-					--></code></pre>
-				</figure>
-			</div>
-			<p>Based on standard CSS property names, an <strong>XSA Property</strong> is a custom property wrapped in double hyphens (<code>--</code>) at the beginning and end, encoding specific media queries and selectors within its <strong>XSA Prefix</strong>. Together with its corresponding <strong>XSA Rule Set</strong>,</p>
-			<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
-				<figure class="__figure__">
-					<figcaption>An XSA Property and value declared within the HTML style attribute</figcaption>
-					<pre class="__pre__code"><code><!--
-					-->&lt;div style=&quot;--QUERY_PSEUDO-CLASS_DESCENDANT_PSEUDO-CLASS_PSEUDO-ELEMENT_PROPERTY--: VALUE;&quot;&gt; &hellip; &lt;/div&gt;<!--
-					--></code></pre>
-				</figure>
-			</div>
-			<p>this paradigm establishes a highly portable styling infrastructure directly within the HTML <code>style</code> attribute, allowing you to elegantly handle complex descendant elements, pseudo-elements, media queries, and pseudo-classes.</p>
-			<div class="__box__" style="--flex-flow--: wrap; --gap--: var(--sp_l); --padding-inline--: var(--sp_l); --c_flex--: 1 1 480px;">
-				<figure class="__figure__">
-					<figcaption>Markup example of a table element using Tailwind CSS</figcaption>
-					<pre class="__pre__code"><code><!--
-					-->&lt;table class=&quot;border-1 border-gray-400 border-collapse inline-full&quot;&gt;&#xA;<!--
-					-->  &lt;thead&gt;&#xA;<!--
-					-->    &lt;tr&gt;&#xA;<!--
-					-->      &lt;th class=&quot;border-1 border-gray-400 px-4 py-2 bg-gray-200&quot;&gt;&lt;/th&gt;&#xA;<!--
-					-->      &lt;th class=&quot;border-1 border-gray-400 px-4 py-2 bg-gray-200&quot; scope=&quot;col&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &lt;th class=&quot;border-1 border-gray-400 px-4 py-2 bg-gray-200&quot; scope=&quot;col&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &hellip;&#xA;<!--
-					-->    &lt;/tr&gt;&#xA;<!--
-					-->  &lt;/thead&gt;&#xA;<!--
-					-->  &lt;tbody&gt;&#xA;<!--
-					-->    &lt;tr class=&quot;hover:bg-gray-300 bg-gray-100&quot;&gt;&#xA;<!--
-					-->      &lt;th class=&quot;border-1 border-gray-400 px-4 py-2 bg-gray-200&quot; scope=&quot;row&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &lt;td class=&quot;border-1 border-gray-400 px-4 py-2&quot;&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &lt;td class=&quot;border-1 border-gray-400 px-4 py-2&quot;&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &hellip;&#xA;<!--
-					-->    &lt;/tr&gt;&#xA;<!--
-					-->    &lt;tr class=&quot;hover:bg-gray-300&quot;&gt;&#xA;<!--
-					-->      &lt;th class=&quot;border-1 border-gray-400 px-4 py-2 bg-gray-200&quot; scope=&quot;row&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &lt;td class=&quot;border-1 border-gray-400 px-4 py-2&quot;&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &lt;td class=&quot;border-1 border-gray-400 px-4 py-2&quot;&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &hellip;&#xA;<!--
-					-->    &lt;/tr&gt;&#xA;<!--
-					-->    &hellip;&#xA;<!--
-					-->  &lt;/tbody&gt;&#xA;<!--
-					-->&lt;/table&gt;&#xA;<!--
-					--></code></pre>
-				</figure>
-				<figure class="__figure__">
-					<figcaption>Markup example of a table element using XSA Properties</figcaption>
-					<pre class="__pre__code"><code><!--
-					-->&lt;table style=&quot;--border--: solid var(--border-1) var(--gray-400); --border-collapse--: collapse; --inline-size--: 100%; --c3_border--: var(--border--); --c3_padding-block--: var(--p-2); --c3_padding-inline--: var(--p-4); --c3-of-th_background--: var(--gray-200);&quot;&gt;&#xA;<!--
-					-->  &lt;thead&gt;&#xA;<!--
-					-->    &lt;tr&gt;&#xA;<!--
-					-->      &lt;th&gt;&lt;/th&gt;&#xA;<!--
-					-->      &lt;th scope=&quot;col&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &lt;th scope=&quot;col&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &hellip;&#xA;<!--
-					-->    &lt;/tr&gt;&#xA;<!--
-					-->  &lt;/thead&gt;&#xA;<!--
-					-->  &lt;tbody style=&quot;--c-nth-odd_background--: var(--gray-100); --c_hover_background--: var(--gray-300);&quot;&gt;&#xA;<!--
-					-->    &lt;tr&gt;&#xA;<!--
-					-->      &lt;th scope=&quot;row&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &lt;td&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &lt;td&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &hellip;&#xA;<!--
-					-->    &lt;/tr&gt;&#xA;<!--
-					-->    &lt;tr&gt;&#xA;<!--
-					-->      &lt;th scope=&quot;row&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &lt;td&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &lt;td&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &hellip;&#xA;<!--
-					-->    &lt;/tr&gt;&#xA;<!--
-					-->    &hellip;&#xA;<!--
-					-->  &lt;/tbody&gt;&#xA;<!--
-					-->&lt;/table&gt;&#xA;<!--
-					--></code></pre>
-				</figure>
-			</div>
-			<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
-				<figure class="__figure__">
-					<figcaption>The XSA Rule Set required to apply the XSA Properties configured on the table element</figcaption>
-					<pre class="__pre__code"><code><!--
-					-->[style*=&quot;--c3_border--:&quot;] &gt; * &gt; * &gt; * { border: var(--c3_border--); }&#xA;<!--
-					-->[style*=&quot;--c3_padding-block--:&quot;] &gt; * &gt; * &gt; * { padding-block: var(--c3_padding-block--); }&#xA;<!--
-					-->[style*=&quot;--c3_padding-inline--:&quot;] &gt; * &gt; * &gt; * { padding-inline: var(--c3_padding-inline--); }&#xA;<!--
-					-->[style*=&quot;--c3-of-th_background--:&quot;] &gt; * &gt; * &gt; *:where(:nth-child(n of th)) { background: var(--c3-of-th_background--); }&#xA;<!--
-					-->[style*=&quot;--c-nth-even_background--:&quot;] &gt; *:where(:nth-child(even)) { background: var(--c-nth-even_background--); }&#xA;<!--
-					-->[style*=&quot;--c_hover_background--:&quot;] &gt; *:where(:hover) { background: var(--c_hover_background--); }&#xA;<!--
-					-->[style*=&quot;--border--:&quot;] { border: var(--border--); }&#xA;<!--
-					-->[style*=&quot;--border-collapse--:&quot;] { border-collapse: var(--border-collapse--); }&#xA;<!--
-					-->[style*=&quot;--inline-size--:&quot;] { inline-size: var(--inline-size--); }&#xA;<!--
-					--></code></pre>
-				</figure>
-			</div>
-			<p>The XSA ecosystem encompasses the naming conventions, corresponding rule sets, a modular CSS library, and dynamic generation utility scripts. Explore the comprehensive ecosystem via our GitHub repositories and packages:</p>
+			<p>XSA stands for EXtended Style Attribute. It is a lightweight, low-level meta-framework that unlocks the full potential of the native HTML style attribute by orchestrating three core web standards: the style attribute, CSS attribute selectors, and CSS custom properties.</p>
+			<p>Centered around a strict custom property naming convention, XSA provides a production-ready library of CSS rules triggered by these custom properties, along with utility scripts to dynamically generate them as needed.</p>
+			<section>
+				<h2>Advanced Styling via HTML Attributes</h2>
+				<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+					<figure class="__figure__">
+						<figcaption>XSA Properties Defined in the Style Attribute</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->&lt;div style=&quot;--color--: var(--red);&quot;&gt; &hellip; &lt;/div&gt;&#xA;<!--
+						--></code></pre>
+					</figure>
+				</div>
+				<p>By wrapping a standard CSS property with double hyphens (<code>--</code>) at both the beginning and end, we convert it into an <strong>XSA Property</strong>. When declared inside an inline style attribute,</p>
+				<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+					<figure class="__figure__">
+						<figcaption>The Corresponding CSS Rule for the XSA Property</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->[style*=&quot;--color--:&quot;] {&#xA;<!--
+						-->  color: var(--color--);&#xA;<!--
+						-->}&#xA;<!--
+						--></code></pre>
+					</figure>
+				</div>
+				<p>the declaration itself acts as a reactive trigger, mapping the scoped value back to the native CSS property to render the style.</p>
+				<p>These underlying CSS rules can be loaded via a pre-built CSS library or automatically generated on the fly using JavaScript or PHP compilation scripts.</p>
+				<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+					<figure class="__figure__">
+						<figcaption>Overriding and Muting an XSA Property via Global CSS</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->[style*="--color--:"] {&#xA;<!--
+						-->  color: var(--color--);&#xA;<!--
+						-->}&#xA;<!--
+						-->.example:where([style*="--color--:"]) {&#xA;<!--
+						-->  color: inherit;&#xA;<!--
+						-->}&#xA;<!--
+						--></code></pre>
+					</figure>
+				</div>
+				<p>Because an XSA property carries a flat specificity of exactly one attribute selector, it can be seamlessly overridden, customized, or completely muted from your global stylesheet without ever resorting to <code>!important</code>.</p>
+				<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+					<figure class="__figure__">
+						<figcaption>An XSA Property Preceded by an XSA Prefix</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->&lt;div style=&quot;--<dfn title="@container (inline-size &gt; 480px)" style="--text-decoration--: underline dotted;">cqi-s</dfn>_<dfn title="&amp; &gt; * &gt; * &gt; *:where(:first-child)" style="--text-decoration--: underline dotted;">c3-first</dfn>_<dfn title="&amp;:where(:hover)" style="--text-decoration--: underline dotted;">hover</dfn>_color--: var(--red);&quot;&gt; &hellip; &lt;/div&gt;&#xA;<!--
+						--></code></pre>
+					</figure>
+				</div>
+				<p>By pairing an <strong>XSA Prefix</strong> - which encodes complex responsive queries and descendant targets - with the native cascading inheritance of CSS custom properties,</p>
+				<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+					<figure class="__figure__">
+						<figcaption>The Corresponding Complex CSS Rule Generated Behind the Scenes</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->@container (inline-size &gt; 480px) {&#xA;<!--
+						-->  [style*=&quot;--cqi-s_c3-first_hover_color--:&quot;] &gt; * &gt; * &gt; *:where(:first-child):where(:hover) {&#xA;<!--
+						-->    color: var(--cqi-s_c3-first_hover_color--);&#xA;<!--
+						-->  }&#xA;<!--
+						-->}&#xA;<!--
+						--></code></pre>
+					</figure>
+				</div>
+				<p>XSA unlocks advanced responsive container/media queries, pseudo-classes, and deep descendant component targeting directly from the HTML layer - orchestrations previously impossible with standard inline styles.</p>
+			</section>
+			<section>
+				<h2>Achieving an HTML-First Architecture</h2>
+				<p>By redefining the utility of the style attribute through a predictable naming convention, XSA achieves a truly "HTML-First" architecture that remains entirely decoupled from specific CMS platforms, monolithic CSS frameworks, or hardcoded design tokens.</p>
+				<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+					<figure class="__figure__">
+						<figcaption>Varying Class-Based Red Configurations Across Ecosystems</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->/* WordPress */&#xA;<!--
+						-->.has-red-color { color: &hellip; ; }&#xA;<!--
+						-->.has-red-background-color { background-color: &hellip; ; }&#xA;<!--
+						-->&#xA;<!--
+						-->/* Bootstrap */&#xA;<!--
+						-->.text-danger { color: &hellip; ; }&#xA;<!--
+						-->.bg-danger { background-color: &hellip; ; }&#xA;<!--
+						-->&#xA;<!--
+						-->/* Tailwind CSS */&#xA;<!--
+						-->.text-red-500 { color: &hellip; ; }&#xA;<!--
+						-->.bg-red-500 { background-color: &hellip; ; }&#xA;<!--
+						--></code></pre>
+					</figure>
+				</div>
+				<p>For instance, the utility class names used to define text or background colors vary wildly across different CMS environments and styling frameworks. Consequently, simply swapping out the global stylesheet breaks the user interface because the HTML markup itself must be completely rewritten. This proves traditional HTML is deeply and unsustainably dependent on its underlying CSS architecture.</p>
+				<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+					<figure class="__figure__">
+						<figcaption>Color Orchestration via Decoupled <code>--what--</code> and <code>--do</code> Semantics</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->&lt;style&gt;&#xA;<!--
+						-->/* --do */&#xA;<!--
+						-->:root { --red: &hellip; ; --yellow: &hellip; ; --green: &hellip; ; --blue: &hellip; ; &hellip; }&#xA;<!--
+						-->[style*="var(--color-danger)"] { --color-danger: &hellip; ; }&#xA;<!--
+						-->&hellip;&#xA;<!--
+						-->&lt;/style&gt;&#xA;<!--
+						-->&lt;style&gt;&#xA;<!--
+						-->/* --what-- */&#xA;<!--
+						-->[style*="--color--:"] { color: var(--color--); }&#xA;<!--
+						-->[style*="--background-color--:"] { background-color: var(--background-color--); }&#xA;<!--
+						-->&hellip;&#xA;<!--
+						-->&lt;/style&gt;&#xA;<!--
+						-->&hellip;&#xA;<!--
+						-->&lt;div style=&quot;--color--: var(--red); &hellip; &quot;&gt; &hellip; &lt;div&gt;&#xA;<!--
+						-->&lt;div style=&quot;--background-color--: var(--color-danger); &hellip; &quot;&gt; &hellip; &lt;div&gt;&#xA;<!--
+						--></code></pre>
+					</figure>
+				</div>
+				<p>XSA beautifully resolves this by decoupling the combined utility concept of <code>.what-do</code> into distinct <code>--what--</code> (the native property target) and <code>--do</code> (the presentational value intent), encapsulating this logic safely within the style attribute. By establishing this clean, standard interface, HTML is finally liberated from external styling ecosystems, ensuring total portability.</p>
+				<p>Put simply, custom properties based on native CSS property names declared in the style attribute can now be authored with the fluid flexibility of utility classes, but without ever binding your HTML to a specific CMS or framework ecosystem.</p>
+			</section>
+			<p>For more detailed specifications, please visit the XSA GitHub repository and explore our available packages.</p>
 			<ul>
 				<li><a href="https://github.com/nov-jp/xsa">XSA</a></li>
-				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/css">XSA CSS</a>: A lightweight vanilla CSS library containing predefined XSA rule sets.</li>
-				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/js">XSA JS</a>: A client-side utility to dynamically generate rule sets from XSA properties.</li>
-				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/postcss">XSA PostCSS</a>: A build-time toolset to extract and generate XSA rule sets.</li>
-				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/php">XSA PHP</a>: A server-side helper class to seamlessly parse XSA properties.</li>
+				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/css">XSA CSS</a>: A library of CSS rules designed to pair with XSA properties.</li>
+				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/js">XSA JS</a>: A client-side script that dynamically generates CSS rules from XSA properties.</li>
+				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/postcss">XSA PostCSS</a>: A toolset for generating CSS rules from XSA properties within a build environment.</li>
+				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/php">XSA PHP</a>: A server-side helper class that generates CSS rules from XSA properties.</li>
 			</ul>
-			<p>While the example above contrasts XSA with Tailwind CSS, <strong>XSA does not explicitly dictate or enforce a utility-first methodology</strong>. What kind of structural architectural data you embed within your HTML, and how you choose to operate it, is entirely up to you.</p>
-			<p>To gain an objective third-party assessment of XSA and discover how it reshapes web development, try prompting ChatGPT or Google Gemini with the following inquiry:</p>
+			<p>To gain an objective third-party assessment of XSA and discover how it reshapes web development, try prompting Google Gemini or ChatGPT with the following inquiry:</p>
 			<div style="--c_margin-block--: 0;">
-				<p class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);"><textarea name="ai-prompt" id="ai-prompt" class="__text__" style="--white-space--: nowrap;" readonly>Please review the following page using web search or browsing features. Provide an objective assessment of XSA and explain how it fundamentally transforms the web development workflow.&#xA;[XSA](https://nov-jp.github.io/xsa/)</textarea></p>
+				<p><textarea name="ai-prompt" id="ai-prompt" class="__text__" style="--white-space--: nowrap;" readonly>Please review the following page using web search or browsing features. Provide an objective assessment of XSA and explain how it fundamentally transforms the web development workflow.&#xA;[XSA](https://nov-jp.github.io/xsa/)</textarea></p>
 				<p><button class="__button__" style="--border-radius--: 1e6px; --inline-size--: 100%;" onclick="document.getElementById('ai-prompt').select();document.execCommand('copy');">COPY</button></p>
 			</div>
 			<section>
@@ -193,7 +184,7 @@
 					<figcaption>Manual Table of Contents</figcaption>
 					<ol>
 						<li>What is XSA?</li>
-						<li>Background of XSA Development</li>
+						<li>The Purpose of XSA</li>
 						<li>Features of XSA</li>
 						<li>How to Install XSA</li>
 						<li>XSA Syntax Reference</li>

@@ -38,13 +38,13 @@
 		<!--
 		<script src="https://cdn.jsdelivr.net/gh/nov-jp/xsa@1.0/packages/js/dist/xsa.js"></script>
 		-->
-		<meta name="description" content="XSA は EXtended Style Attribute (限界突破した style属性) を意味します。HTML の style属性 に、CSS の属性セレクタとカスタムプロパティを組み合わせた、シンプルなメタ・フレームワークです。" />
+		<meta name="description" content="XSA は限界突破した style属性 (EXtended Style Attribute) を意味します。HTML の style属性、CSS の属性セレクタとカスタムプロパティ、この3つを組み合わせたシンプルなメタ・フレームワークです。" />
 		<title>XSA</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@1.0/dist/initialize.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@1.0/dist/initialize-plus.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@1.0/dist/initialize-vars.css" />
 	</head>
-	<body class="__box__" style="--wide-size: 960px; --flex-flow--: column; --inline-size--: 720px; --min-block-size--: 100vb; --padding-inline--: var(--sp_l); --is-inset: 1;">
+	<body class="__box__" style="--wide-size: 1200px; --flex-flow--: column; --inline-size--: 720px; --min-block-size--: 100vb; --padding-inline--: var(--sp_l); --is-inset: 1;">
 		<header class="__box__" style="--border-block-end--: solid var(--l_xf) var(--sheer-gray); --flex-flow--: wrap; --column-gap--: var(--sp_m); --justify-content--: space-between; --align-items--: center; --inline-size--: var(--wide-size); --margin-block--: 0; --padding-block--: var(--sp_m); --padding-inline--: var(--sp_l); --is-inset: 1;">
 			<h1>XSA</h1>
 			<ul style="--flex-flow--: wrap; --column-gap--: var(--sp_m); --c2_aspect-ratio--: 1 / 1; --c2_block-size--: 1lh; --c2_border--: solid var(--l_xf) var(--sheerest-text); --c2_border-radius--: 50%; --c2_box-sizing--: content-box; --c2_color--: inherit; --c2_display--: block; --c2_text-align--: center; --c2_text-decoration--: none; --c2_hover_border-color--: currentcolor;">
@@ -53,135 +53,126 @@
 			</ul>
 		</header>
 		<main style="--flex--: auto; --margin-block--: 0; --padding-block--: var(--sp_xl);">
-			<p>XSA は EXtended Style Attribute の略称で、限界突破した style属性 を意味します。HTML の style属性 に、CSS の属性セレクタとカスタムプロパティを組み合わせた、シンプルなメタ・フレームワークです。</p>
-			<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
-				<figure class="__figure__">
-					<figcaption>正規表現で表した XSAプロパティ</figcaption>
-					<pre class="__pre__code"><code><!--
-					-->/^--(QUERY_)?(PSEUDO-CLASS_)?(DESCENDANT_(PSEUDO-CLASS_)?)?(PSEUDO-ELEMENT_)?PROPERTY--$/&#xA;<!--
-					--></code></pre>
-				</figure>
-			</div>
-			<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
-				<figure class="__figure__">
-					<figcaption>XSAプロパティ と対になる XSAルールセット</figcaption>
-					<pre class="__pre__code"><code><!--
-					-->[style*=&quot;--QUERY_PSEUDO-CLASS_DESCENDANT_PSEUDO-CLASS_PSEUDO-ELEMENT_PROPERTY--:&quot;] {&#xA;<!--
-					-->  @media QUERY {&#xA;<!--
-					-->    &:where(:PSEUDO-CLASS) {&#xA;<!--
-					-->      :where(DESCENDANT) {&#xA;<!--
-					-->        &:where(:PSEUDO-CLASS) {&#xA;<!--
-					-->          &::PSEUDO-ELEMENT {&#xA;<!--
-					-->            PROPERTY: var(--QUERY_PSEUDO-CLASS_DESCENDANT_PSEUDO-CLASS_PSEUDO-ELEMENT_PROPERTY--);&#xA;<!--
-					-->          }&#xA;<!--
-					-->        }&#xA;<!--
-					-->      }&#xA;<!--
-					-->    }&#xA;<!--
-					-->  }&#xA;<!--
-					-->}&#xA;<!--
-					--></code></pre>
-				</figure>
-			</div>
-			<p>CSSプロパティ名 をベースとして、クエリとセレクタをエンコードした <strong>XSAプレフィックス</strong> に、ハイフン2つを先頭と末尾に追加してカスタムプロパティ化した <strong>XSAプロパティ</strong>、そして、それと対になる <strong>XSAルールセット</strong> によって、</p>
-			<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
-				<figure class="__figure__">
-					<figcaption>HTML の style属性 に設定した XSAプロパティ と値</figcaption>
-					<pre class="__pre__code"><code><!--
-					-->&lt;div style=&quot;--QUERY_PSEUDO-CLASS_DESCENDANT_PSEUDO-CLASS_PSEUDO-ELEMENT_PROPERTY--: VALUE;&quot;&gt; &hellip; &lt;/div&gt;<!--
-					--></code></pre>
-				</figure>
-			</div>
-			<p>HTML の style属性 から、子孫要素と擬似要素のスタイリング、クエリと擬似クラスによる条件分岐を可能にするスタイリング・インフラを構築します。</p>
-			<div class="__box__" style="--flex-flow--: wrap; --gap--: var(--sp_l); --padding-inline--: var(--sp_l); --c_flex--: 1 1 480px;">
-				<figure class="__figure__">
-					<figcaption>Tailwind CSS を使用した table要素 のマークアップ例</figcaption>
-					<pre class="__pre__code"><code><!--
-					-->&lt;table class=&quot;border-1 border-gray-400 border-collapse inline-full&quot;&gt;&#xA;<!--
-					-->  &lt;thead&gt;&#xA;<!--
-					-->    &lt;tr&gt;&#xA;<!--
-					-->      &lt;th class=&quot;border-1 border-gray-400 px-4 py-2 bg-gray-200&quot;&gt;&lt;/th&gt;&#xA;<!--
-					-->      &lt;th class=&quot;border-1 border-gray-400 px-4 py-2 bg-gray-200&quot; scope=&quot;col&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &lt;th class=&quot;border-1 border-gray-400 px-4 py-2 bg-gray-200&quot; scope=&quot;col&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &hellip;&#xA;<!--
-					-->    &lt;/tr&gt;&#xA;<!--
-					-->  &lt;/thead&gt;&#xA;<!--
-					-->  &lt;tbody&gt;&#xA;<!--
-					-->    &lt;tr class=&quot;hover:bg-gray-300 bg-gray-100&quot;&gt;&#xA;<!--
-					-->      &lt;th class=&quot;border-1 border-gray-400 px-4 py-2 bg-gray-200&quot; scope=&quot;row&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &lt;td class=&quot;border-1 border-gray-400 px-4 py-2&quot;&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &lt;td class=&quot;border-1 border-gray-400 px-4 py-2&quot;&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &hellip;&#xA;<!--
-					-->    &lt;/tr&gt;&#xA;<!--
-					-->    &lt;tr class=&quot;hover:bg-gray-300&quot;&gt;&#xA;<!--
-					-->      &lt;th class=&quot;border-1 border-gray-400 px-4 py-2 bg-gray-200&quot; scope=&quot;row&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &lt;td class=&quot;border-1 border-gray-400 px-4 py-2&quot;&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &lt;td class=&quot;border-1 border-gray-400 px-4 py-2&quot;&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &hellip;&#xA;<!--
-					-->    &lt;/tr&gt;&#xA;<!--
-					-->    &hellip;&#xA;<!--
-					-->  &lt;/tbody&gt;&#xA;<!--
-					-->&lt;/table&gt;&#xA;<!--
-					--></code></pre>
-				</figure>
-				<figure class="__figure__">
-					<figcaption>XSAプロパティ を使用した table要素 のマークアップ例</figcaption>
-					<pre class="__pre__code"><code><!--
-					-->&lt;table style=&quot;--border--: solid var(--border-1) var(--gray-400); --border-collapse--: collapse; --inline-size--: 100%; --c3_border--: var(--border--); --c3_padding-block--: var(--p-2); --c3_padding-inline--: var(--p-4); --c3-of-th_background--: var(--gray-200);&quot;&gt;&#xA;<!--
-					-->  &lt;thead&gt;&#xA;<!--
-					-->    &lt;tr&gt;&#xA;<!--
-					-->      &lt;th&gt;&lt;/th&gt;&#xA;<!--
-					-->      &lt;th scope=&quot;col&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &lt;th scope=&quot;col&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &hellip;&#xA;<!--
-					-->    &lt;/tr&gt;&#xA;<!--
-					-->  &lt;/thead&gt;&#xA;<!--
-					-->  &lt;tbody style=&quot;--c-nth-odd_background--: var(--gray-100); --c_hover_background--: var(--gray-300);&quot;&gt;&#xA;<!--
-					-->    &lt;tr&gt;&#xA;<!--
-					-->      &lt;th scope=&quot;row&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &lt;td&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &lt;td&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &hellip;&#xA;<!--
-					-->    &lt;/tr&gt;&#xA;<!--
-					-->    &lt;tr&gt;&#xA;<!--
-					-->      &lt;th scope=&quot;row&quot;&gt; &hellip; &lt;/th&gt;&#xA;<!--
-					-->      &lt;td&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &lt;td&gt; &hellip; &lt;/td&gt;&#xA;<!--
-					-->      &hellip;&#xA;<!--
-					-->    &lt;/tr&gt;&#xA;<!--
-					-->    &hellip;&#xA;<!--
-					-->  &lt;/tbody&gt;&#xA;<!--
-					-->&lt;/table&gt;&#xA;<!--
-					--></code></pre>
-				</figure>
-			</div>
-			<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
-				<figure class="__figure__">
-					<figcaption>table要素 に設定された XSAプロパティ を反映させるための XSAルールセット</figcaption>
-					<pre class="__pre__code"><code><!--
-					-->[style*=&quot;--c3_border--:&quot;] &gt; * &gt; * &gt; * { border: var(--c3_border--); }&#xA;<!--
-					-->[style*=&quot;--c3_padding-block--:&quot;] &gt; * &gt; * &gt; * { padding-block: var(--c3_padding-block--); }&#xA;<!--
-					-->[style*=&quot;--c3_padding-inline--:&quot;] &gt; * &gt; * &gt; * { padding-inline: var(--c3_padding-inline--); }&#xA;<!--
-					-->[style*=&quot;--c3-of-th_background--:&quot;] &gt; * &gt; * &gt; *:where(:nth-child(n of th)) { background: var(--c3-of-th_background--); }&#xA;<!--
-					-->[style*=&quot;--c-nth-even_background--:&quot;] &gt; *:where(:nth-child(even)) { background: var(--c-nth-even_background--); }&#xA;<!--
-					-->[style*=&quot;--c_hover_background--:&quot;] &gt; *:where(:hover) { background: var(--c_hover_background--); }&#xA;<!--
-					-->[style*=&quot;--border--:&quot;] { border: var(--border--); }&#xA;<!--
-					-->[style*=&quot;--border-collapse--:&quot;] { border-collapse: var(--border-collapse--); }&#xA;<!--
-					-->[style*=&quot;--inline-size--:&quot;] { inline-size: var(--inline-size--); }&#xA;<!--
-					--></code></pre>
-				</figure>
-			</div>
-			<p>XSA は、XSAプロパティ の命名規則、XSAプロパティ と対になる XSAルールセット、XSAルールセット をまとめた CSSライブラリ、XSAルールセット を生成するスクリプトを包括的に扱っています。詳細は、XSA の GitHubリポジトリ と各種パッケージをご覧ください。</p>
+			<p>XSA は限界突破した style属性 (EXtended Style Attribute) を意味します。HTML の style属性、CSS の属性セレクタとカスタムプロパティ、この3つを組み合わせたシンプルなメタ・フレームワークです。</p>
+			<p>カスタムプロパティの命名規則を軸に、カスタムプロパティ名をトリガーとする CSSルール のライブラリと、カスタムプロパティ名から CSSルール を生成するスクリプトを提供しています。</p>
+			<section>
+				<h2>HTML からの高度なスタイリング</h2>
+				<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+					<figure class="__figure__">
+						<figcaption>style属性 に設定した XSAプロパティ</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->&lt;div style=&quot;--color--: var(--red);&quot;&gt; &hellip; &lt;/div&gt;&#xA;<!--
+						--></code></pre>
+					</figure>
+				</div>
+				<p>CSSプロパティ の先頭と末尾にハイフン2つ (<code>--</code>) を付けカスタムプロパティ化した <strong>XSAプロパティ</strong> を HTML の style属性 に設定したとき、</p>
+				<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+					<figure class="__figure__">
+						<figcaption>XSAプロパティ に対応する CSSルール</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->[style*=&quot;--color--:&quot;] {&#xA;<!--
+						-->  color: var(--color--);&#xA;<!--
+						-->}&#xA;<!--
+						--></code></pre>
+					</figure>
+				</div>
+				<p>それ自体をトリガーとして CSSプロパティ に値を設定し、スタイルに反映する仕組みです。</p>
+				<p>XSAプロパティ に対応する CSSルール は CSSライブラリ を読み込むか、JavaScript または PHP のスクリプトによって自動生成させます。</p>
+				<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+					<figure class="__figure__">
+						<figcaption>上書きによって無効化される XSAプロパティ</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->[style*="--color--:"] {&#xA;<!--
+						-->  color: var(--color--);&#xA;<!--
+						-->}&#xA;<!--
+						-->.example:where([style*="--color--:"]) {&#xA;<!--
+						-->  color: inherit;&#xA;<!--
+						-->}&#xA;<!--
+						--></code></pre>
+					</figure>
+				</div>
+				<p>XSAプロパティ は詳細度が属性セレクタ1つ分しかないので、<code>!important</code> を使用することなく上書き・無効化することができます。</p>
+				<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+					<figure class="__figure__">
+						<figcaption>XSAプレフィックス を設定した XSAプロパティ</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->&lt;div style=&quot;--<dfn title="@container (inline-size &gt; 480px)" style="--text-decoration--: underline dotted;">cqi-s</dfn>_<dfn title="&amp; &gt; * &gt; * &gt; *:where(:first-child)" style="--text-decoration--: underline dotted;">c3-first</dfn>_<dfn title="&amp;:where(:hover)" style="--text-decoration--: underline dotted;">hover</dfn>_color--: var(--red);&quot;&gt; &hellip; &lt;/div&gt;&#xA;<!--
+						--></code></pre>
+					</figure>
+				</div>
+				<p>クエリとセレクタをエンコードした <strong>XSAプレフィックス</strong> とカスタムプロパティの継承を組み合わせることで、</p>
+				<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+					<figure class="__figure__">
+						<figcaption>XSAプロパティ に対応する CSSルール</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->@container (inline-size &gt; 480px) {&#xA;<!--
+						-->  [style*=&quot;--cqi-s_c3-first_hover_color--:&quot;] &gt; * &gt; * &gt; *:where(:first-child):where(:hover) {&#xA;<!--
+						-->    color: var(--cqi-s_c3-first_hover_color--);&#xA;<!--
+						-->  }&#xA;<!--
+						-->}&#xA;<!--
+						--></code></pre>
+					</figure>
+				</div>
+				<p>style属性 だけでは不可能だった、子孫要素・擬似要素のスタイリング、クエリ・擬似クラスによる条件分岐も可能にします。</p>
+			</section>
+			<section>
+				<h2>HTMLファースト の実現</h2>
+				<p>style属性 の使用方法をカスタムプロパティの命名規則と共に定義し直すことで、CMS、CSSフレームワーク、デザイントークンなどに依存しない、HTMLファースト を実現します。</p>
+				<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+					<figure class="__figure__">
+						<figcaption>様々な CMS、CSSフレームワーク で使用される赤色の設定</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->/* WordPress */&#xA;<!--
+						-->.has-red-color { color: &hellip; ; }&#xA;<!--
+						-->.has-red-background-color { background-color: &hellip; ; }&#xA;<!--
+						-->&#xA;<!--
+						-->/* Bootstrap */&#xA;<!--
+						-->.text-danger { color: &hellip; ; }&#xA;<!--
+						-->.bg-danger { background-color: &hellip; ; }&#xA;<!--
+						-->&#xA;<!--
+						-->/* Tailwind CSS */&#xA;<!--
+						-->.text-red-500 { color: &hellip; ; }&#xA;<!--
+						-->.bg-red-500 { background-color: &hellip; ; }&#xA;<!--
+						--></code></pre>
+					</figure>
+				</div>
+				<p>例えば、CMS や CSSフレームワーク で文字色・背景色を設定するための class属性値 は一意ではありません。そのため、CSS側 を別のものに差し替えただけでは機能せず、HTML側 の変更も必要になります。これは、HTML が CSS に依存していることを意味します。</p>
+				<div class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);">
+					<figure class="__figure__">
+						<figcaption><code>--what--</code> と <code>--do</code> による色の管理</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->&lt;style&gt;&#xA;<!--
+						-->/* --do */&#xA;<!--
+						-->:root { --red: &hellip; ; --yellow: &hellip; ; --green: &hellip; ; --blue: &hellip; ; &hellip; }&#xA;<!--
+						-->[style*="var(--color-danger)"] { --color-danger: &hellip; ; }&#xA;<!--
+						-->&hellip;&#xA;<!--
+						-->&lt;/style&gt;&#xA;<!--
+						-->&lt;style&gt;&#xA;<!--
+						-->/* --what-- */&#xA;<!--
+						-->[style*="--color--:"] { color: var(--color--); }&#xA;<!--
+						-->[style*="--background-color--:"] { background-color: var(--background-color--); }&#xA;<!--
+						-->&hellip;&#xA;<!--
+						-->&lt;/style&gt;&#xA;<!--
+						-->&hellip;&#xA;<!--
+						-->&lt;div style=&quot;--color--: var(--red); &hellip; &quot;&gt; &hellip; &lt;div&gt;&#xA;<!--
+						-->&lt;div style=&quot;--background-color--: var(--color-danger); &hellip; &quot;&gt; &hellip; &lt;div&gt;&#xA;<!--
+						--></code></pre>
+					</figure>
+				</div>
+				<p>そこで、class属性値 の <code>.what-do</code> (何をどうする) を <code>--what--</code> (何を) と <code>--do</code> (どうする) に分解し、HTML の style属性 に閉じ込めることで、特定の CSSフレームワーク や デザイントークン への依存から HTML を解放します。</p>
+				<p>簡単に言えば、style属性 に設定した、CSSプロパティ名 をベースとするカスタムプロパティを、CMS や CSSフレームワーク に関係なく使える class属性値 のように扱えるということです。</p>
+			</section>
+			<p>詳細は、XSA の GitHubリポジトリ と各種パッケージをご覧ください。</p>
 			<ul>
 				<li><a href="https://github.com/nov-jp/xsa">XSA</a></li>
-				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/css">XSA CSS</a>: XSAプロパティ と対になるルールセットの CSSライブラリ。</li>
-				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/js">XSA JS</a>: クライアントサイドで XSAプロパティ からルールセットを生成するスクリプト。</li>
-				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/postcss">XSA PostCSS</a>: ビルド環境で XSAプロパティ からルールセットを生成するツールセット。</li>
-				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/php">XSA PHP</a>: サーバサイドで XSAプロパティ からルールセットを生成するヘルパークラス。</li>
+				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/css">XSA CSS</a>: XSAプロパティ と対になる CSSルール のライブラリ。</li>
+				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/js">XSA JS</a>: クライアントサイドで XSAプロパティ から CSSルール を生成するスクリプト。</li>
+				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/postcss">XSA PostCSS</a>: ビルド環境で XSAプロパティ から CSSルール を生成するツールセット。</li>
+				<li><a href="https://github.com/nov-jp/xsa/tree/main/packages/php">XSA PHP</a>: サーバサイドで XSAプロパティ から CSSルール を生成するヘルパークラス。</li>
 			</ul>
-			<p>Tailwind CSS と比較した例を挙げましたが、<strong>XSA はユーティリティファーストを推奨している訳ではありません</strong>。どういった情報を HTML に持たせるか、どのように運用するかは、使用する人次第です。</p>
-			<p>XSA の客観的な評価や、使用することで何がどう変わるかが知りたい場合は、ChatGPT や Google Gemini に次の質問をしてみてください。</p>
+			<p>XSA の客観的な評価や、使用することで何がどう変わるかが知りたい場合は、Google Gemini や ChatGPT に次の質問をしてみてください。</p>
 			<div style="--c_margin-block--: 0;">
-				<p class="__box__" style="--inline-size--: var(--wide-size); --margin-inline--: var(--sp_l);"><textarea name="ai-prompt" id="ai-prompt" class="__text__" style="--white-space--: nowrap;" readonly>次のページを Web検索 やブラウジング機能で確認し、そこに書かれている XSA について客観的に評価した上で、使用することで何がどう変わるか説明してください。&#xA;[XSA](https://nov-jp.github.io/xsa/)</textarea></p>
+				<p><textarea name="ai-prompt" id="ai-prompt" class="__text__" style="--white-space--: nowrap;" readonly>次のページを Web検索 やブラウジング機能で確認し、そこに書かれている XSA について客観的に評価した上で、使用することで何がどう変わるか説明してください。&#xA;[XSA](https://nov-jp.github.io/xsa/)</textarea></p>
 				<p><button class="__button__" style="--border-radius--: 1e6px; --inline-size--: 100%;" onclick="document.getElementById('ai-prompt').select();document.execCommand('copy');">COPY</button></p>
 			</div>
 			<section>
@@ -193,7 +184,7 @@
 					<figcaption>XSA HTMLマニュアル の目次</figcaption>
 					<ol>
 						<li>XSA とは</li>
-						<li>XSA の開発経緯</li>
+						<li>XSA の目的</li>
 						<li>XSA の特徴</li>
 						<li>XSA の導入方法</li>
 						<li>XSA 構文リファレンス</li>
@@ -202,7 +193,7 @@
 					</ol>
 				</figure>
 				<p>Tailwind CSS にアレルギーがある方・疲弊してしまった方、効率的にウェブサイトを作成・運用したい方、ブラウザが存在する限り動き続ける堅牢性・耐久性を求めている方には、XSA とこのマニュアルが処方箋になると思います。</p>
-				<p>約200KB・70,000文字前後のボリュームで、英語版と日本語版があります。ブラウザの翻訳機能を使用すれば、それら以外の言語でもお読みいただけると思います。是非お買い求めください。</p>
+				<p>約200KB・約70,000文字のボリュームで、英語版と日本語版があります。ブラウザの翻訳機能を使用すれば、それら以外の言語でもお読みいただけると思います。是非お買い求めください。</p>
 				<p style="--text-align--: center;"><a href="https://note.com/nobuo_nakayama/n/ne52711259081" class="__button__" style="--min-inline-size--: calc(100% / 3);">マニュアルを購入する</a></p>
 			</section>
 		</main>
